@@ -1,0 +1,36 @@
+\documentclass{report}
+
+\input{../preamble.tex}
+
+\renewcommand{\contentsname}{Topics}
+\renewcommand{\chaptername}{Topic}
+
+\title{3.942 (Polymer Physics) Notes}
+\author{Steven Labalme}
+
+\begin{document}
+
+
+
+
+\renewcommand{\thepage}{Cover}
+\maketitle
+
+
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+
+
+
+\pagenumbering{arabic}
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{-1}
+\subfile{Topic0/topic0.tex}
+
+
+
+
+\end{document}
