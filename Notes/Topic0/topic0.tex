@@ -12,7 +12,247 @@
 \chapter{Introduction}
 \section{Introduction}
 \begin{itemize}
-    \item \marginnote{9/4:}
+    \item \marginnote{9/4:}Starts at MIT time.
+    \item Alexander-Katz begins.
+    \item Extra notes on the syllabus.
+    \begin{itemize}
+        \item All of the numbered cources were combined recently because offerings were almost identical.
+        \item Alexander-Katz is a DMSE prof; Doyle is a ChemE prof.
+        \item On textbooks.
+        \begin{itemize}
+            \item He used to send us to the library, and we'd sort out which text was easiest for us to understand.
+            \item He recommends we buy \textcite{bib:HiemenzLodge}, but the chapters will also be posted.
+            \begin{itemize}
+                \item The first chapters in the book are chemistry, and the later ones are physics.
+            \end{itemize}
+            \item \textcite{bib:Strobl} will give us more information about some areas. Good if you're interested in mechanics, solid states, and plastics.
+            \item \textcite{bib:YoungLovell} is similar to \textcite{bib:HiemenzLodge}.
+            \item \textcite{bib:RubinsteinColby} is advanced undergrad to grad, and has lots of examples. Good for understanding scaling concepts. Doesn't have any hard phases. Has a bit on characterization methods.
+            \item \textcite{bib:deGennes} is widely hated because it was written very colloquially, but the ideas are really interesting. The man himself had a very straight mind, and thought about problems in a very interesting manner.
+        \end{itemize}
+        \item There will be about 6 homeworks, 1-2 per quiz.
+        \begin{itemize}
+            \item They will give us a key, and we will have to grade our own homework.
+            \item We will then have to turn in a second homework, which is revised and has a grade on it.
+            \item In Alexander-Katz's experience, this method gives a 10\% increase in quiz scores on average. This is because going through your homework in depth is very beneficial!
+            \item Also, the last few times they had a grader, (s)he usually knew nothing about polymer physics.
+        \end{itemize}
+        \item There will be 3 quizzes.
+        \begin{itemize}
+            \item Each counts for 20\%; they're not cumulative.
+            \item Alexander-Katz and Doyle will be grading our quizzes themselves.
+        \end{itemize}
+        \item Make sure to participate! Don't stay quiet; ask questions, etc.
+        \item You may work together; just note your collaborators' names on your assignments.
+        \item Don't trust ChatGPT and generative AI 100\%. You won't be able to use them for the quizzes, but they may be useful for searching.
+    \end{itemize}
+    \item Lecture now begins.
+    \item \textbf{Hard matter}: Metals, ceramics, and semiconductors, which are typically highly crystalline.
+    \begin{itemize}
+        \item For hard matter, the binding energy $\varepsilon$ between atoms is much greater than $10^{-21}\kB T$.
+    \end{itemize}
+    \item In this course, we're going to be working with materials of $\varepsilon\approx\SI{1}{\electronvolt}\approx\SI{e-19}{\joule}$.
+    \begin{itemize}
+        \item So to break these bonds, it takes about $100\kB T$.
+    \end{itemize}
+    \item \textbf{Soft matter}: Polymers, organics, liquid crystals, gels, foods, life!
+    \begin{itemize}
+        \item $\varepsilon\approx\kB T$.
+    \end{itemize}
+    \item A good mental picture for the barrier dividing small molecules and soft matter is the following.
+    \begin{itemize}
+        \item Ethane is a gas. Very little forces between molecules.
+        \item When we make polyethylene, it can become extremely strong. This is because of the \textbf{multivalent effect}. When the chains are long enough, we get a solid.
+    \end{itemize}
+    \item \textbf{Multivalent effect}: The observation that multiple copies of a weakly binding molecule --- when arranged on a common scaffold --- exhibit a significantly stronger and more specific binding response than a single, isolated molecule.
+    \item A fundamental idea: As the \textbf{degree of polymerization} $\bm{n}=\bm{N}$ grows, a lot of interesting behavior appears.
+    \begin{itemize}
+        \item In this course, most of the behavior we're concerned with will be \emph{qualitative}.
+        \item For example, we don't care about \emph{exact} numerical properties if $n=64$, but we do want to answer questions like, "if $n$ doubles, what will happen?"
+    \end{itemize}
+    \item Topics to understand in this class (the key origins of soft matter behavior).
+    \begin{itemize}
+        \item Relatively weak forces between molecules.
+        \begin{itemize}
+            \item We'll discuss this today.
+        \end{itemize}
+        \item Various types of bonding.
+        \item Molecular shapes and sizes.
+        \item What chemistries are relevant.
+        \item Fluctuating molecular conformations/positions.
+        \item Influence of solvent, diluent, particles, surfaces.
+        \item Entanglement.
+        \begin{itemize}
+            \item Alexander-Katz gives the pasta analogy.
+            \item Entanglement gives interesting rheological properties, dramatic increases in viscosity (much higher than you'd expect from simple arguments), etc.
+        \end{itemize}
+        \item Many types of entropy.
+        \item What architectures and structural hierarchies exist over several length scales (nano, micro, etc.).
+    \end{itemize}
+    \item We'll also discuss some characterization methods for harder and softer materials.
+    \begin{itemize}
+        \item We'll do the theory first, and then figure out what to measure to figure out what's in the materials.
+    \end{itemize}
+    \item Lastly, we'll talk about some opportunities to exploit the properties of soft matter in diverse applications.
+    \item Aside: They used to have a final project on how to make contact lenses comfortable.
+    \begin{itemize}
+        \item They are semisoft and silicone-based nowadays!
+    \end{itemize}
+    \item Two types of interactions in soft matter: \textbf{Intramolecular} and \textbf{intermolecular} interactions.
+    \item \textbf{Intramolecular} (interactions): (Macro)molecules are predominantly held together by strong covalent bonds with many conformations accesible via rotational isomeric states.
+    \begin{itemize}
+        \item Think Newman projections. These reduce the possible conformational states substantially.
+        \item The allowed conformations are \textbf{gauche plus}, \textbf{gauche minus}, and \textbf{trans}. This reduces the polymer entropy a lot.
+        \item We will talk about how this tacticity affects polymer size and other quantities.
+    \end{itemize}
+    \item \textbf{Intermolecular} (interactions): Hard sphere, Coulombic (including stacking; usually just a $1/r$), Lennard-Jones (induced dipoles, such as van der Waals forces), or hydrogen bonding (net dipoles; polar interactions will definitely be important).
+    \begin{itemize}
+        \item We think of polyethylene as not that polar, but it is kind of polar (especially if you put a methyl group at every other position, as in polypropylene).
+        \item The PE vs. PP $T_g$'s vary \emph{dramatically}.
+    \end{itemize}
+    \item \textbf{Short range order}: When you turn molecules into polymers, other length scales start to matter. \emph{Also known as} \textbf{SRO}.
+    \renewcommand{\thefigure}{0.1}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{SRO.png}
+        \caption{Short range order in PS-\emph{b}-PDMS.}
+        \label{fig:SRO}
+    \end{figure}
+    \begin{itemize}
+        \item Consider a block copolymer of polystyrene and PDMS. When you put it all together, it forms a fingerprint-like pattern (PDMS light, PS dark).
+        \item The chains look random at the nanoscale, but they phase-separate when you zoom out a bit.
+        \item Think of this as spaghetti on a surface.
+        \item SRO is always present in condensed phases.
+    \end{itemize}
+    \item \textbf{Long range order}: Visible in perforation lamellae, for example. \emph{Also known as} \textbf{LRO}.
+    \begin{itemize}
+        \item LRO is sometimes present in condensed phases.
+    \end{itemize}
+    \item Example: If a material is ordered by \emph{layer} from bottom to top, defects can assemble and give you color control. This happens in some soft matter films.
+    \begin{itemize}
+        \item In the specific example in the slides, P2VP keeps a charge always, and polystyrene does not.
+        \item Defects allow swelling to happen much faster, and swelling changes length scales which changes color (almost like in quantum dots, where size affects color).
+    \end{itemize}
+    \item Overall, the goal of soft matter studies is the manipulation of structures, orientation, and defects. We seek to develop methods to process polymers and soft solids, so as to create controlled structures and hierarchies.
+    \item Mantra: Whatever we want to do with polymers, nature has done it first.
+    \begin{itemize}
+        \item Indeed, the color changing thing above is the same principle as color-changing octopi!
+    \end{itemize}
+    \item History of polymers.
+    \begin{itemize}
+        \item First users were in Mesoamerica (around 1600 BC). They harvested natural latex (polyisoprene) from trees. As soon as it comes out, it hardens. They used this polymer to make a game (\href{https://en.wikipedia.org/wiki/Mesoamerican_ballgame}{prehispanic basquetbol}) and shoe soles.
+        \begin{itemize}
+            \item If you don't crosslink latex, it will be like silly putty, going everywhere.
+            \item They corsslinked it with the juice of a cactus that they had chewed.
+        \end{itemize}
+        \item 300 years after the Spanish invaded (around 1850 AD) and crosslinking was forgotten, Goodyear figured out once again how to crosslink natural rubber (he did so with very strong acids, sulfuric acid and such).
+        \item Aside: Humans tend to find uses for materials far before they understand what it's made of, how to process it, etc.
+        \item Pretty much all of biology is made out of polymers: DNA, RNA, proteins, cells, etc.
+        \item People only discovered polymers (in the modern sense) in the 1920s, when H. Staudinger put forth the \textbf{macromolecular hypothesis}.
+        \item After Staudinger, people started thinking about what they would \emph{like} to make.
+        \item 1930s: Silk was the highly desired textile of the time.
+        \renewcommand{\thefigure}{0.2}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.6\linewidth]{silk.png}
+            \caption{Silk.}
+            \label{fig:silk}
+        \end{figure}
+        \begin{itemize}
+            \item Made out of proteins with amorphous and crystalline ($\beta$-pleated sheats) regions \parencite{bib:silk}.
+            \item So they thought about repeating a peptide (polyglycine). Even more similarly, though, Carothers (really talented chemist who went to Dupont) made nylon out of alternating aliphatic segments and hydrogen-bonded amides!
+            \begin{itemize}
+                \item Nylon is made via \textbf{step-growth polymerization}; Alexander-Katz diagrams this out on the blackboard.
+                \item Nylon has very nice properties and is even stronger than silk. Nicer properties than silk.
+                \item Changing the number of carbons in the chain varies the melting temperature!
+                \item Note that members of the nylon family are named by counting the number of carbon atoms in the backbone between nitrogen atoms.
+            \end{itemize}
+        \end{itemize}
+        \item 1965: Stephanie Kwolek (also Dupont) develops Kevlar.
+        \begin{itemize}
+            \item Better hydrogen bonding, much stiffer.
+            \item Same number of carbons as nylon 6! It really does matter how you arrange the carbons.
+        \end{itemize}
+    \end{itemize}
+    \item Common polymers.
+    \item \textbf{Polyethylene}: \emph{Also known as} \textbf{PE}.
+    \begin{itemize}
+        \item Invented 1933.
+        \item One of the biggest polymers on the market today.
+    \end{itemize}
+    \item \textbf{Polyester}.
+    \begin{itemize}
+        \item Invented 1941.
+        \item You can make many different kinds of these; defined by the ester linkage.
+        \item Nature is full of polyesters, all very different.
+        \begin{itemize}
+            \item If you change one carbon on an oligoester, it can go from tangarine-sented to very bad.
+        \end{itemize}
+        \item Used for lubrication, since the polar carbonyl moiety gives interesting properties.
+        \item These don't have the \ce{N-H} moiety of polyamides, but can still be assembled by condensation.
+        \item These melt very easily.
+        \item Example: Polyethyleneterephthalate, PET.
+    \end{itemize}
+    \item Common classes of polyolefins.
+    \begin{itemize}
+        \item Vinyl polymers, diene class, vinylidenes.
+        \item Teflon (polyvinylidene fluoride).
+        \item Plexiglass: Methacrylics.
+        \begin{itemize}
+            \item Acrylics are more liquid; methacrylics are harder and more solid.
+        \end{itemize}
+    \end{itemize}
+    \item Common classes of step-growth polymers.
+    \begin{itemize}
+        \item Silicone.
+    \end{itemize}
+    \item Polymer nomenclature.
+    \begin{itemize}
+        \item Addition reactions.
+        \begin{equation*}
+            \ce{M_n + M -> M_{n+1}}
+        \end{equation*}
+        \item Condensation reactions.
+        \begin{equation*}
+            \ce{M_x + M_y -> M_{x+y}}
+        \end{equation*}
+        \item \textbf{Monomer}: Small molecule.
+        \item \textbf{Oligomer}: $n<100$.
+        \item \textbf{Polymer}: $n\in[100,10000]$.
+    \end{itemize}
+    \item Characteristic properties of polymers (depend on the chemistry, \emph{and} how everything is arranged).
+    \begin{itemize}
+        \item Insulating or conducting.
+        \item Light-emitting.
+        \item Photovoltaic, piezoelectric.
+        \item Soft elastic (really large reversible deformations, often temperature dependent like the PGS rubber band example) or very stiff.
+        \item Zero/few crystals or highly crystalline.
+    \end{itemize}
+    \item Polymers are in everything now.
+    \begin{itemize}
+        \item About 50\% of a plane is made out of composites (like carbon fiber; very strong and very light).
+        \item It's really expensive to cure the polymers that hold all the carbon fibers, so they're looking for new ways to do that (this is like REMAT stuff!).
+    \end{itemize}
+    \item Biggest shares of the polymer market.
+    \begin{itemize}
+        \item PE (plastic bags), PP, PET (clothes and garments), PVC (pipes), and polyamides.
+        \item They are trying to make the polymer market "look" better now by calling it the "\emph{circular} polymers market." Alexander-Katz doesn't believe properties are the same in recycled polymers.
+    \end{itemize}
+    \item Thermodynamics refresher.
+    \begin{itemize}
+        \item Given your state variables ($T$, $P$, $E$, $s$, etc.), some states are allowed to a system and some are not.
+        \item We usually work with the \textbf{Helmholtz free energy} in this class, not the \textbf{Gibbs free energy}. Alexander-Katz doesn't care about the difference; Doyle will.
+        \item If you start in an out-of-equilibrium state, thermodynamic forces will push you down into an equilibrium state. We will think of forces as the derivative of the slope of the energy hypersurface.
+    \end{itemize}
+    \item Statistical mechanics primer.
+    \begin{itemize}
+        \item We will use Boltzmann's law, $S=k\ln(\Omega_\text{tot}[U])$, a lot.
+        \item Because suicide is so stigmatized, his tomb (in Vienna, Austria) is very hidden away.
+        \item In the nineteenth century, there was a big debate over whether the world was molecular or continuous. Chemists (who tend to be right) said molecular, and physists said that we didn't need to worry abuot that. Boltzmann tried to reconcile these two philosophies.
+        \item He eventually discovered the following. $\Omega_\text{tot}$ is all the possibles ways you can arrange the system. Technically, $\Omega_\text{tot}[U]$ is the total number of equivalent microstates at constant energy, $U$. If you take the natural log and multiply by a constant, we get the entropy.
+        \item Recall that Boltzmann's discovery can be related to the pressure of ideal gases.
+    \end{itemize}
+    \item Next Tuesday, Prof. Doyle will begin on single chains.
 \end{itemize}
 
 
