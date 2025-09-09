@@ -9,8 +9,54 @@
 
 
 \section{The Macromolecule}
+\noindent Name: Steven Labalme\\
+\noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
+\noindent Collaborators: \emph{None}\\
 \begin{enumerate}
-    \item \marginnote{9/18:}
+    \item \marginnote{9/18:}(25 pts) Consider the following distribution of polymer chains with repeat unit molecular weight $M_0$:
+    \begin{center}
+        10 chains with degree of polymerization 100;\\
+        100 chains with degree of polymerization \num{1000};\\
+        10 chains with degree of polymerization \num{10000}.
+    \end{center}
+    \begin{enumerate}
+        \item Calculate the number average molecular weight of this distribution.
+        \item Calculate the weight average molecular weight of this distribution.
+        \item What is the polydispersity index of this distribution?
+        \item If you randomly chose a monomer in the solution, what is the chance that is belongs to a chain with degree of polymerization \num{10000}?
+    \end{enumerate}
+    \item (25 pts) The root mean squared end-to-end distance $\prb{R^2}^{1/2}$ of a poly(methyl methacrylate) (PMMA) molecule ($M_W=\SI[per-mode=symbol]{e7}{\gram\per\mole}$) in tetrahydrofuran (THF) at its Theta temperature was found to be \SI{200}{\nano\meter}.
+    \begin{enumerate}
+        \item What is the degree of polymerization for this polymer?
+        \item Estimate $C_\infty$ for this polymer.
+        \item Estimate the Kuhn length and number of Kuhn segments for this polymer.
+        \item Estimate the persistence length for this polymer.
+        \item Is this PMMA a "flexible," "semi-flexible," or "rod-like" polymer?
+    \end{enumerate}
+    \item (25 pts) Consider a linear copolymer with $N_A$ steps of Kuhn length $\ell_A$ and $N_B$ steps of Kuhn length $\ell_B$. The solvent is such that excluded volume effects are negligible (theta solvent).
+    \begin{enumerate}
+        \item Calculate the mean squared end-to-end distance $\prb{R^2}$ of the chain for a linear diblock architecture (all A monomers connected to all B monomers).
+        \item Will your answer in (a) change if the chain has a random distribution of monomers A and B? Explain why or why not.
+    \end{enumerate}
+    \item (25 pts) Consider a linear polymer with $N$ Kuhn steps of length $\ell_k$ restricted to a two-dimensional interface (e.g. air/water interface). The Flory free energy terms for chain extension and excluded volume are
+    \begin{equation*}
+        \frac{F}{\kB T} = \frac{1}{2}\frac{aN^2}{R^2}+\frac{R^2}{N\ell_k^2}
+    \end{equation*}
+    where $a$ is the effective excluded area per monomer (analogue to excluded volume in 3D). The first term on the right-hand side is related to excluded volume and the second term related to stretching.
+    \begin{enumerate}
+        \item Calculate the scaling for $R$.
+    \end{enumerate}
+    \item (25 pts) Consider monomers which interact via the following pairwise interaction potential, which is called a square well interaction:
+    \begin{align*}
+        U &= \infty\tag{$r<b$}\\
+        U &= -\varepsilon\tag{$b\leq r\leq\lambda b$}\\
+        U &= 0\tag{$r>b$}
+    \end{align*}
+    \begin{enumerate}
+        \item Calculate the excluded volume $B$.
+        \item Simplify your expression for $B$ by assuming $\varepsilon/\kB T\ll 1$. \emph{Hint}: Expand the exponential.
+        \item Using your answer in (b), determine the Theta temperature for this system.
+    \end{enumerate}
 \end{enumerate}
 
 
