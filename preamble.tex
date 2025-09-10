@@ -6,8 +6,10 @@
 \usepackage[style=apa]{biblatex}
 \usepackage{siunitx}
 \usepackage{tikz,graphicx}
+\usepackage{float}
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
+\usepackage[T1]{fontenc}
 \usepackage{mhchem}
 \usepackage[colorlinks,allcolors=black,urlcolor=cyan]{hyperref}
 \usepackage{subfiles}
@@ -39,4 +41,14 @@
 \graphicspath{{../ExtFiles/}}
 
 \newcommand{\kB}{k_\text{B}}
+\newcommand{\Tg}{T_\text{g}}
+\newcommand{\Mn}{M_\text{n}}
+\newcommand{\Mw}{M_\text{w}}
+
+
+\newcommand{\e}[1][]{\text{e}^{#1}}
+\newcommand{\Dstroke}{\tikz{
+    \node[inner sep=0pt]{$D$};
+    \draw (-0.1,0) -- ++(0.1,0);
+}}
 \newcommand{\prb}[1]{\left\langle{#1}\right\rangle}

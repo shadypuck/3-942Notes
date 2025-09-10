@@ -1,0 +1,248 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+
+\begin{document}
+
+
+
+
+\chapter{The Macromolecule}
+\section{The Macromolecule}
+\begin{itemize}
+    \item \marginnote{9/9:}Pat Doyle begins; he will teach the next three lectures.
+    \begin{itemize}
+        \item They've broken the class up into modules taught alternatingly.
+        \item Aside: Alfredo has taught this course 10 times; Doyle never has (he's replacing Greg Rutledge this year).
+    \end{itemize}
+    \item Announcements.
+    \begin{itemize}
+        \item Slides and homework 1 have been posted.
+        \item Slides should be posted before lecture, but may not be posted much before.
+    \end{itemize}
+    \item Lecture outline.
+    \begin{itemize}
+        \item Connectivity: Thermodynamic limit, architecture, and molecular weight.
+        \item Configurations: Structural, chemical, stereo, and geometrical isomerism.
+        \item Conformations: Rotational isomeric states.
+    \end{itemize}
+    \item \textbf{Connectivity}: The joining of small parts (monomers) into larger molecules (polymers).
+    \item \textbf{Degree of polymerization}: The number of repeat units in a polymer. \emph{Denoted by} $\bm{N}$.
+    \begin{itemize}
+        \item Derivable from the molecular weight(s).
+    \end{itemize}
+    \item Example: Polyethylene.
+    \begin{itemize}
+        \item In this course, vinyl examples will be our workhorses, but we will "riff off of them" to other polymer types.
+        \item The \textbf{repeat unit} here is \ce{CH2CH2}, consistent with the IUPAC nomenclature of poly\emph{ethylene}.
+        \item Ethylene is also the monomer.
+        \item The end groups do look different, but the \textbf{thermodynamic limit} addresses them.
+    \end{itemize}
+    \item \textbf{Repeat unit}: A part of a polymer whose repetition would produce the complete polymer chain (except for the end groups) by linking the repeat units together successively along a chain.
+    \item \textbf{Thermodynamic limit}: The finding that as $N\to\infty$, the end group chemistry matters less. \emph{Also known as} \textbf{polymer limit}.
+    \begin{itemize}
+        \item The thermodynamic limit is also sometimes discussed in the context of statistical mechanics, where collective behavior also matters more than individual or picoscale.
+    \end{itemize}
+    \item \textbf{Glass transition temperature}: The temperature at which a substance will go from brittle to kind of rubbery. \emph{Denoted by} $\bm{T_\textbf{g}}$.
+    \item \textbf{Flory-Fox correlation}: The simple model that the $\Tg$ of a polymer asymptotically approaches a limit $\Tg(M\to\infty)$ for higher and higher molecular weights at some empirically derived rate $A$. \emph{Given by}
+    \begin{equation*}
+        \Tg(\Mn) := \Tg(M\to\infty)-\frac{A}{\Mn}
+    \end{equation*}
+    \begin{itemize}
+        \item Alkane series often obey this simple $1/x$ relation.
+    \end{itemize}
+    \item Another example of thermodynamic limits: Regardless of polymer structure, a power law defines polymer viscosity.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{viscosityScaling.png}
+        \caption{Polymer viscosity scales universally by power laws.}
+        \label{fig:viscosityScaling}
+    \end{figure}
+    \begin{itemize}
+        \item Namely, polymer viscosity increases up to a critical concentration $c^*$ at a slpe of 1, then to an entanglement concentration $c_e$ at a slope of 2, and then at a slope of $14/3$ past that.
+        \item Thus, there are three universal scaling regimes.
+        \item A log-log plot is used to show power-law scalings, like in high school trigonometry!
+        \item Aside: Power laws are present everywhere once you get big enough, down to the volume of our lungs relative to our bodies in bigger and bigger animals.
+    \end{itemize}
+    \item This class isn't super stringent on nomenclature, but it's good to know terms for when we read papers (Table \ref{tab:copolymerNomenclature}).
+    \begin{table}[h!]
+        \centering
+        \includegraphics[width=0.9\linewidth]{copolymerNomenclature.png}
+        \caption{IUPAC nomenclature of copolymers.}
+        \label{tab:copolymerNomenclature}
+    \end{table}
+    \begin{itemize}
+        \item Alfredo will talk about block copolymers a good bit!
+    \end{itemize}
+    \item Polymer architectures.
+    \begin{itemize}
+        \item Linear polymers.
+        \begin{itemize}
+            \item Polyrotoxanes and other supramolecular assemblies can have interesting properties. Example: Catenated DNA!
+        \end{itemize}
+        \item Cross-linked systems (nice gelation).
+        \item Branched polymers can have a single monomer, or multiple as in graft (Table \ref{tab:copolymerNomenclature}).
+        \item Dendritic polymers have different generations with regular branching for very dense structures.
+        \item There are a few more classes, as well.
+    \end{itemize}
+    \item We'll now discuss some nomenclature on molecular weight.
+    \item Aside: Other than nature, synthetic chemists cannot make dispersity 1 polymers; "polymer chemists aren't gods, despite some thinking they are."
+    \item \textbf{$\bm{i}$-mer}: A segment of a polymer with degree of polymeriation $i$.
+    \item $\bm{M_i}$: The molecular weight of the $i$-mer. \emph{Given by}
+    \begin{equation*}
+        M_i := iM_0
+    \end{equation*}
+    \item $\bm{M_0}$: The molecular weight of the repeat unit in a polymer chain.
+    \item $\bm{n_i}$: The number of $i$-mers.
+    \item \textbf{Number fraction} (of an $i$-mer): The probability of picking an $i$-mer out of solution when picking a chain. \emph{Denoted by} $\bm{x_i}$. \emph{Given by}
+    \begin{equation*}
+        x_i := \frac{n_i}{\sum_in_i}
+    \end{equation*}
+    \item \textbf{Weight fraction} (of an $i$-mer): The probability that a repeat unit picked out of solution belongs to an $i$-mer. \emph{Also known as} \textbf{weight fraction}. \emph{Denoted by} $\bm{w_i}$. \emph{Given by}
+    \begin{equation*}
+        w_i := \frac{n_iM_i}{\sum_in_iM_i}
+        = \frac{n_i(iM_0)}{\sum_in_i(iM_0)}
+        = \frac{in_i}{\sum_iin_i}
+    \end{equation*}
+    \begin{itemize}
+        \item Note that $in_i$ is the total number of monomers in the $i$-mer, and $\sum_iin_i$ is the total number of monomers in solution.
+    \end{itemize}
+    \item \textbf{Number-average molecular weight}: The arithmetic mean of the molecular masses of the individual macromolecules. \emph{Denoted by} $\bm{M_\textbf{n}}$. \emph{Given by}
+    \begin{equation*}
+        \Mn := \sum_ix_iM_i = M_0\cdot\frac{\sum_iin_i}{\sum_in_i}
+    \end{equation*}
+    \item \textbf{Weight average molecular weight}: A mesurement of molecular weight that gives more contribution to higher-weight molecules. \emph{Denoted by} $\bm{M_\textbf{w}}$. \emph{Given by}
+    \begin{equation*}
+        \Mw := \sum_iw_iM_i = M_0\cdot\frac{\sum_ii^2n_i}{\sum_iin_i}
+    \end{equation*}
+    \item Both $\Mn$ and $\Mw$ look like moments of a distribution (i.e., first and second moment).
+    \begin{itemize}
+        \item We could generalize even more, but we don't need to.
+        \item However, to figure out if we have a tight or wide distribution, we often look at ratios of our moments. This leads to the following definition.
+    \end{itemize}
+    \item \textbf{Dispersity}: A measure of the breadth of the distribution of fragment molecular weights in a polymer sample. \emph{Also known as} \textbf{polydispersity index}, \textbf{PDI}. \emph{Denoted by} $\tikz{
+        \node[inner sep=0pt]{$\bm{D}$};
+        \draw [thick] (-0.12,0) -- ++(0.12,0);
+    }$. \emph{Given by}
+    \begin{equation*}
+        \Dstroke := \frac{M_w}{M_n} = \frac{\text{second moment}}{\text{first moment}}
+    \end{equation*}
+    \item In \textcite{bib:HiemenzLodge}, they also derive the \textbf{variance}. You don't need to worry about the math, though.
+    \item \textbf{Variance}: Another measure of the breadth of the distribution of fragment molecular weights. \emph{Denoted by} $\bm{\sigma^2}$. \emph{Given by}
+    \begin{equation*}
+        \sigma^2 := M_n^2[\Dstroke-1]
+    \end{equation*}
+    \item \textbf{Schultz-Zimm distribution}: An idealized mathematical model for polymer molecular weight distribution.
+    \item With these definitions, we can now do homework problem number 1!
+    \item Experimental techniques to measure molecular weight.
+    \begin{itemize}
+        \item Size exclusion chromatography.
+        \item Osmotic pressure.
+        \item End group analysis.
+        \item Light scattering techniques.
+        \begin{itemize}
+            \item More sensitive to higher moments.
+        \end{itemize}
+    \end{itemize}
+    \item We now move onto polymer configurations.
+    \item \textbf{Configurations}: The way things are connected or bonded together.
+    \begin{itemize}
+        \item Physicists and chemists have many competing definitions of "configurations," but the one above is what we'll use in this class. Essentially, think of it as a synonym for constitutional isomerism.
+        \item Under this definition, you have to \emph{break bonds} to create a new configuration.
+        \item We are \emph{not} yet talking about rotamers (what we'll call \textbf{conformations}). As you make your polymers longer and longer, the conformational space you can explore gets bigger.
+    \end{itemize}
+    \item There are 3 main types of structural isomers (i.e., configurations): \textbf{Positional}, \textbf{stereo}, and \textbf{geometric} isomers.
+    \item \textbf{Positional} (isomers): Changing connectivity.
+    \item \textbf{Stereoisomers}: Related to chiral centers.
+    \item \textbf{Geometric} (isomers): Related to double bonds.
+    \item More on positional isomers.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{headTail.png}
+        \caption{Head-head and head-tail monomer addition.}
+        \label{fig:headTail}
+    \end{figure}
+    \begin{itemize}
+        \item \textbf{Head-head} vs. \textbf{head-tail} bonding in vinyl monomers.
+        \item Head-tail is more common, and differences can change the $\Tg$ substantially.
+    \end{itemize}
+    \item \textbf{Head-head} (orientation): Monomer addition wherein the substituted carbon attaches to the growing chain end. \emph{Also known as} \textbf{head-to-head}.
+    \item \textbf{Head-tail} (orientation): Monomer addition wherein the \emph{un}substituted carbon attaches to the growing chain end. \emph{Also known as} \textbf{head-to-tail}.
+    \item More on stereoisomers.
+    \item Doyle reviews \textbf{chirality}, \textbf{rectus} vs. \textbf{sinister}, and the \textbf{Cahn-Ingold-Prelog nomenclature}.
+    \item \textbf{Pseudochiral} (center): A chiral center where two of the substituents are identical \emph{except} for chirality.
+    \begin{itemize}
+        \item In this case, CIP nomenclature gives priority to the branch with more R chiral centers.
+    \end{itemize}
+    \item Chiral centers in polymers give rise to \textbf{tacticity}.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\linewidth]{tacticity.png}
+        \caption{Tacticity.}
+        \label{fig:tacticity}
+    \end{figure}
+    \begin{itemize}
+        \item There are \textbf{meso diads} and \textbf{racemic diads}; which ones you have determine if the polymer is \textbf{isotactic}, \textbf{syndiotactic}, or \textbf{atactic}.
+    \end{itemize}
+    \item \textbf{Meso} (diad): Two adjacent chiral centers with a local plane of symmetry halfway between them.
+    \item \textbf{Racemic} (diad): Two adjacent chiral centers with\emph{out} a local plane of symmetry halfway between them.
+    \item \textbf{Isotactic} (polymer): A polymer containing only meso diads.
+    \item \textbf{Syndiotactic} (polymer): A polymer containing only racemic diads.
+    \item \textbf{Atactic} (polymer): A polymer containing both meso and racemic diads.
+    \item Example: Atactic polystyrene tends to be more amorphous than syndiotactic or isotactic polymers, which can be semicrystalline.
+    \begin{itemize}
+        \item Nobel prize (1963) to Ziegler and Natta for a catalyst generating isotactic polystyrene (PS-it).
+        \begin{itemize}
+            \item Note that the initial Ziegler-Natta catalysts weren't metallocenes! The introduction of these types only came later.
+        \end{itemize}
+        \item Syndiotactic polystyrene (PS-st) came later in 1986 and had superior properties.
+        \begin{itemize}
+            \item PS-st crystallizes an order of magnitude faster than PS-it; has half the entanglement molecular weight; and is commonly used today in auto parts, electronics, and medical equipment.
+        \end{itemize}
+    \end{itemize}
+    \item Tacticity is often measured by certain splittings (or their absence) in \ce{{}^1H} NMR.
+    \begin{itemize}
+        \item Isotactic polymers put the geminal methylene protons into distinct chemical environments; syndiotactic polymers do not. Atactic polymers will have a mix of both, and the mix can be quantified with integration.
+        \item \ce{{}^13C} NMR can be used, too.
+    \end{itemize}
+    \item More on geometric isomers.
+    \begin{itemize}
+        \item Example: Polybutadiene can be formed \emph{trans} or \emph{cis}, as guided by a catalyst.
+        \item Natural rubber is \emph{cis}-1,4-polyisoprene. Other types of tree sap can give \emph{trans}-1,4-polyisoprene.
+    \end{itemize}
+    \item We now move onto polymer conformations.
+    \item \textbf{Conformations}: The spacial arrangements possible (or "probable," taking energy into account) for a polymer.
+    \begin{itemize}
+        \item No bonds are \emph{broken} here, just rotated.
+    \end{itemize}
+    \item Reviews \textbf{Newman projections}.
+    \begin{itemize}
+        \item \textbf{Staggered} configuration is defined as \ang{0}.
+        \item \textbf{Eclipsed} configuration then starts at \ang{60}.
+        \item There are energy pentalties to being in different conformations.
+        \begin{itemize}
+            \item As one example, eclipsed is higher energy than staggered due to sterics.
+            \item Generally sinusoidal relation in a plot of potential energy $V$ against dihedral angle $\theta$.
+            \item The energy difference between rotamers is approximately $3\kB T$, which is not huge but big enough that the system will spend most of its time in the valleys. Each "valley" is a \textbf{conformer}.
+            \item So then since probability is proportional to $\e[-V/\kB T]$, the probability that a molecule will be staggered is greater than that it will be eclipsed.
+        \end{itemize}
+        \item In molecules longer than ethane, we break degeneracy of the valleys.
+        \item The rapid growth of conformers: Ethane has 3 conformers. Propane has $3^2$. Butane has $3^3$. Decane has $3^10$. Polyethylene with $N=10^5$ already has on the order of \num{e47000} possible conformers, a huge conformational space.
+        \begin{itemize}
+            \item This is because each bond has 3 valleys!
+            \item Many of the models we'll develop are ways of enumerating these conformations in relation to some higher-order measurement of the polymer, such as the \textbf{n-band difference}.
+            \item Polymers are indeed often moderately sized coils rather than fully stretched out rods.
+            \item Example: 166 kbp DNA (approximately 684 \textbf{Kuhn steps}, discussed next lecture) can be videotaped moving around, and it never fully elongates.
+            \item Stretched out polymers shrink back over some characteristic time.
+        \end{itemize}
+        \item Polymers with high degrees of polymerization result in many possible conformations without breaking bonds --- this is what we'll discuss in the next two lectures!
+    \end{itemize}
+    \item A good converions to keep in mind: $\SI[per-mode=symbol]{2.5}{\kilo\joule\per\mole}\approx 1\kB T$.
+    \item Today is probably the most jampacked bits and pieces day; other lectures will be more focused, but this is important background.
+\end{itemize}
+
+
+
+
+\end{document}
