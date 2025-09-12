@@ -244,5 +244,347 @@
 
 
 
+\section{Conformation: Ideal Chains}
+\begin{itemize}
+    \item \marginnote{9/11:}Lecture outline.
+    \begin{itemize}
+        \item Conformation (degrees of freedom).
+        \item Ideal chain models.
+        \item Entropic elasticity.
+    \end{itemize}
+    \item Many material properties we care about are correlated with the size of the polymer.
+    \item This size is measured by a vector $\mathbf{R}$ that goes from one end of the polymer to the other.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Rvector.png}
+        \caption{End-to-end polymer vector.}
+        \label{fig:Rvector}
+    \end{figure}
+    \begin{itemize}
+        \item We define $\mathbf{R}$ as the sum of all consituent bond vectors $\mathbf{l}$ (end-to-end of each chemical bond along the backbone). Symbolically,
+        \begin{equation*}
+            \mathbf{R} := \sum_{i=1}^n\mathbf{l}_i
+        \end{equation*}
+        \item Note that $\mathbf{R}$ has length $|\mathbf{R}|=R$.
+        \item Today, we will look at several models that can be used to calculate the expected length of this vector, $\prb{R}$.
+    \end{itemize}
+    \pagebreak
+    \item Freely Jointed Chain (FJC) model.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.15\linewidth]{joint.png}
+        \caption{A joint in a polymer chain.}
+        \label{fig:joint}
+    \end{figure}
+    \begin{itemize}
+        \item In this model, there are no restrictions on how adjacent bonds rotate relative to each other. Rather, this is just a random walk. In effect, this means that there are no energy barriers and no excluded volume.
+        \begin{itemize}
+            \item It follows that $\prb{R}=0$.
+        \end{itemize}
+        \item However, while $\prb{R}=0$, we have
+        \begin{align*}
+            \prb{R^2} &= \prb{\sum_{i=1}^n\mathbf{l}_i\cdot\sum_{j=1}^n\mathbf{l}_j}\\
+            &= \sum_{i=1}^n\sum_{j=1}^n\prb{\mathbf{l}_i\cdot\mathbf{l}_j}\\
+            &= \sum_{i=1}^n\prb{\mathbf{l}_i\cdot\mathbf{l}_i}+\sum_{i=1}^n\sum_{\substack{j=1\\j\neq i}}^n\prb{\mathbf{l}_i\cdot\mathbf{l}_j}\\
+            &= nl^2+0
+        \end{align*}
+        \begin{itemize}
+            \item The second term goes to zero as $n\to\infty$ because there is no correlation among segments (i.e., they are randomly oriented).
+            \item This gives us the following important scaling law.
+            \begin{equation*}
+                \prb{R^2}^{1/2} \propto n^{1/2}
+            \end{equation*}
+            \item This means that scaling is consistent with the polymer taking a "coil-like" conformation.
+        \end{itemize}
+        \item This combined with the fact that the polymer's fully stetched length is $nl$ gives us the following expression for the number of backbone bonds in a polymer.
+        \begin{equation*}
+            \frac{(\text{fully stretched length})^2}{\prb{R^2}} = n
+        \end{equation*}
+    \end{itemize}
+    \item Note that \textcite{bib:HiemenzLodge} uses $\theta$ for the \emph{complement} of bond angle, as in Figure \ref{fig:joint}. Other texts may use a different convention.
+    \item Now, let's refine the FJC by accounting for nearest neighbor correlations.
+    \item First, we'll look at a polymer with only two segments (i.e., $n=2$)
+    \begin{itemize}
+        \item Suppose every joint is \emph{fixed} at complementary angle $\theta$, but there is no energy penalty to rotate in $\phi$.
+        \item From Figure \ref{fig:joint}, trigonometry tells us that
+        \begin{equation*}
+            \mathbf{l}_i\cdot\mathbf{l}_{i+1} = l^2\cos\theta
+        \end{equation*}
+        \item Thus, under the conditons of this model,
+        \begin{align*}
+            \prb{R^2} &= 2l^2+\sum_{i=1}^2\sum_{\substack{j=1\\j\neq i}}^2\prb{\mathbf{l}_i\cdot\mathbf{l}_j}\\
+            &= 2l^2+2\prb{l^2\cos\theta}\\
+            &= nl^2(1+\cos\theta)
+        \end{align*}
+        \item The important takeaway is that with this chemical realism, the chain is bigger than in the previous model!
+        \begin{itemize}
+            \item It is also noteworthy that the $nl^2$ scaling relation is retained.
+        \end{itemize}
+        \item This is a precursor to the freely rotating chain, where we can rotate in $\phi$ but not in $\theta$.
+    \end{itemize}
+    \item Let's now look at the full Freely Rotating Chain (FRC) model.
+    \begin{itemize}
+        \item As we elongate the chain, there is a slow decay of "memory of correlation" since $\phi$ rotates freely. Eventually (see \textcite[239-40]{bib:HiemenzLodge} for the derivation), we asymptote to
+        \begin{equation*}
+            \prb{R^2} = nl^2\underbrace{\left( \frac{1+\cos\theta}{1-\cos\theta} \right)}_{C_n}
+        \end{equation*}
+    where $C_n$ may be an empirically derived \textbf{characteristic ratio}.
+    \end{itemize}
+    \item Model 3: Symmetric hindered rotations.
+    \begin{itemize}
+        \item Recall from last class that certain rotational conformations have lower energies than others.
+        \item As such, we can give a Boltzman weighting to the energetic valleys.
+        \item Thus, we reevaluate our hindered rotations with a Boltzmann weighting and the following expression crashes out of the math.
+        \begin{equation*}
+            \prb{R^2} = nl^2\underbrace{\left( \frac{1+\cos\theta}{1-\cos\theta} \right)\left( \frac{1+\prb{\cos\phi}}{1-\prb{\cos\phi}} \right)}_{C_\infty}
+        \end{equation*}
+        \begin{itemize}
+            \item Note that it's still just $nl^2$ times a constant!
+        \end{itemize}
+        \item The \textbf{characteristic ratio} $C_\infty$ can be calculated for models or obtained from experiments. The following rearranged definition is also important.
+        \begin{equation*}
+            C_\infty := \frac{\prb{R^2}_0}{nl^2}
+        \end{equation*}
+        \item Alert: Be aware of sign changes due to different conventions for $\theta$ and $\phi$ in different texts!
+    \end{itemize}
+    \item There are tables of characteristic ratios in both \textcite{bib:HiemenzLodge} and \textcite{bib:RubinsteinColby}.
+    \begin{table}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{CinftyCommon.png}
+        \caption{$C_\infty$ values for common polymers at \SI{413}{\kelvin}.}
+        \label{tab:CinftyCommon}
+    \end{table}
+    \begin{itemize}
+        \item $C_\infty$ gets bigger with bigger side chains.
+        \item Typical range is 5-10; can go up to 20 or higher, though.
+    \end{itemize}
+    \item Example: What is the size of a polyethylene molecule at \SI{413}{\kelvin} and having molecular weight $\SI[per-mode=symbol]{e4}{\gram\per\mole}$?
+    \begin{itemize}
+        \item Approach: We want to find $\prb{R^2}$ and take its square root; that will be our answer.
+        \item We can look up that the length $l$ of a typical \ce{C-C} bond is \SI{0.154}{\nano\meter}.
+        \item Based on the molecular weight and the known weight of the ethylene (\ce{CH2CH2}) repeat unit,
+        \begin{equation*}
+            N = \frac{\SI[per-mode=symbol]{e4}{\gram\per\mole}}{\SI[per-mode=symbol]{28}{\gram\per\mole}} \approx 357.1
+        \end{equation*}
+        \item Because there are two carbon-carbon bonds per repeat unit, $n=2N$.
+        \item Thus,
+        \begin{align*}
+            \prb{R} &= \prb{R^2}^{1/2}\\
+            &= [nl^2C_\infty]^{1/2}\\
+            &= \left[ (2\cdot 357.1)(\SI{0.154}{\nano\meter})^2(7.4) \right]^{1/2}\\
+            \prb{R} &\approx \SI{11}{\nano\meter}
+        \end{align*}
+    \end{itemize}
+    \item Let's compare the answer in the above example to the straight chain estimation.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.22\linewidth]{straightChainCC.png}
+        \caption{Straight chain estimation of a polyolefin.}
+        \label{fig:straightChainCC}
+    \end{figure}
+    \begin{itemize}
+        \item In this case,
+        \begin{equation*}
+            R_\text{max} = nl\cos(\theta/2)
+        \end{equation*}
+        \item We can look up that for a typical \ce{C-C} bond, $\theta=\ang{180}-\ang{109.5}=\ang{70.5}$.
+        \item Thus,
+        \begin{align*}
+            R_\text{max} &= nl\cos(\theta/2)\\
+            &= (2\cdot 357.1)(\SI{0.154}{\nano\meter})\cos(70.5/2)\\
+            R_\text{max} &\approx \SI{90}{\nano\meter}
+        \end{align*}
+    \end{itemize}
+    \item This calculation is a bit tedious, so Kuhn refined the coarse grained FJC model to be computationally simpler.
+    \item Model 4: Kuhn's Equivalent Chain.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{KuhnSteps.png}
+        \caption{Kuhn steps.}
+        \label{fig:KuhnSteps}
+    \end{figure}
+    \begin{itemize}
+        \item Building off of models 3 and 1, let's postulate the existence of an FJC along our polymer. This FJC will have $N$ steps of length $l_k$, where $l_k$ is a Kuhn step.
+        \item This gives us two variables to define. We thus need two equations by which to define them.
+        \begin{itemize}
+            \item Equation 1: By the universal scaling law,
+            \begin{equation*}
+                Nl_k^2 = \prb{R^2} = C_\infty nl^2
+            \end{equation*}
+            \item Equation 2: If the total length of the chain is $R_\text{max}$, and the chain is being broken up into $N$ Kuhn steps each of length $l_k$, then
+            \begin{equation*}
+                R_\text{max} = Nl_k
+            \end{equation*}
+        \end{itemize}
+        \item By solving this system of equations, we can then define $N$ and $l_k$ purely in terms of prevoiusly derived variables.
+    \end{itemize}
+    \item \textbf{Kuhn step}: A subsegment of a polymer chain with length defined as follows. \emph{Denoted by} $\bm{l_k}$. \emph{Given by}
+    \begin{equation*}
+        l_k := \frac{\prb{R^2}}{R_\text{max}} = \frac{C_\infty nl^2}{R_\text{max}}
+    \end{equation*}
+    \item \textbf{Number of Kuhn steps}: The number of Kuhn steps in a polymer chain. \emph{Denoted by} $\bm{N}$. \emph{Given by}
+    \begin{equation*}
+        N := \frac{R_\text{max}}{l_k} = \frac{R_\text{max}^2}{C_\infty nl^2}
+    \end{equation*}
+    \item Example: In the case of a fully elongated carbon-carbon chain (Figure \ref{fig:straightChainCC}), the number of Kuhn steps is
+    \begin{equation*}
+        l_k = \frac{C_\infty nl^2}{R_\text{max}}
+        = \frac{C_\infty nl^2}{nl\cos(\theta/2)}
+        = \frac{C_\infty l}{\cos(\theta/2)}
+    \end{equation*}
+    \item Note that the symbols $R_\text{max}$ and $L$ will be used interchangeably for the straight-chain length of a polymer.
+    \item $R_\text{max}$ largely depends on the chemistry of the polymer (e.g., specific atoms' bond angles).
+    \item We'll now look at some models for "stiff" chains, such as dsDNA or microtubules.
+    \begin{itemize}
+        \item These tend to have even higher $C_\infty$ values.
+        \item Note that twists in the chain are \emph{much} bigger than individual nucleobases.
+        \item Molecular simulations of 75 bp dsDNA shows barely any bending. Indeed, there is a high correlation between end vectors even though they are very far away.
+    \end{itemize}
+    \item A model for very stiff polymers: The Worm-Like Chain (WLC).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.32\linewidth]{WLC.png}
+        \caption{Worm-like chain.}
+        \label{fig:WLC}
+    \end{figure}
+    \begin{itemize}
+        \item Represent a segment as an infinitesimal elastic rod.
+        \item This rod has a contour you can be some point $s$ along, where $s\in[0,L]$.
+        \item The direction of the rod is defined by a tangent vector $\mathbf{t}(s)$.
+        \item We also give the rod some bending energy $U_b$, related to how the tangent changes as we go along $s$. But physically, this is just curvature squared. To get the right units, we throw in a bending stiffness parameter $\kappa_b$, which incorporates some chemical / molecular details. Throw in a $1/2$ from mechanics definitions, and we get
+        \begin{equation*}
+            U_b = \frac{1}{2}\kappa_b\int_0^L\left( \pdv{\mathbf{t}}{s} \right)^2\dd{s}
+        \end{equation*}
+        \item An implication of this is that correlation decays exponentially per
+        \begin{equation*}
+            \prb{\mathbf{t}(0)\cdot\mathbf{t}(s)} = \e[-s\kB T/\kappa_b]
+        \end{equation*}
+        \begin{itemize}
+            \item I.e., you use memory of how oriented you are in one part of the chain when you get farther away from that point.
+        \end{itemize}
+        \item Since $\kappa_b/\kB T$ has units of length by dimensional analysis, we can define it to be the \textbf{persistence length}.
+        \item From this tangent correlation function, we can calculate many interesting properties --- including the mean squared end-to-end distance!
+        \begin{equation*}
+            \prb{R^2} = 2aL\left[ 1-\frac{a}{L}\left( 1-\e[-L/a] \right) \right]
+        \end{equation*}
+        \begin{itemize}
+            \item The calculation is complicated, so Dolye skips it.
+        \end{itemize}
+        \item This equation reveals some interesting polymer behavior in two limits: That of \emph{long} and \emph{short} stiff polymers.
+        \begin{itemize}
+            \item When the polymer gets long, $a/L\to 0$ and $\prb{R^2}\to 2aL$.
+            \item When the polymer gets short, $a/L\to\infty$ and $\prb{R^2}\to L^2$.
+            \begin{itemize}
+                \item This makes intuitive sense as if it's short, it should be roughtly straight and have end-to-end distance approximately equal to its length!
+                \item Note that in real life, there \emph{are} polymers where the persistence length is longer than the length of the polymer! These behave like rigid rods.
+            \end{itemize}
+        \end{itemize}
+        \item Lastly, it follows from definition of Kuhn steps that
+        \begin{equation*}
+            2aL = \prb{R^2} = Nl_k^2 = \frac{R_\text{max}}{l_k}\cdot l_k^2 = Ll_k
+        \end{equation*}
+        \begin{itemize}
+            \item Thus, the Kuhn length is twice the persistence length! Symbolically,
+            \begin{equation*}
+                2a = L
+            \end{equation*}
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Persistence length}: A characteristic length over which a stiff polymer loses memory of its orientation along other parts of the chain. \emph{Denoted by} $\bm{a}$. \emph{Given by}
+    \begin{equation*}
+        a := \frac{\kappa_b}{\kB T}
+    \end{equation*}
+    \item In conclusion, two biggest models to remember: Kuhn model (rigid steps) and WLC (continuum approximation with persistence length for semi-rigid chains).
+    \item Example: Actin has a persistence length of \SI{10}{\micro\meter}; since most cells are smaller than this, actin is funtionally a rigid rod within a cellular context.
+    \item Example: Measuring persistence length of dsDNA.
+    \begin{itemize}
+        \item Adsorb DNA onto a surface that loosely binds it, so that it can still move around but won't fall off.
+        \item Then look at 1000s of strands next to each other and calculate tangent lengths!
+        \item Reference: \textcite{bib:DNApersisLength}.
+    \end{itemize}
+    \item Example: Bottlebrush polymers in cartilage.
+    \begin{itemize}
+        \item These have highly charged side chains, but fewer with age.
+        \item This causes more bending.
+        \item We can observe this with atomic force microscopy.
+    \end{itemize}
+    \item Example: As you increase the concentration of salt in solution, you shrink the \textbf{Debye length} and also the persistence length.
+    \begin{itemize}
+        \item This modifies the effect of charges on dsDNA.
+    \end{itemize}
+    \item Example: Actin cytoskeleton filaments.
+    \begin{itemize}
+        \item Made out of polymerized protein subunits.
+        \item A very thin polymer, biologicaly speaking.
+        \item Very long persistence length, as mentioned earlier.
+        \item As cells move, they push actin against the cell membrane to distort it! This works because actin is a very rigid rod, so rigid that it can overcome the membrane pressure.
+    \end{itemize}
+    \item Example: Conjugated polymers.
+    \begin{itemize}
+        \item They calculated the persistence length using DFT, and then measured it experimentally.
+        \item Some of their polymers are stiffer tha dsDNA!
+        \item Rotation around one particular engineered bond is used to estimate persistence length.
+    \end{itemize}
+    \item \textbf{Flexible} (polymer): A polymer for which chain length is much greater than persistence length.
+    \item \textbf{Semi-flexible} (polymer): A polymer for which chain length is approximately equal to persistence length.
+    \item \textbf{Rod-like} (polymer): A polymer for which chain length is much shorter than persistence length.
+    \item Summary of ideal chains.
+    \begin{itemize}
+        \item All chains show a similar, universal scaling relation that $R\approx N^{1/2}$.
+        \item For ideal chains, local interactions set the rigidity length scale and excluded volume is not significant.
+        \item This approximation is ok for dilute solutions at \textbf{theta conditions} and polymer \textbf{melts}.
+    \end{itemize}
+    \item \textbf{Theta condition}: When you've essentially turned off excluded volume for the chain.
+    \item \textbf{Polymer melt}: A condition in which the polymer is essentially in a solution of itself.
+    \item Nomenclature for polymer solution regimes.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\linewidth]{hardPervaded.png}
+        \caption{The volume occupied by polymers.}
+        \label{fig:hardPervaded}
+    \end{figure}
+    \item \textbf{Hard volume} (of a polymer): The volume occupied by the chain, where each repeat unit is considered to occupy a sphere with radius equal to the bond length and the polymer is the sum of these "beads" touching each other. \emph{Denoted by} $\bm{v}$. \emph{Given by}
+    \begin{equation*}
+        v \propto nl^3
+    \end{equation*}
+    \begin{itemize}
+        \item The volume of each bead is thus on the order of the bond length.
+    \end{itemize}
+    \item \textbf{Pervaded volume} (of a polymer): The sphere encapsulating the volume in which the polymer chain is \emph{expected} to move around. \emph{Denoted by} $\bm{V}$. \emph{Given by}
+    \begin{equation*}
+        V \propto \prb{\mathbf{R}^2}^{3/2} \propto n^{3/2}l^3
+    \end{equation*}
+    \item From this, we can see that
+    \begin{equation*}
+        \frac{v}{V} \propto n^{-1/2}
+    \end{equation*}
+    \begin{itemize}
+        \item It follows that the pervaded volume is mostly empty as $n$ becomes large.
+    \end{itemize}
+    \item \textbf{Critical concentration}: The concentration at which all polymers in solution can "see" each other. \emph{Denoted by} $\bm{c^*}$.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\linewidth]{concentrationRegimes.png}
+        \caption{Concentration regimes.}
+        \label{fig:concentrationRegimes}
+    \end{figure}
+    \begin{itemize}
+        \item In dilute solutions, polymers will all be coiled up within their own pervaded volume and will not interact.
+        \item When they reach the critical concentration, all of the pervaded volumes are essentially touching each other.
+        \item Past the critical concentration, we get entanglement and no longer see individual polymer coils in their own pervaded volume.
+        \item This is the same $c^*$ as in Figure \ref{fig:viscosityScaling}!
+        \begin{itemize}
+            \item Unifying implication: These concentrations are related to pervaded volume, which is related to expected size.
+        \end{itemize}
+    \end{itemize}
+    \item Next time.
+    \begin{itemize}
+        \item Adding in excluded volume, which will wrap up our discussion on chains.
+        \item Then Alfredo on thermodynamics of interactions.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
