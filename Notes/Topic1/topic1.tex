@@ -586,5 +586,140 @@
 
 
 
+\section{Chapter 1: Introduction to Chain Molecules}
+\emph{From \textcite{bib:HiemenzLodge}.}
+\begin{itemize}
+    \item \marginnote{9/14:}Begins with the uses and history of polymers.
+    \item \textbf{Macromolecule}: A large or long molecule.
+    \item \textbf{Polymer}: A macromolecule made by repeating one (or a few) chemical units many times.
+    \begin{itemize}
+        \item All polymers are macromolecules, but not all macromolecules are polymers.
+    \end{itemize}
+    \item \textcite{bib:HiemenzLodge} will often write molecular weights without the unit "\si[per-mode=symbol]{\gram\per\mole}," but we should write them with this unit.
+    \item Some types of polymerization involve only the joining of monomers; others involve this joining, but with the elimination of a small molecule byproduct (like \ce{H2O} or \ce{HCl}).
+    \item Figure \ref{fig:straightChainCC}'s derivation uses the \textbf{law of cosines} from high school trigonometry.
+    \item Polyolefin size: Based on typical \ce{C-C} bond angles and lengths\dots
+    \begin{itemize}
+        \item The straight-chain length is approximately $N\cdot\SI{0.25}{\nano\meter}$;
+        \item The actual end-to-end distance is approximately $N^{1/2}\cdot\SI{0.25}{\nano\meter}$.
+    \end{itemize}
+    \item \textbf{Oligomer}: A molecule made of repeat units but for which $N<10$.
+    \item Note that \emph{polymers} typically have $M\geq\SI[per-mode=symbol]{1000}{\gram\per\mole}$, but this cutoff is arbitrary (and probably on the low side).
+    \item Polymer architectures.
+    \item \textbf{Branched} (polymer): A linear molecule with additional polymeric chains issuing from its (linear) backbone.
+    \item \textbf{Short-chain branch}: A small substituent (such as a methyl or phenyl group) on the repeat unit.
+    \begin{itemize}
+        \item These are generally not considered branches.
+    \end{itemize}
+    \item Branching can occur \emph{by design}, \emph{adventitiously}, or through \textbf{grafting}.
+    \begin{itemize}
+        \item By design, we may introduce polyfunctional junctions into the formulation.
+        \item Adventitiously, "an atom [may be] abstracted from the original linear molecule, with chain growth occurring from the resulting active site" \parencite[7]{bib:HiemenzLodge}.
+        \begin{itemize}
+            \item This commonly happens with polyethylene!
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Graft to} (polymerization): Pre-formed but still reactive polymer chains can be added to sites along an existing backbone.
+    \item \textbf{Graft from} (polymerization): Multiple initiation sites along a chain can be exposed to monomer.
+    \item Note: \textbf{Graft through} polymerization is not covered.
+    \item For simple branching (no loops), a molecule with $v$ branches has $v+2$ chain ends.
+    \item \textbf{Comb} (polymer): A polymer in which a series of relatively uniform branches emanate from along the length of a common backbone.
+    \item \textbf{Star} (polymer): A polymer in which all branches radiate from a central junction.
+    \item \textbf{Cross-linked} (polymer): A polymer with such extensive branching that the macroscopic object may be considered to consist of essentially one molecule.
+    \begin{itemize}
+        \item These polymers are given cohesiveness by covalent bonds instead of intermolecular forces, and thus have very different properties from non-cross-linked polymers.
+    \end{itemize}
+    \item \textbf{Hyperbranched} (polymer): A polymer that is highly branched, but in which the components remain as discrete entities.
+    \item \textbf{Dendrimer}: A class of hyperbranched polymers that are tree-like, in that they have completely regular structures formed by successive condensation of branched monomers.
+    \begin{itemize}
+        \item Start with a \ce{B3} junction (generation 0), condense on three \ce{AB$'$2} monomers and deprotect (generation 1), condense on six \ce{AB$'$2} monomers and deprotect (generation 2), etc.
+        \item At generation 6 or 7, the surface of the molecule becomes so congested that adding further complete generations is impossible.
+    \end{itemize}
+    \item \textbf{Cycle} (polymer): A polymer in which the two chain ends react to close the loop. \emph{Also known as} \textbf{ring}.
+    \item \textbf{Homopolymer}: A polymer with only a single kind of repeat unit.
+    \begin{itemize}
+        \item Note that polymers made with two different monomers can still be homopolymers. For example, a polyester condensed from diacid and diol \emph{monomers} still only has one kind of \emph{repeat unit}.
+    \end{itemize}
+    \item \textbf{Copolymer}: A polymer with two kinds of repeat units.
+    \item \textbf{Terpolymer}: A polymer with three kinds of repeat units.
+    \item \textbf{Multicomponent} (polymer): A polymer with four or more kinds of repeat units.
+    \item \textbf{Random} (copolymer): A copolymer in which the \ce{A}-\ce{B} sequence is governed strictly by chance, subject only to the relative abundances of repeat units.
+    \item \textbf{Statistical} (copolymer): A copolymer in which monomer addition at a growing chain end may depend on the preceding monomer(s), according to a statistical law.\footnote{The copolymers we make with CCs are all statistical, since addition is governed by probability-based reactivity ratios.}
+    \item \textbf{Alternating} (copolymer): A copolymer containing a regular pattern of alternating repeat units.
+    \item \textbf{Block} (copolymer): A copolymer containing long, uninterrupted sequences of each monomer.
+    \item \textbf{$\bm{n}$-block} (copolymer): A block copolymer containing $n$ uninterrupted sequences of each monomer.
+    \begin{itemize}
+        \item For small $n$, the terms \textbf{diblock}, \textbf{triblock}, and \textbf{tetrablock} are commonly used.
+        \item If a triblock copolymer consists of a sequence of monomer \ce{A}, followed by monomer \ce{B}, followed by monomer \ce{A}, we may call it an \textbf{ABA triblock copolymer}.
+    \end{itemize}
+    \item \marginnote{9/16:}In addition to classifying polymers by architecture, we can classify them by the reactions used to make them.
+    \item \textbf{Addition} and \textbf{condensation} polymerization are the most common, but there are more.
+    \item \textbf{Addition} (polymerization): A polymerization for which the following three statements apply. \emph{Also known as} \textbf{chain-growth}. \emph{Defined by}
+    \begin{enumerate}
+        \item The repeat unit in the polymer and monomer have the same composition (although bonding is different in each).
+        \item The polymerization proceeds through a \textbf{chain reaction} mechanism, with either free radicals or ionic groups responsible for propagating the chain reaction.
+        \item The product molecules \emph{often} have an all \ce{C-C} backbone, with pendant substituent groups.
+    \end{enumerate}
+    \item \textbf{Condensation} (polymerization): A polymerization for which the following three statements apply. \emph{Also known as} \textbf{step-growth}. \emph{Defined by}
+    \begin{enumerate}
+        \item The polymer repeat unit arises from the reaction of two different functional groups, which \emph{usually} originate on different monomers. In this case, the repeat unit is ifferent from either monomer. In addition, small molecules are \emph{often} eliminated during the condensation reaction.
+        \item Mechanistically, the reactions occur in steps; in other words, the formation of the linkage functional group between two small molecules is not essentially different from that between one of these growing polymers and a monomer.
+        \item The product molecules have the functional groups formed by the condensation reactins interspersed regularly along the backbone of the polymer molecule.
+    \end{enumerate}
+    \item Properties of condensation polymerizations.
+    \begin{itemize}
+        \item Either two difunctional monomers with different functional groups, or one difunctional monomer with a functional group of each kind.
+        \begin{itemize}
+            \item Beware the creation of loops!
+        \end{itemize}
+        \item Very sensitive to impurities.
+        \begin{itemize}
+            \item Example: Trace methanol in a polyester condensation could cap some carbonyl derivatives as methyl esters, preventing them from reacting further.
+        \end{itemize}
+        \item Functionality greater than 2 can introduce branching.
+        \item Introduction of reagents with varying functionalities in carefully controlled amounts affords control over polymer size and geometry.
+    \end{itemize}
+    \item The physics in this text apply equally well to organic and inorganic (e.g., PDMS) polymers.
+    \item Biopolymers are briefly introduced.
+    \item Polymer nomenclature.
+    \item IUPAC recommendation.
+    \begin{itemize}
+        \item Polymers formed from a single monomer.
+        \begin{itemize}
+            \item Take the IUPAC name of the monomer, enclose it in parentheses, and add the prefix "poly".
+            \item Example: poly(1-chloroethylene) for PVC.
+            \item Polymers need not be synthesized from the monomer named. For example, poly(1-hydroxyethylene) is synthesized from the hydrolysis of poly(1-acetoxyethylene).
+        \end{itemize}
+        \item Polymers formed from multiple monomers.
+        \begin{itemize}
+            \item Apply the preceding rules to the repeat unit.
+            \item Example: poly(hexamethylene adipamide) is nylon-6,6.
+        \end{itemize}
+        \item Commercially important cross-linked polymers.
+        \begin{itemize}
+            \item Typically go without names, or at best, by specifying the monomers that go into it.
+            \item Example: "Phenol-formaldehyde resin" for bakelite.
+        \end{itemize}
+    \end{itemize}
+    \item Notes on common names.
+    \begin{itemize}
+        \item Many polymers have a common/outdated chemical name, a trade name, and/or an acronym.
+        \item Examples: polyethylene glycol, Teflon, PVC.
+    \end{itemize}
+    \item On positional isomerism.
+    \begin{itemize}
+        \item Head-to-head addition is more common (1) at higher temperatures and (2) with halogenated monomers.
+        \item Head-to-tail is dominant because of (1) resonance stabilization at the head positoin and (2) steric exposure of the tail.
+        \item Polymer cleavage can provide information about head-head vs. head-tail polymerization: Since diols are cleavable by periodate, poly(vinyl alcohol) can have its weight measured, be subject to cleavage conditions, and have the resultant fragments' weight remeasured to calculate the average frequencey of diols.
+    \end{itemize}
+    \item Stereoisomerism reviewed.
+    \item On geometric isomerism.
+    \begin{itemize}
+        \item Not only can you have \emph{cis}- or \emph{trans}-backbones, but isoprene (for example) can polymerize through either --- or both! --- of its double bonds.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
