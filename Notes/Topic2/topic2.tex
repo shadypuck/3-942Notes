@@ -1,0 +1,334 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\stepcounter{chapter}
+
+\begin{document}
+
+
+
+
+\chapter{Solution Thermodynamics}
+\section{Flory-Huggins Theory}
+\begin{itemize}
+    \item \marginnote{9/18:}Outline of the next three lectures.
+    \begin{itemize}
+        \item Thermodynamics of polymer solutions and blends.
+        \begin{itemize}
+            \item Entropy of mixing.
+            \item Enthalpy of mixing.
+            \item Flory interaction parameter (definition and measurements).
+            \item Solutions and melts (the theta temperature).
+            \item LCST vs. UCST.
+        \end{itemize}
+        \item Copolymers.
+        \begin{itemize}
+            \item Microphase separation.
+            \item Interfacial free energy.
+            \item Chain stretching and configurational free energy.
+        \end{itemize}
+    \end{itemize}
+    \item Huggins\footnote{"HOY-gins"}.
+    \item We're going to start by approximating polymers as straight chains on a lattice.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{polymPhase.png}
+        \caption{Lattice theory for polymer phase behavior.}
+        \label{fig:polymPhase}
+    \end{figure}
+    \begin{itemize}
+        \item When we heat them up, will they stay phase separated or mix (go into State 2)?
+        \item This will depend on how \textbf{compatible} they are.
+    \end{itemize}
+    \item \textbf{Compatible} (polymers): Two different types of polymers that like to mix with each other to form a single phase.
+    \item The original model for phase behavior was postulated by \textcite{bib:alloyPhase} for small molecules and alloys.
+    \begin{itemize}
+        \item \textcite{bib:polymPhasea} and \textcite{bib:polymPhaseb} generalized this model to longer things (polymers).
+        \item Flory was a Stanford prof., but started in the petroleum business (needed to separate chains and understand how they behave).
+    \end{itemize}
+    \item The thermodynamics of polymer solutions and blends are important for many applications, such as\dots
+    \begin{itemize}
+        \item Phase diagrams;
+        \item Fractionation by molecular weight and/or by composition;
+        \item $T_m$ depression in a semicrystalline polymer by a 2nd component;
+        \item Swelling behavior of networks/gels;
+        \begin{itemize}
+            \item Covered much later in the course.
+        \end{itemize}
+    \end{itemize}
+    \item High-impact polystyrene (HIPS).
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\linewidth]{salamiPhase.png}
+        \caption{Salami phase micrograph in styrene-butadiene mixtures.}
+        \label{fig:salamiPhase}
+    \end{figure}
+    \begin{itemize}
+        \item Example: circular plastic dishes in lab. Hard, but very brittle.
+        \item Idea to make better: Mix a stiff but brittle polymer (PS) with a soft elastic polymer (polybutadiene, PB) to get better mechanical properties.
+        \item Cracks cannot propagate because they will hit rubbery phases of PB that have phase separated on the nanoscale, and be absorbed.
+        \begin{itemize}
+            \item This is called the \textbf{salami phase} because of how micrographs look.
+        \end{itemize}
+        \item Effect: Stress-strain curve elongates significantly (\textbf{toughness} increases because that is the area under the curve).
+    \end{itemize}
+    \item Aside: Making things look clear requires a lot of polymer engineering, because you have to make things very amorphous and not have nanoscale crystals.
+    \item Thermodynamics of polymer blends.
+    \begin{itemize}
+        \item Legos are made of statistical copolymers of acrylonitrile-butadiene-styrene (ABS).
+        \item Acrylonitrile gives resistance to repeated clicking and unclicking, butadiene makes it rubbery, styrene makes it shiny.
+    \end{itemize}
+    \item Today: Derive a free energy functional.
+    \begin{itemize}
+        \item Last lecture, we derived a free energy functional for single chains.
+    \end{itemize}
+    \item Today, we're looking at $G=H-TS$.
+    \begin{itemize}
+        \item What we're really interested in is the free energy of mixing,
+        \begin{equation*}
+            \Delta G = G_{1,2}-(G_1+G_2)
+        \end{equation*}
+        \item In multicomponent systems --- besides the typical parameters of excluded volume, etc. --- we need to know\dots
+        \begin{itemize}
+            \item How many chains we have of each type;
+            \item What their degree of polymerization is;
+            \item What total volume do they occupy.
+        \end{itemize}
+        \item Thus, in State 1, we have
+        \begin{align*}
+            V_1 &= n_1N_1v_1&
+            V_2 &= n_2N_2v_2
+        \end{align*}
+        which describes two separate phases\dots
+        \begin{itemize}
+            \item Containing $n_i$ moles of species $i$;
+            \item With degree of polymerization $N_i$;
+            \item Each occupying a total volume $V_i$.
+        \end{itemize}
+        \item In State 2, we have a mixed phase with total volume
+        \begin{equation*}
+            V = \underbrace{n_1N_1v_1}_{V_1}+\underbrace{n_2N_2v_2}_{V_2}
+        \end{equation*}
+        \item Note that we're assuming that there is no change in volume $\Delta V$ during mixing.
+        \item Nomenclature: If a system is comprised of a solvent and polymer, name the solvent "1" and the polymer "2".
+    \end{itemize}
+    \item To understand the thermodynamics of mixing, we'll start with the \emph{entropy} of mixing.
+    \begin{itemize}
+        \item Comments.
+        \begin{itemize}
+            \item In a melt, most chains do not feel themselves because other chains screen the interaction of the original chain with itself.
+            \item This is great for us, because everything behaves like a truly random walk with scaling relation $N^{1/2}$.
+            \begin{itemize}
+                \item This realization is what won Flory his Nobel Prize!
+            \end{itemize}
+        \end{itemize}
+        \item There is only 1 possible way to arrange a pure component in its volume.
+        \begin{itemize}
+            \item This follows from the binomial expression $\binom{n_iN_i}{n_iN_i}$.
+            \item Thus, when phases are separated, each phase has entropy $S=0$.
+        \end{itemize}
+    \end{itemize}
+    \item Mean field lattice theory.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{latticeConfig.JPG}
+        \caption{Configurations in mean field lattice theory.}
+        \label{fig:latticeConfig}
+    \end{figure}
+    \begin{itemize}
+        \item We get another binomial because we're adjacent to a random walk where we have 1 or 2 in each adjacent cell as we go along.
+        \item As we fill up the grid, we first have access to all $X_0$ of the objects. Then we have 1 less, then we have 2 less, etc.
+        \begin{itemize}
+            \item But since all the objects in group 1 or group 2 are the same, we need to divide out by the number of objects $X_1$ in category 1. We need to do the same because all objects in $X_2$ are the same.
+            \item Thus,
+            \begin{equation*}
+                \Omega_{1,2} = \frac{X_0!}{X_1!X_2!}
+            \end{equation*}
+        \end{itemize}
+        \item It follows that the change entropy $\Delta S$ upon mixing is
+        \begin{equation*}
+            \Delta S = \kB\ln\Omega_{1,2}-0
+        \end{equation*}
+        \begin{itemize}
+            \item Remember that the initial entropy is zero!
+        \end{itemize}
+        \item Invoking Stirling's approximation and remembering that $X_1+X_2=X_0$, we can then get
+        \begin{align*}
+            \frac{\Delta S}{\kB} &= X_0\ln X_0-X_0-\left[ X_1\ln X_1-X_1+X_2\ln X_2-X_2 \right]\\
+            &= X_0\ln X_0-X_1\ln X_1-X_2\ln X_2
+        \end{align*}
+        \item It follows that the entropy per site $\Delta S/\kB X_0$ is
+        \begin{equation*}
+            \frac{\Delta S}{\kB X_0} = \frac{1}{X_0}\left[ (X_1+X_2)\ln X_0-X_1\ln X_1-X_2\ln X_2 \right]
+        \end{equation*}
+        \item Now use the form of the above equation to define the variables $\phi_i$ ($i=1,2$) as follows.
+        \begin{equation*}
+            -\frac{X_1}{X_0}\ln\frac{X_1}{X_0}-\frac{X_2}{X_0}\ln\frac{X_2}{X_0} = -\phi_1\ln\phi_1-\phi_2\ln\phi_2
+        \end{equation*}
+        \begin{itemize}
+            \item It follows that $\phi_i=X_i/X_0$ is the volume fractions for spaces $i$.
+            \item Consequence: $\phi_1+\phi_2=1$.
+        \end{itemize}
+    \end{itemize}
+    \item Note: An assumption underlying the use of the Boltzmann equation is that all microstates have equal energy. This isn't strictly true, but it's a good enough approximation.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [xshift=-0.5cm,yshift=-0.5cm] (0,0) grid (2,2);
+                \draw [gray,dashed] (0,0) rectangle (1,1);
+
+                \filldraw [draw=gray,fill=rex] (0,0) circle (2.5mm);
+                \filldraw [draw=gray,fill=blx] (1,0) circle (2.5mm);
+                \filldraw [draw=gray,fill=blx] (0,1) circle (2.5mm);
+                \filldraw [draw=gray,fill=rex] (1,1) circle (2.5mm);
+            \end{tikzpicture}
+            \caption{Energy $E_1$ system.}
+            \label{fig:nearNeighbora}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [xshift=-0.5cm,yshift=-0.5cm] (0,0) grid (2,2);
+                \draw [gray,dashed]
+                    (0,0) -- (1,0)
+                    (0,1) -- (1,1)
+                ;
+
+                \filldraw [draw=gray,fill=blx] (0,0) circle (2.5mm);
+                \filldraw [draw=gray,fill=rex] (1,0) circle (2.5mm);
+                \filldraw [draw=gray,fill=blx] (0,1) circle (2.5mm);
+                \filldraw [draw=gray,fill=rex] (1,1) circle (2.5mm);
+            \end{tikzpicture}
+            \caption{Energy $E_2$ system.}
+            \label{fig:nearNeighborb}
+        \end{subfigure}
+        \caption{Nearest neighbor interactions.}
+        \label{fig:nearNeighbor}
+    \end{figure}
+    \begin{itemize}
+        \item Example: Assume nearest neighbor interactions matter.
+        \item Let opposing objects in neighboring cells contribute energy $\varepsilon_1$ to the total energy of the system. This means that in Figure \ref{fig:nearNeighbor}, $E_1=4\varepsilon_1$ and $E_2=2\varepsilon_2$.
+        \item In big systems, the energy won't fluctuate much, though, so Boltzmann equation is more of an approximation, but it's \emph{good enough}.
+    \end{itemize}
+    \item Mean field mixing enthalpy.
+    \begin{itemize}
+        \item Assume the lattice has $z$ nearest-neighbor cells.
+        \item To calculate enthalpic interactions, we consider the number of pairwise interactions.
+        \item But in a mean field approximation, we wash out some detail by mixing red and blue to make purple. We say that \emph{on average}, your neighbor one away from you is proportional to the composition (because it might be red, then blue, then red again). Quick exchange of neighbors.
+        \begin{itemize}
+            \item You can build on this with weights, but this is the purest sense of a mean field approximation.
+        \end{itemize}
+        \item The mean field approximation breaks down when mixing breaks down, i.e., when you start to get some clusters of pure one thing and pure another thing.
+    \end{itemize}
+    \item Enthalpy of mixing.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Uwell.JPG}
+        \caption{Potential well.}
+        \label{fig:Uwell}
+    \end{figure}
+    \begin{itemize}
+        \item We need to count each interaction. It follows from the above that the number of $ij$ interactions is.
+        \begin{align*}
+            \xi_{11} &= \frac{X_1z\phi_1}{2}&
+            \xi_{22} &= \frac{X_2z\phi_2}{2}&
+            \xi_{12} &= X_1z\phi_2
+        \end{align*}
+        \item In a typical attraction well, we have a most probable distance $a$, at which the energy depth is $\varepsilon$ (see Figure \ref{fig:Uwell}).
+        \item Let $\varepsilon_{ij}$ refer to how deep the well is between species $i$ and $j$, where $i,j\in\{1,2\}$.
+        \item It follows that in a mixed enthalpic state, the interaction energy is the following.
+        \begin{align*}
+            H_{1,2} &= \xi_{12}\varepsilon_{12}+\xi_{11}\varepsilon_{11}+\xi_{22}\varepsilon_{22}\\
+            &= zX_1\phi_2\varepsilon_{12}+\frac{zX_1\phi_1\varepsilon_{11}}{2}+\frac{zX_2\phi_2\varepsilon_{22}}{2}
+        \end{align*}
+        \begin{itemize}
+            \item In pure enthalpic states, the interaction energies are the following.
+            \begin{align*}
+                H_1 &= \frac{zX_1\varepsilon_{11}}{2}&
+                H_2 &= \frac{zX_2\varepsilon_{22}}{2}
+            \end{align*}
+        \end{itemize}
+        \item Assuming that volume is constant, energy and enthalpy are the same (we're actually calculating energy but operating under this assumption).
+        \item It follows that
+        \begin{align*}
+            \Delta H_M &= H_{1,2}-(H_1+H_2)\\
+            &= z\left[ X_1\phi_2\varepsilon_{12}+\frac{X_1\varepsilon_{11}}{2}(\phi_1-1)+\frac{X_2\varepsilon_{22}}{2}(\phi_2-1) \right]
+        \end{align*}
+        and hence
+        \begin{align*}
+            \frac{\Delta H_M}{X_0} &= z\left[ \phi_1\phi_2\varepsilon_{12}+\frac{\phi_1\varepsilon_{11}}{2}(-\phi_2)+\frac{\phi_2\varepsilon_{22}}{2}(-\phi_1) \right]\\
+            \frac{\Delta H_M}{X_0\kB T} &= \frac{z}{\kB T}\left\{ \phi_1\phi_2\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right] \right\}\\
+            &= \phi_1\phi_2\chi
+        \end{align*}
+        where
+        \begin{equation*}
+            \chi := \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+        \end{equation*}
+        is the \textbf{Flory $\bm{\chi}$ parameter}.
+        \item Implication: If they like themselves more than they like each other (right diagram), chi parameter will be positive and will between the middle two lines (we don't know here if it will mix or demix).
+    \end{itemize}
+    \item The $\chi$ parameter is still being debated today; Alfredo is writing a paper on it!
+    \begin{itemize}
+        \item The parameter as written is linear, but that's based on a mean field assumption. Should it have a quadratic term? Maybe it does at a (more accurate) higher level of theory.
+    \end{itemize}
+    \item At this point, we can assemble everything into the free energy for monomers.
+    \item How about for polymers?
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{latticePolym.JPG}
+        \caption{Fitting polymers into a square lattice.}
+        \label{fig:latticePolym}
+    \end{figure}
+    \begin{itemize}
+        \item We have to pick $N$ adjacent sites.
+        \item Then the next time we pick is the number of sites minus $N$! And on and on.
+        \item This essentially reduces the number of sites by $N_1$ and $N_2$.
+        \item When $N$ is very big, this equation tells us that entropy doesn't play a huge role (because $N_1,N_2$ in the denominator). Thus, enthalpy matters more for polymers.
+    \end{itemize}
+    \item Finally, we have gotten to the "famous Flory-Huggins theory of free energy."
+    \begin{equation*}
+        \frac{\Delta G_M}{X_0} = \kB T\left( \chi\phi_1\phi_2+\frac{\phi_1}{N_1}\ln\phi_1+\frac{\phi_2}{N_2}\ln\phi_2 \right)
+    \end{equation*}
+    \begin{itemize}
+        \item We get this by adding the enthalpic and entropic contributions via the .
+    \end{itemize}
+    \item How do we measure $\chi$ experimentally?
+    \begin{itemize}
+        \item We will explore this soon.
+    \end{itemize}
+    \item Influence of $\chi$ on phase behavior.
+    \begin{itemize}
+        \item When $\chi$ reaches 2-3, we get demixing.
+        \item When $\chi=2$, free energy is largely flat. Thus, very different compositions have similar free energy, which means that the system will "undergo a 2nd order transition where all length scales are viable."
+    \end{itemize}
+    \item A parameter that has gained more importance in recent years: The coordination number $z$.
+    \begin{itemize}
+        \item It turns out that the more neighbors you have, the better mean-field behavior you get.
+        \item This is essentially because you're averaging over more values.
+        \item Recent finding: $\chi$ is pretty good if $z$ is big; if $z$ is small, quadratic and other higher order corrections may be necessary for $\chi$.
+    \end{itemize}
+    \item The $\chi$ at which you see phase separation decreases exponentially with increasing $N_A=N_B=N$.
+    \begin{itemize}
+        \item $N$ is just how long the chains are!
+    \end{itemize}
+    \item Preliminaries to next class.
+    \begin{itemize}
+        \item Construction of phase diagrams.
+        \begin{itemize}
+            \item You have a critical point graph that gets flipped??
+            \item Inside one is binodal line; outside one is spinodal line.
+        \end{itemize}
+        \item Between the two inflection points, the system is unstable.
+        \item Concave curvature puts sum of two free energies below the points.
+        \item You will evolve toward the two lowest energy points, phase separating as needed.
+        \item Demixing occurs by nucleation and growth.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
