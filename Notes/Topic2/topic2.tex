@@ -330,5 +330,197 @@
 
 
 
+\section{The Theta State}
+\begin{itemize}
+    \item \marginnote{9/23:}Announcements.
+    \begin{itemize}
+        \item PSet 2 posted; due midnight next Tuesday.
+    \end{itemize}
+    \item Last time: Flory-Huggins polymers.
+    \item Today, let's begin by thinking about the equilibrium between the two different phases of a system.
+    \begin{itemize}
+        \item We will quantify this with binodal and spinodal stuff.
+    \end{itemize}
+    \item \textbf{Chemical potential}: The Gibbs free energy of a substance at a given concentration. \emph{Denoted by} $\bm{\mu_i}$. \emph{Given by}
+    \begin{equation*}
+        \mu_i := \left( \pdv{G}{n_i} \right)_{T,P,N,n_j}\tag{$j\neq i$}
+    \end{equation*}
+    \item \textbf{Coexistence curve}: The set of points where the chemical potentials are equal. \emph{Also known as} \textbf{binodal curve}.
+    \begin{itemize}
+        \item The coexistence curve encloses all compositions wherein the mixture demixes into two distinct, coexisting phases.
+        \item Symbolically, letting the two phases in the mixture be called prime and double prime, we have for each component 1 and 2 that
+        \begin{align*}
+            \mu_1' &= \mu_1''&
+            \mu_2' &= \mu_2''
+        \end{align*}
+        \item In PSet 2, we'll derive one of the expressions on this slide.
+    \end{itemize}
+    \item Spinodal inflection points are where the 2nd derivative is zero.
+    \begin{itemize}
+        \item Critical points has 2nd and 3rd derivatives equal to zero.
+        \item \emph{equations in slides}
+    \end{itemize}
+    \item Polymer-solvent solutions.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{demix.JPG}
+        \caption{Demixing of a polymer-solvent solution.}
+        \label{fig:demix}
+    \end{figure}
+    \begin{itemize}
+        \item An interesting way of thinking about this: Osmometry.
+        \item Imagine a uniform, mixed polymer solution.
+        \begin{itemize}
+            \item We can demix to a state where the polymer is all clumped together.
+            \item The clumps still have some solvent in them though.
+        \end{itemize}
+        \item The phase separation stops when a solvent molecule \emph{inside} and \emph{outside} the polymer clump has the same chemical potential.
+        \item Important relevant expressions.
+        \begin{align*}
+            \mu_1-\mu_1^\circ &= RT\left[ \ln\phi_1+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]\\
+            \mu_2-\mu_2^\circ &= RT\left[ \ln\phi_2+(N_2-1)\phi_2+N_2\chi\phi_2^2 \right]
+        \end{align*}
+        \begin{itemize}
+            \item Remember that by convention, phase 1 is the solvent and phase 2 is the polymer.
+            \item Notice the multiplying vs. dividing of $N_2$.
+            \item For a polydisperse system of polymer chains, let $N_2=\prb{N_2}=\Mn$.
+        \end{itemize}
+        \item We'll now massage the above expressions to get some more mechanistic understanding out of them.
+    \end{itemize}
+    \item Chemical potential for a dilute solution.
+    \begin{itemize}
+        \item Since we are positing a dilute solution, we may use the approximation that the volume fraction of component 2 is small. This will allow us to expand the expressions.
+        \item For small $x$, the following approximation holds.
+        \begin{equation*}
+            \ln(1-x) = -x-\frac{x^2}{2}-\cdots-\frac{x^n}{n}-\cdots
+        \end{equation*}
+        \begin{itemize}
+            \item We can use fewer terms for quite small $x$.
+        \end{itemize}
+        \item It also follows from the assumptions that (1) the solution is dilute, i.e., $n_1\gg n_2N_2$ and (2) that the volume of the monomers is approximately equal, i.e., $v_1\approx v_2$ that
+        \begin{align*}
+            \phi_1 &= \frac{n_1v_1}{n_1v_1+n_2N_2v_2}&
+            \phi_2 &= \frac{n_2N_2v_2}{n_1v_1+n_2N_2v_2} \approx \frac{n_2N_2}{n_1}
+        \end{align*}
+        \item We thus expand
+        \begin{align*}
+            \ln(1-\phi_2) &\approx -\phi_2-\frac{1}{2}\phi_2^2
+        \end{align*}
+        \item It follows that
+        \begin{align*}
+            \frac{\mu_1-\mu_1^\circ}{RT} &= \ln(1-\phi_2)+1\cdot\phi_2-\frac{1}{N_2}\cdot\phi_2+\chi\phi_2^2\\
+            &= -\phi_2-\frac{1}{2}\phi_2^2+\phi_2-\frac{\phi_2}{N_2}+\chi\phi_2^2\\
+            &= -\frac{\phi_2}{N_2}+\left( \chi-\frac{1}{2} \right)\phi_2^2
+        \end{align*}
+        \begin{itemize}
+            \item Since it's negative, this tells us that the chemical potential $\mu_1$ is always less than $\mu_1^\circ$, which means that the term is always negative, so everything wants to mix.
+            \item In a subsequent course, we describe more results based off of the above equation!
+        \end{itemize}
+    \end{itemize}
+    \item Phase diagram for a dilute polymer solution.
+    \begin{itemize}
+        \item The condition where ?? is the $\theta$ condition.
+        \item Positive $\chi$ means that polymers don't like the solvent as much as they like themselves.
+        \item As $N_2$ increases, we push to lower fractions.
+    \end{itemize}
+    \item It is very difficult to mix high MW polymers because you will need $\chi<2/N$.
+    \item Solubility parameter and $\chi$.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{Hildebrand.JPG}
+        \caption{Hildebrand's experiment.}
+        \label{fig:Hildebrand}
+    \end{figure}
+    \begin{itemize}
+        \item How do we estimate $\chi$?
+        \begin{itemize}
+            \item Hildebrand's interesting idea was to use the enthalpy of vaporization $\Delta H_v$.
+        \end{itemize}
+        \item Experimental setup.
+        \begin{itemize}
+            \item Take your liquid, heat it up, measure how much heat goes into the system, turn it into a gas, and see how the heat has turned into kinetic energy.
+            \item By the time you have heated an object in a lattice, your are neighborless; you have no potential energy.
+            \item We now have
+            \begin{align*}
+                \delta &= \left( \frac{\Delta E}{V} \right)^{1/2}
+            \end{align*}
+            \item We'll now calculate $\delta_1$ and $\delta_2$ for species 1 and 2, the \textbf{solubility parameters} of the components.
+            \begin{align*}
+                \delta_1 &= \sqrt{\frac{Z}{2}\frac{\varepsilon_{11}}{v}}&
+                \delta_2 &= \sqrt{\frac{Z}{2}\frac{\varepsilon_{22}}{v}}
+            \end{align*}
+            \item We then use \textbf{Berthelot's mixing rule} (which uses the geometric mean) to get $\varepsilon_{12}$:
+            \begin{equation*}
+                \varepsilon_{12} = \sqrt{\varepsilon_{11}\varepsilon_{22}}
+            \end{equation*}
+            \item Now imagine two points 1 and 2 separated by a distance $r$, as in Figure \ref{fig:monomerGasc}.
+            \begin{equation*}
+                U_\text{attractive} = -\frac{\alpha_1\alpha_2}{r^6}
+            \end{equation*}
+            \begin{itemize}
+                \item Scales as $1/r^6$, and also has the \textbf{polarizability} / \textbf{polarizability volumes}.
+                \item This is related to dipole-induced dipole attractions; when you average over all possible combinations, this relation falls out. And that's what Lennard and Jones based their use of $1/r^6$ as the attractive term on!
+                \item In PSet 2, we will prove that this attraction rule is "like likes like."
+            \end{itemize}
+            \item Then
+            \begin{equation*}
+                (\delta_1-\delta_2)^2 = \frac{1}{v}\left( \frac{z\varepsilon_{11}}{2}+\frac{z\varepsilon_{22}}{2}-z\varepsilon_{12} \right)
+            \end{equation*}
+            \item Now just multiply by $v/\kB T$ to get the $\chi$ parameter.
+            \begin{itemize}
+                \item $v$ is a volume.
+            \end{itemize}
+            \item This gets us to the \textbf{Hildebrand equation}
+            \begin{equation*}
+                \Delta H_M = V_m\phi_1\phi_2(\delta_1-\delta_2)^2 \geq 0
+            \end{equation*}
+            \begin{itemize}
+                \item This works better for nonpolar than polar species.
+                \item $V_m$ is the average molar volume of solvent / monomers.
+            \end{itemize}
+            \item See \textcite{bib:RubinsteinColby} for an in-depth discussion of this setup.
+        \end{itemize}
+    \end{itemize}
+    \item Let's now compare the curve with experiments.
+    \begin{itemize}
+        \item PS in cyclohexane.
+        \item Dashed lines are the Flory-Huggins theory, which clearly doesn't look like the experiment at all.
+        \begin{itemize}
+            \item This is because of Flory's mean field assumption, which doesn't hold here. Indeed, as you heat up, you will be more likely to have the same neighbor.
+            \item Actual curve is wrong, but scaling is correct (this happens in several of Flory's theories).
+        \end{itemize}
+        \item Reference: \textcite{bib:ShultzFlory}.
+    \end{itemize}
+    \item Phase diagrams of polymer-polymer blends.
+    \begin{itemize}
+        \item $\phi$ for the fraction that a chain occupies is
+        \begin{equation*}
+            \phi = \frac{Nv}{(N^{1/2}\ell)^3} \approx \frac{v}{\ell^3}N^{-1/2}
+        \end{equation*}
+    \end{itemize}
+    \item Two principal types of phase diagrams.
+    \begin{itemize}
+        \item Demixing at higher temperatures, vs. mixing at higher temperatures.
+        \item Poly(methyl methacrylate) / styrene-\emph{co}-acrylonitrile demixes at increased temperature (because molecules are polar).
+        \item Polystyrene / polyisoprene mixes at higher temperatures.
+        \item PEG and PMMA have a negative $\chi$ at room temperature. PEG and \ce{H2O} is similar (you heat it up, and the polymer comes out of solution).
+        \item pNIPAM undergoes a transition around \SIrange{32}{34}{\celsius}.
+        \item Attraction gives rise to a low or negative $\chi$.
+        \item A number of references on polymer blends are included in the slides!
+    \end{itemize}
+    \item You can arrest a spinodal decomposition by heating and then cooling very quickly.
+    \item Applications of FH theory.
+    \begin{itemize}
+        \item Biocondensates and membrane-free organelles (like the nucleolus and centrioles). Identified another bunch of these after they expanded their defintion of organelles! These things come together because of FH theory.
+    \end{itemize}
+    \item Next time.
+    \begin{itemize}
+        \item Self-assembly.
+        \item The PSet 2 might be a bit long, so start early! We should currently be able to do every problem up to 3, and after Thursday, we should be able to do every problem.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
