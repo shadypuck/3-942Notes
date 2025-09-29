@@ -522,5 +522,274 @@
 
 
 
+\section{Phase Behavior, Melting Point Depression, Osmometry, and Microphase Separation}
+\begin{itemize}
+    \item \marginnote{9/25:}Last time.
+    \begin{itemize}
+        \item Entities that are not covalently bonded.
+    \end{itemize}
+    \item Today.
+    \begin{itemize}
+        \item Entities that \emph{are} connected together.
+        \begin{itemize}
+            \item You cannot get rigid phase separation here.
+            \item Self-assembly is a thing.
+        \end{itemize}
+    \end{itemize}
+    \item Lecture outline.
+    \begin{itemize}
+        \item Copolymers.
+        \begin{itemize}
+            \item Microphase separation.
+            \item Interfacial free energy.
+            \item Chain stretching and configuraitonal free energy.
+            \begin{itemize}
+                \item This will bring back concepts from Professor Doyle's class.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item A bit more on biocondensates (not testable material).
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{bioNetwork.JPG}
+        \caption{Simplified graph of a biochemical network.}
+        \label{fig:bioNetwork}
+    \end{figure}
+    \begin{itemize}
+        \item Correction: The protein discussed last time goes into solution if you \emph{add} salt.
+        \item Principle in biology: At some point, it gets better to have things that do multiple tasks poorly than one task really well.
+        \begin{itemize}
+            \item This is because it takes energy to produce proteins.
+            \item Example: In computer science, engineers used to spend a lot of time to make 1 really nice transistor. But now, they go for a lot of transistors that are almost all the same and you connect them in different ways. Now you can do basically any task, but not all of them are great. In D. E. Shaw, they have a computer that \emph{only} runs molecular dynamics (1000 times faster than Nvidia GPUs), but that's the only thing it does.
+            \item So since we need a lot of functions in a cell and we don't want to produce a lot of very specialized proteins, it's better to be a bit more general.
+        \end{itemize}
+        \item Suppose you have a (biochemical) network, and we control each transition between nodes locally (Figure \ref{fig:bioNetwork}).
+        \begin{itemize}
+            \item If we want to actually do complex computation with the system, having junctions that act on a number of different nodes is helpful.
+        \end{itemize}
+        \item Takeaway: Random things and disorder in a cell gives you capabilities beyond perfectly folded structures, like proteins and enzymes.
+    \end{itemize}
+    \item This concludes content from last time; we now move onto today's content.
+    \item Self-assembly of simplified systems (relative to cells).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{selfAssembly.png}
+        \caption{Self-assembly of an ABC triblock copolymer.}
+        \label{fig:selfAssembly}
+    \end{figure}
+    \begin{itemize}
+        \item What aspects of an ABC triblock copolymer affect its organization?
+        \item There will be \textbf{intra interactions} $\chi_{AB}$, $\chi_{AC}$, and $\chi_{BC}$ between the various components of the chain.
+        \item Let the chain have total length $N$, and let each of the three segments have length $N_i$.
+        \begin{itemize}
+            \item Then we have $N_A$, $N_B$, and $N_C=N-N_A-N_B$.
+        \end{itemize}
+        \item If we have something like (a) of Figure \ref{fig:selfAssembly}, then we probably have $N_A=N_B=N_C$ (becasue everything is nice and equally ordered) and $\chi_{AC}<\chi_{AB}\approx\chi_{BC}$ (because we have AB and BC interfaces, but not AC interfaces).
+        \item Note: These images are not made up; all of them have been seen.
+    \end{itemize}
+    \item If we can do everything in Figure \ref{fig:selfAssembly} with 3 things, imagine how much we can do with the 20 amino acids!
+    \begin{itemize}
+        \item Note on the "hydrophobic" amino acids: They have branching (see valine, leucine, isoleucine)! Nature doesn't just use \emph{n}-alkyl chains of different length because the methyl groups sticking off have partial charges of 0.4 (40\% the charge of an electron), which makes them still pretty polar.
+        \item Tyrosine can use its phenolic substiuent to \emph{enhance} its $\pi$-cation non-covalent interactions relative to phenylalanine.
+    \end{itemize}
+    \item Key question: How can a homogeneous state go to a semiordered state, to an even more ordered state?
+    \begin{itemize}
+        \item Example: Unfolded protein, to good prions, to rogue prions.
+        \item Aside: In rogue prions, there is an exposed $\beta$-pleated sheet, which will stack vertically with the $\beta$-pleated sheets of other prions. This stacking is what causes the brain to shut down in Mad Cow Disease.
+    \end{itemize}
+    \item Goals for self-assembly.
+    \begin{itemize}
+        \item Understand the key concepts behind the process of self-assembly, in particular for the case of block copolymers.
+        \item Construct a simple formalism to determine which variables contribute more relative to other ones.
+        \item Recent stuff on how to control self-assembly using external methods.
+    \end{itemize}
+    \item \textbf{Min-max principle}: Phases are most stable when we (1) minimize interfacial energy and (2) maximize the conformational entropy of the chains.
+    \item The min-max principle governs self-assembly.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{ordering.png}
+        \caption{Ordering of a diblock copolymer.}
+        \label{fig:ordering}
+    \end{figure}
+    \begin{itemize}
+        \item As we transition from a homogeneous, disordered state to an ordered state, we develop an interface.
+        \begin{itemize}
+            \item This interface is technically termed the \textbf{IMDS}, or inter-material dividing surface.
+        \end{itemize}
+        \item In the disordered phase, entropy is maximized\dots but we're paying an enthalpic price because of the contact between groups that don't like each other.
+        \item The subscript $c$ in Figure \ref{fig:ordering} means "critical."
+        \begin{itemize}
+            \item Remember that $\chi N$ controls whether or not we develop microdomains (more on this below). We will investigate this in PSet 2, too.
+        \end{itemize}
+    \end{itemize}
+    \item Principles of self-assembly: Microphase separation in diblock copolymers.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{microphaseSepa.png}
+            \caption{$T>T_\text{ODT}$.}
+            \label{fig:microphaseSepa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{microphaseSepb.png}
+            \caption{$T\approx T_\text{ODT}$.}
+            \label{fig:microphaseSepb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{microphaseSepc.png}
+            \caption{$T<T_\text{ODT}$.}
+            \label{fig:microphaseSepc}
+        \end{subfigure}
+        \caption{Microphase separation in diblock copolymers.}
+        \label{fig:microphaseSep}
+    \end{figure}
+    \begin{itemize}
+        \item Some domains start to form and you get lamellae in time.
+        \item Misconception: Things are not perfectly mixed at one extreme; you start seeing domains earlier. As you go from Figure \ref{fig:microphaseSepa}-\ref{fig:microphaseSepc}, you get into a lamellar state.
+    \end{itemize}
+    \item Microdomain morphologies: Diblock copolymers.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{microphaseMorph.png}
+        \caption{Microphase morphologies in diblock copolymers.}
+        \label{fig:microphaseMorph}
+    \end{figure}
+    \begin{itemize}
+        \item In contrast to Figure \ref{fig:microphaseMorph}, 40-60\% gets you a lamellar state. This accounts for the fact that going on either side of 50\% is equivalent.
+        \item On the outskirts of this, you get \textbf{bicontinuous phases}.
+        \begin{itemize}
+            \item The Double Diamond is heavily sought after in optics.
+            \item Double Gyroid is more common.
+            \item Difference is tri- vs. tetracoordination at the nodes.
+        \end{itemize}
+        \item Then cylinders.
+        \item And an even smaller amount of green gets you spheres.
+    \end{itemize}
+    \item \textbf{Bicontinuous} (phases): Two demixed phases such that for any two points in a single phase, there exists a path between them that never crosses a phase boundary.
+    \item Where are the above morphologies used?
+    \begin{itemize}
+        \item Example: Krayton's / green rubbers.
+        \begin{itemize}
+            \item This is a PS-\emph{block}-PB-\emph{block}-PS polymer, with a big PB domain.
+        \end{itemize}
+        \item The PS ends either land in another domain, or come back to the same domain.
+        \item Good for high-performance applications, like the rubber in an F1 track.
+    \end{itemize}
+    \item We now investigate microdomain spacing for diblock copolymers.
+    \item Variables to be aware of.
+    \begin{itemize}
+        \item $G$ is the free energy per chain;
+        \item $N=N_A+N_B$ is the number of segments per chain.
+        \item $a$ is the step size.
+        \item $\lambda$ is the domain periodicity. \emph{look up definitions!!}
+        \item $\Sigma$ is the interfacial area where the chains actually interact.
+        \item $\gamma_\text{AB}$ is the interfacial energy per unit area. It will be computed using Helfand's equation.
+        \begin{equation*}
+            \gamma_\text{AB} = \frac{\kB T}{a^2}\sqrt{\frac{\chi_\text{AB}}{6}}
+        \end{equation*}
+        \begin{itemize}
+            \item $a$ is the Kuhn length or monomer length, varying depending on the context.
+        \end{itemize}
+        \item $\chi_\text{AB}$ is the same Flory-Huggins interaction parameter we've been looking at in previous lectures.
+    \end{itemize}
+    \item Free energies of these diblock copolymers.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.35\linewidth]{diblockStretch.JPG}
+        \caption{Entropy and enthalpy changes as diblock copolymers are stretched.}
+        \label{fig:diblockStretch}
+    \end{figure}
+    \begin{itemize}
+        \item We have
+        \begin{align*}
+            \Delta G &= (\underbrace{H_2-H_1}_{\Delta H})-T(\underbrace{S_2-S_1}_{\Delta S})\\
+            &= \gamma_\text{AB}\underbrace{\sum-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T}_\text{Enthalpic Term}+\underbrace{\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]}_\text{Entropic Term}
+        \end{align*}
+        \begin{itemize}
+            \item The entropic term relates to the springiness of the polymer.
+            \item Note that $Na^3=\Sigma\cdot\lambda/2$. This essentially equates (1) the total volume occupied by $N$ monomers each of volume $a^3$ and (2) the volume of the cylinder bounding said monomers, a cylinder having height $\lambda/2$ and base area $\Sigma$.
+        \end{itemize}
+        \item Important assumption: Chains want to stretch away from the interface.
+        \begin{itemize}
+            \item Enthalpy goes way down when you have linear strands (everything is near each other). Entropy goes way up here, though, because we're stretching.
+            \item In the other regime, though, area is way bigger. This means we get more enthalpy.
+            \item $\Delta S\approx\lambda^2/a^2N$.
+            \item System will try to find the optimal balance between the two; we want to optimize the length $\lambda$.
+        \end{itemize}
+        \item To find the optimal $\lambda$, we'll want to find the minimum Gibbs free energy as a function of $\lambda$.
+        \begin{equation*}
+            \Delta G(\lambda) = \underbrace{\frac{\kB T}{a^2}\sqrt{\frac{\chi_\text{AB}}{6}}}_{\gamma_\text{AB}}\underbrace{\frac{Na^3}{\lambda/2}}_\Sigma-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T+\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]
+        \end{equation*}
+        \begin{itemize}
+            \item By above definitions and equalities, the first term is the interfacial energy per unit area times the area of the interface.
+        \end{itemize}
+        \item Compressing every non-$\lambda$ variable in the above expression into a constant (termed $\alpha$, $\beta$, $\text{const}_1$, or $\text{const}_2$) reveals that the above equation is of the following general form.
+        \begin{equation*}
+            \Delta G(\lambda) = \frac{\alpha}{\lambda}-\text{const}_1+\beta\lambda^2-\text{const}_2
+        \end{equation*}
+        \item Thus, the optimum period of the lamellae repeat unit is
+        \begin{align*}
+            0 &= \pdv{\Delta G}{\lambda}\\
+            &= -\frac{\alpha}{\lambda_\text{opt}^2}+2\beta\lambda_\text{opt}\\
+            \lambda_\text{opt} &= \sqrt[3]{\frac{\alpha}{2\beta}} = aN^{2/3}\chi_\text{AB}^{1/6}
+        \end{align*}
+        \begin{itemize}
+            \item The result that $\lambda_\text{opt}$ scales as $N^{2/3}$ is important! It implies that chains in microdomains are stretched compared to the homogeneous melt state (in which scaling is the smaller $N^{1/2}$).
+        \end{itemize}
+    \end{itemize}
+    \item Let's now investigate the order-disorder transition temperature.
+    \begin{itemize}
+        \item By substituting $\lambda_\text{opt}$ into our expression for $\Delta G(\lambda)$, we obtain the estimate that
+        \begin{align*}
+            \Delta G(\lambda_\text{opt}) &= \frac{2}{\sqrt{6}}\kB TN\chi_\text{AB}^{1/2}a\lambda_\text{opt}^{-1}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T+\frac{3}{8}\kB T\frac{\lambda_\text{opt}^2}{Na^2}-\frac{3}{2}\kB T\\
+            &= \left( \frac{2}{\sqrt{6}}+\frac{3}{8} \right)\kB TN^{1/3}\chi_\text{AB}^{1/3}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T-\frac{3}{2}\kB T\\
+            &\approx 1.2\kB TN^{1/3}\chi_\text{AB}^{1/3}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T-\frac{3}{2}\kB T\\
+            &\approx 1.2\kB TN^{1/3}\chi_\text{AB}^{1/3}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T
+        \end{align*}
+        \item Since the first two terms are both much greater than the thrid term, we neglect it.
+        \begin{itemize}
+            \item Thus, the sign of $\Delta G$ will depend on which of the two remaining terms is bigger.
+        \end{itemize}
+        \item Let's analyze the case of a 50/50 volume fraction of components A and B. Specifically, we want to know what the critical $N\chi$ value is above which $\Delta G=-$ and we form lamellar microdimains, and below which $\Delta G=+$ and we stay in a homogenous melt.
+        \begin{itemize}
+            \item In a 50/50 split, $\phi_\text{A}=\phi_\text{B}=1/2$. Thus,
+            \begin{equation*}
+                \phi_\text{A}\phi_\text{B} = \frac{1}{4}
+            \end{equation*}
+            \item It follows that the critical $N\chi$ value $(N\chi)_c$ is
+            \begin{align*}
+                \frac{(N\chi)_c}{4} &= 1.2(N\chi)_c^{1/3}\\
+                (N\chi)_c^{2/3} &= 4.8\\
+                (N\chi)_c &\approx 10.5
+            \end{align*}
+            \item Therefore, if $N\chi<10.5$, we'll get a homogeneus, mixed melt; and if $N\chi>10.5$, we'll get demixing into lamellar microdomains.
+        \end{itemize}
+    \end{itemize}
+    \item Other interfaces: Polymer brushes.
+    \begin{itemize}
+        \item Consider a series of polymer strands grown off of a 2D surface.
+        \begin{itemize}
+            \item Let each polymer strand be a distance $D$ away from the next nearest strand. In this sense, each polymer strand can be thought to inhabit a volume of diamater $D$ and height $H$ away from the surface.
+        \end{itemize}
+        \item The polymer strands stretch out more ($H$ increases) when they don't want to interact with the 2D interface.
+        \item What is the energy or enthalpy?
+        \begin{equation*}
+            \Delta H \approx vc^2\cdot HD^2
+        \end{equation*}
+        \begin{itemize}
+            \item $H,D$ are defined as above.
+            \item $v$ is how many two body interactions tere are (counted by mole).
+            \item $c^2$ describes how dense the system is.
+        \end{itemize}
+        \item Here, $\Delta S\approx H^2/a^2N$ (as opposed to $\lambda^2/a^2N$ from earlier).
+        \item We want to minimize $H^2$ and $1/H$ on an $H$ vs. Gibbs free energy graph.
+    \end{itemize}
+\end{itemize}
+
+
+
 
 \end{document}
