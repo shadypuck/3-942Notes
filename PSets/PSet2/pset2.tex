@@ -1,0 +1,91 @@
+\documentclass[../psets.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\leftmark}{Problem Set \thesection}
+\stepcounter{section}
+
+\begin{document}
+
+
+
+
+\section{Solution Thermodynamics}
+\noindent Name: Steven Labalme\\
+\noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
+\noindent Collaborator(s): \emph{None}\\
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item \marginnote{9/30:}Calculate a general expression for chemical potential $\mu-\mu_0$ for species 1 from the Flory-Huggins free energy of mixing that we have seen in class.
+        \item Calculate a general expression for $\chi$ that satisfies the spinodal criterion of a polymer blend from Flory-Huggins theory. Remember that the spinodal satisfies the expression
+        \begin{equation*}
+            \pdv[2]{\Delta G_\text{mix}}{\phi_1} = 0
+        \end{equation*}
+        where $\phi_1$ is the volume fraction of one of the species.
+        \item From your expression for $\chi$ above, plot the spinodal line as a function of $\phi_1$ for the following cases. Please plot all 4 cases separately, and label which region corresponds to 2 phases (only label the 2 phase/phase-separated region; note that from the spinodal alone you cannot with certainty label a homogeneous/1 phase region). MIT has free student site licenses for Excel, Matlab, and Mathematica that you can use for plotting.
+        \begin{enumerate}
+            \item $N_1=N_2=1$.
+            \item $N_1=1$ and $N_2=1000$.
+            \item $N_1=N_2=1000$.
+            \item $N_1=10$ and $N_2=1000$.
+        \end{enumerate}
+        \item Please qualitatively explain the differences in the curves for the cases in part (c).
+        \item From part (b), continue to derive the table for the critical composition and critical interaction parameter shown in class. In other words, find the critical $\chi$ parameter and corresponding volume fraction for the general case, and evaluate it for two low-molecular weight liquids, a solvent-polymer blend, and a polymer-polymer blend. Show your work.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Estimate the Flory interaction parameter $\chi$ between polystyrene and polybutadiene at room temperature if the solubility parameter of polystyrene is $\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$ and the solubility parameter for polybutadiene is $\delta_\text{PB}=\SI{16.2}{\raiseto{1/2}\mega\pascal}$. For simplicity assume $v_0=\SI{100}{\cubic\angstrom}$.
+        \item Show explicitly that Flory's $\chi$ parameter is always positive for nonpolar moleucles whose interaction can be described by the London dispersion potential (van der Waals interaction) given by
+        \begin{equation*}
+            \varepsilon_{ij} = -\frac{k\alpha_i\alpha_j}{r^6}
+        \end{equation*}
+        where $\alpha_i$ is the polarizability of molecule $i$, $k$ is a universal constant, and $r$ is the distance between molecules. Explain your assumptions.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item What is the critical value of $\chi$ required for high molecular mass polymers to dissolve in a solvent in all proportions?
+        \item For a polystyrene-polybutadiene blend, explain under what temperature conditions you expect to find a homogeneously mixed system if the molecular weight of polystyrene is \SI[per-mode=symbol]{e5}{\gram\per\mole} and polybutadiene is \SI[per-mode=symbol]{e4}{\gram\per\mole}. The structures of these two polymers can be found in the literature/online. Describe these temperature conditions at all compositions --- in other words, at what temperature can you guarantee a homogeneously mixed system for any composition? Assume that $\chi$ can be expressed as
+        \begin{equation*}
+            \chi = \frac{A}{T}
+        \end{equation*}
+        where $A$ is a constant you need to determine. Note that the solubility parameters for this system are given in Q2.
+        \item Polymer solutions are not well described by the mean-field theory because the connectivity of the chain keeps monomers from being uniformly distributed in solution (particularly at low polymer concentrations). An empirical form that better relates $\chi$ to the Hildebrand solubility parameter in polymer solutions is widely used with an entropic part of $\chi$ of 0.34, as follows.
+        \begin{equation*}
+            \chi = 0.34+\frac{v_0}{\kB T}(\delta_\text{A}-\delta_\text{B})^2
+        \end{equation*}
+        Using this formula and the following table, decide which solvents will dissolve poly(dimethyl siloxane), for which $\delta_\text{PDMS}=\SI{14.9}{\raiseto{1/2}\mega\pascal}$ and which will dissolve polystyrene ($\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$) at room temperature.
+        \begin{center}
+            \small
+            \renewcommand{\arraystretch}{1.2}
+            \begin{tabular}{c|S|S|S|S|S}
+                \toprule
+                \textbf{Solvent} & {\emph{n}-Heptane} & {Cyclohexane} & {Benzene} & {Chloroform} & {Acetone}\\
+                \midrule
+                \textbf{Molar volume ($\textbf{cm}^{\bm{3}}\bm{/}\textbf{mol}$)} & 195.9 & 108.5 & 29.4 & 80.7 & 74.0\\
+                \textbf{Solubility parameter ($\textbf{MPa}^{\bm{1/2}}$)} & 15.1 & 16.8 & 18.6 & 19.0 & 20.3\\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+    \item The area per chain $\Sigma$ of polymers attached to a surface or interface is an important quantity that influences the thickness of the polymer layer in any resulting morphologies. In general, when the area per chain of the polymer attached to an interface is small enough to induce elongation of the polymer away from that interface, we call this stretched morphology a \textbf{polymer brush}. Microphase separated diblock copolymers can be thought of as similar to polymer brushes, where each block is "attached" to the IMDS and elongates away from it.
+    \begin{enumerate}
+        \item For a microphase-separated compositionally symmetric diblock copolymer, qualitatively explain the free energy contributions that determine the optimal elongation of polymer chains away from the IMDS.
+        \item Consider a linear ABC terpolymer and a 3 arm ABC star terpolymer, each consisting of 33.3\% of the respective A, B and C blocks. Where do you think the center of the star polymer will be pinned?\par
+        Carefully draw a to-scale representation of the expected morphology in the melt state for each type of pure macromolecule for\dots
+        \begin{enumerate}
+            \item A system where all the $\chi$ parameters are positive and equal and the degree of polymerization of each arm is sufficiently large so that microphase separation occurs;
+            \item A system where $\chi_\text{AB}=\chi_\text{BC}>0$ while $\chi_\text{AC}$ is negative.
+        \end{enumerate}
+    \end{enumerate}
+    \item A common example of a polymer brush in real systems consists of homopolymers grafted to a solid surface. Think of this as hairs with a sticky end that can bind to a scalp. If each chain grafted to the surface gains in enthalpy $-\varepsilon$ by sticking to the surface\dots
+    \begin{enumerate}
+        \item Describe what grafting density is necessary for a grafted polymer system to be considered a brush (i.e., when chains overlap and stretch away from surface due to excluded volume effects). Qualitatively, under what condition would brush formation be thermodynamically favorable? \emph{Hint}: Think about overlap of polymer chains.
+        \item Find the optimal grafting density in chains/area for a polymer brush system in terms of $\varepsilon$. Define any variables you use and remember the effect of steric (excluded volume) interactions.
+        \item What is the scaling of the brush height with degree of polymerization in the dense brush regime from Q4b(ii)?
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}
