@@ -17,38 +17,347 @@
     \item 
     \begin{enumerate}
         \item \marginnote{9/30:}Calculate a general expression for chemical potential $\mu-\mu_0$ for species 1 from the Flory-Huggins free energy of mixing that we have seen in class.
+        \begin{proof}
+            The Flory-Huggins expression for the free energy of mixing is
+            \begin{equation*}
+                \frac{\Delta G_M}{X_0} = \kB T\left( \chi\phi_1\phi_2+\frac{\phi_1}{N_1}\ln\phi_1+\frac{\phi_2}{N_2}\ln\phi_2 \right)
+            \end{equation*}
+            Using the identities
+            \begin{align*}
+                \phi_i &= \frac{X_i}{X_0}&
+                X_i &= n_iN_\text{A}N_i\tag{$i=1,2$}
+            \end{align*}
+            we can rewrite the original expression as
+            \begin{equation*}
+                \Delta G_M = RT(N_1\chi\phi_2n_1+n_1\ln\phi_1+n_2\ln\phi_2)
+            \end{equation*}
+            Since the chemical potential requires us to take a derivative with respect to the number $n_1$ of moles of species 1, let's also investigate two helpful derivatives.
+            \begin{align*}
+                \pdv{\phi_1}{n_1} &= \pdv{n_1}(\frac{n_1N_1}{n_1N_1+n_2N_2})&
+                    \pdv{\phi_2}{n_1} &= \pdv{n_1}(\frac{n_2N_2}{n_1N_1+n_2N_2})\\
+                &= \frac{(n_1N_1+n_2N_2)\cdot N_1-n_1N_1\cdot N_1}{(n_1N_1+n_2N_2)^2}&
+                    &= \frac{(n_1N_1+n_2N_2)\cdot 0-n_2N_2\cdot N_1}{(n_1N_1+n_2N_2)^2}\\
+                &= \frac{n_2N_2N_1}{(n_1N_1+n_2N_2)^2}&
+                    &= -\frac{n_2N_2N_1}{(n_1N_1+n_2N_2)^2}\\
+                &= \frac{\phi_2N_1}{n_1N_1+n_2N_2}&
+                    &= -\frac{\phi_2N_1}{n_1N_1+n_2N_2}\\
+                &= \frac{\phi_2\phi_1}{n_1}&
+                    &= -\frac{\phi_2\phi_1}{n_1}
+            \end{align*}
+            It follows that
+            \begin{align*}
+                \mu_1-\mu_1^\circ &= \left( \pdv{\Delta G_M}{n_1} \right)_{T,P,n_2}\\
+                &= RT\left[ N_1\chi(\phi_2'\cdot n_1+\phi_2\cdot 1)+\left( 1\cdot\ln\phi_1+n_1\cdot\frac{\phi_1'}{\phi_1} \right)+n_2\cdot\frac{\phi_2'}{\phi_2} \right]\\
+                &= RT\left[ N_1\chi(\phi_2-\phi_1\phi_2)+(\ln\phi_1+\phi_2)-\frac{\phi_1n_2}{n_1} \right]\\
+                &= RT\left[ N_1\chi\phi_2(1-\phi_1)+(\ln\phi_1+\phi_2)-\frac{N_1\phi_2}{N_2} \right]\\
+                &= RT\left[ N_1\chi\phi_2^2+\ln\phi_1+\left( 1-\frac{N_1}{N_2} \right)\phi_2 \right]\\
+                \Aboxed{\mu_1-\mu_1^\circ &= RT\left[ \ln\phi_1+\left( 1-\frac{N_1}{N_2} \right)\phi_2+N_1\chi\phi_2^2 \right]}
+            \end{align*}
+            Note that we need $\mu_1^\circ$ as a reference because we are taking the partial derivative of the \emph{change} in free energy, as opposed to the partial derivative of free energy \emph{alone} (as in the definition of the chemical potential).
+        \end{proof}
         \item Calculate a general expression for $\chi$ that satisfies the spinodal criterion of a polymer blend from Flory-Huggins theory. Remember that the spinodal satisfies the expression
         \begin{equation*}
-            \pdv[2]{\Delta G_\text{mix}}{\phi_1} = 0
+            \pdv[2]{\Delta G_M}{\phi_1} = 0
         \end{equation*}
         where $\phi_1$ is the volume fraction of one of the species.
+        \begin{proof}
+            The equation
+            \begin{align*}
+                \frac{\Delta G_M}{X_0} &= \kB T\left( \chi\phi_1\phi_2+\frac{\phi_1}{N_1}\ln\phi_1+\frac{\phi_2}{N_2}\ln\phi_2 \right)\\
+                \Delta G_M &= X_0\kB T\left[ \chi\phi_1-\chi\phi_1^2+\frac{\phi_1}{N_1}\ln\phi_1+\frac{1-\phi_1}{N_2}\ln(1-\phi_1) \right]
+            \end{align*}
+            can be viewed as generating a family of $\Delta G_M$ vs. $\phi_1$ curves in 2D space, indexed by the variable $\chi$. To find the set of points in each curve that satisfy the spinodal criterion, we may directly evaluate said criterion and then solve for $\chi$ as a function of $\phi_1$. Let's begin.\par
+            We have that
+            \begin{align*}
+                \pdv{\Delta G_M}{\phi_1} &= X_0\kB T\left\{ \pdv{\phi_1}\left[ \chi\phi_1 \right]-\pdv{\phi_1}\left[ \chi\phi_1^2 \right]+\frac{1}{N_1}\pdv{\phi_1}\left[ \phi_1\ln\phi_1 \right]+\frac{1}{N_2}\pdv{\phi_1}\left[ (1-\phi_1)\ln(1-\phi_1) \right] \right\}\\
+                &= X_0\kB T\left\{ \chi-2\chi\phi_1+\frac{1}{N_1}\left[ 1\cdot\ln\phi_1+\phi_1\cdot\frac{1}{\phi_1} \right]+\frac{1}{N_2}\left[ -1\cdot\ln(1-\phi_1)+(1-\phi_1)\cdot\frac{-1}{1-\phi_1} \right] \right\}\\
+                &= X_0\kB T\left[ \chi-2\chi\phi_1+\frac{1+\ln\phi_1}{N_1}-\frac{1+\ln(1-\phi_1)}{N_2} \right]\\
+                &= \frac{X_0\kB T}{N_1N_2}\left[ \left( N_1N_2\chi+N_2-N_1 \right)-2N_1N_2\chi\phi_1+N_2\ln\phi_1-N_1\ln(1-\phi_1) \right]
+            \end{align*}
+            It follows that
+            \begin{equation*}
+                \pdv[2]{\Delta G_M}{\phi_1} = \frac{X_0\kB T}{N_1N_2}\left[ -2N_1N_2\chi+\frac{N_2}{\phi_1}+\frac{N_1}{1-\phi_1} \right]
+            \end{equation*}
+            Therefore, the desired general expression is
+            \begin{align*}
+                0 &= -2N_1N_2\chi+\frac{N_2}{\phi_1}+\frac{N_1}{1-\phi_1}\\
+                \Aboxed{\chi &= \frac{1}{2N_1\phi_1}+\frac{1}{2N_2(1-\phi_1)}}
+            \end{align*}
+        \end{proof}
+        \pagebreak
         \item From your expression for $\chi$ above, plot the spinodal line as a function of $\phi_1$ for the following cases. Please plot all 4 cases separately, and label which region corresponds to 2 phases (only label the 2 phase/phase-separated region; note that from the spinodal alone you cannot with certainty label a homogeneous/1 phase region). MIT has free student site licenses for Excel, Matlab, and Mathematica that you can use for plotting.
         \begin{enumerate}
             \item $N_1=N_2=1$.
+            \begin{proof}
+                {\color{white}hi}\\
+                \begin{center}
+                    \begin{tikzpicture}[scale=3]
+                        \small
+                        \draw [-latex] (-0.1,0) -- (1.1,0) node[right]{$\phi_1$};
+                        \draw [-latex] (0,-0.3) -- node[pos=0.6,left=7mm]{$\dfrac{\Delta G_M}{X_0\kB T}$} (0,1.1);
+
+                        \footnotesize
+                        \node [below left] {0};
+                        \draw (1,0.033) -- ++(0,-0.066) node[below]{1};
+                        \foreach \y in {0.5,1} {
+                            \draw (0.033,\y) -- ++(-0.066,0) node[left]{$\y$};
+                        }
+
+                        \def\None{1}
+                        \def\Ntwo{1}
+                        \draw [rex,thick] plot [domain=0.001:0.999,smooth] (\x,{(1/(2*\None*\x)+1/(2*\Ntwo*(1-\x)))*\x*(1-\x)+\x/\None*ln(\x)+(1-\x)/\Ntwo*ln(1-\x)});
+
+                        \normalsize
+                        \node at (0.5,0.5) {2 phases};
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
             \item $N_1=1$ and $N_2=1000$.
+            \begin{proof}
+                {\color{white}hi}\\
+                \begin{center}
+                    \begin{tikzpicture}[scale=3]
+                        \small
+                        \draw [-latex] (-0.1,0) -- (1.1,0) node[right]{$\phi_1$};
+                        \draw [-latex] (0,-0.3) -- node[pos=0.6,left=7mm]{$\dfrac{\Delta G_M}{X_0\kB T}$} (0,1.1);
+
+                        \footnotesize
+                        \node [below left] {0};
+                        \draw (1,0.033) -- ++(0,-0.066) node[below]{1};
+                        \foreach \y in {0.5,1} {
+                            \draw (0.033,\y) -- ++(-0.066,0) node[left]{$\y$};
+                        }
+
+                        \def\None{1}
+                        \def\Ntwo{1000}
+                        \draw [rex,thick] plot [domain=0.001:0.999,smooth] (\x,{(1/(2*\None*\x)+1/(2*\Ntwo*(1-\x)))*\x*(1-\x)+\x/\None*ln(\x)+(1-\x)/\Ntwo*ln(1-\x)});
+
+                        \normalsize
+                        \node at (0.5,0.5) {2 phases};
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
             \item $N_1=N_2=1000$.
+            \begin{proof}
+                {\color{white}hi}\\
+                \begin{center}
+                    \begin{tikzpicture}[scale=3]
+                        \small
+                        \draw [-latex] (-0.1,0) -- (1.1,0) node[right]{$\phi_1$};
+                        \draw [-latex] (0,-0.3) -- node[pos=0.6,left=7mm]{$\dfrac{\Delta G_M}{X_0\kB T}$} (0,1.1);
+
+                        \footnotesize
+                        \node [below left] {0};
+                        \draw (1,0.033) -- ++(0,-0.066) node[below]{1};
+                        \foreach \y in {0.5,1} {
+                            \draw (0.033,\y) -- ++(-0.066,0) node[left]{$\y$};
+                        }
+
+                        \def\None{1000}
+                        \def\Ntwo{1000}
+                        \draw [rex,thick] plot [domain=0.001:0.999,smooth] (\x,{(1/(2*\None*\x)+1/(2*\Ntwo*(1-\x)))*\x*(1-\x)+\x/\None*ln(\x)+(1-\x)/\Ntwo*ln(1-\x)});
+
+                        \normalsize
+                        \node at (0.5,0.5) {2 phases};
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
+            \pagebreak
             \item $N_1=10$ and $N_2=1000$.
+            \begin{proof}
+                {\color{white}hi}\\
+                \begin{center}
+                    \begin{tikzpicture}[scale=3]
+                        \small
+                        \draw [-latex] (-0.1,0) -- (1.1,0) node[right]{$\phi_1$};
+                        \draw [-latex] (0,-0.3) -- node[pos=0.6,left=7mm]{$\dfrac{\Delta G_M}{X_0\kB T}$} (0,1.1);
+
+                        \footnotesize
+                        \node [below left] {0};
+                        \draw (1,0.033) -- ++(0,-0.066) node[below]{1};
+                        \foreach \y in {0.5,1} {
+                            \draw (0.033,\y) -- ++(-0.066,0) node[left]{$\y$};
+                        }
+
+                        \def\None{10}
+                        \def\Ntwo{1000}
+                        \draw [rex,thick] plot [domain=0.001:0.999,smooth] (\x,{(1/(2*\None*\x)+1/(2*\Ntwo*(1-\x)))*\x*(1-\x)+\x/\None*ln(\x)+(1-\x)/\Ntwo*ln(1-\x)});
+
+                        \normalsize
+                        \node at (0.5,0.5) {2 phases};
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
         \end{enumerate}
         \item Please qualitatively explain the differences in the curves for the cases in part (c).
-        \item From part (b), continue to derive the table for the critical composition and critical interaction parameter shown in class. In other words, find the critical $\chi$ parameter and corresponding volume fraction for the general case, and evaluate it for two low-molecular weight liquids, a solvent-polymer blend, and a polymer-polymer blend. Show your work.
+        \begin{proof}
+            For case (i), we have the "typical" solution case where relatively strong interspecies attraction will guarantee mixing, but relatively weak interspecies attraction (and/or strong intraspecies attraction) will result in demixing regimes if a sufficient amount of both components are present.\par
+            This mostly holds true in case (ii) as well, except that demixing is much more likely the more species 1 we have. Indeed, mixing is only possible if we either have very strong interspecies attractions or very little of 1.\par
+            In case (iii), mixing is almost entirely enthalpically controlled. This is because there is a very small increase in entropy when we mix polymer chains that are mostly covalently bonded together (i.e., highly ordered). Thus, whether we form 1 phase or two will really only depend on how much the polymers like each other vs. themselves.\par
+            And case (iv) is somewhere in between cases (ii) and (iii). In particular, more $\phi_1$ will still make mixing more difficult, and yet whether or not we get mixing is pretty much just down to enthalpy.
+        \end{proof}
+        \item From part (b), continue to derive the table for the critical composition and critical interaction parameter shown in class. In other words, find the critical $\chi$ parameter and corresponding volume fraction for the general case, and evaluate it for two low-molecular weight liquids, a solvent-polymer blend, and a symmetric polymer-polymer blend. Show your work.
+        \begin{proof}
+            Among the family of curves discussed in part (b), the critical interaction parameter $\chi_c$ occurs on the curve that switches from being always concave up (for small or negative $\chi$) to having concave and convex regions (for large or positive $\chi$). While curves with lower $\chi$ than this one have no inflection points and curves with greater $\chi$ than this one have two inflection points, this curve will have just \emph{one} inflection point. But if it has only one inflection point, this means that $\pdv*[2]{\Delta G_M}{\phi_1}$ must have only one root.\par
+            When $\pdv*[2]{\Delta G_M}{\phi_1}$ has two roots, the tangent line at each of them has nonzero slope. However, when $\pdv*[2]{\Delta G_M}{\phi_1}$ has only one root, the tangent line has \emph{zero} slope (the original curve is concave up, then just barely neither concave up nor down, then concave up again). Therefore, among all $(\phi_1,\Delta G_M)$ satisfying the spinodal criterion for various $\chi$, $\phi_{1,c}$ satisfies
+            \begin{equation*}
+                0 = \eval{\pdv{\phi_1}(\pdv[2]{\Delta G_M}{\phi_1})}_{\phi_1=\phi_{1,c}} = \eval{\pdv[3]{\Delta G_M}{\phi_1}}_{\phi_1=\phi_{1,c}}
+            \end{equation*}
+            Continuing from part (b), we have that
+            \begin{equation*}
+                \pdv[3]{\Delta G_M}{\phi_1} = \frac{X_0\kB T}{N_1N_2}\left[ -N_2\phi_1^{-2}+N_1(1-\phi_1)^{-2} \right]
+            \end{equation*}
+            Thus,
+            \begin{align*}
+                0 &= -N_2\phi_{1,c}^{-2}+N_1(1-\phi_{1,c})^{-2}\\
+                N_2(1-\phi_{1,c})^2 &= N_1\phi_{1,c}^2\\
+                N_2-2N_2\phi_{1,c}+(N_2-N_1)\phi_{1,c}^2 &= 0\\
+                \phi_{1,c} &= \frac{2N_2\pm\sqrt{4N_2^2-4(N_2-N_1)N_2}}{2(N_2-N_1)}\\
+                &= \frac{N_2\pm\sqrt{N_1N_2}}{N_2-N_1}
+            \end{align*}
+            Suppose for the sake of contradiction that $\phi_{1,c}=(N_2+\sqrt{N_1N_2})/(N_2-N_1)$. Then since --- by definition --- $\phi_{1,c}\leq 1$ for all $\{N_1,N_2\in\mathbb{N}\mid N_1\leq N_2\}$, we have that
+            \begin{align*}
+                \frac{N_2+\sqrt{N_1N_2}}{N_2-N_1} &\leq 1\\
+                N_2+\sqrt{N_1N_2} &\leq N_2-N_1\\
+                \sqrt{N_1N_2} &\leq -N_1 < 0
+            \end{align*}
+            But the square root of a natural number cannot be less than zero, a contradiction. Therefore,
+            \begin{equation*}
+                \phi_{1,c} = \frac{N_2-\sqrt{N_1N_2}}{N_2-N_1}
+            \end{equation*}
+            Simplifying the above expression yields
+            \begin{align*}
+                \phi_{1,c} &= \frac{N_2-\sqrt{N_1N_2}}{N_2-N_1}\\
+                &= \frac{\sqrt{N_2}(\sqrt{N_2}-\sqrt{N_1})}{(\sqrt{N_2}+\sqrt{N_1})(\sqrt{N_2}-\sqrt{N_1})}\\
+                \Aboxed{\phi_{1,c} &= \frac{\sqrt{N_2}}{\sqrt{N_1}+\sqrt{N_2}}}
+            \end{align*}
+            as desired.\par
+            Given the critical composition, we can plug into the result from part (b) to find the critical interaction parameter $\chi_c$, as follows.
+            \begin{align*}
+                \chi_c &= \frac{1}{2N_1\phi_{1,c}}+\frac{1}{2N_2(1-\phi_{1,c})}\\
+                &= \frac{1}{2}\left[ \frac{\sqrt{N_1}+\sqrt{N_2}}{N_1\sqrt{N_2}}+\frac{1}{N_2\left( 1-\frac{\sqrt{N_2}}{\sqrt{N_1}+\sqrt{N_2}} \right)} \right]\\
+                &= \frac{1}{2}\left[ \frac{\sqrt{N_1}+\sqrt{N_2}}{N_1\sqrt{N_2}}+\frac{\sqrt{N_1}+\sqrt{N_2}}{N_2\sqrt{N_1}} \right]\\
+                &= \frac{1}{2}\left[ \frac{\sqrt{N_2}(\sqrt{N_1}+\sqrt{N_2})+\sqrt{N_1}(\sqrt{N_1}+\sqrt{N_2})}{N_1N_2} \right]\\
+                &= \frac{1}{2}\left[ \frac{(\sqrt{N_1}+\sqrt{N_2})^2}{(\sqrt{N_1N_2})^2} \right]\\
+                \Aboxed{\chi_c &= \frac{1}{2}\left( \frac{1}{\sqrt{N_1}}+\frac{1}{\sqrt{N_2}} \right)^2}
+            \end{align*}
+            To confirm that $(\phi_{1,c},\chi_c)$ satisfies the spinodal criterion, we can see that
+            \begin{align*}
+                \eval{\pdv[2]{\Delta G_M}{\phi_1}}_{(\phi_{1,c},\chi_c)} &\propto -2N_1N_2\chi_c+\frac{N_2}{\phi_{1,c}}+\frac{N_1}{1-\phi_{1,c}}\\
+                &= -N_1N_2\left( \frac{1}{\sqrt{N_1}}+\frac{1}{\sqrt{N_2}} \right)^2+\frac{N_2(\sqrt{N_1}+\sqrt{N_2})}{\sqrt{N_2}}+\frac{N_1(\sqrt{N_1}+\sqrt{N_2})}{\sqrt{N_1}}\\
+                &= -\left( \sqrt{N_1}+\sqrt{N_2} \right)^2+\left( \sqrt{N_1}+\sqrt{N_2} \right)^2\\
+                &= 0
+            \end{align*}
+            as expected.\par
+            We now use the two expressions derived above fill out the table shown in class. Evaluating the case of two low molecular weight liquids (i.e., $N_1=N_2=1$), we obtain
+            \begin{align*}
+                \phi_{1,c} &= \frac{\sqrt{1}}{\sqrt{1}+\sqrt{1}}&
+                    \chi_c &= \frac{1}{2}\left( \frac{1}{\sqrt{1}}+\frac{1}{\sqrt{1}} \right)^2\\
+                \Aboxed{\phi_{1,c}(N_1=N_2=1) &= 0.5}&
+                    \Aboxed{\chi_c(N_1=N_2=1) &= 2}
+            \end{align*}
+            Evaluating the case of a solvent-polymer blend (i.e., $N_1=1<N_2$), we obtain
+            \begin{align*}
+                \phi_{1,c} &= \frac{\sqrt{N_2}}{\sqrt{1}+\sqrt{N_2}}&
+                    \chi_c &= \frac{1}{2}\left( \frac{1}{\sqrt{1}}+\frac{1}{\sqrt{N_2}} \right)^2\\
+                \Aboxed{\phi_{1,c}(N_1=1<N_2) &= \frac{\sqrt{N_2}}{1+\sqrt{N_2}}}&
+                    \Aboxed{\chi_c(N_1=1<N_2) &= \frac{1}{2}\left( 1+\frac{1}{\sqrt{N_2}} \right)^2}
+            \end{align*}
+            Evaluating the case of a symmetric polymer-polymer blend (i.e., $N_1=N_2=N$), we obtain
+            \begin{align*}
+                \phi_{1,c} &= \frac{\sqrt{N}}{\sqrt{N}+\sqrt{N}}&
+                    \chi_c &= \frac{1}{2}\left( \frac{1}{\sqrt{N}}+\frac{1}{\sqrt{N}} \right)^2\\
+                \Aboxed{\phi_{1,c}(N_1=1<N_2) &= 0.5}&
+                    \Aboxed{\chi_c(N_1=1<N_2) &= \frac{2}{N}}
+            \end{align*}
+        \end{proof}
     \end{enumerate}
+    \pagebreak
     \item 
     \begin{enumerate}
         \item Estimate the Flory interaction parameter $\chi$ between polystyrene and polybutadiene at room temperature if the solubility parameter of polystyrene is $\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$ and the solubility parameter for polybutadiene is $\delta_\text{PB}=\SI{16.2}{\raiseto{1/2}\mega\pascal}$. For simplicity assume $v_0=\SI{100}{\cubic\angstrom}$.
+        \begin{proof}
+            From class, the enthalpy of mixing per site for polystyrene and polybutadiene can be shown to be
+            \begin{equation*}
+                \frac{\Delta H_M}{\kB T} = \chi\phi_\text{PS}\phi_\text{PB}
+            \end{equation*}
+            It follows that the enthalpy of mixing per mole of sites is
+            \begin{equation*}
+                \frac{\Delta H_M}{RT} = \chi\phi_\text{PS}\phi_\text{PB}
+            \end{equation*}
+            Additionally, the Hildebrand equation (from class\footnote{\textcite[144]{bib:RubinsteinColby} contains an alternate statement of the Hildebrand equation that directly includes $v_0$. This problem could be equivalently solved using this statement.}) states that the enthalpy of mixing per mole of sites is
+            \begin{equation*}
+                \Delta H_M = V_m\phi_\text{PS}\phi_\text{PB}(\delta_\text{PS}-\delta_\text{PB})^2
+            \end{equation*}
+            where the units are $RT$.
+            Since $V_m$ is the average molar volume of the monomers, we have by definition that
+            \begin{equation*}
+                V_m = N_\text{A}v_0
+            \end{equation*}
+            where $N_\text{A}$ denotes Avogadro's number. Thus, equating the first two expressions for $\Delta H_M$ and substituting in the above affords
+            \begin{align*}
+                \chi\phi_\text{PS}\phi_\text{PB}RT &= N_\text{A}v_0\phi_\text{PS}\phi_\text{PB}(\delta_\text{PS}-\delta_\text{PB})^2\\
+                \chi &\approx \frac{(\SI{6.02e23}{\per\mole})(\SI{100}{\cubic\angstrom})(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{16.2}{\raiseto{1/2}\mega\pascal})^2}{(\SI{8.31}{\joule\per\mole\per\kelvin})(\SI{298}{\kelvin})}\\
+                &= \frac{(\SI{6.02e-5}{\cubic\meter\per\mole})(\SI{6.25e6}{\pascal})}{\SI{2476.38}{\joule\per\mole}}\\
+                \Aboxed{\chi &\approx 0.152}
+            \end{align*}
+        \end{proof}
         \item Show explicitly that Flory's $\chi$ parameter is always positive for nonpolar moleucles whose interaction can be described by the London dispersion potential (van der Waals interaction) given by
         \begin{equation*}
             \varepsilon_{ij} = -\frac{k\alpha_i\alpha_j}{r^6}
         \end{equation*}
         where $\alpha_i$ is the polarizability of molecule $i$, $k$ is a universal constant, and $r$ is the distance between molecules. Explain your assumptions.
+        \begin{proof}
+            By definition,
+            \begin{equation*}
+                \chi = \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+            \end{equation*}
+            It follows that
+            \begin{align*}
+                \chi &= \frac{z}{\kB T}\left[ -\frac{k\alpha_1\alpha_2}{r^6}-\frac{1}{2}\left( -\frac{k\alpha_1^2}{r^6}-\frac{k\alpha_2^2}{r^6} \right) \right]\\
+                &= \frac{zk}{2\kB Tr^6}\left[ -2\alpha_1\alpha_2+(\alpha_1^2+\alpha_2^2) \right]\\
+                &= \frac{zk}{2\kB Tr^6}(\alpha_1-\alpha_2)^2\\
+                &> 0
+            \end{align*}
+            as desired.\par
+            I assume that $z,k>0$; unless we are in a gas, $z>0$ is safe to assume, and I will have to take $k>0$ for granted since I have no other information about it. I also assume $\alpha_1\neq\alpha_2$; if they are equal, then the enthalpy of mixing will be zero (no greater forces than the ones already present) and mixing will be purely entropically driven. Lastly, I make all of the assumptions used in the derivation of the Flory $\chi$ parameter, e.g., mean field.
+        \end{proof}
     \end{enumerate}
     \item 
     \begin{enumerate}
         \item What is the critical value of $\chi$ required for high molecular mass polymers to dissolve in a solvent in all proportions?
+        \begin{proof}
+            Given high molecular mass polymers 1 and 2 with degrees of polymerization $N_1$ and $N_2$, Q1e tells us that
+            \begin{equation*}
+                \boxed{\chi_c = \frac{1}{2}\left( \frac{1}{\sqrt{N_1}}+\frac{1}{\sqrt{N_2}} \right)^2}
+            \end{equation*}
+        \end{proof}
         \item For a polystyrene-polybutadiene blend, explain under what temperature conditions you expect to find a homogeneously mixed system if the molecular weight of polystyrene is \SI[per-mode=symbol]{e5}{\gram\per\mole} and polybutadiene is \SI[per-mode=symbol]{e4}{\gram\per\mole}. The structures of these two polymers can be found in the literature/online. Describe these temperature conditions at all compositions --- in other words, at what temperature can you guarantee a homogeneously mixed system for any composition? Assume that $\chi$ can be expressed as
         \begin{equation*}
             \chi = \frac{A}{T}
         \end{equation*}
         where $A$ is a constant you need to determine. Note that the solubility parameters for this system are given in Q2.
+        \begin{proof}
+            From Q2a, we know that a polystyrene-polybutadiene blend at room temperature has $\chi\approx 0.152$. Thus,
+            \begin{equation*}
+                A = \chi T
+                \approx (0.152)(\SI{298}{\kelvin})
+                \approx \SI{45}{\kelvin}
+            \end{equation*}
+            The molecular weight of styrene is \SI[per-mode=symbol]{104.15}{\gram\per\mole} and the molecular weight of butadiene is \SI[per-mode=symbol]{54.09}{\gram\per\mole}. Thus, the degree of polymerization of each component is
+            \begin{align*}
+                N_\text{PS} &\approx 960.&
+                N_\text{PB} &\approx 185
+            \end{align*}
+            Therefore, the critical temperature $T_c$ at and above which we can guarantee a homogeneously mixed system for any composition is
+            \begin{align*}
+                T_c &= \frac{A}{\chi_c}\\
+                &= \frac{2A}{\left( N_\text{PS}^{-1/2}+N_\text{PB}^{-1/2} \right)^2}\\
+                &= \frac{2(\SI{45}{\kelvin})}{\left( 960^{-1/2}+185^{-1/2} \right)^2}\\
+                T_c &\approx \SI{8041}{\kelvin}
+            \end{align*}
+        \end{proof}
+        \pagebreak
         \item Polymer solutions are not well described by the mean-field theory because the connectivity of the chain keeps monomers from being uniformly distributed in solution (particularly at low polymer concentrations). An empirical form that better relates $\chi$ to the Hildebrand solubility parameter in polymer solutions is widely used with an entropic part of $\chi$ of 0.34, as follows.
         \begin{equation*}
             \chi = 0.34+\frac{v_0}{\kB T}(\delta_\text{A}-\delta_\text{B})^2
@@ -66,22 +375,172 @@
                 \bottomrule
             \end{tabular}
         \end{center}
+        \begin{proof}
+            From Q1e, $\chi_c\to 1/2^+$ for a solvent-polymer blend as $N_2\to\infty$. Thus, if our calculated values of $\chi\leq 1/2$, we can be confident that mixing will occur in all proportions. Let's begin.\par
+            For a mixture of PDMS in \emph{n}-heptane at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{HpH})}{RT}(\delta_\text{PDMS}-\delta_{\ce{HpH}})^2\\
+                &= 0.34+\frac{\SI{1.959e-4}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{14.9}{\raiseto{1/2}\mega\pascal}-\SI{15.1}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PDMS dissolves in \emph{n}-heptane.}\par
+            For a mixture of PS in \emph{n}-heptane at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{HpH})}{RT}(\delta_\text{PS}-\delta_{\ce{HpH}})^2\\
+                &= 0.34+\frac{\SI{1.959e-4}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{15.1}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PS dissolves in \emph{n}-heptane.}\par
+            For a mixture of PDMS in cyclohexane at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{CyH})}{RT}(\delta_\text{PDMS}-\delta_{\ce{CyH}})^2\\
+                &= 0.34+\frac{\SI{1.085e-4}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{14.9}{\raiseto{1/2}\mega\pascal}-\SI{16.8}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PDMS dissolves in cyclohexane.}\par
+            For a mixture of PS in cyclohexane at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{CyH})}{RT}(\delta_\text{PS}-\delta_{\ce{CyH}})^2\\
+                &= 0.34+\frac{\SI{1.085e-4}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{16.8}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PS dissolves in cyclohexane.}\par
+            \pagebreak
+            For a mixture of PDMS in benzene at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{PhH})}{RT}(\delta_\text{PDMS}-\delta_{\ce{PhH}})^2\\
+                &= 0.34+\frac{\SI{2.94e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{14.9}{\raiseto{1/2}\mega\pascal}-\SI{18.6}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PDMS dissolves in benzene.}\par
+            For a mixture of PS in benzene at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{PhH})}{RT}(\delta_\text{PS}-\delta_{\ce{PhH}})^2\\
+                &= 0.34+\frac{\SI{2.94e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{18.6}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PS dissolves in benzene.}\par
+            For a mixture of PDMS in chloroform at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{CHCl3})}{RT}(\delta_\text{PDMS}-\delta_{\ce{CHCl3}})^2\\
+                &= 0.34+\frac{\SI{8.07e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{14.9}{\raiseto{1/2}\mega\pascal}-\SI{19.0}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PDMS dissolves in chloroform.}\par
+            For a mixture of PS in chloroform at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\ce{CHCl3})}{RT}(\delta_\text{PS}-\delta_{\ce{CHCl3}})^2\\
+                &= 0.34+\frac{\SI{8.07e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{19.0}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PS dissolves in chloroform.}\par
+            For a mixture of PDMS in acetone at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\text{Ace})}{RT}(\delta_\text{PDMS}-\delta_\text{Ace})^2\\
+                &= 0.34+\frac{\SI{7.40e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{14.9}{\raiseto{1/2}\mega\pascal}-\SI{20.3}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PDMS dissolves in acetone.}\par
+            For a mixture of PS in acetone at room temperature, we have that
+            \begin{align*}
+                \chi &= 0.34+\frac{V_m(\text{Ace})}{RT}(\delta_\text{PS}-\delta_\text{Ace})^2\\
+                &= 0.34+\frac{\SI{7.40e-5}{\meter\cubed\per\mole}}{\SI{2476.38}{\joule\per\mole}}(\SI{18.7}{\raiseto{1/2}\mega\pascal}-\SI{20.3}{\raiseto{1/2}\mega\pascal})^2\\
+                \chi &\approx 0.34 \leq \frac{1}{2}
+            \end{align*}
+            and hence \fbox{PS dissolves in acetone.}
+        \end{proof}
     \end{enumerate}
     \item The area per chain $\Sigma$ of polymers attached to a surface or interface is an important quantity that influences the thickness of the polymer layer in any resulting morphologies. In general, when the area per chain of the polymer attached to an interface is small enough to induce elongation of the polymer away from that interface, we call this stretched morphology a \textbf{polymer brush}. Microphase separated diblock copolymers can be thought of as similar to polymer brushes, where each block is "attached" to the IMDS and elongates away from it.
     \begin{enumerate}
         \item For a microphase-separated compositionally symmetric diblock copolymer, qualitatively explain the free energy contributions that determine the optimal elongation of polymer chains away from the IMDS.
+        \begin{proof}
+            For such a system, there will be an enthalpic and entropic contribution to the free energy functional. The entropic term deals with the fact that to maximize entropy, the homogeneous strands would like to entangle on both sides of the interface (entropy is minimized when the strands are perfectly straight). The enthalpic term deals with the fact that there is more there is a greater interaction energy when everything is straight because the most alike monomers are closest to each other.\par
+            A series of variables contribute to both the entropic and enthalpic terms; among them are the temperature, segment length, number of steps, and Flory interaction parameter between the two species.
+        \end{proof}
         \item Consider a linear ABC terpolymer and a 3 arm ABC star terpolymer, each consisting of 33.3\% of the respective A, B and C blocks. Where do you think the center of the star polymer will be pinned?\par
+        \begin{proof}
+            I think the morphology of choice will be parallel cylinders in an almost hexagonal grid, with each junction in the grid being the center of a star polymer. This would allow each cylinder to be composed of the like strands of three different molecules.
+        \end{proof}
         Carefully draw a to-scale representation of the expected morphology in the melt state for each type of pure macromolecule for\dots
         \begin{enumerate}
             \item A system where all the $\chi$ parameters are positive and equal and the degree of polymerization of each arm is sufficiently large so that microphase separation occurs;
+            \begin{proof}
+                A positive $\chi$ parameter likely corresponds to demixing and microphase separation, as the problem statement indicates.\par
+                For the ABC triblock copolymer, we expect cylinders of B in an alternating sea of A and C. This is because each strand is 66.6\% the end segments, so these will constitute the majority of the material and alternate lamellarly, while the relatively smaller amount of the middle segment gathers in cylinders.
+                \begin{center}
+                    \begin{tikzpicture}
+                        \fill [blx] (0,0) rectangle ++(1,3);
+                        \fill [grx] (1,0) rectangle ++(1,3);
+                        \fill [blx] (2,0) rectangle ++(1,3);
+
+                        \fill [rex] (0,1) circle (4mm);
+                        \fill [rex] (0,2) circle (4mm);
+                        \fill [rex] (1,1) circle (4mm);
+                        \fill [rex] (1,2) circle (4mm);
+                        \fill [rex] (2,1) circle (4mm);
+                        \fill [rex] (2,2) circle (4mm);
+                        \fill [rex] (3,1) circle (4mm);
+                        \fill [rex] (3,2) circle (4mm);
+                    \end{tikzpicture}
+                \end{center}
+                For the star polymer, as mentioned, we will form a kind of hexagonal lattice.
+                \begin{center}
+                    \begin{tikzpicture}
+                        \fill [blx] (0,0) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [rex] (-60:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [grx] (0:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [rex] (60:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [grx] (120:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [rex] (180:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                        \fill [grx] (240:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
             \item A system where $\chi_\text{AB}=\chi_\text{BC}>0$ while $\chi_\text{AC}$ is negative.
+            \begin{proof}
+                What we essentially have here is a biphasic system, where the A and C components will form one phase and component B will form a different phase. Thus, from the perspective of the B chain, the A/C mixed phase will be at one end regareless of architecture. Thus, for both architectures, the expected morphology for a 33\% distribution is cylinders, as follows. Note that the A/C blue/green mixed phase is colored cyan.
+                \begin{center}
+                    \begin{tikzpicture}
+                        \fill [cyan] (0,0) rectangle (3,3);
+                        \fill [rex] (0,1) circle (3mm);
+                        \fill [rex] (0,2) circle (3mm);
+                        \fill [rex] (1,1) circle (3mm);
+                        \fill [rex] (1,2) circle (3mm);
+                        \fill [rex] (2,1) circle (3mm);
+                        \fill [rex] (2,2) circle (3mm);
+                        \fill [rex] (3,1) circle (3mm);
+                        \fill [rex] (3,2) circle (3mm);
+                    \end{tikzpicture}
+                \end{center}
+            \end{proof}
         \end{enumerate}
     \end{enumerate}
     \item A common example of a polymer brush in real systems consists of homopolymers grafted to a solid surface. Think of this as hairs with a sticky end that can bind to a scalp. If each chain grafted to the surface gains in enthalpy $-\varepsilon$ by sticking to the surface\dots
     \begin{enumerate}
         \item Describe what grafting density is necessary for a grafted polymer system to be considered a brush (i.e., when chains overlap and stretch away from surface due to excluded volume effects). Qualitatively, under what condition would brush formation be thermodynamically favorable? \emph{Hint}: Think about overlap of polymer chains.
+        \begin{proof}
+            Brush formation would be thermodynamically favorable under the condition that the decrease in energy caused by the sticking enthalpy is greater than increase in entropy caused by not being constrained to a rigid surface.
+        \end{proof}
         \item Find the optimal grafting density in chains/area for a polymer brush system in terms of $\varepsilon$. Define any variables you use and remember the effect of steric (excluded volume) interactions.
-        \item What is the scaling of the brush height with degree of polymerization in the dense brush regime from Q4b(ii)?
+        \begin{proof}
+            From class, we have that
+            \begin{equation*}
+                \Delta G = \Delta H+\Delta S
+                = v\rho^2D^2H-\varepsilon+\frac{H^2}{Na^2}
+                = \frac{vN^2}{D^2H}-\varepsilon+\frac{H^2}{Na^2}
+            \end{equation*}
+            The optimal grafting density is obtained when the optimal height $H^*$ is obtained, i.e., $\pdv*{\Delta G}{H}=0$. Solving this constraint, we have
+            \begin{align*}
+                0 &= \eval{\pdv{H}(\frac{vN^2}{D^2H}-\varepsilon+\frac{H^2}{Na^2})}_{H^*}\\
+                &= -\frac{vN^2}{D^2(H^*)^2}+\frac{2H^*}{Na^2}\\
+                \frac{vN^3a^2}{2D^2} &= (H^*)^3\\
+                H^* &= \sqrt[3]{\frac{vN^3a^2}{2D^2}}
+            \end{align*}
+        \end{proof}
+        \item What is the scaling of the brush height with degree of polymerization in the dense brush regime from part (b)?
+        \begin{proof}
+            Equal scaling: $H^*\propto N$.
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 
