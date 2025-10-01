@@ -827,6 +827,16 @@
             \item Therefore, if $N\chi<10.5$, we'll get a homogeneus, mixed melt; and if $N\chi>10.5$, we'll get demixing into lamellar microdomains.
         \end{itemize}
     \end{itemize}
+    \item Phase transitions between different microstructures can also be represented on a $\chi N$ vs. composition phase diagram.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{microphaseDia.png}
+        \caption{Microphase transition diagram.}
+        \label{fig:microphaseDia}
+    \end{figure}
+    \begin{itemize}
+        \item Notice as we go in from the outside (homogeneous, disordered mixed melt), we progressively go through spheres (S), cylinders (C), gyroids (G), and lamellae (L).
+    \end{itemize}
     \item Other interfaces: Polymer brushes.
     \begin{itemize}
         \item Consider a series of polymer strands grown off of a 2D surface.
@@ -948,6 +958,166 @@
         \item Lowest common energy is the \emph{tangent} line, not the line connecting the two minima.
         \item For the calculation for a real phase diagram, the math gets dicey because we have to deal with tangent lines.
         \item Implication: The combination of the two unequal wells will give you the total lowest energy, rather than the lowest and the lowest. Moreover, we need to not be at the bottom of the wells, but slightly to the side so we get the tangent line rather than the line connecting the minima.
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Review for Quiz 1}
+\begin{itemize}
+    \item Quiz 1 details.
+    \begin{itemize}
+        \item Starts at 3:05 PM sharp.
+        \item 80 minutes to take it.
+        \begin{itemize}
+            \item They're not here to fail us; they will put things appropriate for us to do in 80 minutes.
+        \end{itemize}
+        \item Open book (bring Kwangwook's textbook), notes (print out notes!!), cheat sheets ("you'll probably want one of these"), but no electronic except for the occasional use of a calculator (check TI-84 batteries!! Phone calculator allowed, though).
+        \item Undergrads need to answer 3/4 questions; grad students must answer all of them.
+        \item Quiz is based on the HW, so make sure you know how to do it!
+    \end{itemize}
+    \item Announcements.
+    \begin{itemize}
+        \item 2nd HW solutions will be posted tomorrow.
+        \item A pre-test has been posted.
+    \end{itemize}
+    \item Review starts now.
+    \item Topic 1 (ideal chains) topics to know.
+    \begin{itemize}
+        \item General characteristics of polymers: Degree of polymerization $N$, tacticity, bond length, etc.
+        \item Properties of polymer systems: $\Mw$, $\Mn$, architecture.
+        \item Different models for polymers: Freely jointed chain (FJC), freely rotating chain (FRC), symmetric hindered rotations (and rotational isomeric states).
+        \begin{itemize}
+            \item Things that come out of these models: End-to-end distances $\mathbf{R}$ (with $\prb{R^2}=C_\infty Nl^2$), characteristic ratio $C_\infty$.
+        \end{itemize}
+        \item An important model for polymers: Kuhn's equivalent chain (with its effective bond length $l_k$ and degree of polymerization $N_k$).
+        \begin{itemize}
+            \item This is the only model we've used since we introduced it, as we've increasingly neglected the \emph{chemistry} involved to focus on the thermodynamics.
+        \end{itemize}
+        \item The end-to-end distribution is a Gaussian.
+        \begin{itemize}
+            \item Since the probability $p\propto\e[-\Delta G/\kB T]$ and $\Delta G=F=3\kB TR^2/2Nb^2$, we get $\Delta S/\kB T\propto R^2/Nb^2$.
+            \item Spring constant in our Hookean spring is $3\kB T/Nb^2$.
+        \end{itemize}
+        \item Crossover concentrations (Figure \ref{fig:concentrationRegimes}).
+        \begin{itemize}
+            \item The chain inhabits a sphere of volume $R^3$, and the volume per chain is $V_c\propto R_e^3$.
+            \item The number density in the bead is $c=N/R_e^3$. When $c$ is greater than the critical concentration $N/R_e^3$, we start to get overlap.
+        \end{itemize}
+    \end{itemize}
+    \item Topic 2 (real chains) things to know.
+    \begin{itemize}
+        \item Excluded volume $v$ comes from a hard core and the attractive part of the potential.
+        \item The Mayer-$f$ function is
+        \begin{equation*}
+            f = \e[-U/\kB T]-1
+        \end{equation*}
+        \begin{itemize}
+            \item The excluded volume is the integral of $f$ over all space.
+            \item Intuition for why the integral is excluded volume?
+            \begin{itemize}
+                \item The Mayer-$f$ function gives the probability of finding two things close to each other.
+                \item It essentially tells us how this probability relates to that of an ideal gas where there is no interaction.
+                \item The attractive component raises the probability that things are close together.
+                \item The entropic component compensates for this, and doing the integral takes both into account. It measures the effective volume a particle feels like it has when in a sea of other particles.
+                \item If the interaction is only repulsive, a given particle will feel the volume of the box minus the volume of other monomers.
+                \item If an attractive component exists, you can eventually balance out repulsion. It's not that the volume has been reduced; it's just that negative excluded volumes mean you don't care about repulsion, you just want to be closer together. So negative excluded volumes effectively reduce the volume the polymer wants to occupy.
+            \end{itemize}
+        \end{itemize}
+        \item The $\theta$ condition for a chain is where excluded volume is zero.
+        \item Solvent quality.
+        \begin{itemize}
+            \item A polymer in a vacuum attracts to itself because of van der Waals forces; it doesn't just float around.
+        \end{itemize}
+        \item Interaction energies.
+        \begin{equation*}
+            \frac{F_\text{int}}{V\kB T} = \frac{1}{2}vc^2+\frac{1}{3!}\omega c^3
+        \end{equation*}
+        \begin{itemize}
+            \item We often called these enthalpic energies.
+            \item $F_\text{int}/V$ is an energy density, and dividing by $\kB T$ takes away the units from the righthand side.
+            \item When $v<0$, we need the next term to the right.
+            \item Volume of the chain, Flory's free energy for a single chain:
+            \begin{equation*}
+                F = \underbrace{\frac{R^2}{Nb^2}}_\text{expansion term}+\underbrace{\frac{Nb^2}{R^2}}_\text{compression term}+\frac{1}{2}v\frac{N^2}{R^3}+\frac{1}{3!}\omega\frac{N^3}{R^6}
+            \end{equation*}
+            \begin{itemize}
+                \item There is a handwavey and a formal way to come up with the compression term.
+                \item First two terms are the "entropic terms," in contrast to the latter two "enthalpic terms."
+            \end{itemize}
+        \end{itemize}
+        \item Scaling of polymer chains.
+        \begin{itemize}
+            \item The size $R$ will be proportional to $b$ (the segment length, commonly Kuhn length) times $N^\nu$.
+            \item In a $\theta$ solvent, $\nu=1/2$. For a good solvent, $\nu=3/5$. For a bad solvent, $\nu=1/3$.
+            \item We don't use all terms when we're minimizing things; we use the ones that matter. If the chain is going to expand, we get rid of the compression term. If one of them is negative, we use the last term. Know when to use which terms!!
+        \end{itemize}
+        \item Dimensionality matters.
+        \begin{itemize}
+            \item $\nu_\text{good}=1,2,3,4$ for $\nu=1,3/4,3/5,1/2$.
+        \end{itemize}
+    \end{itemize}
+    \item Topic 3 (Flory-Huggins) things to know.
+    \begin{itemize}
+        \item Blends and solutions of polymers and (sometimes) solvents.
+        \item We're interested in the free energy of mixing $\Delta G_M=\Delta H_M-T\Delta S_M$.
+        \begin{itemize}
+            \item An entropic term and enthalpic term come together to make
+            \begin{equation*}
+                \frac{\Delta G_M}{\kB TX_0} = \frac{\phi_1}{N_1}\ln\phi_1+\frac{\phi_2}{N_2}\ln\phi_2+\chi\phi_1\phi_2
+            \end{equation*}
+            \item The Flory $\chi$ parameter quantifies interactions.
+            \begin{equation*}
+                \chi = \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+            \end{equation*}
+            \begin{itemize}
+                \item Take the coordination number, divide by your units of energy, and then compare the interphase attractive energy to the average of the two intraphase attraction energies.
+                \item $\chi$ scales as $A/T$, for some number $A$. To make the real world fit the system, we often add another term $B$ as the "entropic contribution." Symbolically,
+                \begin{equation*}
+                    \chi = \frac{A}{T}+B
+                \end{equation*}
+                \item The above equation allows us to interconvert between $\chi$ and $T$, which we often do in phase diagrams, etc.
+            \end{itemize}
+        \end{itemize}
+        \item Phase diagrams.
+        \begin{itemize}
+            \item 3 systems of interest.
+            \begin{itemize}
+                \item Polymer-polymer systems.
+                \item Monomer-monomer systems.
+                \item Polymer-monomer systems.
+            \end{itemize}
+            \item For polymer-polymer and polymer-monomer systems, $\chi N$ really controls things.
+            \item Outside the coexistence / equilibrium / binodal curve, you mix into 1 phase.
+            \begin{itemize}
+                \item Inside both, you demix to the spinodal. Then with nucleation over a long period of time, you demix to the binodal.
+            \end{itemize}
+            \item Solubility parameters: Interconverting from $\chi$ to $\delta$, as in PSet 2.
+            \item UCST and LCST transitions. Heating it up goes into an LCST regime, and cooling it down goes into a UCST regime.
+        \end{itemize}
+    \end{itemize}
+    \item Topic 4 (self-assembly).
+    \begin{itemize}
+        \item Be familiar with the min-max principle of (1) minimizing energy and (2) maximizing entropy.
+        \item Phases of diblock copolymers.
+        \begin{itemize}
+            \item Spheres (BCC), cylinders (hexagonal; $20\%-35\%$), bicontinuous ($35\%\pm 2\%$; gyroid, double diamond, and perforated lamellae), lamellae (40-60\%).
+        \end{itemize}
+        \item Aside: There is no excluded volume in self-assembly.
+        \item Be familiar with diagrams like the binodal/spinodal one but with many nested curves, each one for a different phase transition (Figure \ref{fig:microphaseDia}).
+        \begin{itemize}
+            \item Not binodal and spinodal but actual different phases where you have spheres, cylinders, gyroids, lamellae. Happens theoretically around $(\chi N)_c=10.5$; experimentally around 20.
+            \item $f$ on the $x$-axis; the fraction of one thing relative to the other, which accounts for polymer structure instead of just $\phi$ for monomers.
+        \end{itemize}
+    \end{itemize}
+    \item Should we know the polymer names and monomer repeat units?
+    \begin{itemize}
+        \item Print this!!
+    \end{itemize}
+    \item For the scaling of polymer chains, is this the same as the radius of gyration?
+    \begin{itemize}
+        \item Slight difference in prefactor, but for linear chains, it's very close.
+        \item There's a $\sqrt{6}$ term in the radius of gyration.
     \end{itemize}
 \end{itemize}
 
