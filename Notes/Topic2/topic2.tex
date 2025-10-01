@@ -87,7 +87,7 @@
     \begin{itemize}
         \item What we're really interested in is the free energy of mixing,
         \begin{equation*}
-            \Delta G = G_{1,2}-(G_1+G_2)
+            \Delta G_M = G_{1,2}-(G_1+G_2)
         \end{equation*}
         \item In multicomponent systems --- besides the typical parameters of excluded volume, etc. --- we need to know\dots
         \begin{itemize}
@@ -104,7 +104,8 @@
         \begin{itemize}
             \item Containing $n_i$ moles of species $i$;
             \item With degree of polymerization $N_i$;
-            \item Each occupying a total volume $V_i$.
+            \item Each occupying a total volume $V_i$;
+            \item Where the volume of each monomer/solvent molecule is given by $v_i$.
         \end{itemize}
         \item In State 2, we have a mixed phase with total volume
         \begin{equation*}
@@ -148,26 +149,25 @@
         \end{itemize}
         \item It follows that the change entropy $\Delta S$ upon mixing is
         \begin{equation*}
-            \Delta S = \kB\ln\Omega_{1,2}-0
+            \Delta S_M = \kB\ln\Omega_{1,2}-0
         \end{equation*}
         \begin{itemize}
             \item Remember that the initial entropy is zero!
         \end{itemize}
         \item Invoking Stirling's approximation and remembering that $X_1+X_2=X_0$, we can then get
         \begin{align*}
-            \frac{\Delta S}{\kB} &= X_0\ln X_0-X_0-\left[ X_1\ln X_1-X_1+X_2\ln X_2-X_2 \right]\\
+            \frac{\Delta S_M}{\kB} &= X_0\ln X_0-X_0-\left[ X_1\ln X_1-X_1+X_2\ln X_2-X_2 \right]\\
             &= X_0\ln X_0-X_1\ln X_1-X_2\ln X_2
         \end{align*}
-        \item It follows that the entropy per site $\Delta S/\kB X_0$ is
-        \begin{equation*}
-            \frac{\Delta S}{\kB X_0} = \frac{1}{X_0}\left[ (X_1+X_2)\ln X_0-X_1\ln X_1-X_2\ln X_2 \right]
-        \end{equation*}
-        \item Now use the form of the above equation to define the variables $\phi_i$ ($i=1,2$) as follows.
-        \begin{equation*}
-            -\frac{X_1}{X_0}\ln\frac{X_1}{X_0}-\frac{X_2}{X_0}\ln\frac{X_2}{X_0} = -\phi_1\ln\phi_1-\phi_2\ln\phi_2
-        \end{equation*}
+        \item It follows that the entropy of mixing per site $\Delta S_M/\kB X_0$ is
+        \begin{align*}
+            \frac{\Delta S_M}{\kB X_0} &= \frac{1}{X_0}\left[ (X_1+X_2)\ln X_0-X_1\ln X_1-X_2\ln X_2 \right]\\
+            &= -\frac{X_1}{X_0}(\ln X_1-\ln X_0)-\frac{X_2}{X_0}(\ln X_2-\ln X_0)\\
+            &= -\frac{X_1}{X_0}\ln\frac{X_1}{X_0}-\frac{X_2}{X_0}\ln\frac{X_2}{X_0}\\
+            &= -\phi_1\ln\phi_1-\phi_2\ln\phi_2
+        \end{align*}
         \begin{itemize}
-            \item It follows that $\phi_i=X_i/X_0$ is the volume fractions for spaces $i$.
+            \item The new variables $\phi_i=X_i/X_0$ are the volume fractions for spaces $i$.
             \item Consequence: $\phi_1+\phi_2=1$.
         \end{itemize}
     \end{itemize}
@@ -215,7 +215,10 @@
     \end{itemize}
     \item Mean field mixing enthalpy.
     \begin{itemize}
-        \item Assume the lattice has $z$ nearest-neighbor cells.
+        \item Assume the lattice is such that each point has $z$ nearest neighbor cells.
+        \begin{itemize}
+            \item For example, each cell in a square lattice (Figure \ref{fig:latticeConfig}) has 4 nearest neighbors: One above, below, right, and left.
+        \end{itemize}
         \item To calculate enthalpic interactions, we consider the number of pairwise interactions.
         \item But in a mean field approximation, we wash out some detail by mixing red and blue to make purple. We say that \emph{on average}, your neighbor one away from you is proportional to the composition (because it might be red, then blue, then red again). Quick exchange of neighbors.
         \begin{itemize}
@@ -231,12 +234,20 @@
         \label{fig:Uwell}
     \end{figure}
     \begin{itemize}
-        \item We need to count each interaction. It follows from the above that the number of $ij$ interactions is.
+        \item We need to count each interaction. It follows from the above that the number of $ij$ interactions is
         \begin{align*}
             \xi_{11} &= \frac{X_1z\phi_1}{2}&
             \xi_{22} &= \frac{X_2z\phi_2}{2}&
             \xi_{12} &= X_1z\phi_2
         \end{align*}
+        \begin{itemize}
+            \item Let's rationalize the formula for $\xi_{11}$. $X_1$ sites each have $z$ nearest neighbors, so there are $X_1z$ nearest neighbor interactions where one of the species involved is species 1. The probability that a nearest neighbor is also species 1 is $\phi_1$. Thus, there are $X_1z\phi_1$ interactions where the other partner is also species 1. However, since there are two neighbors involved, we have currently accounted for each interaction twice: Once from the perspective of each neighbor. Thus, we need to divide by 2.
+            \item Same rationalization for $\xi_{22}$.
+            \item For $\xi_{12}$, a similar rationalization applies but we are not overcounting because we only have the perspective of one of the two interaction partners taken into account, so no dividing by 2 is necessary. Alternatively, from the perspective of both species, we have
+            \begin{equation*}
+                \xi_{12} = \frac{X_1z\phi_2}{2}+\frac{X_2z\phi_1}{2} = X_1z\phi_2
+            \end{equation*}
+        \end{itemize}
         \item In a typical attraction well, we have a most probable distance $a$, at which the energy depth is $\varepsilon$ (see Figure \ref{fig:Uwell}).
         \item Let $\varepsilon_{ij}$ refer to how deep the well is between species $i$ and $j$, where $i,j\in\{1,2\}$.
         \item It follows that in a mixed enthalpic state, the interaction energy is the following.
@@ -261,20 +272,28 @@
         \begin{align*}
             \frac{\Delta H_M}{X_0} &= z\left[ \phi_1\phi_2\varepsilon_{12}+\frac{\phi_1\varepsilon_{11}}{2}(-\phi_2)+\frac{\phi_2\varepsilon_{22}}{2}(-\phi_1) \right]\\
             \frac{\Delta H_M}{X_0\kB T} &= \frac{z}{\kB T}\left\{ \phi_1\phi_2\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right] \right\}\\
-            &= \phi_1\phi_2\chi
+            &= \chi\phi_1\phi_2
         \end{align*}
         where
         \begin{equation*}
             \chi := \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
         \end{equation*}
         is the \textbf{Flory $\bm{\chi}$ parameter}.
-        \item Implication: If they like themselves more than they like each other (right diagram), chi parameter will be positive and will between the middle two lines (we don't know here if it will mix or demix).
+        \begin{itemize}
+            \item From its definition, we can see that the sign of $\chi$ determines whether mixing will be enthalpically favorable or not. Moreover, the sign of $\chi$ is determined by the interplay between how much the components like each other, and how much they like themselves on average.
+        \end{itemize}
+        \item Implication: If the two components like themselves more than they like each other (right diagram at bottom of slide 14), $\chi$ will be positive and will between the middle two lines (we don't know here if it will mix or demix)??
     \end{itemize}
     \item The $\chi$ parameter is still being debated today; Alfredo is writing a paper on it!
     \begin{itemize}
         \item The parameter as written is linear, but that's based on a mean field assumption. Should it have a quadratic term? Maybe it does at a (more accurate) higher level of theory.
     \end{itemize}
-    \item At this point, we can assemble everything into the free energy for monomers.
+    \item At this point, we can assemble everything into the free energy of mixing for monomers.
+    \begin{align*}
+        \frac{\Delta G_M}{X_0} &= \frac{\Delta H_M}{X_0}-T\frac{\Delta S_M}{X_0}\\
+        &= \kB T\chi\phi_1\phi_2-T\cdot\kB(-\phi_1\ln\phi_1-\phi_2\ln\phi_2)\\
+        &= \kB T(\chi\phi_1\phi_2+\phi_1\ln\phi_1+\phi_2\ln\phi_2)
+    \end{align*}
     \item How about for polymers?
     \begin{figure}[h!]
         \centering
@@ -283,26 +302,62 @@
         \label{fig:latticePolym}
     \end{figure}
     \begin{itemize}
-        \item We have to pick $N$ adjacent sites.
-        \item Then the next time we pick is the number of sites minus $N$! And on and on.
-        \item This essentially reduces the number of sites by $N_1$ and $N_2$.
-        \item When $N$ is very big, this equation tells us that entropy doesn't play a huge role (because $N_1,N_2$ in the denominator). Thus, enthalpy matters more for polymers.
+        \item For enthalpy of mixing, we still use a mean field approximation, so nothing changes. We justify this by noting, as earlier, that in a melt, most chains do not feel themselves because other chains screen the interaction of the original chain with itself.
+        \item For entropy of mixing, things do change a bit.
+        \begin{itemize}
+            \item As in Figure \ref{fig:latticeConfig}, we have to pick $N$ adjacent sites.
+            \item Then the next time we pick, what's left is the number of sites minus $N$. And on and on.
+            \item This essentially reduces the number of sites by $N_1$ and $N_2$.
+            \item All of this is part of a complex derivation done by Flory, but the simple and intuitive result is that the entropy of mixing decreases by approximately $1/N$ due to the connectivity of the $N$ segments we cannot arrange any further apart. Mathematically, we obtain
+            \begin{equation*}
+                \frac{\Delta S_M}{\kB X_0} = -\frac{\phi_1}{N_1}\ln\phi_1-\frac{\phi_2}{N_2}\ln\phi_2
+            \end{equation*}
+            \item This equation tells us that when $N$ is big, entropy doesn't play a huge role in driving mixing (because $N_1,N_2$ are in the denominator). Thus, enthalpy matters more for the mixing of polymers.
+        \end{itemize}
     \end{itemize}
-    \item Finally, we have gotten to the "famous Flory-Huggins theory of free energy."
+    \item Using the modified mixing entropy, we can now finally state the "famous Flory-Huggins theory for the free energy of mixing."
     \begin{equation*}
         \frac{\Delta G_M}{X_0} = \kB T\left( \chi\phi_1\phi_2+\frac{\phi_1}{N_1}\ln\phi_1+\frac{\phi_2}{N_2}\ln\phi_2 \right)
     \end{equation*}
     \begin{itemize}
-        \item We get this by adding the enthalpic and entropic contributions via the .
+        \item This equation is applicable to solvent-solvent ($1=N_1=N_2$), polymer-solvent ($1=N_1\neq N_2$), and polymer-polymer ($1\neq N_1,N_2$) mixing.
+        \item This equation also gives us a tool to investigate phase behavior and how it varies with $T,\chi,\phi_i,N_i$. Namely, values of these variables that lead to a negative $\Delta G_M$ will correspond to mixing, and values of these variables that lead to a positive $\Delta G_M$ will correspond to demixing.
     \end{itemize}
     \item How do we measure $\chi$ experimentally?
     \begin{itemize}
         \item We will explore this soon.
     \end{itemize}
     \item Influence of $\chi$ on phase behavior.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.33\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{mixingChia.png}
+            \caption{Mixing enthalpy.}
+            \label{fig:mixingChia}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.32\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{mixingChib.png}
+            \caption{Mixing entropy.}
+            \label{fig:mixingChib}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.33\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{mixingChic.png}
+            \caption{Mixing energy.}
+            \label{fig:mixingChic}
+        \end{subfigure}
+        \caption{Mixing or demixing based on the Flory $\chi$ parameter.}
+        \label{fig:mixingChi}
+    \end{figure}
     \begin{itemize}
-        \item When $\chi$ reaches 2-3, we get demixing.
-        \item When $\chi=2$, free energy is largely flat. Thus, very different compositions have similar free energy, which means that the system will "undergo a 2nd order transition where all length scales are viable."
+        \item Notice how adding the curves in Figures \ref{fig:mixingChia}-\ref{fig:mixingChib} gives the curves in Figure \ref{fig:mixingChic}.
+        \item From Figure \ref{fig:mixingChic}, we can see that when $\chi$ reaches the range of 2-3, we get demixing.
+        \begin{itemize}
+            \item This is because (at $\chi=3$, for example) it will be more energetically favorable to form (i) a phase that is approximately 90\% component 1 and 10\% component 2 and (ii) a phase that is approximately 10\% component 1 and 90\% component 2 than it will be to completely mix.
+        \end{itemize}
+        \item When $\chi=2$, free energy is largely flat. Thus, very different compositions have similar free energy, which means that the system will "undergo a 2nd order transition where all length scales are viable??"
     \end{itemize}
     \item A parameter that has gained more importance in recent years: The coordination number $z$.
     \begin{itemize}
@@ -310,9 +365,13 @@
         \item This is essentially because you're averaging over more values.
         \item Recent finding: $\chi$ is pretty good if $z$ is big; if $z$ is small, quadratic and other higher order corrections may be necessary for $\chi$.
     \end{itemize}
-    \item The $\chi$ at which you see phase separation decreases exponentially with increasing $N_A=N_B=N$.
+    \item Phase behavior of blends.
     \begin{itemize}
-        \item $N$ is just how long the chains are!
+        \item The critical value $\chi_c$ of the Flory $\chi$ parameter is the value of $\chi$ at which you see phase separation.
+        \item $\chi_c$ decreases exponentially with increasing chain length $N_1=N_2=N$.
+        \begin{itemize}
+            \item This relates to the phenomenon discussed earlier in which the mixing entropy shrinks as chain length grows. If mixing entropy is shrinking, the system can tolerate less enthalpic repulsion before demixing.
+        \end{itemize}
     \end{itemize}
     \item Preliminaries to next class.
     \begin{itemize}
@@ -786,6 +845,94 @@
         \end{itemize}
         \item Here, $\Delta S\approx H^2/a^2N$ (as opposed to $\lambda^2/a^2N$ from earlier).
         \item We want to minimize $H^2$ and $1/H$ on an $H$ vs. Gibbs free energy graph.
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Chapter 7: Thermodynamics of Polymer Mixtures}
+\emph{From \textcite{bib:HiemenzLodge}.}
+\begin{itemize}
+    \item \marginnote{9/14:}Goals for this chapter.
+    \begin{itemize}
+        \item Thermodynamically analyze a solution of a polymer in a low molecular weight solvent.
+        \item Determine the phase equilibria relevant to this situation.
+    \end{itemize}
+    \item \textbf{Polymer blend}: A mixture of two polymers.
+    \item \textbf{Pure} (thermodynamics): The purely phenomenological study of observable thermodynamic quantities and the relationships among them.
+    \item \textbf{Statistical} (thermodynamics): The atomistic model justifying purely thermodynamic observations.
+    \begin{itemize}
+        \item "\emph{Doing} thermodynamics does not even require knowledge that molecules exist\dots whereas \emph{understanding} thermodynamics benefits considerably from the molecular point of view" \parencite[271]{bib:HiemenzLodge}.
+    \end{itemize}
+    \item In this chapter, we are concerned with the state of a two-component system at equilibrium. The Gibbs free energy relates to this equilibrium, and in this case, it is given by
+    \begin{align*}
+        \dd{G} &= \left( \pdv{G}{P} \right)_{T,n_1,n_2}\dd{P}+\left( \pdv{G}{T} \right)_{P,n_1,n_2}\dd{T}+\left( \pdv{G}{n_1} \right)_{P,T,n_2}\dd{n_1}+\left( \pdv{G}{n_2} \right)_{P,T,n_1}\dd{n_2}\\
+        &= V\dd{P}-S\dd{T}+\sum_{i=1}^2\mu_i\dd{n_i}
+    \end{align*}
+    \item \textbf{Partial molar} (quantity $Y$ of component $i$): The amount of $Y$ contributed to the whole by each mole of component $i$ in a mixture. \emph{Denoted by} $\bm{\bar{Y}_i}$. \emph{Units} $\textbf{mol}^{\bm{-1}}$. \emph{Given by}
+    \begin{equation*}
+        \bar{Y}_i := \left( \pdv{Y}{n_i} \right)_{P,T,n_{j\neq i}}
+    \end{equation*}
+    \begin{itemize}
+        \item Example: The chemical potential of component $i$ is the amount of Gibbs free energy contributed to the total Gibbs free energy $G$ by each mole of $i$.
+        \item There exist a partial molar volume, enthalpy, and entropy.
+        \item The value of partial molar quantities depends on the overall composition of the mixture.
+        \begin{itemize}
+            \item Example: $\bar{V}_{\ce{H2O}}$ is not the same for a water-alcohol mixture that is 10\% water as for one that is 90\% water.
+        \end{itemize}
+        \item For a pure substance, partial molar quantities are equal to \textbf{molar values}.
+        \begin{itemize}
+            \item Example: $\mu_i=\hat{G}_i$.
+        \end{itemize}
+        \item Properties of a mixture are linear combinations of mole-weighted contributions of the partial molar properties of the components.
+        \begin{equation*}
+            Y_\text{m} = \sum_in_i\bar{Y}_i
+        \end{equation*}
+        \item The value of $Y_\text{m}$ on a per mole basis is given by \textbf{mole fractions} as follows.
+        \begin{equation*}
+            \frac{Y_\text{m}}{\sum_in_i} = \sum_ix_i\bar{Y}_i
+        \end{equation*}
+        \item Partial molar quantities exhibit the same relations as ordinary thermodynamic variables.
+        \begin{itemize}
+            \item Examples:
+            \begin{align*}
+                \mu_i &= \bar{H}_i-T\bar{S}_i&
+                \bar{V}_i &= \left( \pdv{\mu_i}{P} \right)_{T,n_{j\neq i}}
+            \end{align*}
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Molar} (quantity $Y$ of substance $i$): The amount of $Y$ contributed by each mole of a substance $i$ when pure. \emph{Dentoed by} $\bm{\hat{Y}_i}$. \emph{Units} $\textbf{mol}^{\bm{-1}}$.
+    \item \textbf{Mole fraction} (of component $i$): The fraction of moles of component $i$ relative to the total number of moles in the mixture. \emph{Denoted by} $\bm{x_i}$. \emph{Given by}
+    \begin{equation*}
+        x_i := \frac{n_i}{\sum_in_i}
+    \end{equation*}
+    \item \textbf{Standard state} (value of $Y_i$): The value of $Y_i$ when the substance $i$ is pure. \emph{Denoted by} $\bm{Y_i^\circ}$.
+    \item \textbf{Activity}: A thermodynamic concentration and measure of the nonideality of solutions. \emph{Denoted by} $\bm{a_i}$. \emph{Given by}
+    \begin{equation*}
+        \mu_i = \mu_i^\circ+RT\ln a_i
+    \end{equation*}
+    \item Notation.
+    \begin{itemize}
+        \item We've established $n_i$ as the number of \emph{moles} of component $i$.
+        \item Let $m_i$ denote the number of \emph{molecules} of component $i$. Thus,
+        \begin{equation*}
+            m_i = N_\text{A}n_i
+        \end{equation*}
+        where $N_\text{A}=\num{6.022e23}$ is \textbf{Avogadro's number}.
+        \begin{itemize}
+            \item This is also equal to $X_i$ from class!
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Coordination number}: The number of nearest neighbors that surround a central lattice point. \emph{Denoted by} $\bm{z}$.
+    \begin{itemize}
+        \item Example: A cell in a 2D square lattice has $z=4$.
+    \end{itemize}
+    \item Regular solution theory: A simple statistical model that provides a useful expression for the free energy of mixing for a binary solution of two components.
+    \begin{itemize}
+        \item Assume that the two molecules in the mixture have equal volumes.
+        \item Assume that the two components have equal (and concentration-independent) partial molar volumes, i.e., $\bar{V}_1=\bar{V}_2$.
+        \item Imagine each molecule occupying a cell in a lattice with volume equal to the molecular volume.
+        \item Let the lattice have coordination number $z$.
     \end{itemize}
 \end{itemize}
 
