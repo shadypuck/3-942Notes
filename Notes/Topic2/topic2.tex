@@ -850,10 +850,113 @@
 
 
 
+\section{Office Hours (Alexander-Katz)}
+\begin{itemize}
+    \item \marginnote{9/30:}PSet 2, Q5.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{PSet2Q5setup.JPG}
+        \caption{PSet 2, Q5 setup.}
+        \label{fig:PSet2Q5setup}
+    \end{figure}
+    \begin{itemize}
+        \item Let state 1 be the free chain floating in solution. State 2 is then the brushes stuck/adsorbed to the surface.
+        \item If they're stuck at a particular grafting density $D$, you first have to calculate the free energy of a chain being that close to another.
+        \item Bringing in Prof. Doyle's lectures,
+        \begin{equation*}
+            \Delta G = \frac{H^2}{Na^2}+V_\text{ex}\rho^2\cdot D^2H-\varepsilon
+        \end{equation*}
+        \begin{itemize}
+            \item $D^2H$ is a volume.
+            \item $\rho=N/D^2H$ is the number density of monomers.
+            \item So then we ned the optimal $H$, which we will term $H^*$. $H^*$ minimizes $\Delta G(H^*)$, i.e., $\ev{\pdv*{\Delta G}{H}}_{H=H^*}=0$.
+            \item Then we back feed $H^*$ into the $\Delta G$ equation above.
+        \end{itemize}
+        \item To find $D$, we have to evaluate the stability relative to state 1.
+        \begin{itemize}
+            \item $\mu_\text{bulk}$ or $\mu_1$ ($\mu_1$ seems to be the notation Alexander-Katz used most consistently) can be the chemical potential / energy of state 1. We will have to define this variable.
+            \item We consider this because we need the energy to take a chain out of state 1 (and into state 2), but changes in state relative to concentration is chemical potential.
+        \end{itemize}
+        \item Then the last thing is
+        \begin{equation*}
+            \Delta G_2-\Delta G_1 = \frac{(H^*)^2}{Na^2}+\frac{vN^2}{D^2H^*}-\varepsilon-\mu_\text{bulk}
+        \end{equation*}
+        \begin{itemize}
+            \item And this $\Delta\Delta G$ must be negative if grafting is going to happen.
+        \end{itemize}
+        \item $a$ can be a Kuhn length or segment length or whatever; we're forgetting about all of the chemistry once we get into thermodynamic models.
+        \item We need to figure out the per strand energy, hence why we're concerned with $\varepsilon$ and not $N\varepsilon$ (which would be for the whole system).
+        \item You need to account for the entropy of stretching, the enthalpy of sticking, and excluded volume.
+        \begin{itemize}
+            \item $vN^2/HD^2$.
+            \item Stretching term is $H^2/Na^2$. Excluded volume is $v\rho^2\cdot D^2H$.
+            \item Balance the two terms $H^2/Na^2$ and $vN^2/D^2H$ to find $H^*$.
+            \item \emph{Then} factor in $\varepsilon$.
+        \end{itemize}
+    \end{itemize}
+    \item Phase diagrams.
+    \begin{itemize}
+        \item $\chi N$ or $\chi$ on the $y$-axis.
+        \begin{itemize}
+            \item This is approximately $1/T$, so going up is low $T$.
+        \end{itemize}
+        \item Inner dashed line is \textbf{spinodal} or \textbf{stability} curve.
+        \begin{itemize}
+            \item The inflection points on the pink curve in Figure \ref{fig:mixingChic} defines the spinodal curve.
+            \item Flat bottomed curve defines critical point!
+        \end{itemize}
+        \item Outer solid line is \textbf{binodal} or \textbf{equilibrium} or \textbf{coexistence} curve.
+        \item Lowest point where the two curves touch is the \textbf{critical} point.
+        \item Real phase separation is at the binodal line.
+        \begin{itemize}
+            \item If we wait a long time.
+        \end{itemize}
+        \item For a symmetric system, we get flat bottomed tangents.
+        \item Why does the spinodal matter? Won't we just get to the lowest energies?
+        \begin{itemize}
+            \item Free energy is the sum of the two states. Downhill from the middle to the spinodal points.
+            \item Splitting our system in two past the spinodal is not downhill. The way we go beyond this is \textbf{nucleation}. You will end up at a higher energy until the nucleating thing is big enough.
+        \end{itemize}
+        \item Nucleation between the curves, spinodal decomposition (to the spinodals) in the middle.
+        \item Example of utility: QDot synthesis.
+        \begin{itemize}
+            \item They first jump into the spinodal zone that will phase separate, creating a bunch of little dots.
+            \item Then we quickly move the solution (once we have similarly sized nuclei) into the intercurve region. Here we no longer have spontaneous nucleation, but we have growth. And everything will grow at the same rate.
+            \item People who do nanoparticles play this game all the time. Heterogeneous nucleation: Dumping some trash in to nucleate other stuff, e.g., gold nanoparticles to nucleate silicon-oil phase separation.
+        \end{itemize}
+    \end{itemize}
+    \item PSet 2, Q3b: When we need to determine $A$? Finding $\chi_c$ based on other problems, but then how do we get $A$?
+    \begin{itemize}
+        \item Critical temperature in the thousands of kelvins? Should be $A=45$ and $\chi_c\approx\SI{8000}{\kelvin}$.
+        \item We're not accounting for the entropic term in $\chi$, so we get an unreasonable value.
+    \end{itemize}
+    \item $\Sigma\gamma_\text{AB}$ is the interfacial energy, which is kind of like the surface tension.
+    \item Helfand parameter.
+    \begin{itemize}
+        \item For a particular $\chi$, what will be the expected loop crossing the interface into the region of the other polymer.
+    \end{itemize}
+    \item PSet 2, Q4 for the star polymer. Is the setup a B cylinder surrounded by AC mixed region?
+    \begin{itemize}
+        \item Yes, something like that.
+    \end{itemize}
+    \item Aside: It is really hard to get away from the phases in Figure \ref{fig:selfAssembly} and get into new ones.
+    \begin{itemize}
+        \item Stadler's goldmine.
+    \end{itemize}
+    \item nVT vs. nPT constant regimes.
+    \begin{itemize}
+        \item Lowest common energy is the \emph{tangent} line, not the line connecting the two minima.
+        \item For the calculation for a real phase diagram, the math gets dicey because we have to deal with tangent lines.
+        \item Implication: The combination of the two unequal wells will give you the total lowest energy, rather than the lowest and the lowest. Moreover, we need to not be at the bottom of the wells, but slightly to the side so we get the tangent line rather than the line connecting the minima.
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 7: Thermodynamics of Polymer Mixtures}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
-    \item \marginnote{9/14:}Goals for this chapter.
+    \item Goals for this chapter.
     \begin{itemize}
         \item Thermodynamically analyze a solution of a polymer in a low molecular weight solvent.
         \item Determine the phase equilibria relevant to this situation.
