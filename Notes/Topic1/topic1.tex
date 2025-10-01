@@ -60,7 +60,7 @@
         \label{fig:viscosityScaling}
     \end{figure}
     \begin{itemize}
-        \item Namely, polymer viscosity increases up to a critical concentration $c^*$ at a slpe of 1, then to an entanglement concentration $c_e$ at a slope of 2, and then at a slope of $14/3$ past that.
+        \item Namely, polymer viscosity increases up to a critical concentration $c^*$ at a slope of 1, then to an entanglement concentration $c_e$ at a slope of 2, and then at a slope of $14/3$ past that.
         \item Thus, there are three universal scaling regimes.
         \item A log-log plot is used to show power-law scalings, like in high school trigonometry!
         \item Aside: Power laws are present everywhere once you get big enough, down to the volume of our lungs relative to our bodies in bigger and bigger animals.
@@ -99,7 +99,7 @@
     \begin{equation*}
         x_i := \frac{n_i}{\sum_in_i}
     \end{equation*}
-    \item \textbf{Weight fraction} (of an $i$-mer): The probability that a repeat unit picked out of solution belongs to an $i$-mer. \emph{Also known as} \textbf{weight fraction}. \emph{Denoted by} $\bm{w_i}$. \emph{Given by}
+    \item \textbf{Weight fraction} (of an $i$-mer): The probability that a repeat unit picked out of solution belongs to an $i$-mer. \emph{Also known as} \textbf{mass fraction}. \emph{Denoted by} $\bm{w_i}$. \emph{Given by}
     \begin{equation*}
         w_i := \frac{n_iM_i}{\sum_in_iM_i}
         = \frac{n_i(iM_0)}{\sum_in_i(iM_0)}
@@ -133,7 +133,7 @@
     \begin{equation*}
         \sigma^2 := M_n^2[\Dstroke-1]
     \end{equation*}
-    \item \textbf{Schultz-Zimm distribution}: An idealized mathematical model for polymer molecular weight distribution.
+    \item \textbf{Schulz-Zimm distribution}: An idealized mathematical model for polymer molecular weight distribution.
     \item With these definitions, we can now do homework problem number 1!
     \item Experimental techniques to measure molecular weight.
     \begin{itemize}
@@ -228,7 +228,7 @@
             \item So then since probability is proportional to $\e[-V/\kB T]$, the probability that a molecule will be staggered is greater than that it will be eclipsed.
         \end{itemize}
         \item In molecules longer than ethane, we break degeneracy of the valleys.
-        \item The rapid growth of conformers: Ethane has 3 conformers. Propane has $3^2$. Butane has $3^3$. Decane has $3^10$. Polyethylene with $N=10^5$ already has on the order of \num{e47000} possible conformers, a huge conformational space.
+        \item The rapid growth of conformers: Ethane has 3 conformers. Propane has $3^2$. Butane has $3^3$. Decane has $3^{10}$. Polyethylene with $N=10^5$ already has on the order of \num{e47000} possible conformers, a huge conformational space.
         \begin{itemize}
             \item This is because each bond has 3 valleys!
             \item Many of the models we'll develop are ways of enumerating these conformations in relation to some higher-order measurement of the polymer, such as the \textbf{n-band difference}.
@@ -499,7 +499,7 @@
     \item Example: Measuring persistence length of dsDNA.
     \begin{itemize}
         \item Adsorb DNA onto a surface that loosely binds it, so that it can still move around but won't fall off.
-        \item Then look at 1000s of strands next to each other and calculate tangent lengths!
+        \item Then look at thousands of strands next to each other and calculate tangent lengths!
         \item Reference: \textcite{bib:DNApersisLength}.
     \end{itemize}
     \item Example: Bottlebrush polymers in cartilage.
@@ -1093,6 +1093,113 @@
     \begin{itemize}
         \item Not only can you have \emph{cis}- or \emph{trans}-backbones, but isoprene (for example) can polymerize through either --- or both! --- of its double bonds.
     \end{itemize}
+    \item \marginnote{10/1:}Molecular weights and molecular weight averages.
+    \item \textbf{Mass concentration} (of an $i$-mer): The number of grams per mole of $i$-mer per unit volume. \emph{Denoted by} $\bm{c_i}$. \emph{Given by}
+    \begin{equation*}
+        c_i := \frac{n_iM_i}{V}
+    \end{equation*}
+    \item $\Mn$ and $\Mw$ are by far the most important and most common measurements of polymer average weight, but there are also others such as the \textbf{$\bm{z}$-average molecular weight}.
+    \item \textbf{$\bm{z}$-average molecular weight}: The third moment of the weight distribution. \emph{Denoted by} $\bm{M_\textbf{z}}$. \emph{Given by}
+    \begin{equation*}
+        M_\text{z} := M_0\frac{\sum_ii^3n_i}{\sum_ii^2n_i}
+    \end{equation*}
+    \item \textbf{Monodisperse} (sample): A polymer sample for which $\Dstroke=1$.
+    \item \textbf{Narrow} (distribution): A polymer weight distribution for which $\Dstroke<1.5$.
+    \item \textbf{Broad} (distribution): A polymer weight distribution for which $\Dstroke>2$.
+    \item \textcite{bib:HiemenzLodge} derive the variance expression given in class.
+    \item \textbf{Mean} (of a distribution $i$): The numerical average of the distribution. \emph{Denoted by} $\bm{\prb{i}}$. \emph{Given by}
+    \begin{align*}
+        \prb{i} &:= \frac{\sum_iin_i}{\sum_in_i} = \sum_iix_i&
+        \prb{i} &:= \int_0^\infty iP(i)\dd{i}
+    \end{align*}
+    \item \textbf{Normalized} (distribution): A discrete distribution $x_i$ or continuous distribution $P(i)$ satisfying the following respective criterion. \emph{Constraints}
+    \begin{align*}
+        \sum_ix_i &= 1&
+        \int_0^\infty P(i)\dd{i} &= 1
+    \end{align*}
+    \item \textbf{$\bm{k}$-th moment} (of a normalized distribution): The number defined as follows. \emph{Denoted by} $\bm{\mu_k}$. \emph{Given by}
+    \begin{align*}
+        \mu_k &:= \sum_ix_ii^k&
+        \mu_k &:= \int_0^\infty i^kP(i)\dd{i}
+    \end{align*}
+    \begin{itemize}
+        \item The mean is therefore the first moment of a distribution!
+        \item $\Mw$ and $M_\text{z}$ are proportional to the ratios of the 2nd to the 1st moment and the 3rd to the 2nd moment, respectively.
+    \end{itemize}
+    \item \textbf{$\bm{k}$-th moment about the mean} (of a normalized distribution): The number defined as follows. \emph{Denoted by} $\bm{v_k}$. \emph{Given by}
+    \begin{equation*}
+        v_k := \sum_ix_i(i-\prb{i})^k
+    \end{equation*}
+    \begin{itemize}
+        \item It follows that the variance is the second moment about the mean.
+    \end{itemize}
+    \item \textbf{Schulz-Zimm distribution}: A one-parameter mathematical model for polymer weight distributions, where varying the one parameter affords reasonable descriptions for typical narrow or moderately broad samples. \emph{Given by}
+    \begin{equation*}
+        P(M_i) := \frac{z^{z+1}}{\Gamma(z+1)}\frac{M_i^{z-1}}{\Mn^z}\e[-zM_i/\Mn]
+    \end{equation*}
+    \begin{itemize}
+        \item $\Gamma$ denotes the \textbf{gamma function}, a popular extension of the factorial function.
+        \item \textcite{bib:HiemenzLodge} extend their discussion of this distribution quite a bit and graph some examples of it. One such graph is included in the lecture 2 slides.
+    \end{itemize}
+    \item Measurement of molecular weight.
+    \item \textbf{Size exclusion chromatography}: A method of measuring polymer molecular weight that can provide information about the full distribution of weights. \emph{Also known as} \textbf{SEC}.
+    \begin{itemize}
+        \item Benefits.
+        \begin{itemize}
+            \item The dominant method today; almost all polymer chemistry laboratories have SEC capabilities.
+            \item Automated analysis of a few milligrams of sample in a good solvent can be achieved in half an hour.
+        \end{itemize}
+        \item Limitations.
+        \begin{itemize}
+            \item Poor resolution.
+            \item Reliance on standards.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Matrix-assisted laser desorption/ionization mass spectrometry}: A method of measuring polymer molecular weight that can provide information about the full distribution of weights. \emph{Also known as} \textbf{MALDI}.
+    \begin{itemize}
+        \item Benefits.
+        \begin{itemize}
+            \item High resolution.
+        \end{itemize}
+        \item Limitations.
+        \begin{itemize}
+            \item Relatively new and still being expanded in scope.
+            \item Resolution is diminished as $M$ increases.
+            \item Sensitivity is diminished as $M$ increases: Higher MW polymers are just harder to get into the gas phase.
+            \begin{itemize}
+                \item Sensitivity is also a heretofore unknown function of molecular weight, so extracting $\Mn$ and $\Mw$ quantitatively is unreliable.
+                \item Microscopic differences in drops and their structure add further uncertainty.
+            \end{itemize}
+            \item Works better for more polar polymers (PE is almost impossible).
+            \item More highly charged species confound data.
+        \end{itemize}
+        \item Section 1.8.3 covers the basics of how MALDI works.
+        \begin{itemize}
+            \item "A great deal remains to be learned about both the desorption and ionization processes, and standard practice is to follow particular recipes (matrix and salt) that have been found to be successful for a given polymer" \parencite[35]{bib:HiemenzLodge}.
+        \end{itemize}
+    \end{itemize}
+    \item If SEC and MALDI can be done reliably, accurately, and conveniently, then there is little need for any other technique.
+    \item \textbf{Colligative} (property): A property of a solution that depends on the the \emph{number} of solute particles alone, with no consideration of their nature.
+    \item Some techniques provide information on \emph{only} $\Mn$ by measuring colligative properties.
+    \begin{itemize}
+        \item Osmotic pressure (most common), freezing point depression, boiling point elevation, light scattering, end group analysis, etc.
+        \item Osmotic pressure is based on equilibrium thermodynamics, and thus affords absolute measurements \emph{without} calibration!
+        \item End group analysis relies on the fact that if a molecule only has two ends, counting the number of ends is equivalent to counting the number of molecules.
+        \begin{itemize}
+            \item Common techniques: Acid-base titration (acidic or basic end groups), NMR (esp. \ce{{}^1H} qNMR).
+        \end{itemize}
+    \end{itemize}
+    \item Some techniques provide information on \emph{only} $\Mw$.
+    \begin{itemize}
+        \item Light scattering is also based on equilibrium thermodynamics (so absolute and no calibration needed).
+    \end{itemize}
+    \item Misc. techniques: Sedimentation, gel electrophoresis, and intrinsic viscosity.
+    \item End group analysis principles.
+    \begin{enumerate}
+        \item "The chemical structure of the end group must be sufficiently different from that of the repeat unit for the chosen analytical technique to resolve the two clearly" \parencite[32]{bib:HiemenzLodge}.
+        \item "There must be a well-defined number of end groups per polymer, at least on average. For a linear polymer, there will be two and only two end groups per molecule, which may or may not be distinct from each other. For branched polymers, the relation of the number of end groups to the number of polymers is ambiguous, unless the total number of branching points is also known" \parencite[32]{bib:HiemenzLodge}.
+        \item "The technique is limited to relatively low molecular weights, as the end groups become more and more dilute as $N$ increases\dots As a general rule end groups present at the 1\% level (corresponding to degrees of polymerization of 100 for a single end group, 200 for both end groups) can be reliably determined; those at the 0.1\% level cannot" \parencite[32-33]{bib:HiemenzLodge}.
+    \end{enumerate}
 \end{itemize}
 
 
