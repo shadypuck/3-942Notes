@@ -543,14 +543,14 @@
         \caption{The volume occupied by polymers.}
         \label{fig:hardPervaded}
     \end{figure}
-    \item \textbf{Hard volume} (of a polymer): The volume occupied by the chain, where each repeat unit is considered to occupy a sphere with radius equal to the bond length and the polymer is the sum of these "beads" touching each other. \emph{Denoted by} $\bm{v}$. \emph{Given by}
+    \item \textbf{Hard volume} (of a polymer): The volume occupied by the chain, where each repeat unit is considered to occupy a sphere with radius equal to the bond length and the polymer is the sum of these "beads" touching each other. \emph{Also known as} \textbf{occupied volume}. \emph{Denoted by} $\bm{v}$. \emph{Given by}
     \begin{equation*}
         v \propto nl^3
     \end{equation*}
     \begin{itemize}
         \item The volume of each bead is thus on the order of the bond length.
     \end{itemize}
-    \item \textbf{Pervaded volume} (of a polymer): The sphere encapsulating the volume in which the polymer chain is \emph{expected} to move around. \emph{Denoted by} $\bm{V}$. \emph{Given by}
+    \item \textbf{Pervaded volume} (of a polymer): The sphere encapsulating the volume in which the polymer chain is \emph{expected} to move around. \emph{Denoted by} $\bm{V}$, $\bm{V_\text{p}}$. \emph{Given by}
     \begin{equation*}
         V \propto \prb{\mathbf{R}^2}^{3/2} \propto n^{3/2}l^3
     \end{equation*}
@@ -561,7 +561,7 @@
     \begin{itemize}
         \item It follows that the pervaded volume is mostly empty as $n$ becomes large.
     \end{itemize}
-    \item \textbf{Critical concentration}: The concentration at which all polymers in solution can "see" each other. \emph{Denoted by} $\bm{c^*}$.
+    \item \textbf{Critical concentration}: The concentration at which all polymers in solution can "see" each other. \emph{Also known as} \textbf{coil overlap concentration}. \emph{Denoted by} $\bm{c^*}$.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.4\linewidth]{concentrationRegimes.png}
@@ -919,9 +919,16 @@
         \item The nice thing about this compression penalty is that the graph of $1/R^2+R^2$ forms a nice energy well, dictated by the rates at which one or the other increases. See Figure \ref{fig:compressPenalty}.
     \end{itemize}
     \item Now analogously to a \textbf{Virial expansion} (from thermodynamics), we are going to do another expansion.
+    \begin{equation*}
+        \frac{F_\text{int}}{V\kB T} = \frac{1}{2!}vc^2+\frac{1}{3!}wc^3+\cdots
+    \end{equation*}
     \begin{itemize}
+        \item This takes the perspective that we disregard monomer connectivity, and evaluate the enthalpic interaction energy $F_\text{int}$ as if it was a gas of monomers in a spherical container of radius $R$.
+        \item $c=N/R^3$ is the concentration of the monomers, and $V\propto R^3$.
+        \begin{itemize}
+            \item We are throwing out prefactors like $4/3$ and $\pi$.
+        \end{itemize}
         \item This gives us a term for binary interactions, ternary interactions, etc.
-        \item We say concentration is approximately equal to the number of monomers divided by $R^3$ (throwing out prefactors like $4/3$ and $\pi$).
     \end{itemize}
     \item In a good solvent, $R>Nb^2$ because the polymer swells due to $V_\text{ex}$.
     \begin{itemize}
@@ -940,7 +947,19 @@
             \item This stands in contrast to the ideal $R\approx N^{1/2}b$.
         \end{itemize}
     \end{itemize}
-    \item The full Flory free energy has many terms that all balance; you play with the ingredients to see what fits.
+    \item In a bad solvent, enthalpic interactions matter more than entropic interactions because the polymer is compressed into a globule regardless.
+    \begin{itemize}
+        \item Thus, we have to balance the first two terms in $F_\text{int}$ to determine the scaling.
+        \begin{align*}
+            0 &= \pdv{F_\text{int}}{R}\\
+            &= \pdv{R}\left\{ \kB TR^3\left[ \frac{1}{2}v\left( \frac{N}{R^3} \right)^2+\frac{1}{6}w\left( \frac{N}{R^3} \right)^3 \right] \right\}\\
+            &= \kB T\pdv{R}(\frac{vN^2}{2R^3}+\frac{wN^3}{6R^6})\\
+            0 &= -\frac{3vN^2}{2R^4}-\frac{wN^3}{R^7}\\
+            R^3 &= -\frac{2wN}{3v}\\
+            R &\propto \left( \frac{w}{-v} \right)^{1/3}N^{1/3}
+        \end{align*}
+    \end{itemize}
+    \item Combining the enthalpic and entropic terms, the full Flory free energy has many terms that all balance; you play with the ingredients to see what fits.
     \begin{equation*}
         \frac{F}{\kB T} = \frac{V_\text{ex}N^2}{2R^3}+\frac{wN^3}{6R^6}+\frac{3R^2}{2Nb^2}+\frac{3Nb^2}{2R^2}
     \end{equation*}
@@ -1200,6 +1219,110 @@
         \item "There must be a well-defined number of end groups per polymer, at least on average. For a linear polymer, there will be two and only two end groups per molecule, which may or may not be distinct from each other. For branched polymers, the relation of the number of end groups to the number of polymers is ambiguous, unless the total number of branching points is also known" \parencite[32]{bib:HiemenzLodge}.
         \item "The technique is limited to relatively low molecular weights, as the end groups become more and more dilute as $N$ increases\dots As a general rule end groups present at the 1\% level (corresponding to degrees of polymerization of 100 for a single end group, 200 for both end groups) can be reliably determined; those at the 0.1\% level cannot" \parencite[32-33]{bib:HiemenzLodge}.
     \end{enumerate}
+\end{itemize}
+
+
+
+\section{Chapter 6: Polymer Conformations}
+\emph{From \textcite{bib:HiemenzLodge}.}
+\begin{itemize}
+    \item \textbf{Globule}: A compressed conformation of a polymer similar to a dense ball.
+    \item \textbf{Random coil}: A conformation of a polyemer where the monomer subunits are oriented randomly while still being bonded to adjacent units.
+    \item The approximately $0.7\kB T$ ($3\kB T$ from class appears to be wrong) energy difference between the trans and either gauche state implies that the gauche states will be about $\e[-0.7]\approx 0.5$ times as populated as the trans states.
+    \item \textbf{Ergodic} (system): A system for which the time average of its states is equivalent to the ensemble average.
+    \begin{itemize}
+        \item For example, polymer conformations are ergodic because the end-to-end distance of a polymer averaged over time as it wiggles around is the same as its end-to-end distance averaged over a large collection of structurally identical chains at a given instant in time.
+    \end{itemize}
+    \item \textbf{Isotropic} (quantity): A quantity that is not biased in any particular direction.
+    \begin{itemize}
+        \item For example, the polymer end-to-end vector should not orient in any particular direction in the absence of external bias. This is why $\prb{\mathbf{R}}=0$, as discussed in class.
+    \end{itemize}
+    \item A more rigorous basis for why the cross terms in the FJC expansion of $\prb{R^2}$ equal zero.
+    \begin{itemize}
+        \item For any two vectors $\mathbf{l}_i,\mathbf{l}_j$, we have
+        \begin{equation*}
+            \prb{\mathbf{l}_i\cdot\mathbf{l}_j} = l^2\prb{\cos\theta}
+        \end{equation*}
+        where $\theta$ is the angle between them when translated through space to be tail-to-tail.
+        \item Since we are assuming lack of correlation, $\theta$ is equally likely to be anywhere along its principle branch of $[0,\pi)$. Thus,
+        \begin{equation*}
+            \prb{\cos\theta} = \int_0^\pi\cos\theta\cdot\frac{\dd\theta}{\pi-0} = 0
+        \end{equation*}
+        \item This zeroes out the cross term.
+    \end{itemize}
+    \item \textcite[239-40]{bib:HiemenzLodge} explicitly derive the full FRC result for $\prb{R^2}$.
+    \begin{itemize}
+        \item It is an exact, analytical derivation; the only assumptions are that $n\to\infty$ (generally justified within measurement error for $n>100$) and $\theta\neq 0$ (generally justified because most bonds are not straight from one to the next).
+    \end{itemize}
+    \item Lessons from the FRC.
+    \begin{itemize}
+        \item $\prb{R^2}$ grows relative to the FJC approximation. This is reasonable because we have less doubling back.
+        \item We still have $\prb{R^2}\propto nl^2$, despite the increase in complexity of the model.
+        \item When $\theta\approx\ang{70.5}$ (as for a \ce{C-C} bond), $\prb{R^2}\approx 2nl^2$ under this model.
+    \end{itemize}
+    \item \textcite{bib:Flory2} derives $\prb{R^2}$ for the symmetric hindered rotations model.
+    \item Theorem: Under the assumptions that $n\to\infty$ and polymer chains can freely pass through themselves, $\prb{R^2}=Cnl^2$ where $C$ is a numerical constant that depends only on local constraints and not on $n$.
+    \item The principle of Kuhn's equivalent chain follows from this theorem: Memory of orientation is lost at a far enough distance away from the original link, making it so that "for any chain of $n$ links whose relative orientations are constrained, we can always generate an equivalent chain with a new (bigger) link that is freely jointed, so that the original chain and the new chain have the same [$\prb{R^2}$]" \parencite[241]{bib:HiemenzLodge}.
+    \item Common backbone bond lengths.
+    \begin{table}[h!]
+        \centering
+        \small
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{c|ccccc}
+            \toprule
+            \textbf{Bond Type} & \ce{C-C} & \ce{C=C} & \ce{C-O} & \ce{C-N} & \ce{Si-O}\\
+            \textbf{Bond Length (\si[detect-weight]{\angstrom})} & 1.53 & 1.34 & 1.43 & 1.47 & 1.6\\
+            \bottomrule
+        \end{tabular}
+        \caption{Common polymer backbone bond lengths.}
+        \label{tab:bondLength}
+    \end{table}
+    \begin{itemize}
+        \item For polymers with multiple backbone bonds, add $n_1l_1^2+n_2l_2^2+\cdots$ for each type of backbone bond.
+    \end{itemize}
+    \item Larger $C_\infty$ implies stiffer chains.
+    \item Characteristic ratio terminology.
+    \begin{itemize}
+        \item $C_n$ describes the characteristic ratio for a type of chain with \emph{exactly} $n$ bonds.
+        \item $C_\infty$ is $C_n$, but specifically in the large $n$ limit where $n\to\infty$.
+    \end{itemize}
+    \item Common monomer parameters ($C_\infty$, Kuhn length, monomer volume, etc.) are compiled in a table on \textcite[243]{bib:HiemenzLodge}, sourced from \textcite{bib:monomerParameters}. This significantly extends Table \ref{tab:CinftyCommon}.
+    \item Although the Kuhn length varies monotonically with $C_\infty$, is is not as good a measure of flexibility.
+    \begin{itemize}
+        \item Example: The Kuhn length for polystyrene is just a bit longer than for polyisoprene, but polystyrene is much stiffer (as reflected by a $C_\infty$ more than double polyisoprene's).
+        \item See Problem 6.4 for more.
+    \end{itemize}
+    \item \textbf{Monomer volume}: The volume of a single monomer of interest. \emph{Denoted by} $\bm{v_0}$.
+    \item A good visual for semiflexible, worm-like chains: A garden hose ($a$ is approximately 1 foot).
+    \item The persistence length is equal to the end-to-end vector onto the direction of the first bond?? $a=\prb{\hat{\mathbf{l}}_1\cdot\mathbf{R}}$?? See \textcite[246]{bib:HiemenzLodge}.
+    \begin{itemize}
+        \item It seems that all subsequent results about the WLC differ significantly from our treatment in class.
+    \end{itemize}
+    \item Radius of gyration content and derivations of the in-class equation, as well as relation to the textbook's definition of persistence length.
+    \item The distribution of most probable sizes is Gaussian.
+    \begin{itemize}
+        \item Derivation of the binomial is \emph{exactly} as I rationalized!
+        \item \textcite[255-56]{bib:HiemenzLodge} also derives the 3D Gaussian from the binomial using only first principles.
+        \item Problem 6.20 shows that the Gaussian is useful for $N$ as small as 10.
+        \item It is important to keep in mind that the Gaussian is a continuous approximation for a discrete function; thus, its values can never be \emph{exactly} accurate, and some (e.g., finite probabilities at lengths greater than the contour length) may be meaningless.
+        \item The pure Gaussian tells us that the most probable \emph{vector} value $\mathbf{R}$ is 0, but multiplying by $4\pi R^2$ reveals that the most probable \emph{scalar} value $R$ is finite.
+        \begin{itemize}
+            \item Analogous to normalization of the \emph{s} electrons in the hydrogen atom and molecular speeds in the Maxwell-Boltzmann distribution.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Dilute} (solution): A solution for which the concentration $c$ is much less than the critical concentration $c^*$.
+    \item A note on excluded volume.
+    \begin{itemize}
+        \item Tends to \emph{expand} the coil, because the polymer feels like it has less space available to it.
+        \item Two cases where excluded volume disappears: Polymer melt and $\theta$ solvent.
+        \begin{itemize}
+            \item Polymer melt: Two monomers still cannot occupy the same space, but there is no benefit to expanding the coil because the adjacent space is \emph{already} surrounded by monomers.
+            \begin{itemize}
+                \item Conjectured by Flory long ago, and confirmed by SANS in the 1970s.
+            \end{itemize}
+            \item $\theta$ solvent: A non-very-good solvent that makes monomers prefer to be near each other than far away.
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 
