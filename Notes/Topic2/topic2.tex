@@ -166,10 +166,14 @@
             &= -\frac{X_1}{X_0}\ln\frac{X_1}{X_0}-\frac{X_2}{X_0}\ln\frac{X_2}{X_0}\\
             &= -\phi_1\ln\phi_1-\phi_2\ln\phi_2
         \end{align*}
-        \begin{itemize}
-            \item The new variables $\phi_i=X_i/X_0$ are the volume fractions for spaces $i$.
-            \item Consequence: $\phi_1+\phi_2=1$.
-        \end{itemize}
+        where $\phi_i$ denots the \textbf{volume fraction} of spaces occupied by species $i$.
+    \end{itemize}
+    \item \textbf{Volume fraction} (of $i$): The fraction of lattice sites occupied by species $i$. \emph{Denoted by} $\bm{\phi_i}$. \emph{Given by}
+    \begin{equation*}
+        \phi_i := \frac{X_i}{X_0}
+    \end{equation*}
+    \begin{itemize}
+        \item It follows from this definition that $\phi_1+\phi_2=1$.
     \end{itemize}
     \item Note: An assumption underlying the use of the Boltzmann equation is that all microstates have equal energy. This isn't strictly true, but it's a good enough approximation.
     \begin{figure}[h!]
@@ -262,7 +266,10 @@
                 H_2 &= \frac{zX_2\varepsilon_{22}}{2}
             \end{align*}
         \end{itemize}
-        \item Assuming that volume is constant, energy and enthalpy are the same (we're actually calculating energy but operating under this assumption).
+        \item Note that we are actually computing the energy $U$ above, not the enthalpy $H=U+PV$. However, we equate $H=U$ by assuming that there is no volume change upon mixing.
+        \begin{itemize}
+            \item Such an assumption is consistent with the lattice approach (i.e., the assumption that all species fit into a lattice site of equal volume both before and after mixing).
+        \end{itemize}
         \item It follows that
         \begin{align*}
             \Delta H_M &= H_{1,2}-(H_1+H_2)\\
@@ -274,14 +281,14 @@
             \frac{\Delta H_M}{X_0\kB T} &= \frac{z}{\kB T}\left\{ \phi_1\phi_2\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right] \right\}\\
             &= \chi\phi_1\phi_2
         \end{align*}
-        where
-        \begin{equation*}
-            \chi := \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
-        \end{equation*}
-        is the \textbf{Flory $\bm{\chi}$ parameter}.
-        \begin{itemize}
-            \item From its definition, we can see that the sign of $\chi$ determines whether mixing will be enthalpically favorable or not. Moreover, the sign of $\chi$ is determined by the interplay between how much the components like each other, and how much they like themselves on average.
-        \end{itemize}
+        where $\chi$ denotes the \textbf{Flory $\bm{\chi}$ parameter}.
+    \end{itemize}
+    \item \textbf{Flory $\bm{\chi}$ parameter}: A measure of the degree to which the two species like each other vs. themselves. \emph{Also known as} \textbf{interaction parameter}. \emph{Denoted by} $\bm{\chi}$. \emph{Given by}
+    \begin{equation*}
+        \chi := \frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+    \end{equation*}
+    \begin{itemize}
+        \item From its definition, we can see that the sign of $\chi$ determines whether mixing will be enthalpically favorable or not. Moreover, the sign of $\chi$ is determined by the interplay between how much the components like each other, and how much they like themselves on average.
         \item Implication: If the two components like themselves more than they like each other (right diagram at bottom of slide 14), $\chi$ will be positive and will between the middle two lines (we don't know here if it will mix or demix)??
     \end{itemize}
     \item The $\chi$ parameter is still being debated today; Alfredo is writing a paper on it!
@@ -374,16 +381,39 @@
         \end{itemize}
     \end{itemize}
     \item Preliminaries to next class.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{phaseDiaa.png}
+            \caption{Phase diagram.}
+            \label{fig:phaseDiaa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{phaseDiab.png}
+            \caption{Composite phase diagram and energy plot.}
+            \label{fig:phaseDiab}
+        \end{subfigure}
+        \caption{Example phase diagram and explanation.}
+        \label{fig:phaseDia}
+    \end{figure}
     \begin{itemize}
         \item Construction of phase diagrams.
         \begin{itemize}
             \item You have a critical point graph that gets flipped??
-            \item Inside one is binodal line; outside one is spinodal line.
+            \item The inside, dashed line is the \textbf{spinodal curve}.
+            \item The outside, solid line is the \textbf{binodal curve}.
+            \item We are essentially thinking of $\phi_2$ and $\chi N$ as two independent variables that together define a system. A dependent variable of interest in this system is the mixing energy $\Delta G_M$. Therefore, a representation of the set of systems as a 2D graph in 3D space is warranted. Figure \ref{fig:mixingChic} plots one set of 2D cross sections of this surface (with color as a pseudo-third dimension), and Figure \ref{fig:phaseDia} plots other important contours of this surface.
         \end{itemize}
-        \item Between the two inflection points, the system is unstable.
-        \item Concave curvature puts sum of two free energies below the points.
-        \item You will evolve toward the two lowest energy points, phase separating as needed.
-        \item Demixing occurs by nucleation and growth.
+        \item The spinodal curve plots the inflection points in Figure \ref{fig:mixingChic}.
+        \begin{itemize}
+            \item For example, the pink curve has two inflection points around 0.2 and 0.8, and the green curve has one (special) inflection point around 0.5.
+            \item Between the two inflection points, the system is unstable.
+            \item Concave curvature puts the sum of two free energies below the points.
+            \item You will evolve toward the two lowest energy points, phase separating as needed.
+        \end{itemize}
+        \item Once we have reached a \textbf{metastable} state at the spinodal, demixing to the binodal occurs by nucleation and growth.
     \end{itemize}
 \end{itemize}
 
@@ -404,22 +434,46 @@
     \begin{equation*}
         \mu_i := \left( \pdv{G}{n_i} \right)_{T,P,N,n_j}\tag{$j\neq i$}
     \end{equation*}
-    \item \textbf{Coexistence curve}: The set of points where the chemical potentials are equal. \emph{Also known as} \textbf{binodal curve}.
+    \item \textbf{Coexistence curve}: The set of points where the chemical potentials of each component in each phase are equal. \emph{Also known as} \textbf{binodal curve}. \emph{Constraints}
+    \begin{align*}
+        \mu_1' &= \mu_1''&
+            \mu_2' &= \mu_2''\\
+        \mu_1'-\mu_1^\circ &= \mu_1''-\mu_1^\circ&
+            \mu_2'-\mu_2^\circ &= \mu_2''-\mu_2^\circ
+    \end{align*}
     \begin{itemize}
+        \item Note that one of the phases (e.g., the clumped phase in Figure \ref{fig:demix}) is denoted by a single prime, and the other phase (e.g., the mostly solvent/unclumped phase in Figure \ref{fig:demix}) is denoted by a double prime.
+        \begin{itemize}
+            \item The lower line of constraints indicates that equal chemical potentials are also equal with respect to the reference chemical potential.
+            \item We include it because $\mu_i-\mu_i^\circ$ is easier to calculate than just $\mu_i$. This is because we have expressions for $\Delta G_M$, not $G_M$, so we would prefer to use the left derivative below than the right.
+            \begin{align*}
+                \mu_i-\mu_i^\circ &= \pdv{\Delta G}{n_i}&
+                \mu_i &= \pdv{G}{n_i}
+            \end{align*}
+        \end{itemize}
         \item The coexistence curve encloses all compositions wherein the mixture demixes into two distinct, coexisting phases.
-        \item Symbolically, letting the two phases in the mixture be called prime and double prime, we have for each component 1 and 2 that
-        \begin{align*}
-            \mu_1' &= \mu_1''&
-            \mu_2' &= \mu_2''
-        \end{align*}
-        \item In PSet 2, we'll derive one of the expressions on this slide.
+        \item Alternatively, the coexistence curve is given by finding, for each $\Delta G_M(\phi)$ curve, the intersections of said curve with a line tangent to the two wells.\footnote{See Office Hours for more on this tangent line.}
     \end{itemize}
-    \item Spinodal inflection points are where the 2nd derivative is zero.
+    \item \textbf{Spinodal curve}: The set of inflection points along the $\Delta G_M(\phi)$ curves, generated as $\chi$ is varied. \emph{Also known as} \textbf{stability limit}. \emph{Constraint}
+    \begin{equation*}
+        \pdv[2]{\Delta G_M}{\phi_1} = 0
+    \end{equation*}
     \begin{itemize}
-        \item Critical points has 2nd and 3rd derivatives equal to zero.
-        \item \emph{equations in slides}
+        \item Recall that at each inflection point, the 2nd derivative is zero. This is why we use the criterion above.
     \end{itemize}
-    \item Polymer-solvent solutions.
+    \item \textbf{Critical point}: The point on a phase diagram where a solution first begins to demix, or first begins to mix. \emph{Denoted by} $\bm{(\phi_{1,c},\chi_c)}$. \emph{Constraints}
+    \begin{align*}
+        \eval{\pdv[2]{\Delta G_M}{\phi_1}}_{(\phi_{1,c},\chi_c)} &= 0&
+        \eval{\pdv[3]{\Delta G_M}{\phi_1}}_{\phi_{1,c}} &= 0
+    \end{align*}
+    \begin{itemize}
+        \item The spinodal and coexistence curves intersect at this point.
+        \item Because the critical point lies on the spinodal curve, it will satisfy the left constraint above (i.e., 2nd derivative is zero).
+        \item To explain the right constraint, we need to think a bit more. Usually, an inflection point identifies where the concavity of a curve changes from up to down, or vice versa. At such a point, the concavity is zero. However, on the $\Delta G_M(\phi)$ curve at the \emph{boundary} between mixing and demixing (e.g., the green line in Figure \ref{fig:mixingChic}), there is an inflection point where the concavity goes from up, to zero, to up again. At such a point, the second derivative is still equal to zero \emph{but the third derivative is, too}.
+        \item Thus, altogether, the right constraint pinpoints the concentration $\phi_{1,c}$ at which demixing first occurs as we raise $\chi$, and the left constraint relates this concentration to the interaction parameter $\chi_c$ necessary to produce a mixing curve with an inflection point at $\phi_{1,c}$.
+    \end{itemize}
+    \item Per the above, a few derivatives suffice to compute the spinodal curve. But if we want to understand the binodal curve, we should find a way to compute the chemical potentials of our solutions.
+    \item The chemical potential of a polymer-solvent solution.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.25\linewidth]{demix.JPG}
@@ -428,35 +482,34 @@
     \end{figure}
     \begin{itemize}
         \item An interesting way of thinking about this: Osmometry.
-        \item Imagine a uniform, mixed polymer solution.
         \begin{itemize}
-            \item We can demix to a state where the polymer is all clumped together.
-            \item The clumps still have some solvent in them though.
+            \item Imagine a uniform, mixed polymer solution.
+            \item We can demix to a state where the polymer is all clumped together, but the clumps still have some solvent in them though.
+            \item The phase separation stops when a solvent molecule \emph{inside} and \emph{outside} the polymer clump has the same chemical potential.
         \end{itemize}
-        \item The phase separation stops when a solvent molecule \emph{inside} and \emph{outside} the polymer clump has the same chemical potential.
-        \item Important relevant expressions.
+        \item We now state --- without proof --- that the change in chemical potentials upon mixing are as follows.
         \begin{align*}
-            \mu_1-\mu_1^\circ &= RT\left[ \ln\phi_1+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]\\
+            \mu_1-\mu_1^\circ &= RT\left[ \ln(1-\phi_2)+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]\\
             \mu_2-\mu_2^\circ &= RT\left[ \ln\phi_2+(N_2-1)\phi_2+N_2\chi\phi_2^2 \right]
         \end{align*}
         \begin{itemize}
             \item Remember that by convention, phase 1 is the solvent and phase 2 is the polymer.
             \item Notice the multiplying vs. dividing of $N_2$.
             \item For a polydisperse system of polymer chains, let $N_2=\prb{N_2}=\Mn$.
+            \item In PSet 2, Q1a, we'll derive the top one of these expressions.
         \end{itemize}
-        \item We'll now massage the above expressions to get some more mechanistic understanding out of them.
     \end{itemize}
-    \item Chemical potential for a dilute solution.
+    \item We'll now massage the above expressions to get some more mechanistic understanding out of them, specifically for dilute solutions.
     \begin{itemize}
-        \item Since we are positing a dilute solution, we may use the approximation that the volume fraction of component 2 is small. This will allow us to expand the expressions.
-        \item For small $x$, the following approximation holds.
+        \item Since we are postulating a dilute solution, we may use the approximation that the volume fraction of component 2 is small. This will allow us to expand the logarithms.
+        \item Recall from math class that for small $x$, the following approximation holds.
         \begin{equation*}
             \ln(1-x) = -x-\frac{x^2}{2}-\cdots-\frac{x^n}{n}-\cdots
         \end{equation*}
         \begin{itemize}
-            \item We can use fewer terms for quite small $x$.
+            \item Moreover, we can choose to use only the first couple of terms for sufficiently small $x$.
         \end{itemize}
-        \item It also follows from the assumptions that (1) the solution is dilute, i.e., $n_1\gg n_2N_2$ and (2) that the volume of the monomers is approximately equal, i.e., $v_1\approx v_2$ that
+        \item It also follows from the assumptions that (1) the solution is dilute (i.e., $n_1\gg n_2N_2$) and (2) that the volume of the monomers is approximately equal (i.e., $v_1\approx v_2$) that
         \begin{align*}
             \phi_1 &= \frac{n_1v_1}{n_1v_1+n_2N_2v_2}&
             \phi_2 &= \frac{n_2N_2v_2}{n_1v_1+n_2N_2v_2} \approx \frac{n_2N_2}{n_1}
@@ -468,21 +521,66 @@
         \item It follows that
         \begin{align*}
             \frac{\mu_1-\mu_1^\circ}{RT} &= \ln(1-\phi_2)+1\cdot\phi_2-\frac{1}{N_2}\cdot\phi_2+\chi\phi_2^2\\
-            &= -\phi_2-\frac{1}{2}\phi_2^2+\phi_2-\frac{\phi_2}{N_2}+\chi\phi_2^2\\
+            &\approx -\phi_2-\frac{1}{2}\phi_2^2+\phi_2-\frac{\phi_2}{N_2}+\chi\phi_2^2\\
             &= -\frac{\phi_2}{N_2}+\left( \chi-\frac{1}{2} \right)\phi_2^2
         \end{align*}
         \begin{itemize}
-            \item Since it's negative, this tells us that the chemical potential $\mu_1$ is always less than $\mu_1^\circ$, which means that the term is always negative, so everything wants to mix.
+            \item This expression implies that when $\chi<1/2$, the whole thing will be negative.
+            \begin{itemize}
+                \item It follows that if $\chi<1/2$, the chemical potential $\mu_1$ will be less than that of the standard, unmixed state $\mu_1^\circ$. Therefore, to lower chemical potential, hence everything will want to mix.
+            \end{itemize}
             \item In a subsequent course, we describe more results based off of the above equation!
         \end{itemize}
     \end{itemize}
-    \item Phase diagram for a dilute polymer solution.
+    \item This chemical potential expression allows us to get a more precise definition of the $\theta$ condition.
     \begin{itemize}
-        \item The condition where ?? is the $\theta$ condition.
-        \item Positive $\chi$ means that polymers don't like the solvent as much as they like themselves.
-        \item As $N_2$ increases, we push to lower fractions.
+        \item First, recall from thermodynamics that for an \textbf{ideal solution}, the chemical potential of the solvent is related to its mole fraction $x_1$ via
+        \begin{equation*}
+            \mu_1 = \mu_1^\circ+RT\ln x_1
+        \end{equation*}
+        \begin{itemize}
+            \item Substituting $x_1=1-x_2$ and using the same small logarithm approximation as above, we can learn that for an ideal solution,
+            \begin{equation*}
+                \frac{\mu_1-\mu_1^\circ}{RT} = \ln(1-x_2) \approx -x_2 = -\frac{\phi_2}{N_2}
+            \end{equation*}
+        \end{itemize}
+        \item Let's now compare this expression to the one we just derived for the chemical potential of a polymer-solvent solution.
+        \begin{itemize}
+            \item Doing so, we'll see that they both have a $-\phi_2/N_2$ term, but the polymer-solvent soution \emph{also} has the following term.
+            \begin{equation*}
+                RT\left( \chi-\frac{1}{2} \right)\phi_2^2
+            \end{equation*}
+            \item This term is called the \textbf{excess chemical potential}.
+        \end{itemize}
+        \item The excess chemical potential describes\dots
+        \begin{itemize}
+            \item Contact interactions, which relate to solvent quality as follows;
+            \begin{equation*}
+                \chi\phi_2^2RT
+            \end{equation*}
+            \item Excluded volume as follows.
+            \begin{equation*}
+                -\frac{1}{2}\phi_2^2RT
+            \end{equation*}
+        \end{itemize}
+        \item When contact interactions and excluded volume balance, this is the $\theta$ condition. It follows that the $\theta$ condition occurs when the excess chemical potentential equals zero. But mathematically, this happens when $\chi=1/2$!
+        \begin{itemize}
+            \item It also follows (as might be intuitive) that the when we are in the $\theta$ condition, the solution behaves as an ideal solution (i.e., with its chemical potential expression equal to that of an ideal solution).
+            \item This is our definition of the $\theta$ condition.
+            \item Moreover, $\chi>1/2$ implies an elevated chemical potential for the solvent. The solvent would thus rather be closer to its pure state, and demixing will ensue. In other words, $\chi>1/2$ is indicative of a "bad solvent," one that polymers don't like as much as they like themselves.
+            \item On the other hand, $\chi<1/2$ implies a decreased chemical potential for the solvent, one that will be augmented by further mixing. Therefore, $\chi<1/2$ is indicative of a "good solvent."
+        \end{itemize}
+        \item Lastly, there is the matter of $N_2$. As $N_2$ increases, the chemical potential of the solvent also increases. This means that as chains get longer, solvents tend to get "worse."
     \end{itemize}
-    \item It is very difficult to mix high MW polymers because you will need $\chi<2/N$.
+    \item Does slide 33 imply that it is harder to mix small amounts of high molecular weight polymer into a solvent than it is to mix large amounts of said polymer into a solvent?? Maybe it's something to do with the "solvent" becoming more of a swelling additive to the polymer than vice versa?
+    \item The limit of solvents getting "worse" occurs when you mix high molecular weight polymers.
+    \begin{itemize}
+        \item Here, you don't just need $\chi<1/2$ for a good solvent, but it turns out you will need $\chi<2/N$.
+        \begin{itemize}
+            \item You will prove the $\chi<2/N$ rule in PSet 2, Q1e.
+        \end{itemize}
+        \item This is why it is very difficult to mix high MW polymers.
+    \end{itemize}
     \item Solubility parameter and $\chi$.
     \begin{figure}[h!]
         \centering
@@ -1207,6 +1305,80 @@
         \item Imagine each molecule occupying a cell in a lattice with volume equal to the molecular volume.
         \item Let the lattice have coordination number $z$.
     \end{itemize}
+    \item \marginnote{10/2:}\textcite[275]{bib:HiemenzLodge} presents the entropy of mixing in the four useful forms: Original, with $R$ and number of moles, per site, and per mole of sites.
+    \begin{itemize}
+        \item This really helps clarify some of the rearrangements in PSet 2, Q1a.
+    \end{itemize}
+    \item Comments on the entropy of mixing.
+    \begin{itemize}
+        \item $\phi_i<1$ always, so $\ln\phi_i<0$ always. This implies that $\Delta S_M$ is always positive, so configurational entropy always favors spontaneous mixing!
+        \item The expression derived is symmetric with respect to exchange of 1 and 2. Such symmetry comes from the assumption that both mixing molecules are the same size, and is difficult to satisfy in real situations.
+        \item We are assuming that all configurations are equally probable (i.e., that 1 is equally likely to be next to 1 as it is to 2 and vice versa). But if there was an energetic preference, each configuration would need to be weighted by the appropriate Boltzmann factor.
+    \end{itemize}
+    \item \textcite[276]{bib:HiemenzLodge} take the perspective that each $\varepsilon_{ij}$ is negative, rather than being the absolute value of the depth of the well in Figure \ref{fig:Uwell}.
+    \begin{itemize}
+        \item It is unclear which perspective we take in class. However, it does make sense for these terms to be negative, as every type of molecule attracts at least a bit to every other type due to London dispersion forces at minimum.
+    \end{itemize}
+    \item \textbf{Exchange energy}: The difference between the attractive cross-interaction of 1 and 2 and the average self-interaction of 1 with 1 and 2 with 2. \emph{Denoted by} $\bm{\Delta\varepsilon}$. \emph{Given by}
+    \begin{equation*}
+        \Delta\varepsilon := \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22})
+    \end{equation*}
+    \begin{itemize}
+        \item When only London dispersion forces are present, we preferentially have $\Delta\varepsilon\geq 0$ because "like dissolves like."
+    \end{itemize}
+    \item On the Flory $\chi$ parameter.
+    \begin{itemize}
+        \item This parameter is equal to the exchange energy per molecule, normalized by the thermal energy $\kB T$.
+        \item The Flory $\chi$ parameter is the energy penalty you must pay (as a fraction of $\kB T$) in order to lift one molecule of type 1 out of a beaker of pure 1, one molecule of type 2 out of a beaker of pure 2, and exchange them. See \textcite[277]{bib:HiemenzLodge}. This is because when we do this in a typical square lattice, four things happen.
+        \begin{enumerate}
+            \item First, removing a moleule of 1 from a lattice of pure 1 disrupts its interaction with each of its $z=4$ nearest neighbors. But as established earlier, each nearest neighbor interaction only contributes $\varepsilon_{11}/2$ to the total energy/enthalpy of the pure state because we 'see' the interaction from the perspective of each molecule involved. Thus, the energy penalty of this removal is $4\cdot\varepsilon_{11}/2=2\varepsilon_{11}$.
+            \item Removing a molecule of 2 is analogous, and costs $2\varepsilon_{22}$.
+            \item Adding a molecule of 2 to the now-empty space in a beaker of pure 1 \emph{rewards} you $2\varepsilon_{12}$.
+            \item Analogously, adding a molecule of 1 to the now-empty space in a beaker of pure 2 rewards you $2\varepsilon_{12}$.
+        \end{enumerate}
+        \item Adding up all of these contributions gives $\chi\kB T$.
+        \item Then finally dividing by $\kB T$ makes $\chi$ unitless, by expressing the energy summed above as a numerical fraction of a known reference energy (namely, $\kB T$).
+    \end{itemize}
+    \item \textbf{Mean field} (theory): A theory that assumes that the local interactions are determined solely by the bulk average composition.
+    \item On volume fractions.
+    \begin{itemize}
+        \item For solvent-solvent systems, volume fractions are equal to mole fractions.
+        \item For polymer-solvent and polymer-polymer systems, volume fractions are easier to use because calculating them only requires measuring the mass of each component and comparing it against known densities. Measuring mole fractions, on the other hand, requires precise knowledge of the full molecular weight distribution. Therefore, although mole fractions and volume fractions are mathematically equivalent, expressing our results in terms of volume fractions provides an empirically easier to use equation.
+    \end{itemize}
+    \item \textcite[279-82]{bib:HiemenzLodge} derives the $1/N$ prefactors in the $\Delta S_M$ equations more rigorously, as alluded to in class.
+    \begin{itemize}
+        \item $\Delta H_M$ would also change a bit in the polymer cases, but this complication is ignored.
+    \end{itemize}
+    \item Note that because monomers are not equally dispersed in dilute solutions (see Figure \ref{fig:concentrationRegimes}, left), the mean field approximation is not as good here.
+    \begin{itemize}
+        \item It follows that the mean-field approximation (and hence Flory-Huggins theory) should get better as $c\to c^*$. This turns out to be the case!
+    \end{itemize}
+    \item A summary of the assumptions used in Flory-Huggins theory \parencite[283]{bib:HiemenzLodge}.
+    \begin{enumerate}
+        \item There is no volume change on mixing, and $\bar{V}_i=\hat{V}_i$ is independent of concentration.
+        \item $\Delta S_M$ arises entirely from the ideal combinatorial entropy of mixing.
+        \item $\Delta H_M$ arises entirely from the internal energy of mixing.
+        \item Both $\Delta S_M$ and $\Delta H_M$ are computed assuming random mixing.
+        \item The interactions are short-ranged (nearest neighbors only), isotropic, and pairwise additive.
+        \item The local concentration is always given by the bulk average composition (the mean-field assumption).
+    \end{enumerate}
+    \item \textcite[283-89]{bib:HiemenzLodge} covers some good osmotic pressure content that may be useful someday. Reviewing activity, activity coefficient, osmotic pressure, and Virial expansion info from Thermo will be necessary before delving into this.
+    \item \textbf{Phase diagram}: A mapping of the temperature-composition plane of a solution at fixed pressure, divided into regions wherein we find different phases.
+    \item \textcite[291]{bib:HiemenzLodge} view a phase diagram in terms of temperature, not $\chi$.
+    \item The three features of a phase diagram (in terms of $\chi$).
+    \begin{enumerate}
+        \item A \textbf{critical point} below which a one-phase solution is formed in all compositions.
+        \item A \textbf{binodal} describing the composition of the two phases that coexist at equilibrium, after liquid-liquid separation at some fixed $\chi>\chi_c$. Any solution prepared such that $(T,\phi_1)$ lies above the binodal will be out of equilibrium until it has undergone phase separation into two phases with compositions along the binodal.
+        \item A \textbf{spinodal} dividing the two-phase region into a \textbf{metastable} window between the binodal and spinodal, and an \textbf{unstable} region above the spinodal.
+    \end{enumerate}
+    \item An additional consequence of Figure \ref{fig:mixingChic} is that even on the pink curve, \emph{some} mixing is still favorable. Thus, $\Delta G_M<0$ here, too!
+    \item How does the drawing of tangent lines work for solutions that don't start at $\phi_2=0.5$??
+    \begin{itemize}
+        \item The new free energy is the average of the two "sub" solutions, and can be visually represented as the midpoint of the line connecting the points between the two new solutions.
+        \item When at a spinodal point, phase separating further by just a bit will result in a line with midpoint \emph{exactly} on the spinodal inflection point, and the system will eventually relax back.
+        \item There is a good explanation of common tangent construction on \textcite[294-95]{bib:HiemenzLodge}. It appears that this is not part of class material, but would be very helpful in understanding it.
+    \end{itemize}
+    \item \textbf{Metastable} (system): A system that is stable against small, spontaneous fluctuations, but not globally stable against phase separation.
 \end{itemize}
 
 
