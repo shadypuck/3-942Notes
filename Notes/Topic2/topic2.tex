@@ -127,11 +127,11 @@
         \item There is only 1 possible way to arrange a pure component in its volume.
         \begin{itemize}
             \item This follows from the binomial expression $\binom{n_iN_i}{n_iN_i}$.
-            \item Thus, when phases are separated, each phase has entropy $S=0$.
+            \item Thus, when phases are separated, each phase has entropy $S=\kB\ln(1)=0$.
         \end{itemize}
     \end{itemize}
     \item Mean field lattice theory.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.3\linewidth]{latticeConfig.JPG}
         \caption{Configurations in mean field lattice theory.}
@@ -166,7 +166,7 @@
             &= -\frac{X_1}{X_0}\ln\frac{X_1}{X_0}-\frac{X_2}{X_0}\ln\frac{X_2}{X_0}\\
             &= -\phi_1\ln\phi_1-\phi_2\ln\phi_2
         \end{align*}
-        where $\phi_i$ denots the \textbf{volume fraction} of spaces occupied by species $i$.
+        where $\phi_i$ denotes the \textbf{volume fraction} of spaces occupied by species $i$.
     \end{itemize}
     \item \textbf{Volume fraction} (of $i$): The fraction of lattice sites occupied by species $i$. \emph{Denoted by} $\bm{\phi_i}$. \emph{Given by}
     \begin{equation*}
@@ -362,7 +362,7 @@
         \item Notice how adding the curves in Figures \ref{fig:mixingChia}-\ref{fig:mixingChib} gives the curves in Figure \ref{fig:mixingChic}.
         \item From Figure \ref{fig:mixingChic}, we can see that when $\chi$ reaches the range of 2-3, we get demixing.
         \begin{itemize}
-            \item This is because (at $\chi=3$, for example) it will be more energetically favorable to form (i) a phase that is approximately 90\% component 1 and 10\% component 2 and (ii) a phase that is approximately 10\% component 1 and 90\% component 2 than it will be to completely mix.
+            \item This is because (at $\chi=3$ and initially equal volumes of both components, for example) it will be more energetically favorable to form (i) a phase that is approximately 90\% component 1 and 10\% component 2 and (ii) a phase that is approximately 10\% component 1 and 90\% component 2 than it will be to completely mix.
         \end{itemize}
         \item When $\chi=2$, free energy is largely flat. Thus, very different compositions have similar free energy, which means that the system will "undergo a 2nd order transition where all length scales are viable??"
     \end{itemize}
@@ -469,7 +469,7 @@
     \begin{itemize}
         \item The spinodal and coexistence curves intersect at this point.
         \item Because the critical point lies on the spinodal curve, it will satisfy the left constraint above (i.e., 2nd derivative is zero).
-        \item To explain the right constraint, we need to think a bit more. Usually, an inflection point identifies where the concavity of a curve changes from up to down, or vice versa. At such a point, the concavity is zero. However, on the $\Delta G_M(\phi)$ curve at the \emph{boundary} between mixing and demixing (e.g., the green line in Figure \ref{fig:mixingChic}), there is an inflection point where the concavity goes from up, to zero, to up again. At such a point, the second derivative is still equal to zero \emph{but the third derivative is, too}.
+        \item To explain the right constraint, we need to think a bit more. Usually, an inflection point identifies where the concavity of a curve changes from up to down, or vice versa. At such a point, the concavity is zero. However, on the $\Delta G_M(\phi)$ curve at the \emph{boundary} between mixing and demixing (e.g., the green line in Figure \ref{fig:mixingChic}), there is an inflection point where the concavity goes from up, to zero, to up again. At such an inflection point, the second derivative is still equal to zero \emph{but the third derivative is, too}.
         \item Thus, altogether, the right constraint pinpoints the concentration $\phi_{1,c}$ at which demixing first occurs as we raise $\chi$, and the left constraint relates this concentration to the interaction parameter $\chi_c$ necessary to produce a mixing curve with an inflection point at $\phi_{1,c}$.
     \end{itemize}
     \item Per the above, a few derivatives suffice to compute the spinodal curve. But if we want to understand the binodal curve, we should find a way to compute the chemical potentials of our solutions.
@@ -490,7 +490,7 @@
         \item We now state --- without proof --- that the change in chemical potentials upon mixing are as follows.
         \begin{align*}
             \mu_1-\mu_1^\circ &= RT\left[ \ln(1-\phi_2)+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]\\
-            \mu_2-\mu_2^\circ &= RT\left[ \ln\phi_2+(N_2-1)\phi_2+N_2\chi\phi_2^2 \right]
+            \mu_2-\mu_2^\circ &= RT\left[ \ln\phi_2+(N_2-1)\phi_2+N_2\chi\phi_1^2 \right]
         \end{align*}
         \begin{itemize}
             \item Remember that by convention, phase 1 is the solvent and phase 2 is the polymer.
@@ -527,7 +527,7 @@
         \begin{itemize}
             \item This expression implies that when $\chi<1/2$, the whole thing will be negative.
             \begin{itemize}
-                \item It follows that if $\chi<1/2$, the chemical potential $\mu_1$ will be less than that of the standard, unmixed state $\mu_1^\circ$. Therefore, to lower chemical potential, hence everything will want to mix.
+                \item It follows that if $\chi<1/2$, the chemical potential $\mu_1$ will be less than that of the standard, unmixed state $\mu_1^\circ$. Therefore, to lower the energy of the system, everything will want to mix.
             \end{itemize}
             \item In a subsequent course, we describe more results based off of the above equation!
         \end{itemize}
@@ -572,7 +572,51 @@
         \end{itemize}
         \item Lastly, there is the matter of $N_2$. As $N_2$ increases, the chemical potential of the solvent also increases. This means that as chains get longer, solvents tend to get "worse."
     \end{itemize}
-    \item Does slide 33 imply that it is harder to mix small amounts of high molecular weight polymer into a solvent than it is to mix large amounts of said polymer into a solvent?? Maybe it's something to do with the "solvent" becoming more of a swelling additive to the polymer than vice versa?
+    \item Implications of Flory-Huggins theory for the behavior polymer-solvent solutions, as seen on their phase diagrams.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{polSolPhase.png}
+        \caption{Binodal curves for polymer-solvent solutions as $N$ increases.}
+        \label{fig:polSolPhase}
+    \end{figure}
+    \begin{itemize}
+        \item Recall that a polymer-solvent solution occurs when component 1 is a solvent ($N_1=1$), component 2 is a polymer ($N_2\gg 1$), and the solution is dilute ($n_1\gg n_2N_2$).
+        \item It is harder to mix small amounts of high molecular weight polymer into a solvent than it is to mix large amounts of said polymer into a solvent.
+        \begin{itemize}
+            \item This makes sense becasue beneath the critical concentration $c^*$, polymers will want to coil up into small localized pockets that essentially function as a second phase!
+            \item The temperature required to ensure "even mixing" is the temperature needed to stretch the coils out more.
+        \end{itemize}
+        \item Additionally, $T_c$ increases as $N$ increases.
+        \begin{itemize}
+            \item This illustrates the point that higher MW polymers require more thermal energy to mix well.
+        \end{itemize}
+    \end{itemize}
+    \item General expressions for the critical composition and critical interaction parameters.
+    \begin{table}[h!]
+        \centering
+        \small
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{ll|c|c}
+            \toprule
+            \multicolumn{2}{c|}{\textbf{Binary System}} & $\bm{\phi_{1,c}}$ & $\bm{\chi_c}$\\
+            \midrule
+            Low molar mass liquids & $N_1=N_2=1$ & $0.5$ & $2$\\
+            Polymer-solvent blend & $N_1=1$, $N_2$ & $\dfrac{\sqrt{N_2}}{1+\sqrt{N_2}}$ & $\dfrac{1}{2}\left( 1+\dfrac{1}{\sqrt{N_2}} \right)^2$\\[1.2em]
+            Symmetric polymer blend & $N_1=N=N_2$ & $0.5$ & $\dfrac{2}{N}$\\[1em]
+            General & $N_1,N_2$ & $\dfrac{\sqrt{N_2}}{\sqrt{N_1}+\sqrt{N_2}}$ & $\dfrac{1}{2}\left( \dfrac{1}{\sqrt{N_1}}+\dfrac{1}{\sqrt{N_2}} \right)^2$\\
+            \bottomrule
+        \end{tabular}
+        \caption{Critical composition and interaction parameters for binary blends.}
+        \label{tab:criticalBlend}
+    \end{table}
+    \begin{itemize}
+        \item There are four regimes for which it is important to know these parameters: A regular solution of two liquids, a polymer-solvent blend, a \textbf{symmetric} polymer-polymer blend, and a general polymer-polymer blend.
+        \item You will derive these expressions in PSet 2, Q1e.
+    \end{itemize}
+    \item \textbf{Symmetric} (polymer-polymer blend): A polymer-polymer blend for which the degrees of polymerization for each component are equal. \emph{Constraint}
+    \begin{equation*}
+        N_1 = N = N_2
+    \end{equation*}
     \item The limit of solvents getting "worse" occurs when you mix high molecular weight polymers.
     \begin{itemize}
         \item Here, you don't just need $\chi<1/2$ for a good solvent, but it turns out you will need $\chi<2/N$.
@@ -638,37 +682,88 @@
             \item See \textcite{bib:RubinsteinColby} for an in-depth discussion of this setup.
         \end{itemize}
     \end{itemize}
-    \item Let's now compare the curve with experiments.
+    \item At this point, we've written a lot of theoretical equations. Now let's see how Flory-Huggins theory compares with experimental measurements of polymer-solvent blends.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.35\linewidth]{FHexpt.png}
+        \caption{Flory-Huggins theory vs. experiment.}
+        \label{fig:FHexpt}
+    \end{figure}
     \begin{itemize}
-        \item PS in cyclohexane.
-        \item Dashed lines are the Flory-Huggins theory, which clearly doesn't look like the experiment at all.
+        \item To do so, we'll look at the classic data of \textcite{bib:ShultzFlory} on the binodal curves of PS in cyclohexane.
         \begin{itemize}
-            \item This is because of Flory's mean field assumption, which doesn't hold here. Indeed, as you heat up, you will be more likely to have the same neighbor.
-            \item Actual curve is wrong, but scaling is correct (this happens in several of Flory's theories).
+            \item Note that Figure \ref{fig:FHexpt} is lifted from \textcite[300]{bib:HiemenzLodge} rather than the original paper as in the slides, since the textbook's figure is more consistent with the notation used thus far.
         \end{itemize}
-        \item Reference: \textcite{bib:ShultzFlory}.
+        \item The dashed lines are the Flory-Huggins theory, which clearly differ significantly from the experimental results.
+        \begin{itemize}
+            \item This difference is because of Flory's mean field assumption, which doesn't hold here. Indeed, as you heat up, you will be more likely to have the same neighbor.
+            \item However, while the predicted curve is wrong, the vertical scaling is correct! This phenomenon happens in several of Flory's theories.
+        \end{itemize}
     \end{itemize}
     \item Phase diagrams of polymer-polymer blends.
     \begin{itemize}
-        \item $\phi$ for the fraction that a chain occupies is
+        \item Recall that the volume fraction that a chain occupies is
         \begin{equation*}
             \phi = \frac{Nv}{(N^{1/2}\ell)^3} \approx \frac{v}{\ell^3}N^{-1/2}
         \end{equation*}
+        \begin{itemize}
+            \item Specifically, this is the ratio of a polymer's hard volume to its pervaded volume.
+        \end{itemize}
+        \item What else happened here?? See blackboard pics from class.
     \end{itemize}
-    \item Two principal types of phase diagrams.
+    \item At this point, we know what phase diagrams look like and what kinds of curves Flory-Huggins theory predicts they should have.
+    \item However, real systems can exhibit additional phenomena beyond the capacity of Flory-Huggins theory to describe. As such, let's now look at the two principal types of real phase diagrams.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{realPhaseD.png}
+        \caption{The upper and lower critical solution temperatures.}
+        \label{fig:realPhaseD}
+    \end{figure}
     \begin{itemize}
-        \item Demixing at higher temperatures, vs. mixing at higher temperatures.
-        \item Poly(methyl methacrylate) / styrene-\emph{co}-acrylonitrile demixes at increased temperature (because molecules are polar).
+        \item Up until now, we have only considered solutions that undergo mixing at higher temperatures. Systems like this have a \textbf{UCST}.
+        \item However, there also exist systems that \emph{demix} at higher temperatures! Such systems have a \textbf{LCST}.
+        \item Some systems, such as the idealized one sketched in Figure \ref{fig:realPhaseD}, exhibit both (or more/other!) types of behavior.
+    \end{itemize}
+    \item \textbf{Upper critical solution temperature}: The critical point on a phase boundary that separates a two-phase region at low temperature from a one-phase region at high temperature. \emph{Also known as} \textbf{UCST}.
+    \item \textbf{Lower critical solution temperature}: The critical point on a phase boundary that separates a two-phase region at high temperature from a one-phase region at low temperature. \emph{Also known as} \textbf{LCST}.
+    \item Having covered the fundamentals of real phase diagrams, let's now look at some examples of real systems.
+    \begin{itemize}
+        \item Poly(methyl methacrylate) / styrene-\emph{co}-acrylonitrile demixes at increased temperature.
+        \begin{itemize}
+            \item This particular system exhibits such behavior because the molecules involved are polar, and thus they preferentially bond to each other provided an excess of thermal energy.
+        \end{itemize}
         \item Polystyrene / polyisoprene mixes at higher temperatures.
+        \begin{itemize}
+            \item This mimicks the systems described by Flory-Huggins theory.
+        \end{itemize}
         \item PEG and PMMA have a negative $\chi$ at room temperature. PEG and \ce{H2O} is similar (you heat it up, and the polymer comes out of solution).
         \item pNIPAM undergoes a transition around \SIrange{32}{34}{\celsius}.
-        \item Attraction gives rise to a low or negative $\chi$.
-        \item A number of references on polymer blends are included in the slides!
     \end{itemize}
-    \item You can arrest a spinodal decomposition by heating and then cooling very quickly.
+    \item Key takeaway: Strong attraction gives rise to a low or negative $\chi$, and this commonly leads to deviations from Flory-Huggins theory.
+    \item Let's now discuss the LCST a bit more, especially as it pertains to polymer blends.
+    \begin{itemize}
+        \item You can arrest a spinodal decomposition by \textbf{up-quenching} (heating the system into the unstable regime) and then --- after a short hold, the time of which you vary on successive experiments --- cooling the system very quickly.
+        \begin{itemize}
+            \item This process allows you to "trap" the structure of the polymer blend partway through its spinodal decomposition, at a timepoint into the decomposition determined by the length of the hold!
+        \end{itemize}
+        \item You can then observe the structure of the material using microscopy (e.g., TEM).
+        \item Results from one such study.
+        \begin{itemize}
+            \item \textcite{bib:LCSTblend} found that the spinodal decomposition of a SAN/PMMA blend leads to \textbf{bicontinuous} structures. We will discuss bicontinuous phases more next class!
+            \item Allowing the spinodal decomposition to proceed too far will result in coarsening and droplet formation.
+            \item Note that this behavior mimicks how metal alloys behave under such temperature changes.
+        \end{itemize}
+    \end{itemize}
+    \item A number of references on polymer blends are included in the slides!
     \item Applications of FH theory.
     \begin{itemize}
-        \item Biocondensates and membrane-free organelles (like the nucleolus and centrioles). Identified another bunch of these after they expanded their defintion of organelles! These things come together because of FH theory.
+        \item A Nature paper published just a few days ago used Flory-Huggins theory to explain how free amino acids (solvent) stabilize proteins (polymers) within cells.
+        \item Biocondensates.
+        \begin{itemize}
+            \item These are also known as membrane-free organelles; many of these have been discovered since scientists expanded their definition of "organelle" beyond the requirement of a region cordoned off by a plasma membrane.
+            \item Examples: The nucleolus and centrioles.
+            \item These things come together because of FH theory!
+        \end{itemize}
     \end{itemize}
     \item Next time.
     \begin{itemize}
@@ -728,7 +823,7 @@
     \end{itemize}
     \item This concludes content from last time; we now move onto today's content.
     \item Self-assembly of simplified systems (relative to cells).
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.4\linewidth]{selfAssembly.png}
         \caption{Self-assembly of an ABC triblock copolymer.}
@@ -762,7 +857,7 @@
     \end{itemize}
     \item \textbf{Min-max principle}: Phases are most stable when we (1) minimize interfacial energy and (2) maximize the conformational entropy of the chains.
     \item The min-max principle governs self-assembly.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.4\linewidth]{ordering.png}
         \caption{Ordering of a diblock copolymer.}
@@ -808,7 +903,7 @@
         \item Misconception: Things are not perfectly mixed at one extreme; you start seeing domains earlier. As you go from Figure \ref{fig:microphaseSepa}-\ref{fig:microphaseSepc}, you get into a lamellar state.
     \end{itemize}
     \item Microdomain morphologies: Diblock copolymers.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.65\linewidth]{microphaseMorph.png}
         \caption{Microphase morphologies in diblock copolymers.}
@@ -853,7 +948,7 @@
         \item $\chi_\text{AB}$ is the same Flory-Huggins interaction parameter we've been looking at in previous lectures.
     \end{itemize}
     \item Free energies of these diblock copolymers.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.35\linewidth]{diblockStretch.JPG}
         \caption{Entropy and enthalpy changes as diblock copolymers are stretched.}
@@ -1331,7 +1426,7 @@
         \item This parameter is equal to the exchange energy per molecule, normalized by the thermal energy $\kB T$.
         \item The Flory $\chi$ parameter is the energy penalty you must pay (as a fraction of $\kB T$) in order to lift one molecule of type 1 out of a beaker of pure 1, one molecule of type 2 out of a beaker of pure 2, and exchange them. See \textcite[277]{bib:HiemenzLodge}. This is because when we do this in a typical square lattice, four things happen.
         \begin{enumerate}
-            \item First, removing a moleule of 1 from a lattice of pure 1 disrupts its interaction with each of its $z=4$ nearest neighbors. But as established earlier, each nearest neighbor interaction only contributes $\varepsilon_{11}/2$ to the total energy/enthalpy of the pure state because we 'see' the interaction from the perspective of each molecule involved. Thus, the energy penalty of this removal is $4\cdot\varepsilon_{11}/2=2\varepsilon_{11}$.
+            \item First, removing a moleule of 1 from a lattice of pure 1 disrupts its interaction with each of its $z=4$ nearest neighbors. But as established earlier, each nearest neighbor interaction only contributes $\varepsilon_{11}/2$ to the total energy/enthalpy of the pure state because we `see' the interaction from the perspective of each molecule involved. Thus, the energy penalty of this removal is $4\cdot\varepsilon_{11}/2=2\varepsilon_{11}$.
             \item Removing a molecule of 2 is analogous, and costs $2\varepsilon_{22}$.
             \item Adding a molecule of 2 to the now-empty space in a beaker of pure 1 \emph{rewards} you $2\varepsilon_{12}$.
             \item Analogously, adding a molecule of 1 to the now-empty space in a beaker of pure 2 rewards you $2\varepsilon_{12}$.
@@ -1372,13 +1467,211 @@
         \item A \textbf{spinodal} dividing the two-phase region into a \textbf{metastable} window between the binodal and spinodal, and an \textbf{unstable} region above the spinodal.
     \end{enumerate}
     \item An additional consequence of Figure \ref{fig:mixingChic} is that even on the pink curve, \emph{some} mixing is still favorable. Thus, $\Delta G_M<0$ here, too!
-    \item How does the drawing of tangent lines work for solutions that don't start at $\phi_2=0.5$??
+    \item \marginnote{10/6:}Postulate: "Phase separation will occur whenever the system can lower its total free energy by dividing into two phases" \parencite[293]{bib:HiemenzLodge}.
+    \item Let's discuss when exactly phase separation will or will not occur.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[xscale=5,yscale=20]
+            \small
+            \draw [-latex] (-0.1,0) -- (1.1,0) node[right]{$x_1$};
+            \draw [-latex] (0,-0.15) -- (0,0.05) node[above]{$\dfrac{\Delta G_M}{X_0\kB T}$};
+
+            \footnotesize
+            \draw (0.35,-0.005) -- ++(0,0.01) node[above]{$x_1^\alpha$};
+            \draw (0.48,-0.005) -- ++(0,0.01) node[above]{$\prb{x_0}$};
+            \draw (0.75,-0.005) -- ++(0,0.01) node[above]{$x_1^\beta$};
+
+            \draw [rex,thick,/pgf/fpu,/pgf/fpu/output format=fixed] plot [domain=0.0001:0.99999,samples=100,smooth] (\x,{2*\x*(1-\x)+\x*ln(\x)+(1-\x)/2*ln(1-\x)});
+
+            \node [circle,fill=rex,inner sep=0.15em,label={left:$\Delta G_M(\prb{x_1})$}] at (0.48,-0.0231) {};
+            \node (a) [circle,fill=rex,inner sep=0.15em,label={left:$\Delta G_M(x_1^\alpha)$}] at (0.35,-0.0524) {};
+            \node [circle,fill=rex,inner sep=0.15em,label={[fill=white,inner sep=1pt,below=3pt]below:$\Delta G_M(x_1^\beta)$}] at (0.75,-0.014) {}
+                edge [semithick,rex,densely dashed] (a)
+            ;
+            \node [circle,draw=rex,inner sep=0.15em,label={[xshift=3mm]below:$\Delta G_M^{\alpha\beta}(\prb{x_1})$}] at (0.48,-0.0399) {};
+        \end{tikzpicture}
+        \caption{Tie lines predict the favorability of demixing.}
+        \label{fig:tieLine}
+    \end{figure}
     \begin{itemize}
-        \item The new free energy is the average of the two "sub" solutions, and can be visually represented as the midpoint of the line connecting the points between the two new solutions.
-        \item When at a spinodal point, phase separating further by just a bit will result in a line with midpoint \emph{exactly} on the spinodal inflection point, and the system will eventually relax back.
-        \item There is a good explanation of common tangent construction on \textcite[294-95]{bib:HiemenzLodge}. It appears that this is not part of class material, but would be very helpful in understanding it.
+        \item Suppose we have a two-component solution with overall composition
+        \begin{equation*}
+            \prb{x_1} = \frac{n_1}{n_1+n_2}
+        \end{equation*}
+        where $n_i$ is the total number of moles of component $i$ present in the solution.
+        \begin{itemize}
+            \item We will justify the notation "$\prb{x_1}$" shortly.
+        \end{itemize}
+        \item Let $x_1^\alpha$ and $x_1^\beta$ two compositions such that $x_1^\alpha\leq\prb{x_1}\leq x_1^\beta$. We want to determine if it will be energetically favorable for our solution to divide into two phases $\alpha$ and $\beta$ with respective compositions $x_1^\alpha$ and $x_1^\beta$.
+        \item First, we would like to determine --- based on our choice of $x_1^\alpha$ and $x_1^\beta$ --- how many moles will be in each phase.
+        \begin{itemize}
+            \item Let $n_i^j$ be the number of moles of component $i$ in phase $j$. Then by definition, we may write the following expressions.
+            \begin{align*}
+                x_1^\alpha &= \frac{n_1^\alpha}{n_1^\alpha+n_2^\alpha}&
+                x_1^\beta &= \frac{n_1^\beta}{n_1^\beta+n_2^\beta}&
+                n_1^\alpha+n_1^\beta &= n_1
+            \end{align*}
+            \item Now is also a good time to mention that --- as the notation suggests --- we have 
+            \begin{equation*}
+                \prb{x_1} = x^\alpha x_1^\alpha+x^\beta x_1^\beta
+            \end{equation*}
+            where $x^j$ is the mole fraction of the total solution in phase $j$.
+            \begin{itemize}
+                \item Equality holds between this "intuitive" defintion of $\prb{x_1}$ and the original definition since
+                \begin{equation*}
+                    \underbrace{\frac{n_1^\alpha+n_2^\alpha}{n_1+n_2}}_{x^\alpha}\cdot\underbrace{\frac{n_1^\alpha}{n_1^\alpha+n_2^\alpha}}_{x_1^\alpha}+\underbrace{\frac{n_1^\beta+n_2^\beta}{n_1+n_2}}_{x^\beta}\cdot\underbrace{\frac{n_1^\beta}{n_1^\beta+n_2^\beta}}_{x_1^\alpha}
+                    = \frac{n_1^\alpha+n_1^\beta}{n_1+n_2}
+                    = \frac{n_1}{n_1+n_2}
+                \end{equation*}
+            \end{itemize}
+            \item With these definitions, we may derive the following \textbf{lever rule}. See my Thermo notes for more on lever rules.
+            \begin{align*}
+                n_1^\alpha+n_1^\beta &= n_1\\
+                x_1^\alpha(n_1^\alpha+n_2^\alpha)+x_1^\beta(n_1^\beta+n_2^\beta) &= \prb{x_1}\cdot(n_1+n_2)\\
+                &= \prb{x_1}\cdot(n_1^\alpha+n_2^\alpha)+\prb{x_1}\cdot(n_1^\beta+n_2^\beta)\\
+                \frac{n_1^\alpha+n_2^\alpha}{n_1^\beta+n_2^\beta}\cdot x_1^\alpha+x_1^\beta &= \frac{n_1^\alpha+n_2^\alpha}{n_1^\beta+n_2^\beta}\cdot\prb{x_1}+\prb{x_1}\\
+                \underbrace{\frac{n_1^\alpha+n_2^\alpha}{n_1^\beta+n_2^\beta}}_{n^\alpha/n^\beta} &= \frac{\prb{x_1}-x_1^\beta}{x_1^\alpha-\prb{x_1}}
+            \end{align*}
+            \item With the lever rule and the fact that $n^\alpha+n^\beta=n$, we can derive the following expressions for $n^\alpha,n^\beta$.
+            \begin{align*}
+                n^\alpha &= \frac{n(\prb{x_1}-x_1^\beta)}{x_1^\alpha-x_1^\beta}&
+                n^\beta &= \frac{n(x_1^\alpha-\prb{x_1})}{x_1^\alpha-x_1^\beta}
+            \end{align*}
+            \begin{itemize}
+                \item Notice that we have two variables and two equations, so we can solve the system of equations!
+                \item If we care to, we can also use this result to derive expressions for any of the variables $n_1^\alpha,n_2^\alpha,n_1^\beta,n_2^\beta$ in terms of the givens. For example,
+                % \begin{align*}
+                %     n_1^\alpha &= \frac{\prb{x_1}-x_1^\beta}{x_1^\alpha-\prb{x_1}}\cdot(n_1^\beta+n_2^\beta)-n_2^\alpha\tag{Lever rule}\\
+                %     &= \frac{\prb{x_1}-x_1^\beta}{x_1^\alpha-\prb{x_1}}\cdot[n-(n_1^\alpha+n_2^\alpha)]-n_2^\alpha\tag{$n=n_1^\alpha+n_2^\alpha+n_1^\beta+n_2^\beta$}\\
+                %     &= \frac{\prb{x_1}-x_1^\beta}{x_1^\alpha-\prb{x_1}}\cdot\left( n-\frac{n_1^\alpha}{x_1^\alpha} \right)-\left( \frac{n_1^\alpha}{x_1^\alpha}-n_1^\alpha \right)\tag{Def. of $x_1^\alpha$}\\
+                %     n_1^\alpha &= \frac{nx_1^\alpha(\prb{x_1}-x_1^\beta)}{x_1^\alpha-x_1^\beta}\tag{\emph{algebra}}
+                % \end{align*}
+                \begin{equation*}
+                    n_1^\alpha = n^\alpha x_1^\alpha
+                    = \frac{nx_1^\alpha(\prb{x_1}-x_1^\beta)}{x_1^\alpha-x_1^\beta}
+                \end{equation*}
+            \end{itemize}
+        \end{itemize}
+        \item We can now compare the mixing energy of the initial uniform phase with composition $\prb{x_1}$ to the total mixing energy of the two new phases with compositions $x_1^\alpha$ and $x_1^\beta$.
+        \begin{itemize}
+            \item The mixing energy of the initial uniform phase is just $\Delta G_M(\prb{x_1})$, but the total mixing energy of the two new phases is
+            \begin{align*}
+                \Delta G_M^{\alpha\beta}(\prb{x_1}) &= x^\alpha\cdot\Delta G_M(x_1^\alpha)+x^\beta\cdot\Delta G_M(x_1^\beta)\\
+                &= \frac{1}{x_1^\alpha-x_1^\beta}\left[ (\prb{x_1}-x_1^\beta)\cdot\Delta G_M(x_1^\alpha)+(x_1^\alpha-\prb{x_1})\cdot\Delta G_M(x_1^\beta) \right]
+            \end{align*}
+            \item Let's interpret these two expressions graphically. $\Delta G_M(\prb{x_1})$ will just be a point on the $\Delta G_M$ curve. If we plot $\Delta G_M^{\alpha\beta}$ as a function of $x_1$, it will be the tie line between $\Delta G_M(x_1^\alpha)$ and $\Delta G_M(x_1^\beta)$!
+            \item Therefore, if the tie line lies above the curve, demixing will raise the energy of the system and will not occur. If the tie line lies below the curve, demixing will lower the energy of the system and will occur. As such, with the choices of $\prb{x_1}$, $x_1^\alpha$, and $x_1^\beta$ in Figure \ref{fig:tieLine}, mixing will occur.
+        \end{itemize}
+        \item An important consequence of the tie-line finding is that --- since tie lines are an alternate way of defining concavity --- concave up is the criterion for \textbf{stability} of a phase.
+    \end{itemize}
+    \item \textbf{Stable} (phase): A phase such that any spontaneous, small local fluctuation in concentration will increase the free energy, and hence these out-of-equilibrium fluctuations will relax back to the expected compostion.
+    \item Some personal thoughts and thought experiments on \emph{how} a solution demixes into two phases.
+    \begin{itemize}
+        \item A spinodal decomposition is an iterative process.
+        \begin{itemize}
+            \item From the initial concentration $\prb{x_1}$, we will demix into two phases with compositions only slightly higher and slightly lower than $\prb{x_1}$. These new phases then act as their own starting points, and must determine if demixing is higher or lower in energy.
+            \item Demixing will continue as long as each little phase can decrease its energy by demixing, and this process will stop when the two phases lie along the spinodal.
+            \begin{itemize}
+                \item Indeed, regardless of the exact starting composition $\prb{x_1}$, if our starting solution is in the unstable region, it will undergo a spontaneous spinodal decomposition to two phases (of possibly different volumes) with compositions equal to the spinodal ones.
+            \end{itemize}
+            \item Once a phase lies at the spinodal, any choice of new phases that includes one phase outside the unstable region will correspond to a tie line above the curve (unless the other phase is \emph{vastly} different in composition).
+            \item This is where nucleation must come along to `remove' some particles from the system and into a more stable nucleus.
+        \end{itemize}
+        \item Phase separation \emph{raises} entropy, always, as we are creating order. But it may decrease enthalpy. (Think of the enthalpy and entropy graphs separately, as in Figure \ref{fig:mixingChia}-\ref{fig:mixingChib}, and their respective tie lines.) Phase separation thus occurs when the gain in enthalpy outweights the loss in entropy.
+        \begin{itemize}
+            \item Temperature decreasing causes $\chi$ to increase. But by the definition of the Flory $\chi$ parameter, a decrease in temperature is mathematically equivalent to temperature staying the same and things starting to like themselves more than they like each other ($\varepsilon_{12}$ getting more negative).
+        \end{itemize}
+        \item An important characteristic of a metastable system at the spinodal points is that the two phases are in a \emph{dynamic} equilibrium.
+        \begin{itemize}
+            \item A certain amount of component $i$ can move out of one phase and into the second, just so long as the flow is balanced by an equal amount of component $i$ moving from the second phase into the first.
+            \item Demixing can also be thought of as a dynamic transfer of matter that is \emph{not} in equilibrium; that is, the exodus of component 1 from a phase may be greater than the flow of component 1 into that phase, resulting in that phase decreasing in its $\phi_1$.
+            \item This flow of matter is driven by the change in free energy of the system with the number of moles in it. But this is exactly the chemical potential! That's why the chemical potential is the perfect tool with which to visualize the flow of matter in demixing.
+            \begin{itemize}
+                \item Spinodal decomposition: The flow of matter from one phase to the other at a rate governed by the chemical potential until we have a dynamic equilibrium of matter flowing from one phase to the other that balances out.
+                \item Matter will "roll downhill" until it gets to the bottom of the chemical potential, which occurs at the spinodal points.
+            \end{itemize}
+        \end{itemize}
+        \item Nucleation of `stable' nuclei.
+        \begin{itemize}
+            \item Suppose ideal stability occurs for $\phi_1=0.7$. Then take 7 molecules of 1 and 3 molecules of 2 as a nucleus. It will be energically favorable for another 7 molecules of 1 and 3 molecules of 2 to come out of the phase they are in and join the growing nucleus; the remaining phases can then reequilibrate their distribution of molecules to reach stability with a smaller amount of matter.
+        \end{itemize}
+        \item Lattice theory can be an instructive way to visualize phases and separations.
+        \begin{itemize}
+            \item For example, model a beaker containing a mixture as a $4\times 4$ lattice with 8 black circles and 8 white circle randomly arranged. This could represent a homogeneous solution at high temperature.
+            \item As temperature is lowered (or $\chi$ increases), there will come a point where demixing occurs into a denser, bottom phase and a lighter, top phase. Perhaps first, the top phase will gain an extra white circle on average and the bottom phase will gain an extra black circle on average.
+            \item As the decomposition continues, eventually we will reach a stable point (perhaps 6 black circles and 2 white circles at bottom, and 2 black circles and 6 white circles at top). The particles still move around, as long as this general trend is maintained.
+            \item Lattice theory also provides a good backdrop for visualizing the importance of energy \emph{per site}, as we can only obtain the total energy through multiplying the energy per site by each site in each region and dividing by the total nubmer of sites.
+        \end{itemize}
+        % \item Phase separation is governed by mass transport: If you are going to make one region more concentrated in one component, you do have to remove an equal amount of the other component. This is very easily visualized by lattice theory. We could, in theory, form a small local region of highly concentrated 1 or 2, but then the system would be out of equilibrium and we would essentially have an entirely new phase.
+        % \begin{itemize}
+        %     \item Does "spinodal decomposition" imply a symmetric movement of matter??
+        %     \item So spinodal implies symmetric: We snap into two phases. At that point, directional movement of matter into one region or the other is unfavorable, though we can still do free diffusion as long as it's balanced (e.g., molecule of 1 leaves one phase to enter the other at the same time a molecule of 1 leaves the other phase to enter the original).
+        %     \item However, when nucleation occurs, say ideal stability is $\phi_1=0.7$. Then take 7 molecules of 1 and 3 molecules of 2 as a nucleus. It will be energically favorable for another 7 molecules of 1 and 3 molecules of 2 to come out of the phase they are in and join the growing nucleus; the remaining phases can then reequilibrate their distribution of molecules to reach stability with a smaller amount of matter.
+        %     \item Maybe it does move asymmetrically; it certainly could along the way. But the spinodal points are situated symmetrically, so even if we move asymmetrically to begin with, the ultimate metastable place to which we are going is symmetric.
+        % \end{itemize}
+        % \item Visualize matter flow with the chemical potential, dummy!!
+        % \item If you create a single solution with concentration at the spinodal, will it demix?? I don't think so, because it appears from my calculations that this would just raise the energy of the system.
+        % \item Unequal compositions decompose into phases with different volumes!
+        % \begin{itemize}
+        %     \item 6 mols 1 and 4 mols 2 will split into 7.5 moles of $x_1=0.7$ and 2.5 moles of $x_2=0.3$. So a key equation we need is
+        %     \begin{gather*}
+        %         \prb{\phi_1} = \phi_\alpha\phi_1+\phi_\beta\phi_2\\
+        %         \phi_\alpha+\phi_\beta = 1
+        %     \end{gather*}
+        %     \item Regardless of the exact composition, if our starting solution is in the unstable region, it will undergo a spontaneous spinodal decomposition to two phases (of possibly different volumes) with compositions equal to the spinodal ones.
+        %     \item Let $\prb{\phi_1}$ be the composition of a starting solution in the unstable region, $\phi_\alpha$ be the composition of spinodal phase $\alpha$, $\phi_\beta$ be the composition of spinodal phase $\beta$, $\phi_1$ be the volume fraction of 1 in phase $\alpha$ at the metastable equilibrium, and $\phi_2$ be the volume fraction of 2 in phase $\alpha$ at the metastable equilibrium.
+        % \end{itemize}
+        % \item Then what about polymer-solvent systems that have asymmetry?
+        % \begin{itemize}
+        %     \item Here, you \emph{will} decompose into two different phases with two different volumes!
+        % \end{itemize}
+    \end{itemize}
+    \item Finding the binodal.
+    \begin{itemize}
+        \item There are infinitely many pairs $x_1^\alpha,x_1^\beta$ of phases to which an unstable system can demix, so how do we determine which pair corresponds to the most energetically stable system?
+        \item Well, a phase equilibrium is established when $T,P$ are equal in both phases, and the chemical potentials are, too. Symbolically, our criteria are
+        \begin{align*}
+            \mu_1(x_1^\alpha) &= \mu_1(x_1^\beta)&
+            \mu_2(x_1^\alpha) &= \mu_2(x_1^\beta)
+        \end{align*}
+        \begin{itemize}
+            \item Warning: While the chemical potential of component 1 must be equal in both phases (and likewise for component 2), the chemical potential of component 1 \emph{does not} need to equal the chemical potential of component 2.
+        \end{itemize}
+        \item We will now show that finding the phases $x_1^\alpha,x_1^\beta$ which satisfy the above criteria is equivalent to finding the lowest possible tangent line graphically.
+        \begin{itemize}
+            \item Since the chemical potential is a partial molar free energy, we can write the total free energy of mixing as the mole-weighted sum of the chemical potentials, as follows.
+            \begin{equation*}
+                \Delta G_M = n_1\Delta\mu_1+n_2\Delta\mu_2
+            \end{equation*}
+            \item It follows that the free energy of mixing per mole of solution is
+            \begin{equation*}
+                \Delta G_M = x_1\Delta\mu_1+(1-x_1)\Delta\mu_2
+                = \Delta\mu_2+x_1(\Delta\mu_1-\Delta\mu_2)
+            \end{equation*}
+            \item This equation corresponds to a line of the form $y=mx+b$ across an energy-composition plot and tangent to the $\Delta G_M$ curve at $x_1$. In fact, this line's $y$-intercept will be $\Delta\mu_2(x_1)$ and its intercept with the line $x_1=1$ will be $\Delta\mu_1(x_1)$! This is the key.
+            \item In particular, if we have a $\Delta G_M$ curve with a bump, we can draw exactly one straight line that is tangent to the curve at \emph{two} points. We take these points to be $x_1^\alpha,x_1^\beta$ for the following reason: By the above argumnt, the line being tangent to $x_1^j$ (for $j=\alpha,\beta$) means that the $y$-intercept is $\Delta\mu_2(x_1^j)$ and the other intercept is $\Delta\mu_1(x_1^j)$. But since a single line can only have one of each intercept, we know that
+            \begin{align*}
+                \Delta\mu_1(x_1^\alpha) &= \Delta\mu_1(x_1^\beta)&
+                    \Delta\mu_2(x_1^\alpha) &= \Delta\mu_2(x_1^\beta)\\
+                \mu_1(x_1^\alpha)-\mu_1^\circ &= \mu_1(x_1^\beta)-\mu_1^\circ&
+                    \mu_2(x_1^\alpha)-\mu_2^\circ &= \mu_2(x_1^\beta)-\mu_2^\circ\\
+                \mu_1(x_1^\alpha) &= \mu_1(x_1^\beta)&
+                    \mu_2(x_1^\alpha) &= \mu_2(x_1^\beta)
+            \end{align*}
+            as desired.
+        \end{itemize}
+        \item Note that we could also use the two original constraints and our known expressions for the chemical potentials to find $x_1^\alpha,x_1^\beta$ analytically, but the algebra would get a bit hairy.
     \end{itemize}
     \item \textbf{Metastable} (system): A system that is stable against small, spontaneous fluctuations, but not globally stable against phase separation.
+    \item An alternate way of finding the spinodal points is by (1) differentiating $\Delta G_M$ with respect to $n_1$ to find the chemical potential $\mu_1$ of component 1 and then (2) setting the derivative of $\mu_1$ with respect to composition $x_1$ equal to zero to find the minimum chemical potential. This chemical potential minimum corresponds to a region of stability for the phase dominated by component 1, and hence exactly the spinodal point.
+    \item On the critical point.
+    \begin{itemize}
+        \item In the context of the exchange energy: If it costs any more than $\chi_c\kB T$ to exchange a pair of molecules of different components, there will be phase separation.
+    \end{itemize}
+    \item The free energy of mixing when an arbitrary number of components $i$ are included is
+    \begin{equation*}
+        \Delta G_M = \sum_i\frac{\phi_i}{N_i}\ln\phi_i+\sum_{i<j}\chi_{ij}\phi_i\phi_j
+    \end{equation*}
 \end{itemize}
 
 
