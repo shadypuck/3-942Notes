@@ -701,15 +701,26 @@
         \end{itemize}
     \end{itemize}
     \item Phase diagrams of polymer-polymer blends.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{polPolPhase.png}
+        \caption{Binodal curves for PS-PB blends at almost symmetric compositions.}
+        \label{fig:polPolPhase}
+    \end{figure}
     \begin{itemize}
         \item Recall that the volume fraction that a chain occupies is
         \begin{equation*}
-            \phi = \frac{Nv}{(N^{1/2}\ell)^3} \approx \frac{v}{\ell^3}N^{-1/2}
+            \phi = \frac{Nv}{(N^{1/2}\ell)^3} \propto N^{-1/2}
         \end{equation*}
         \begin{itemize}
             \item Specifically, this is the ratio of a polymer's hard volume to its pervaded volume.
+            \item The scaling in this equation implies that a polymer with $100$ repeat units occupies about 10\% of its pervaded volume, a polymer with \num{e4} repeat units occupies about 1\% of its pervaded volume, etc.
         \end{itemize}
-        \item What else happened here?? See blackboard pics from class.
+        \item Therefore, molecules in a polymer chain are far more likely to interact with neighbors on a different polymer chain then they are to interact with themselves.
+        \item This leads to the melt condition in which excluded volume effects are largely washed out, and hence phase diagrams (as in Figure \ref{fig:polPolPhase}) look quite similar to those for a solvent-solvent mixture.
+        \begin{itemize}
+            \item This average of the interactions of one polymer with many other chains also justifies the mean field assumption in this case.
+        \end{itemize}
     \end{itemize}
     \item At this point, we know what phase diagrams look like and what kinds of curves Flory-Huggins theory predicts they should have.
     \item However, real systems can exhibit additional phenomena beyond the capacity of Flory-Huggins theory to describe. As such, let's now look at the two principal types of real phase diagrams.
@@ -737,9 +748,51 @@
             \item This mimicks the systems described by Flory-Huggins theory.
         \end{itemize}
         \item PEG and PMMA have a negative $\chi$ at room temperature. PEG and \ce{H2O} is similar (you heat it up, and the polymer comes out of solution).
-        \item pNIPAM undergoes a transition around \SIrange{32}{34}{\celsius}.
+        \item A polymer-solvent solution of pNIPAM in \ce{H2O} undergoes a transition around \SIrange{32}{34}{\celsius}.
+        \begin{itemize}
+            \item Specifically, this is the temperature at which water molecules solubilizing pNIPAM will cease their enthalpically stable hydrogen bonding to the \ce{C=O} and \ce{N-H} moieties on the polymer.
+            \item Once the water molecules begin moving around more randomly, they interact more with the hydrophobic \ce{C-C} backbone, which is not enthalpically favorable. In fact, this new interaction is so unfavorable that phase separation occurs!
+        \end{itemize}
     \end{itemize}
     \item Key takeaway: Strong attraction gives rise to a low or negative $\chi$, and this commonly leads to deviations from Flory-Huggins theory.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{negChia.JPG}
+            \caption{The components.}
+            \label{fig:negChia}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{negChib.JPG}
+            \caption{Low $T$ regime.}
+            \label{fig:negChib}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.75\linewidth]{negChic.JPG}
+            \caption{High $T$ regime.}
+            \label{fig:negChic}
+        \end{subfigure}
+        \caption{Systems with negative Flory $\chi$ parameters.}
+        \label{fig:negChi}
+    \end{figure}
+    \begin{itemize}
+        \item Example system (Figure \ref{fig:negChia}).
+        \begin{itemize}
+            \item Consider a model two-component system, where one component is circular and the other component is rectangular. We may consider the components to be either free (like small molecules) or covalently bound together (like polymers); this distinction will not affect the following arugment.
+            \item Suppose these two components have the ability to form productive interactions (e.g., a hydrogen bond) at the shaded regions.
+        \end{itemize}
+        \item At low temperatures (Figure \ref{fig:negChib}), these productive interactions will take hold and drive mixing.
+        \begin{itemize}
+            \item Productive enthalpic interactions corresponds to a negative $\chi$!
+        \end{itemize}
+        \item At high temperatures (Figure \ref{fig:negChic}), however, we will rupture these attractive interactions and "like dissolves like" will take hold.
+        \begin{itemize}
+            \item Notice how the "molecules" are pulling apart.
+        \end{itemize}
+    \end{itemize}
     \item Let's now discuss the LCST a bit more, especially as it pertains to polymer blends.
     \begin{itemize}
         \item You can arrest a spinodal decomposition by \textbf{up-quenching} (heating the system into the unstable regime) and then --- after a short hold, the time of which you vary on successive experiments --- cooling the system very quickly.
@@ -1316,10 +1369,28 @@
 
 
 
+\section{Office Hours (Alexander-Katz)}
+\begin{itemize}
+    \item \marginnote{10/7:}With the pNIPAM example, wouldn't increasing entropy of mixing at higher temperatures cause everything to mix?
+    \begin{itemize}
+        \item Phase separation will occur in systems with negative $\chi$ as temperature increases \emph{regardless} of the fact that the entropic mixing energy becomes more extreme.
+        \item That being said, at sufficiently high temperatures, any system will remix due to entropic considerations (but the system may decompose before we are able to reach such a high temperature).
+        \item This remixing means that binodal lines are \emph{always} "eye-shaped" if we extend the vertical axis to high enough temperatures.
+    \end{itemize}
+    \item What are some good resources to read about phase behavior in block copolymers, attachment to surfaces, interfacial energy, and the other topics from Lecture 2.3 that are not covered in \textcite{bib:HiemenzLodge}?
+    \begin{itemize}
+        \item \textcite{bib:RubinsteinColby} has some good information on brushes.
+        \item \textcite{bib:Strobl} has some good information on block copolymers.
+        \item \textcite{bib:PhysicsToday} --- which was also referenced in the slides, though not cited in full --- has some good overview of the concepts as well.
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 7: Thermodynamics of Polymer Mixtures}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
-    \item Goals for this chapter.
+    \item \marginnote{9/30:}Goals for this chapter.
     \begin{itemize}
         \item Thermodynamically analyze a solution of a polymer in a low molecular weight solvent.
         \item Determine the phase equilibria relevant to this situation.
