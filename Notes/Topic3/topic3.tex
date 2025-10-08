@@ -1,0 +1,506 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{2}
+
+\begin{document}
+
+
+
+
+\chapter{Dilute Solutions}
+\section{Intrinsic Viscosity - 1}
+\begin{itemize}
+    \item \marginnote{10/7:}Announcements.
+    \begin{itemize}
+        \item Grade our HWs on Canvas.
+        \item The profs are grading the first quiz.
+        \item PSet 3 will be posted tomorrow morning.
+        \begin{itemize}
+            \item After today's lecture, we'll have a lot of fodder to get going on it!
+        \end{itemize}
+    \end{itemize}
+    \item Overview of Topic 3.
+    \begin{itemize}
+        \item We've built up a lot of theory, but now we want to discuss how we measure the parameters we've introduced.
+        \begin{itemize}
+            \item Example: Measuring polymer size and conformation.
+        \end{itemize}
+        \item We'll also touch on why such parameters are important for various material properties.
+        \begin{itemize}
+            \item Examples of where polymer size and conformation are important: Non-entangled rubber elasticity, shear thiceners, elastic modulus of crosslinked networks, and electrical conductivity.
+        \end{itemize}
+    \end{itemize}
+    \item Upcoming lectures by day.
+    \begin{itemize}
+        \item Today: Viscometry. What is the viscosity, intrisic viscosity, etc. of a polymer? How rheology tells us stuff about a polymer sample.
+        \begin{itemize}
+            \item Specifically, we'll relate the viscosity of a dilute polymer-solvent solution to the polymer molecular weight.
+        \end{itemize}
+        \item Thursday: Standard through state-of-the-art ways to measure the viscosity of a polymer solution.
+        \item Next Tuesday: Fractionation (e.g., via GPC), and how it works (based on our theory). Also osmotic pressure.
+        \begin{itemize}
+            \item Fractionation techniques can provide us the full molecular weight distribution of a polymer sample.
+            \item Osmotic pressure can provide information on molecular size and polymer-polymer interactions.
+        \end{itemize}
+        \item Next Thursday: A high-level discussion of light scattering. Different power sources (e.g., NMR), and how scattering tells us something about the polymer size.
+    \end{itemize}
+    \item Outline of today's lecture.
+    \begin{itemize}
+        \item Drag coefficient of a polymer.
+        \begin{itemize}
+            \item Also referred to (e.g., by the textbook) as the "friction factor."
+            \item This number is related to a polymer's conformation.
+        \end{itemize}
+        \item Draining and free draining models.
+        \item The diffusion coefficient, and how molecules randomly move in a solution due to thermal energy.
+        \item Intrinsic viscisity.
+        \begin{itemize}
+            \item This is key, and the first three topics all build up to it.
+            \item The intrinsic viscosity has a scaling with the diffusion coefficient?? Did we cover this today?
+        \end{itemize}
+        \item Mark-Houwink-Sakurada model.
+    \end{itemize}
+    \item Before we get to the viscosity of dilute solutions of polymers, let's introduce some basic concepts around just plain viscosity. This will basically serve as a "fluid dynamics 101."
+    \item To help visualize the following definitions, consider this thought experiment.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{viscosity.png}
+        \caption{Viscosity visualization.}
+        \label{fig:viscosity}
+    \end{figure}
+    \begin{itemize}
+        \item Put a liquid between two plates, and move the top one.
+        \item You can show (via the fluid equation or \textbf{Navier-Stokes equations}) that you will quickly develop a velocity profile. Molecular friction exerts a force, and the force is related to the \textbf{viscosity}.
+        \item Consideration of the viscosity leads us to the other definitions below.
+    \end{itemize}
+    \item \textbf{Navier-Stokes equations}: The governing equations of fluids.
+    \item \textbf{Viscosity}: A relationship which tells us something about when we exert stresses on surfaces as a result of flow, and the relation to how fast we're moving a fluid. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
+    \begin{equation*}
+        \eta := \frac{\text{shear stress}}{\text{rate of shear}}
+    \end{equation*}
+    \item \textbf{Stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$. \emph{Given by}
+    \begin{equation*}
+        \tau := \frac{\text{viscous force}}{\text{area}}
+    \end{equation*}
+    \item \textbf{Shear rate}: How fast we move the plates relative to each other. \emph{Units} \textbf{\si[text-series-to-math]{\per\second}}. \emph{Denoted by} $\bm{\dot{\gamma}}$.\footnote{"gamma dot"} \emph{Given by}
+    \begin{equation*}
+        \dot{\gamma} := \frac{U}{H}
+    \end{equation*}
+    \begin{itemize}
+        \item What are $U$ and $H$??
+    \end{itemize}
+    \item \textbf{Viscous stress}. \emph{Also known as} \textbf{shear stress}. \emph{Denoted by} $\bm{\tau_{yx}}$. \emph{Given by}
+    \begin{equation*}
+        \tau_{yx} := \eta\dot{\gamma}
+    \end{equation*}
+    \begin{itemize}
+        \item The faster you shear something, it's linearly proportional to the tensor $\tau_{yx}$?? What is this?
+    \end{itemize}
+    \item \textbf{Newtonian} (fluid): A fluid that satisfies the following condition. \emph{Constraint}
+    \begin{equation*}
+        \eta \neq \eta(\gamma_\text{tot},\dot{\gamma})
+    \end{equation*}
+    \begin{itemize}
+        \item What does this constraint mean??
+    \end{itemize}
+    \item \textbf{Non-Newtonian} (fluid): Any fluid that is not Newtonian.
+    \begin{itemize}
+        \item This encompases a \emph{broad} range of fluid properties.
+        \item Polymers are very non-Newtonian.
+    \end{itemize}
+    \item This concludes our introduction to the terminology of fluid mechanics.
+    \item We now address today's focus, the behavior of dilute ($\phi_2\ll 1$) polymer-solvent solutions at small shear rates ($\dot{\gamma}\ll 1$).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{smallSheara.png}
+            \caption{Data on dilute PS solutions.}
+            \label{fig:smallSheara}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{smallShearb.png}
+            \caption{Shear thinning, graphically.}
+            \label{fig:smallShearb}
+        \end{subfigure}
+        \caption{Polymer viscosity at varying shear rates.}
+        \label{fig:smallShear}
+    \end{figure}
+    \begin{itemize}
+        \item Figure \ref{fig:smallSheara} compiles a bunch of data from the literature on viscosity vs. shear rates.
+        \begin{itemize}
+            \item The $y$-axis is the viscosity $\eta_p$ of the polymer-solvent solution, normalized by said solution's asymptotic viscosity $\eta_{p0}$ as you go to very small shear rates.
+            \item The $x$-axis is the shear rate, again normalized by some constant $\lambda_Z$. Here, we have picked a scaling $\lambda_Z$ that makes our data dimensionless (i.e., 1 on the $x$-axis) and reveals the two important trends that\dots
+            \begin{itemize}
+                \item Faster shearing ($\lambda_Z\dot{\gamma}>1$) leads to a decrease in viscosity known as \textbf{shear thinning};
+                \item Lower shearing ($\Lambda_Z\dot{\gamma}<1$) leads to the asymptotic viscosity.
+            \end{itemize}
+            \item Below a certain shear rate, we observe Newtonian behavior and "zero shear viscosity."
+        \end{itemize}
+        \item Figure \ref{fig:smallShearb} sketches the idea of shear thinning.
+        \begin{itemize}
+            \item \textbf{Zero shear viscosity} occurs at left.
+            \begin{itemize}
+                \item Note that this regime would more aptly be termed the "low shear viscosity" regime, since we're only asymptotically approaching zero shear.
+                \item However, "zero shear viscosity" is what's in the lexicon.
+            \end{itemize}
+            \item Shear thinning occurs in the middle.
+            \item At right, we enter the asymptotic regime wherein most viscosity comes from the solvent, not the polymer.
+        \end{itemize}
+        \item Reference: \textcite{bib:smallShear}.
+    \end{itemize}
+    \item \textbf{Shear thinning}: A property of certain fluids wherein viscosity decreases the faster the fluid is sheared.
+    \item \textbf{Weissenberg number}: A dimensionless shear rate. \emph{Denoted by} $\bm{Wi}$. \emph{Given by}
+    \begin{equation*}
+        Wi := \dot{\gamma}\tau_\text{polymer}
+    \end{equation*}
+    \item Before we dive deeper, we should state an important assumption about shear rate underpinning our analysis.
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{stretchTumblea.jpeg}
+            \caption{Terminology definitions.}
+            \label{fig:stretchTumblea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.4\linewidth]{stretchTumbleb.png}
+            \caption{DNA being sheared.}
+            \label{fig:stretchTumbleb}
+        \end{subfigure}
+        \caption{Stretching and tumbling upon shearing.}
+        \label{fig:stretchTumble}
+    \end{figure}
+    \begin{itemize}
+        \item In this class, we will assume that polymer coils are \emph{not} deformed by the flow (i.e., $Wi<1$).
+        \item Typically, polymers \textbf{stretch} and \textbf{tumble} when $Wi>0$ (Figure \ref{fig:stretchTumblea}).
+        \begin{itemize}
+            \item For example, DNA has been micrographed stretching and tumbling at higher shear rates and Weissenberg numbers (Figure \ref{fig:stretchTumbleb}).
+        \end{itemize}
+        \item Reference: \textcite{bib:stretchTumble}.
+    \end{itemize}
+    \item \textbf{Stretch}: A behavior of a sheared polymer in which a usually flexible coil is elongated by shear forces.
+    \item \textbf{Tumble}: A behavior of a sheared polymer in which a stretched coil is compressed with rotation by shear forces.
+    \item We now describe how the Navier-Stokes equations treat viscosity.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.1\linewidth]{stokesViscosity.png}
+        \caption{Drag coefficient on a hard sphere in a viscous fluid.}
+        \label{fig:stokesViscosity}
+    \end{figure}
+    \begin{itemize}
+        \item Consider a hard sphere of size $r_s$ falling through a fluid of viscosity $\eta_0$ with velocity $v$.
+        \item By Newton's laws, the fluid will exert a viscous force $F_\text{viscous}$ on the sphere. Moreover, this force will be given by the following.
+        \begin{equation*}
+            F_\text{viscous} = fv
+        \end{equation*}
+        \begin{itemize}
+            \item $v$ is the velocity with which the sphere is moving.
+            \item $f$ is the drag coefficient or friction factor. It can be thought of as the proportionality factor between the velocity and viscous force.
+        \end{itemize}
+        \item Solving the Navier-Stokes equations for this scenario, we obtain \textbf{Stokes' law}.
+        \item How, then, can we treat a polymer molecule moving through a viscous fluid? There are two limiting cases.
+        \begin{enumerate}
+            \item The polymer coil acts as an impenetrable sphere with dimensions given by the pervaded volume.
+            \item The polymer coil is entirely penetrable, with only individual monomers interacting with the viscous fluid.
+        \end{enumerate}
+    \end{itemize}
+    \item \textbf{Stokes' law}: The Navier-Stokes equations' relation between the drag coefficient $f$ on a sphere of size $r_s$ falling through a fluid, and the fluid's viscosity $\eta_0$. \emph{Given by}
+    \begin{equation*}
+        f = 6\pi\eta_0r_s
+    \end{equation*}
+    \begin{itemize}
+        \item The $6\pi$ falls out of the math when solving the Navier-Stokes equations.
+        \item It makes intuitive sense that $f\propto\eta_0$ and $f\propto r_s$, so it is not hard to rationalize or visualize that such proportionality manifests itself as a bilinear relation.
+    \end{itemize}
+    \item Let's now extend our investigation into the possible behaviors of a polymer molecule in shear flow.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.35\linewidth}
+            \centering
+            \includegraphics[width=0.85\linewidth]{polFluida.png}
+            \caption{Penetrable coil.}
+            \label{fig:polFluida}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.35\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{polFluidb.JPG}
+            \caption{Penetrable coil (nanoscale).}
+            \label{fig:polFluidb}
+        \end{subfigure}\\[2em]
+        \begin{subfigure}[b]{0.35\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{polFluidc.png}
+            \caption{Impenetrable coil.}
+            \label{fig:polFluidc}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.35\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{polFluidd.png}
+            \caption{Rod-like polymer.}
+            \label{fig:polFluidd}
+        \end{subfigure}
+        \caption{Modeling a polymer in a viscous fluid.}
+        \label{fig:polFluid}
+    \end{figure}
+    \begin{enumerate}
+        \item Penetrable coil, i.e., Rouse's free draining model.
+        \begin{equation*}
+            f \propto N_2\xi^*
+        \end{equation*}
+        \begin{itemize}
+            \item Notation.
+            \begin{itemize}
+                \item We still let $N_2$ be the number of segments per chain (e.g., number of Kuhn steps).
+                \item $\xi^*$ is the \textbf{monomeric friction factor}.
+            \end{itemize}
+            \item Globally, the fluid passes through the coil freely (Figure \ref{fig:polFluida}).
+            \item However, very locally (Figure \ref{fig:polFluidb}), there is no slip. In other words, each monomer contributes a small amount $\xi^*$ to the total friction factor. It follows that in this case, the friction factor scales linearly with the number of units $N_2$ in the polymer!
+        \end{itemize}
+        \item Impenetrable sphere, i.e., Zimm's non-free draining model (Figure \ref{fig:polFluidc}).
+        \begin{align*}
+            f &= 6\pi\eta_0R_H&
+            R_H &\propto \prb{R_g^2}^{1/2}&
+            f &\propto N_2^\nu
+        \end{align*}
+        \begin{itemize}
+            \item $R_H$ denotes the sphere's \textbf{hydrodynamic radius}.
+            \item The rightmost relation follows from transitivity and the scaling of $R_g$.
+            \begin{itemize}
+                \item $\nu$ is the same measure of solvent quality (e.g., $1/2$, $3/5$, or $1/3$) discussed previously.
+            \end{itemize}
+            \item There is a strong hydrodynamic interaction (HI), or coupling, of the motion of monomers in dilute solution.
+            \begin{itemize}
+                \item Essentially, when one monomer moves somewhere along a polymer chain, it yanks others in the chain along with it.
+                \item $\text{HI}\propto 1/r$, where $r$ is the relative separation of monomers (like the bond length??).
+                \item Additional equation for $\mathbf{v}(\mathbf{r})$??
+            \end{itemize}
+            \item This model is appropriate for a (1) high molecular weight and (2) flexible polymer.
+            \item Is $2R_H$ the radius or diameter of the hydrodynamic sphere?? See the slides.
+        \end{itemize}
+        \item A rod-like molecule (Figure \ref{fig:polFluidd}).
+        \begin{align*}
+            f &= 6\pi\eta_0R_H&
+            R_H &\propto R_\text{max} = L&
+            f &\propto N_2
+        \end{align*}
+        \begin{itemize}
+            \item This is one more commonly encountered possiblity.
+            \item The above relations should be fairly self-explanatory.
+        \end{itemize}
+    \end{enumerate}
+    \item When choosing which of the above three models to use for a given situation, remember that the one that is most appropriate depends on the size and concentration of the polymers.
+    \item How might we measure the friction factor $f$?
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.13\linewidth]{diffusion.JPG}
+        \caption{A diffusing molecule.}
+        \label{fig:diffusion}
+    \end{figure}
+    \begin{itemize}
+        \item Consider the Stokes-Einstein diffusivity / diffusion coefficient
+        \begin{equation*}
+            D_t = \frac{\kB T}{\xi}
+        \end{equation*}
+        \begin{itemize}
+            \item $\xi=f$ is the drag coefficient / friction factor.
+            \item We are taking this to be of a tracer molecule, i.e., some molecule in solution far from everything else.
+            \item $\kB T$ is an energy (i.e., a force times a length), and the friction factor has been defined as the quotient of (the viscous) force divided by a velocity. Thus, the units cancel out to length squared per time for $D$.
+        \end{itemize}
+        \item We have a flux $J$ satisfying \textbf{Fick's law}.
+        \begin{itemize}
+            \item This is a continuum view of diffusion.
+        \end{itemize}
+        \item The average squared displacement of a molecule as it moves around over a period of time $\tau$ is
+        \begin{equation*}
+            \prb{\Delta x^2+\Delta y^2+\Delta z^2}_\tau = 6D\tau
+        \end{equation*}
+        \begin{itemize}
+            \item This is a molecular view of diffusion, from time $t=0$ to time $t=\tau$ (Figure \ref{fig:diffusion}).
+            \item $D$ has units of length squared over time here, as well!
+        \end{itemize}
+        \item Thus, to actually get the diffusion coefficient, we could track molecules, e.g., by taking movies of them.
+        \begin{itemize}
+            \item Take movies of everywhere it goes, break up the path into segments $\tau$, and then take the ensemble or time average
+            \begin{equation*}
+                \prb{\Delta r^2} = 6D\tau
+            \end{equation*}
+        \end{itemize}
+        \item It follows by combining several of the above equations that
+        \begin{equation*}
+            R_H = \frac{\kB T}{6\pi\eta D}
+        \end{equation*}
+        \item Additionally, it is important that
+        \begin{equation*}
+            R_H \propto R_g \propto R
+        \end{equation*}
+    \end{itemize}
+    \item \textbf{Fick's law}: A relationship between flux, diffusivity, concentration, and distance. \emph{Given by}
+    \begin{equation*}
+        J = -D\pdv{c}{x}
+    \end{equation*}
+    \begin{itemize}
+        \item $J$ is the flux.
+        \item $c$ is the concentration.
+        \item $x$ is the distance.
+    \end{itemize}
+    \item How long does a polymer have to be to obey Zimm scaling?
+    \begin{itemize}
+        \item For most systems in which we are interested, we will use Zimm's non-draining sphere.
+        \item However, there is still significant debate in the literature about when this non-draining sphere assumption is ok to use.
+        \item \textcite{bib:ZimmLength1} posits that once $N>10$, we can use this model.
+        \item \textcite{bib:ZimmLength2} --- published just two years ago --- posits that we need to wait until $N>30$.
+        \item Many polymers we have are well into the hundreds or thousands, though. Above $N=100$ is a generally solid cutoff for this behavior, so we can think of these as very good and very non-draining.
+    \end{itemize}
+    \item Scaling behavior of the friction factor.
+    \begin{itemize}
+        \item $\nu$ values reviewed again.
+        \item For high MW flexible chains, the correct model is non-draining impenetrable units (Zimm-like).
+        \begin{itemize}
+            \item As discussed above, this model obeys $\xi=f=6\pi\eta_sR_H$, where $R_H\propto R_g$.
+        \end{itemize}
+    \end{itemize}
+    \item $R_H$ vs. $R_g$ vs. $R$.
+    \begin{table}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{RgRH.png}
+        \caption{Ratio of radius of gyration and hydrodynamic radius for different polymer architectures.}
+        \label{tab:RgRH}
+    \end{table}
+    \begin{itemize}
+        \item The prefactor $\gamma$ in
+        \begin{equation*}
+            R_H = \gamma R_g
+        \end{equation*}
+        is on the order of 1.
+        \begin{itemize}
+            \item The above equation is really important! We will use it later today.
+        \end{itemize}
+        \item Recall that $R_H$ is related to a hydrodynamic interaction tensor??
+        \item Note that $\gamma=R_g/R_H$ converges to 1 (middle-right column in Table \ref{tab:RgRH}) as the number of arms on a polymer increases because, as you get more arms, you do just start to look like a sphere.
+        \item \textcite{bib:RubinsteinColby} has some good explanations on this; Table \ref{tab:RgRH} is also lifted from "Table 8.4" in this textbook.
+    \end{itemize}
+    \item For the rest of class, we focus on viscosity. We'll get as far into this topic as we can toay, and then we'll carry on next time.
+    \item Einstein model for viscosity.
+    \begin{itemize}
+        \item Simulating viscosity in full is a computationally intensive process.
+        \item On pen and paper, we will focus on what we can do for idealized hard spheres in a Newtonian fluid. This is the setup Einstein considered.
+        \item Let the hard spheres be of volume fraction $\phi_{hs}$ in the solution.
+        \item Einstein did his calculation in the dilute limit, obtaining
+        \begin{equation*}
+            \eta(\phi_{hs}) = \eta_s(1+2.5\phi_{hs}+\cdots)
+        \end{equation*}
+        \begin{itemize}
+            \item Einstein's detailed calculation got $2.5$ as the linear correction.
+            \item The power series continues, but in the dilute limit ($\phi_2\ll 1$ and $c_2\ll c_2^*$, where $c_2^*$ is the overlap concentration), we only need the linear correction.
+        \end{itemize}
+        \item This solution will have a viscosity $\eta$, composed of a linear contribution from the solvent $\eta_s$, and then an added contribution from the polymer in the form of a \textbf{specific viscosity} $\eta_{sp}$. This gives us the following.
+        \begin{equation*}
+            \eta = \eta_s+\eta_s\eta_{sp}
+        \end{equation*}
+        \item Thus, from the above by transitivity,
+        \begin{equation*}
+            \frac{\eta}{\eta_s}-1 = \eta_{sp} = \underbrace{2.5\phi_{hs}}_\text{for hard spheres}+\cdots
+        \end{equation*}
+        \item From the specific viscosity, we can define the \textbf{intrinsic viscosity} $[\eta]$.
+        \item It follows that in general, our solution has a viscosity
+        \begin{equation*}
+            \eta = \eta_s\left( 1+c\cdot[\eta]+K_\text{H}c^2[\eta]^2+\cdots \right)
+        \end{equation*}
+        \begin{itemize}
+            \item This equation represents viscosity as a perturbation in concentration $c$.
+            \item The first prefactor is the intrinsic viscocity.
+            \item $K_\text{H}$ denotes the \textbf{Huggins coefficient}.
+        \end{itemize}
+        \item We now want to relate the intrinsic viscosity to our polymer models.
+        \begin{itemize}
+            \item Let's go back to hard spheres.
+            \item The volume fraction of hard spheres is the number of spheres times the sphere volume $V_{hs}$ divided by the total volume.
+            \item To get it in terms of concentration so as to bridge this model over to our new concentration-based model, we obtain
+            \begin{equation*}
+                \phi_{hs} = \frac{(\#\text{ spheres})(\text{vol sphere})}{\text{total volume}}
+                = \frac{cN_\text{A}V_{hs}}{M}
+            \end{equation*}
+            \begin{itemize}
+                \item We measure concentration in \si[per-mode=symbol]{\gram\per\liter}.
+                \item We measure molar mass in \si[per-mode=symbol]{\gram\per\mole}.
+                \item The units of Avogadro's number $N_\text{A}$ is \si{\per\mole}.
+                \item Thus, in the above expression, the units do work out correctly to number times volume divided by volume!
+            \end{itemize}
+        \end{itemize}
+        \item Thus, we can now put everything together.
+        \begin{itemize}
+            \item The Einstein model's correction is
+            \begin{equation*}
+                2.5\phi_{hs} = \frac{2.5cN_\text{A}V_{hs}}{M}
+            \end{equation*}
+            \item We can relate the hard sphere volume back to polymer radius with
+            \begin{equation*}
+                V_{hs} = \frac{4}{3}\pi R_{hs}^3
+            \end{equation*}
+            \item The specific viscosity is then equal to $2.5\phi_{hs}$ by definition, so
+            \begin{equation*}
+                \eta_{sp} = \frac{2.5\cdot 4\pi R_H^3cN_\text{A}}{3M}
+            \end{equation*}
+            where we have replaced the hard sphere radius with the polymer's hydrodynamic radius.
+            \item Now $R_H=\gamma R_g$, as mentioned earlier today. Additionally, we can divide through by concentration to turn the specific viscosity into an intrinsic viscosity. Therefore,
+            \begin{equation*}
+                [\eta] = \frac{10N_\text{A}\pi\gamma^3\prb{R_g^2}^{3/2}}{3M}
+            \end{equation*}
+            \item The above result is our final theory --- a very commonly used theory.
+        \end{itemize}
+        \item It follows that for our polymer-solvent solution, we have the following scaling.
+        \begin{equation*}
+            [\eta] \propto \frac{R_g^3}{M} \propto M^{3\nu-1} \propto N^{3\nu-1}
+        \end{equation*}
+        \begin{itemize}
+            \item We still have $\nu$ dependent on the solvent type exactly as discussed repeatedly above.
+            \item Thus, for a $\theta$ solvent, scaling of the intrinsic viscosity is $3(1/2)-1=1/2$. For a good solvent, $3(3/5)-1=4/5$.
+            \item Note that we get the scaling because $R_g\propto R\propto N^\nu$, and $N\propto M$.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Specific viscosity}: A dimensionless quantity describing how much more viscous a solution becomes as polymers are introduced. \emph{Denoted by} $\bm{\eta_{sp}}$. \emph{Given by}
+    \begin{equation*}
+        \eta_{sp} := \frac{\eta}{\eta_s}-1
+    \end{equation*}
+    \item \textbf{Intrinsic viscosity}: A measure of a solute's contribution to the viscosity of a solution. \emph{Units} $\textbf{conc}^{\bm{-1}}$. \emph{Denoted by} $\bm{[\eta]}$. \emph{Given by}
+    \begin{equation*}
+        [\eta] := \lim_{c\to 0}\left( \frac{\eta_{sp}}{c} \right)
+        = \lim_{c\to 0}\left( \frac{\eta-\eta_s}{c\eta_s} \right)
+    \end{equation*}
+    \item \textbf{Huggins coefficient}: The viscometric equivalent of a Virial coefficient. \emph{Denoted by} $\bm{K_H}$.
+    \item Implicit assumptions used today.
+    \begin{itemize}
+        \item We are in a dilute solution.
+        \item If we use this viscosity in a real flow, our Weissenberg number must be much less than one ($Wi\ll 1$, where $Wi:=\tau_p\dot{\gamma}$).
+        \item The Zimm/non-draining argument is essential.
+    \end{itemize}
+    \item Do we need to know anything else about the radius of gyration?
+    \begin{itemize}
+        \item We will not be doing any detailed calcualations, so no.
+        \item Just know that all of the different radii are applicable in different circumstances, and all related by order 1 coefficients. Thus, we can convert between all of them as needed.
+    \end{itemize}
+    \item \textbf{Mark-Houwink-Sakurada model}: A scaling of the intrinsic viscosity derived above. \emph{Given by}
+    \begin{equation*}
+        [\eta] = KM^a
+    \end{equation*}
+    \begin{itemize}
+        \item $K,a$ depend on solvent quality and polymer.
+        \item Exponent scaling.
+        \begin{itemize}
+            \item $a<1/2$ implies a poor solvent.
+            \item $a=1/2$ implies a $\theta$ solvent.
+            \item $4/5>a>1/2$ implies a good solvent.
+        \end{itemize}
+        \item There's lots of data for various polymer types.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
