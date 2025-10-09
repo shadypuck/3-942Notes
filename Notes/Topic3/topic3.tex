@@ -76,34 +76,35 @@
         \item Consideration of the viscosity leads us to the other definitions below.
     \end{itemize}
     \item \textbf{Navier-Stokes equations}: The governing equations of fluids.
-    \item \textbf{Viscosity}: A relationship which tells us something about when we exert stresses on surfaces as a result of flow, and the relation to how fast we're moving a fluid. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
+    \item \textbf{Viscosity}: A relationship which tells us something about when we exert stresses on surfaces as a result of flow, and the relation to how fast we're moving a fluid. \emph{Also known as} \textbf{coefficient of viscosity}. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
     \begin{equation*}
         \eta := \frac{\text{shear stress}}{\text{rate of shear}}
     \end{equation*}
-    \item \textbf{Stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$. \emph{Given by}
+    \item \textbf{Shear stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$. \emph{Given by}
     \begin{equation*}
         \tau := \frac{\text{viscous force}}{\text{area}}
     \end{equation*}
-    \item \textbf{Shear rate}: How fast we move the plates relative to each other. \emph{Units} \textbf{\si[text-series-to-math]{\per\second}}. \emph{Denoted by} $\bm{\dot{\gamma}}$.\footnote{"gamma dot"} \emph{Given by}
+    \item \textbf{Shear rate}: How fast we move the plates relative to each other, normalized by the distance between the plates. \emph{Also known as} \textbf{velocity gradient}, \textbf{rate of shear}. \emph{Units} \textbf{\si[text-series-to-math]{\per\second}}. \emph{Denoted by} $\bm{\dot{\gamma}}$.\footnote{"gamma dot"} \emph{Given by}
     \begin{equation*}
         \dot{\gamma} := \frac{U}{H}
     \end{equation*}
     \begin{itemize}
-        \item What are $U$ and $H$??
+        \item $U$ is the difference in velocity between the top and bottom plates.
+        \item $H$ is the distance between the top and bottom plates.
     \end{itemize}
     \item \textbf{Viscous stress}. \emph{Also known as} \textbf{shear stress}. \emph{Denoted by} $\bm{\tau_{yx}}$. \emph{Given by}
     \begin{equation*}
         \tau_{yx} := \eta\dot{\gamma}
     \end{equation*}
     \begin{itemize}
-        \item The faster you shear something, it's linearly proportional to the tensor $\tau_{yx}$?? What is this?
+        \item The faster you shear something, it's linearly proportional to the tensor $\tau_{yx}$?? What is this, and what is its relation to the definition of $\tau$ above?
     \end{itemize}
     \item \textbf{Newtonian} (fluid): A fluid that satisfies the following condition. \emph{Constraint}
     \begin{equation*}
         \eta \neq \eta(\gamma_\text{tot},\dot{\gamma})
     \end{equation*}
     \begin{itemize}
-        \item What does this constraint mean??
+        \item What does this constraint mean?? Shouldn't a Newtonian fluid be one for which the viscosity is independent of the magnitude of the shear rate $\dot{\gamma}$?
     \end{itemize}
     \item \textbf{Non-Newtonian} (fluid): Any fluid that is not Newtonian.
     \begin{itemize}
@@ -152,13 +153,17 @@
         \end{itemize}
         \item Reference: \textcite{bib:smallShear}.
     \end{itemize}
-    \item \textbf{Shear thinning}: A property of certain fluids wherein viscosity decreases the faster the fluid is sheared.
+    \item \textbf{Shear thinning}: A property of certain fluids wherein viscosity decreases the faster the fluid is sheared (i.e., as the shear rate $\dot{\gamma}$ increases).
+    \item \textbf{Zero shear viscosity}: The viscosity under a shear rate sufficiently low that the fluid behaves as if its Newtonian. \emph{Denoted by} $\bm{\eta_0}$. \emph{Given by}
+    \begin{equation*}
+        \eta_0 := \lim_{\dot{\gamma}\to 0}\eta
+    \end{equation*}
     \item \textbf{Weissenberg number}: A dimensionless shear rate. \emph{Denoted by} $\bm{Wi}$. \emph{Given by}
     \begin{equation*}
         Wi := \dot{\gamma}\tau_\text{polymer}
     \end{equation*}
     \item Before we dive deeper, we should state an important assumption about shear rate underpinning our analysis.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
@@ -498,6 +503,71 @@
         \end{itemize}
         \item There's lots of data for various polymer types.
     \end{itemize}
+\end{itemize}
+
+
+
+\section{Chapter 9: Dynamics of Dilute Polymer Solutions}
+\emph{From \textcite{bib:HiemenzLodge}.}
+\begin{itemize}
+    \item \marginnote{10/9:}What relates "the viscosity of polymer solutions, the diffusion of polymer molecules, the technique of dynamic light scattering, the phenomenon of hydrodynamic interaction, and the separation and analysis of polymers by size exclusion chromatography" \parencite[377]{bib:HiemenzLodge}? They all help determine polymer molecular weight, and they all depend on the spatial extent of polymer coils.
+    \item We have studied \emph{static} properties of polymer up to this point. Now, we will discuss \emph{time-dependent} dynamics.
+    \begin{itemize}
+        \item We begin our study of dynamics with dilute solutions, so as to highlight the properties of individual polymer molecules.
+    \end{itemize}
+    \item \textbf{Molecular friction factor}: The proportionality factor between the force $\mathbf{F}$ directionally applied to a polymer in a solvent, and the polymer's equilibrium velocity $\mathbf{v}$ after accelerating to the point where drag counterbalances $\mathbf{F}$. \emph{Units} \textbf{\si[text-family-to-math,per-mode=symbol]{\kilo\gram\per\second}}. \emph{Denoted by} $\bm{f}$. \emph{Given by}
+    \begin{equation*}
+        f = \frac{|\mathbf{F}|}{|\mathbf{v}|}
+    \end{equation*}
+    \begin{itemize}
+        \item Figure \ref{fig:stokesViscosity} may be helpful in visualizing this definition.
+        \item The textbook uses the units of \si[per-mode=symbol]{\gram\per\second}.
+        \item Typical values of $f$ for a polymer in water fall between \SIrange[per-mode=symbol]{e-7}{e-6}{\gram\per\second}.
+    \end{itemize}
+    \item Two questions we will focus on answering.
+    \begin{itemize}
+        \item How can we expermentally measure $f$?
+        \item What can $f$ tell us about polymers?
+    \end{itemize}
+    \item First model we will use: The impenetrable sphere.
+    \begin{itemize}
+        \item Surprisingly accurate for certain polymers (e.g., floppy random coils, as discussed in class).
+        \item Allows us to use the computationally simple ideal solution model to underpin our analysis!
+    \end{itemize}
+    \item Defining the viscosity of a fluid, and related terms (see Figure \ref{fig:viscosity}).
+    \begin{itemize}
+        \item A \emph{fluid} is preliminarily defined to be "a set of infinitesimally thin layers moving parallel to each other, each with a characteristic velocity" \parencite[377]{bib:HiemenzLodge}.
+        \item We postulate that our fluid has no \textbf{slip} at the interface between the stationary and flowing phases.
+        \begin{itemize}
+            \item This is a good approximation for the systems in which we are interested.
+        \end{itemize}
+        \item This leads our fluid to behave as a \textbf{steady flow}.
+    \end{itemize}
+    \item \textbf{Slip}: Any difference in velocity between those fluid layers that are adjacent to nonflowing surfaces and the nonflowing surfaces themselves.
+    \item \textbf{Steady flow}: The time-independent veocity profile developed when the upper plate (Figure \ref{fig:viscosity}) is moving at a constant velocity.
+    \item We now build up to justifying the notation "$\dot{\gamma}$" for the shear rate.
+    \item \textbf{Shear displacement}: The distance $\Delta x$ that the top layer in the velocity profile moves relative to the bottom layer during a short time interval $\Delta t$.
+    \item \textbf{Shear strain}: The shear displacement per unit distance $H$ between the two plates. \emph{Denoted by} $\gamma$. \emph{Given by}
+    \begin{equation*}
+        \gamma := \frac{\Delta x}{H}
+    \end{equation*}
+    \item Thus, the shear rate (i.e., the rate at which the shear strain develops) is given by the first time derivative of the shear strain $\dv*{\gamma}{t}$. But in Newton's notation, first derivatives are represented by putting a single dot over the variable being differentiated. Thus, we represent the shear rate as $\dot{\gamma}$.
+    \item \textbf{Shear force}: The force applied to the top plate (Figure \ref{fig:viscosity}) to develop a velocity profile. \emph{Also known as} \textbf{viscous force}. \emph{Denoted by} $\mathbf{F}$.
+    \item \textbf{Newton's law of viscosity}: The statement that the shear stress $\tau$ depends bilinearly on the viscosity $\eta$ and shear rate $\dot{\gamma}$ with no proportionality constant. \emph{Given by}
+    \begin{equation*}
+        \tau = \eta\dot{\gamma}
+    \end{equation*}
+    \item \textbf{Newtonian} (fluid): A fluid that satisfies Newton's law of viscosity, i.e., for which the viscosity $\eta$ is independent of the shear rate $\dot{\gamma}$.
+    \begin{itemize}
+        \item Liquids of low molecular weight compounds are generally Newtonian.
+        \item Newtonian fluids are characterized by a single viscosity.
+    \end{itemize}
+    \item Any liquid that undergoes shear thinning is non-Newtonian, as a Newtonian liquid would have a straight line on the graphs in Figure \ref{fig:smallShear} ($\eta$ independent of $\dot{\gamma}$).
+    \begin{itemize}
+        \item Shear thinning is often observed for polymer solutions or melts.
+    \end{itemize}
+    \item Most viscometers can determine of a fluid is Newtonian by varying the shear rate $\dot{\gamma}$ and measuring whether or not the viscosity stays constant.
+    \item \textcite[379-80]{bib:HiemenzLodge} covers \textbf{viscous heating}, which was not mentioned in class.
 \end{itemize}
 
 
