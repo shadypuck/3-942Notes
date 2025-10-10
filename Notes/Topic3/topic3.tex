@@ -76,13 +76,9 @@
         \item Consideration of the viscosity leads us to the other definitions below.
     \end{itemize}
     \item \textbf{Navier-Stokes equations}: The governing equations of fluids.
-    \item \textbf{Viscosity}: A relationship which tells us something about when we exert stresses on surfaces as a result of flow, and the relation to how fast we're moving a fluid. \emph{Also known as} \textbf{coefficient of viscosity}. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
+    \item \textbf{Viscosity}: A relationship which tells us something about when we exert stresses on surfaces as a result of flow, and the relation to how fast we're moving a fluid. \emph{Also known as} \textbf{coefficient of viscosity}, \textbf{shear viscosity}. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
     \begin{equation*}
         \eta := \frac{\text{shear stress}}{\text{rate of shear}}
-    \end{equation*}
-    \item \textbf{Shear stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$. \emph{Given by}
-    \begin{equation*}
-        \tau := \frac{\text{viscous force}}{\text{area}}
     \end{equation*}
     \item \textbf{Shear rate}: How fast we move the plates relative to each other, normalized by the distance between the plates. \emph{Also known as} \textbf{velocity gradient}, \textbf{rate of shear}. \emph{Units} \textbf{\si[text-series-to-math]{\per\second}}. \emph{Denoted by} $\bm{\dot{\gamma}}$.\footnote{"gamma dot"} \emph{Given by}
     \begin{equation*}
@@ -92,19 +88,20 @@
         \item $U$ is the difference in velocity between the top and bottom plates.
         \item $H$ is the distance between the top and bottom plates.
     \end{itemize}
-    \item \textbf{Viscous stress}. \emph{Also known as} \textbf{shear stress}. \emph{Denoted by} $\bm{\tau_{yx}}$. \emph{Given by}
+    \item \textbf{Shear stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$, $\bm{\tau_{yx}}$. \emph{Given by}
     \begin{equation*}
-        \tau_{yx} := \eta\dot{\gamma}
+        \tau := \frac{\text{viscous force}}{\text{area}} = \eta\dot{\gamma}
     \end{equation*}
     \begin{itemize}
-        \item The faster you shear something, it's linearly proportional to the tensor $\tau_{yx}$?? What is this, and what is its relation to the definition of $\tau$ above?
+        \item The $\tau_{yx}$ notation comes from the fact that stress is a tensor, and the $yx$ element of this tensor is the shear stress.
+        \item However, we are not concerned with tensors in this class, so we may think of shear stress as nothing more than a scalar with units of pressure.
     \end{itemize}
     \item \textbf{Newtonian} (fluid): A fluid that satisfies the following condition. \emph{Constraint}
     \begin{equation*}
         \eta \neq \eta(\gamma_\text{tot},\dot{\gamma})
     \end{equation*}
     \begin{itemize}
-        \item What does this constraint mean?? Shouldn't a Newtonian fluid be one for which the viscosity is independent of the magnitude of the shear rate $\dot{\gamma}$?
+        \item The above constraint states that for a Newtonian fluid, the viscosity $\eta$ is a constant. In particular, viscosity is \emph{not} a function of the shear strain $\gamma$ or the shear rate $\dot{\gamma}$ (as is the case for some non-Newtonian fluids).
     \end{itemize}
     \item \textbf{Non-Newtonian} (fluid): Any fluid that is not Newtonian.
     \begin{itemize}
@@ -454,7 +451,7 @@
             where we have replaced the hard sphere radius with the polymer's hydrodynamic radius.
             \item Now $R_H=\gamma R_g$, as mentioned earlier today. Additionally, we can divide through by concentration to turn the specific viscosity into an intrinsic viscosity. Therefore,
             \begin{equation*}
-                [\eta] = \frac{10N_\text{A}\pi\gamma^3\prb{R_g^2}^{3/2}}{3M}
+                [\eta] = \frac{10\pi N_\text{A}\gamma^3\prb{R_g^2}^{3/2}}{3M}
             \end{equation*}
             \item The above result is our final theory --- a very commonly used theory.
         \end{itemize}
@@ -472,6 +469,9 @@
     \begin{equation*}
         \eta_{sp} := \frac{\eta}{\eta_s}-1
     \end{equation*}
+    \begin{itemize}
+        \item From the definition, we can see that for a pure solution (only solvent), the specific viscosity is zero. As the viscosity of the solution increases with increasing solute, $\eta_{sp}$ will obtain a value greater than zero (and likewise for decreases in viscosity).
+    \end{itemize}
     \item \textbf{Intrinsic viscosity}: A measure of a solute's contribution to the viscosity of a solution. \emph{Units} $\textbf{conc}^{\bm{-1}}$. \emph{Denoted by} $\bm{[\eta]}$. \emph{Given by}
     \begin{equation*}
         [\eta] := \lim_{c\to 0}\left( \frac{\eta_{sp}}{c} \right)
@@ -507,10 +507,402 @@
 
 
 
+\section{Intrinsic Viscosity - 2}
+\begin{itemize}
+    \item \marginnote{10/9:}Review of last lecture (various terms introduced last time).
+    \item To begin, we'll wrap up some concepts from last time.
+    \item More types of viscosity.
+    \begin{itemize}
+        \item \textbf{Relative}, \textbf{reduced}, and \textbf{inherent} viscosity.
+        \item These exist, but we don't need to know much about them.
+    \end{itemize}
+    \item \textbf{Relative viscosity}: The overall viscosity normalized by that of the solvent. \emph{Denoted by} $\bm{\eta_r}$. \emph{Given by}
+    \begin{equation*}
+        \eta_r := \frac{\eta}{\eta_s}
+    \end{equation*}
+    \item \textbf{Reduced viscosity}: The increase in viscosity, normalized by the concentration of the added solute. \emph{Denoted by} $\bm{\eta_\textbf{red}}$. \emph{Given by}
+    \begin{equation*}
+        \eta_\text{red} := \frac{1}{c}\left( \frac{\eta}{\eta_s}-1 \right)
+    \end{equation*}
+    \item \textbf{Inherent viscosity}: The measure of viscosity defined as follows. \emph{Denoted by} $\bm{\eta_\textbf{inh}}$. \emph{Given by}
+    \begin{equation*}
+        \eta_\text{inh} := \frac{1}{c}\ln(\frac{\eta}{\eta_s})
+    \end{equation*}
+    \item On the scaling of the intrinsic viscosity with the polymer molecular weight.
+    \begin{itemize}
+        \item Doyle provides the justification I thought up for the $3\nu-1$ proportionality discussed last time!
+        \item The Mark-Houwink-Sakurada model's benefit is that it allows us to fit our data to a more general law that doesn't depend on "good" or "bad" solvents so explicitly, but rather allows you to interpolate between them.
+    \end{itemize}
+    \item Doyle skips the slide on Mark-Houwink parameters, but know that these are tabulated.
+    \item Last class, we built a lot of theory around viscosity. But is that theory consistent with our theory from Topics 1-2?
+    \item Let's show that it is in one example: Intrinsic viscosity and $c^*$.
+    \begin{itemize}
+        \item Recall Figure \ref{fig:concentrationRegimes}.
+        \item Recall the geometric argument that
+        \begin{equation*}
+            c^* = \left( \frac{M}{N_\text{A}} \right)\frac{1}{V_p} = \frac{3M}{4\pi N_\text{A}R_g^3}
+        \end{equation*}
+        \begin{itemize}
+            \item $M$ is the mass of 1 mole of polymers.
+            \item Thus, $M/N_\text{A}$ is the mass of a single polymer and $M/N_\text{A}V_p$ is the concentration of polymer within the excluded volume.
+            \item But this is equal to the concentration of $n$ polymers within $n$ of their excluded volumes, or of a whole solution at the critical concentration!
+            \item $V_p$ is related to the radius of gyration by the equation for the volume of a sphere.
+        \end{itemize}
+        \item Alternatively, the critical concentration occurs when the effective volume fraction $\phi_\text{eff}=\phi_{hs}=1$. Thus, substituting in the values at the critical moment,
+        \begin{align*}
+            [\eta] &= \frac{2.5\phi_{hs}}{c_2}\\
+            [\eta]_c &= \frac{2.5\cdot 1}{c^*}\\
+            c^* &= \frac{2.5}{[\eta]} = \frac{3M}{4\pi N_\text{A}R_g^3\gamma^3}
+        \end{align*}
+        \begin{itemize}
+            \item The second line above is a \emph{very} famous equation that shows up in many research articles.
+        \end{itemize}
+        \item The two definitions of $c^*$ are very similar!
+        \begin{itemize}
+            \item This provides a good "sanity check" for our theory.
+            \item We can rest easy about the $\gamma^3$ difference because $\gamma$ is an order 1 term, so it doesn't change the value of the expression much.
+        \end{itemize}
+    \end{itemize}
+    \item Determination of the intrinsic viscosity.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{intViscosityDetermina.png}
+            \caption{Series of concentrations.}
+            \label{fig:intViscosityDetermina}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{intViscosityDeterminb.png}
+            \caption{Series of MWs.}
+            \label{fig:intViscosityDeterminb}
+        \end{subfigure}
+        \caption{Determination of intrinsic viscosity.}
+        \label{fig:intViscosityDetermin}
+    \end{figure}
+    \begin{itemize}
+        \item Let's start with a derivation.
+        \begin{itemize}
+            \item Recall that for $c<c^*$,
+            \begin{align*}
+                \eta &\approx \eta_s\left( 1+c\cdot[\eta]+K_\text{H}c^2[\eta]^2 \right)&
+                \eta_{sp} &= \frac{\eta}{\eta_s}-1
+            \end{align*}
+            \item Thus, we can divide the right equation through by concentration and the solvent viscosity, rearrange, and relate it to the intrinsic viscosity, as follows.
+            \begin{align*}
+                \frac{\eta}{\eta_sc} &= \frac{1}{c}+[\eta]+K_\text{H}[\eta]^2c\\
+                \underbrace{\frac{\eta/\eta_s-1}{c}}_{\eta_{sp}/c} &= [\eta]+\underbrace{K_\text{H}[\eta]^2}_\text{constant}c
+            \end{align*}
+            \item The equation above tells us that given a series of concentrations, we can plot $\eta_{sp}/c$ vs. $c$ and get a linear plot, the $y$-intercept of which will be the intrinsic viscosity and the slope of which could give us the Huggins coefficient (Figure \ref{fig:intViscosityDetermina}). 
+            \item Notice that in the limit of $c\to 0$, the above equation reduces to the definition of intrinsic viscosity!
+        \end{itemize}
+        \item Now that we have the intrinsic viscosity, we can do even more.
+        \begin{itemize}
+            \item The Mark-Houwink model tells us that given a series of molecular weights and their intrinsic viscosities, we can make a log-log plot to measure $K$ and $a$ (Figure \ref{fig:intViscosityDeterminb}).
+        \end{itemize}
+        \item The data on the next slide shows agreement with the theoretical expectation.
+    \end{itemize}
+    \item Doyle is skipping the Intrinsic Viscosity - Key Idea \& Viscosity-Average Molecular Weight derivations.
+    \begin{itemize}
+        \item Key result: Each of our species $i$ in solution obeys its own Mark-Houwink equation.
+        \item The \textbf{viscosity-averaged molecular weight} tends to lie between the number- and weight-averaged MW; it's what you use for $M$ in the Mark-Houwink plot analysis.
+    \end{itemize}
+    \item Example of the above method of measuring intrinsic velocity, from a recent article in Nature.
+    \begin{itemize}
+        \item The authors were interested in the degradation of cellulose.
+        \item They measured the decrease in molecular weight by Mark-Houwink analysis, but in reverse! They knew $K,a$, measured $[\eta]$, and found $M$ for each sample.
+        \item Reference: \textcite{bib:MHScellulose}.
+    \end{itemize}
+    \item We now move into today's lecture content in earnest: Measuring intrinsic visocosity, from classic methods to the state-of-the-art ones people are currently researching.
+    \item Challenges to the measurement of intrinsic viscosity.
+    \begin{itemize}
+        \item Low concentrations of polymer.
+        \begin{itemize}
+            \item This implies that the viscosity of the polymer solution is very close to that of the solvent, so we need very accurate instruments.
+        \end{itemize}
+        \item Need to operate in the $Wi<1$ regime.
+        \begin{itemize}
+            \item This is because we need the polymer to not be deformed, so we can't shear \emph{too} fast (or we'll get into stretching and tumbling regimes that throw off our calculations, as in Figure \ref{fig:stretchTumble}).
+            \item Since the shear stress $\tau=\eta\dot{\gamma}$,
+            \begin{equation*}
+                Wi = \tau\dot{\gamma}
+                = \eta\dot{\gamma}^2
+            \end{equation*}
+            and so we need $\eta\dot{\gamma}^2$ less than one.
+        \end{itemize}
+        \item We may not have much of our sample to commit to this experiment, especially in the case of precious materials.
+        \begin{itemize}
+            \item This is especially challenging because relatively large volumes of solutions are typically needed for viscosity measurements.
+        \end{itemize}
+    \end{itemize}
+    \item Classic method: Capillary viscometer.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{capillaryViscometer.png}
+        \caption{Capillary viscometer.}
+        \label{fig:capillaryViscometer}
+    \end{figure}
+    \begin{itemize}
+        \item From the 1800s.
+        \item We suck some liquid up into a straw.
+        \item Gravity will then want to equilibrate the chambers, and we measure the time that the equilibration takes.
+        \item All you need is the set up, a means to draw your liquid up, and a stopwatch.
+    \end{itemize}
+    \item Basic (without Navier-Stokes) physics for the why a capillary viscometer works.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{HagenPoiseuille.JPG}
+        \caption{Hagen-Poiseuille derivation.}
+        \label{fig:HagenPoiseuille}
+    \end{figure}
+    \begin{itemize}
+        \item Hagen and Poiseuille\footnote{"POY-say"} solved a nice problem for a Newtonian fluid (constant viscosity $\eta$) traveling through a straight tube of diameter $2r$ and length $L=h_\text{entrance}-h_\text{exit}$ at pressure $\Delta P$.
+        \begin{itemize}
+            \item The flow $Q$ is assumed to be sufficiently slow so as not to be \textbf{turbulent}. In other words, the flow is \textbf{laminar}.
+            \begin{itemize}
+                \item Specifically, they wanted the flow to have \textbf{Reynolds number} $\text{Re}\leq 2000$.
+                \item Note that $Q$ is measured in units of volume per second (e.g., \si[per-mode=symbol]{\cubic\meter\per\second}).
+            \end{itemize}
+            \item The result of the derivation is that the flow is
+            \begin{equation*}
+                Q = \frac{\pi r^4}{8\eta L}\Delta P
+            \end{equation*}
+            \begin{itemize}
+                \item $\Delta P=P+\rho gh$ is a dynamic pressure, which is equal to the regular pressure $P$ plus $\rho gh$. It is the pressure difference between the two ends of the pipe.
+            \end{itemize}
+        \end{itemize}
+        \item It follows that --- in the context of a capillary viscometer --- the time to drain a volume $V$ is going to be
+        \begin{equation*}
+            \frac{V}{Q} \propto \underbrace{\frac{VL}{r^4g\Delta h}}_\text{constant}\cdot\frac{\eta}{\rho}
+        \end{equation*}
+        \begin{itemize}
+            \item Thus, we have a relation between our observable ($V/Q$), the desired quantity ($\eta$), and parameters baked into our system.
+            \item Note that the parameters baked into the system can be broken down into two classes. The first is the contents of the constant, which are all specific to a given capillary viscometer. The second is the density of the fluid, which we can experimentally measure independently of our capillary viscometer (e.g., with a micropipette and a balance) for any fluid whose viscosity we seek to determine.
+        \end{itemize}
+        \item A convenient rewrite of the above equation (in the specific case of water, a common solvent) is
+        \begin{equation*}
+            t_{\ce{H2O}} = \text{constant}\cdot\frac{\eta_{\ce{H2O}}}{\rho_{\ce{H2O}}}
+        \end{equation*}
+        \begin{itemize}
+            \item Water is very extensively studied, so we can look up the right terms above in a handbook.
+        \end{itemize}
+        \item Doing the same for our polymer solution and combining the two equations, we get the following result. This result will give us our material properties.
+        \begin{equation*}
+            \frac{t_{\ce{H2O}}}{t_\text{polymer}} = \frac{\eta_{\ce{H2O}}}{\rho_{\ce{H2O}}}\cdot\frac{\rho_\text{polymer}}{\eta_\text{polymer}}
+        \end{equation*}
+        \begin{itemize}
+            \item We measure $t_{\ce{H2O}}$ in our specific viscometer, either measure or look up the right term above, determine the density of our polymer-water solution, and then can obtain the viscosity of our polymer!
+            \begin{itemize}
+                \item This equation eliminates the need to measure the constant for our specific viscometer.
+                \item Basically, it replaces measuring a constant with calibrating the viscometer against a known solvent.
+            \end{itemize}
+            \item Note that every term subscripted "polymer" refers to a property of the polymer-solvent solution. This is because we want to measure quantities at the conditions under which we're running the experiment.
+            \item We can also use the approximation for $c\ll c^*$ that $\rho_\text{polymer}\approx\rho_\text{solvent}$.
+        \end{itemize}
+        \item We need about \SIrange{5}{10}{\milli\liter} of solution to run this experiment.
+        \item These instruments are \$200-\$400 from Sigma today!
+    \end{itemize}
+    \item \textbf{Reynolds number}: A dimensionless quantity that helps predict fluid flow patterns (e.g., laminar vs. turbulent). \emph{Denoted by} $\textbf{Re}$. \emph{Given by}
+    \begin{equation*}
+        \text{Re} := \frac{2rU\rho}{\eta}
+    \end{equation*}
+    \item \textbf{Kinematic viscosity}: A measure of the viscosity of a solution that is directly proportional to the time the solution takes to flow under certain conditions. \emph{Given by}
+    \begin{equation*}
+        \frac{\eta}{\rho}
+    \end{equation*}
+    \item We now begin discussing \textbf{rheology}.
+    \item \textbf{Rheology}: The study of the flow of matter. \emph{Etymology} from Greek "rhei" (to flow or stream) and "logos" (the study of).
+    \item History of rheology.
+    \begin{itemize}
+        \item Plato (400 BC): "All things move and nothing stands still."
+        \item Simplicius (500 AD): "Panta rhei."
+        \begin{itemize}
+            \item Translation: Everything flows.
+            \item This is true! Some things just appear not to because we're looking at them at too short of a timescale.
+        \end{itemize}
+        \item Prof. Bingham (1920s): Coins the term "rheology."
+        \item Influence of the idea that everything flows: The \textbf{Deborah number}.
+        \begin{itemize}
+            \item Named after Deborah in the Bible's Book of Judges, who famously said, "the mountains flowed before the Lord."
+            \item The idea is that on the scale of observation of God (which is infinite), even mountains will flow.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Deborah number}: A dimensionless number used to characterize the fluidity of materials over a given timescale. \emph{Denoted by} $\textbf{De}$. \emph{Given by}
+    \begin{equation*}
+        \text{De} := \frac{\tau}{\tau_\text{flow}}
+    \end{equation*}
+    \begin{itemize}
+        \item $\tau$ is the time it takes for a material to react to a stimulus.
+        \item $\tau_\text{flow}$ is the time over which the change is observed.
+        \item Thus, low Deborah numbers correspond to fast-flowing substances, and high Deborah numbers correspond to more immutable substances (e.g., the proverbial mountains).
+    \end{itemize}
+    \item What is a rheometer?
+    \begin{itemize}
+        \item A rheometer applies a controlled flow or stress via a specific geometry.
+        \item Many geometries to do this.
+        \item A spinaret is common. It's a moving boundary, you put your sample inside, you get your force.
+    \end{itemize}
+    \item Intrinsic viscosity is measured via a co-centric cylinder rheometer.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.15\linewidth]{rheometerCyl.png}
+        \caption{Co-centric cylinder rheometer.}
+        \label{fig:rheometerCyl}
+    \end{figure}
+    \begin{itemize}
+        \item The gap is very small relative to the size of the central bob. Thus, the surface looks flat locally.
+        \item A bit of geometry gets you your shear rate and shear stress, from which we know viscosity $\eta=\tau/\dot{\gamma}$.
+        \begin{align*}
+            \dot{\gamma} &= \frac{2\omega R_c^2}{R_c^2-R_b^2}&
+            \tau &= \frac{M}{2\pi R_b^2L}
+        \end{align*}
+        \item Typical sample volume: \SIrange{1}{50}{\milli\liter}.
+        \item People like these because you put your sample in, press a button, and get your result.
+    \end{itemize}
+    \item Aside: Just how sensitive are rheometers?
+    \begin{itemize}
+        \item Gareth McKinley (in MechE) will tell you that rheometers can typically measure 6 orders of magnitude dynamic range.
+        \item Modern rheometers are about an order of magnitude more sensitive than the capillary rheometer.
+    \end{itemize}
+    \item Microfluidics approaches to rheometry.
+    \begin{itemize}
+        \item Still pretty similar to Hagen-Poiseuille.
+        \item Advantages.
+        \begin{itemize}
+            \item Help when you only have very little sample (as is often the case in pharma).
+            \item Subject fluids to variety of flows in a single device.
+            \item Etc.
+        \end{itemize}
+        \item Challenges.
+        \begin{itemize}
+            \item No moving surface, so no direct analog to Figure \ref{fig:rheometerCyl}.
+            \begin{itemize}
+                \item Thus more similar to the capillary viscometer, fundamentally speaking.
+            \end{itemize}
+            \item Key challenge: We have to extrapolate to zero concentration to take the limit in the definition of intrinsic viscosity.
+        \end{itemize}
+    \end{itemize}
+    \item Microrheometry overview.
+    \begin{itemize}
+        \item Many types.
+        \item Rheometry on a chip (a device you can buy now).
+        \item Microrheology, also a thing we'll discuss.
+    \end{itemize}
+    \item Measuring intrinsic viscosity on a chip.
+    \begin{itemize}
+        \item More benefits and challenges.
+    \end{itemize}
+    \item Theory for an intrinsic viscometer.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{viscometerInt.png}
+        \caption{Intrinsic viscometer schematic.}
+        \label{fig:viscometerInt}
+    \end{figure}
+    \begin{itemize}
+        \item Black lines are very small; width on the order of our hair (\SI{100}{\micro\meter}).
+        \item The rightmost circle is just an outlet; that's trash.
+        \item One reservoir has our sample, of which we'd like to take a measurement.
+        \item The other reservoir has just the solvent in which the sample is dissolved, and a dye!
+        \item Flow rates are given by volumetric resistances. Then the flows combine with conservation of mass.
+        \item You create a dilution series with optically detectable concentration.
+    \end{itemize}
+    \item How an intrinsic viscometer works.
+    \begin{itemize}
+        \item Recall that $\Delta P=QR_H$, where $R_H=8\eta L/\pi r^4$ is the \textbf{hydrodynamic resistance}.
+        \begin{itemize}
+            \item Some of $R_H$ is geometric, and some is the viscosity.
+            \item The geometric terms we denote $\tilde{R}_H=8L/\pi r^4$.
+            \item Hydrodynamic resistance is analogous to electrical resistance and Ohm's law $V=IR$.
+        \end{itemize}
+        \item Four equations.
+        \begin{gather*}
+            \Delta P = P_A-P^*=\tilde{R}_1\eta_pQ_1\tag{1}\\
+            P_B-P^* = \tilde{R}_2\eta_sQ_2\tag{2}\\
+            P^*-P^{**} = \tilde{R}_3\eta(Q_1+Q_2)\tag{3}\\
+            P^{**}-P^* = \tilde{R}_4\eta(Q_1+Q_2)\tag{4}
+        \end{gather*}
+        \begin{itemize}
+            \item $P^*$ is the pressure right where the two flows meet.
+            \item $P^{**}$ is the pressure once the two flows have equilibrated.
+            \begin{itemize}
+                \item We don't know what either of these are, hence why we use placeholder variables for them.
+            \end{itemize}
+            \item $\eta_p$ is the viscosity of the polymer solution.
+        \end{itemize}
+        \item Suppose $P_A=P_B$.
+        \begin{itemize}
+            \item Then the lefthand sides of equations 1 and 2 are the same, so
+            \begin{align*}
+                \tilde{R}_1\eta_pQ_1 &= \tilde{R}_2\eta_sQ_2\\
+                \eta_p &= \underbrace{\frac{\tilde{R}_2\eta_s}{\tilde{R}_1}}_\text{known}\cdot\frac{Q_2}{Q_1}
+            \end{align*}
+            \begin{itemize}
+                \item Pressure and flow are related in a dependent/independent relation; we can control one of them or the other, but not both. Thus, the one that we're not controlling will have to be measured.
+                \item In this case, we're applying pressures, so we don't know the flows $Q_1,Q_2$.
+            \end{itemize}
+            \item The detector signal divided by the max signal gives
+            \begin{equation*}
+                Y = \frac{Q_2}{Q_1+Q_2}
+            \end{equation*}
+        \end{itemize}
+        \item The remaining math is hard and not worth our time. Using all four allows us to get rid of the unknowns $P^*,P^{**}$ and fully analyze the system.
+    \end{itemize}
+    \item Intrinsic viscometer: Device performance.
+    \begin{itemize}
+        \item \textcite{bib:viscometerInt} showed that it worked pretty well, even with a tiny sample volume of \SI{5}{\micro\liter}.
+        \begin{itemize}
+            \item Recall that a traditional viscometer requires closer to \SI{5}{\milli\liter}.
+        \end{itemize}
+        \item The authors did both kinds of measurements in Figure \ref{fig:intViscosityDetermin} successfully.
+        \item Design calculations: The authors wanted this to be a device that everyone could use, so they defined an operating range.
+        \begin{itemize}
+            \item The Deborah or Weissenberg number must be less than 1.
+            \item Assuming a good solvent, $\lambda$ should scale as molecular weight to the $1.8$ power.
+            \item We need very fast diffusion laterally across the channel so that the two fluids merge into one. This is the Pe calculation. The ratio cancelling out with fast diffusion time implies that \textbf{Peclet number} is greater than 1.
+        \end{itemize}
+    \end{itemize}
+    \item Commercial realization: Formulaction.
+    \begin{itemize}
+        \item Dye might interact with polymer; ininial device was too complicated for commercialization.
+        \item Now we let the fluids \emph{not} mix quickly and look at the index of refraction for them flowing next to each other.
+        \item Hydrodynamic resistance is related to the width.
+    \end{itemize}
+    \item Microrheology.
+    \begin{itemize}
+        \item Spherical bead probes act like constant stress rheometers.
+        \item Look at variations in Brownian motion!
+        \item We can ensemble average the trajectories (as in Figure \ref{fig:diffusion}), plot against $\tau$, and get $2D$ as the parameter.
+        \item By Einstein, $D=\kB T/6\pi a\eta$, so we can back out viscosity!
+        \item Can do this with a few microliters, can do this inside living objects, etc.
+        \item Developed by Doyle's lab!
+        \item Here, $\tau$ is time, not the shear stress.
+        \item $\kB T$ divided by a length is a force (the way the units work out). Thus, $\kB T$ divided by a volume ($L^3$) is a force over length squared, which is a pressure. This pressure is what we call the \textbf{thermal stress}.
+    \end{itemize}
+    \item High throughput microrheology.
+    \begin{itemize}
+        \item By one of Doyle's old UROPs who's now doing a PhD w/ Eric Furst.
+        \item Each drop is a microliter experiment.
+    \end{itemize}
+    \item More on Figure \ref{fig:viscosityScaling}.
+    \begin{itemize}
+        \item Doyle recapitulates what he said when he originally showed the figure.
+    \end{itemize}
+    \item Expectations for PSet 3 and the Quiz: We're not gonna have to solve a pipe flow problem or anything, but the diffusivity relation to mean squared displacement is well within our wheelhouse.
+    \item Class next Tuesday confirmed!
+    \item Exam.
+    \begin{itemize}
+        \item Average 80, standard deviation of 10.
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 9: Dynamics of Dilute Polymer Solutions}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
-    \item \marginnote{10/9:}What relates "the viscosity of polymer solutions, the diffusion of polymer molecules, the technique of dynamic light scattering, the phenomenon of hydrodynamic interaction, and the separation and analysis of polymers by size exclusion chromatography" \parencite[377]{bib:HiemenzLodge}? They all help determine polymer molecular weight, and they all depend on the spatial extent of polymer coils.
+    \item What relates "the viscosity of polymer solutions, the diffusion of polymer molecules, the technique of dynamic light scattering, the phenomenon of hydrodynamic interaction, and the separation and analysis of polymers by size exclusion chromatography" \parencite[377]{bib:HiemenzLodge}? They all help determine polymer molecular weight, and they all depend on the spatial extent of polymer coils.
     \item We have studied \emph{static} properties of polymer up to this point. Now, we will discuss \emph{time-dependent} dynamics.
     \begin{itemize}
         \item We begin our study of dynamics with dilute solutions, so as to highlight the properties of individual polymer molecules.
