@@ -502,12 +502,12 @@
     \item We'll now massage the above expressions to get some more mechanistic understanding out of them, specifically for dilute solutions.
     \begin{itemize}
         \item Since we are postulating a dilute solution, we may use the approximation that the volume fraction of component 2 is small. This will allow us to expand the logarithms.
-        \item Recall from math class that for small $x$, the following approximation holds.
+        \item Recall from math class that for small, positive $x$, we have the following Taylor series expansion.
         \begin{equation*}
             \ln(1-x) = -x-\frac{x^2}{2}-\cdots-\frac{x^n}{n}-\cdots
         \end{equation*}
         \begin{itemize}
-            \item Moreover, we can choose to use only the first couple of terms for sufficiently small $x$.
+            \item Additionally, we can approximate $\ln(1-x)$ for sufficiently small $x$ by choosing only the first couple of terms in the expansion.
         \end{itemize}
         \item It also follows from the assumptions that (1) the solution is dilute (i.e., $n_1\gg n_2N_2$) and (2) that the volume of the monomers is approximately equal (i.e., $v_1\approx v_2$) that
         \begin{align*}
@@ -563,7 +563,7 @@
                 -\frac{1}{2}\phi_2^2RT
             \end{equation*}
         \end{itemize}
-        \item When contact interactions and excluded volume balance, this is the $\theta$ condition. It follows that the $\theta$ condition occurs when the excess chemical potentential equals zero. But mathematically, this happens when $\chi=1/2$!
+        \item When contact interactions and excluded volume balance, this is the $\theta$ condition. It follows that the $\theta$ condition occurs when the excess chemical potential equals zero. But mathematically, this happens when $\chi=1/2$!
         \begin{itemize}
             \item It also follows (as might be intuitive) that the when we are in the $\theta$ condition, the solution behaves as an ideal solution (i.e., with its chemical potential expression equal to that of an ideal solution).
             \item This is our definition of the $\theta$ condition.
@@ -625,7 +625,34 @@
         \end{itemize}
         \item This is why it is very difficult to mix high MW polymers.
     \end{itemize}
-    \item Solubility parameter and $\chi$.
+    \item Let's now discuss how we can estimate $\chi$ experimentally using \textbf{solubility parameters}.
+    \begin{itemize}
+        \item How do you determine $\chi$ for a mixture? Hildebrand's interesting idea was to use the molar enthalpy of vaporization $\Delta\hat{H}_{v,i}$ of each component $i$ in the mixture.
+        \item Disclaimer: This derivation works better for nonpolar substances than polar substances; you will see why shortly.
+    \end{itemize}
+    \item Aside (review): Some thermodynamics where the difference between enthalpy $H$ and energy $U$ actually does matter.
+    \begin{itemize}
+        \item So far in this class, we have largely ignored the difference between enthalpy and energy, using the two terms interchangeably.
+        \item However, in Hildebrand's setup, we will experimentally measure the molar enthalpy of vaporization $\Delta\hat{H}_{v,i}$ while theoretically calculating the molar energy of vaporization $\Delta\hat{U}_{v,i}$. Thus, we need to relate these two quantites.
+        \item Recall from thermodynamics that enthalpy $H=U+PV$ is defined as the state function describing heat put into a system at constant pressure. It follows (since pressure is constant) that
+        \begin{equation*}
+            \Delta H = \Delta(U+PV) = \Delta U+\Delta(PV) = \Delta U+P\Delta V
+        \end{equation*}
+        \item In the specific case of vaporization,
+        \begin{equation*}
+            \Delta H_v = \Delta U_v+[(PV)_{(g)}-(PV)_{(l)}]
+        \end{equation*}
+        \item From the ideal gas law, $PV=nRT$. Moreover, since gases occupy far more volume than liquids, we may neglect $(PV)_{(l)}$ and assume that $P\Delta V\approx(PV)_{(g)}$. Thus,
+        \begin{equation*}
+            \Delta H_v = \Delta U_v+nRT
+        \end{equation*}
+        \item Finally, in the specific case where we are considering only 1 mole of a substance,
+        \begin{align*}
+            \Delta\hat{H}_v &= \Delta\hat{U}_v+(1)RT\\
+            \Delta\hat{H}_v &= \Delta\hat{U}_v+RT
+        \end{align*}
+    \end{itemize}
+    \item Hildebrand's experimental setup and derivation.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.3\linewidth]{Hildebrand.JPG}
@@ -633,54 +660,118 @@
         \label{fig:Hildebrand}
     \end{figure}
     \begin{itemize}
-        \item How do we estimate $\chi$?
+        \item Take a pure liquid, heat it up, and measure how much heat goes into the system before it turns into a gas.
+        \item Consider this experiment from the perspective of lattice theory.
         \begin{itemize}
-            \item Hildebrand's interesting idea was to use the enthalpy of vaporization $\Delta H_v$.
+            \item In lattice theory, every particle in a liquid corresponds to a point in the lattice. These lattice points interact with each other via enthalpic nearest neighbor interactions, as discussed above extensively (see, for example, Figures \ref{fig:nearNeighbor}-\ref{fig:Uwell}).
+            \item But when you transition to the gas phase, every particle is now neighborless. Thus, in terms of lattice theory, nearest neighbor interactions are gone and no particle has any potential energy.
+            \item Essentially, in terms of lattice theory, the process of \emph{vaporization} is equivalent to overcoming each nearest neighbor interaction!
         \end{itemize}
-        \item Experimental setup.
+        \item Let's now investigate these nearest neighbor interactions a bit more.
         \begin{itemize}
-            \item Take your liquid, heat it up, measure how much heat goes into the system, turn it into a gas, and see how the heat has turned into kinetic energy.
-            \item By the time you have heated an object in a lattice, your are neighborless; you have no potential energy.
-            \item We now have
-            \begin{align*}
-                \delta &= \left( \frac{\Delta E}{V} \right)^{1/2}
-            \end{align*}
-            \item We'll now calculate $\delta_1$ and $\delta_2$ for species 1 and 2, the \textbf{solubility parameters} of the components.
-            \begin{align*}
-                \delta_1 &= \sqrt{\frac{Z}{2}\frac{\varepsilon_{11}}{v}}&
-                \delta_2 &= \sqrt{\frac{Z}{2}\frac{\varepsilon_{22}}{v}}
-            \end{align*}
-            \item We then use \textbf{Berthelot's mixing rule} (which uses the geometric mean) to get $\varepsilon_{12}$:
+            \item Last lecture, we counted each nearest neighbor interaction in a pure substance, and denoted the total by
             \begin{equation*}
-                \varepsilon_{12} = \sqrt{\varepsilon_{11}\varepsilon_{22}}
+                \xi_{ii} = \frac{X_iz\phi_i}{2}
             \end{equation*}
-            \item Now imagine two points 1 and 2 separated by a distance $r$, as in Figure \ref{fig:monomerGasc}.
+            \item In this scenario (i.e., a pure component), the volume fraction $\phi_i=1$.
+            \item Additionally, since it will be easiest to measure the vaporization of a \emph{molar} quantity, we will be interested in finding the number of nearest neighbor interactions in \emph{one mole} of a pure substance. Thus, we set the number of particles $X_i$ equal to the number of particles in a mole, which is just Avogadro's number $N_\text{A}$.
+            \item Therefore, the total number of nearest neighbor interactions broken during the vaporization of one mole of a pure substance is
             \begin{equation*}
-                U_\text{attractive} = -\frac{\alpha_1\alpha_2}{r^6}
+                \frac{N_\text{A}z}{2}
             \end{equation*}
-            \begin{itemize}
-                \item Scales as $1/r^6$, and also has the \textbf{polarizability} / \textbf{polarizability volumes}.
-                \item This is related to dipole-induced dipole attractions; when you average over all possible combinations, this relation falls out. And that's what Lennard and Jones based their use of $1/r^6$ as the attractive term on!
-                \item In PSet 2, we will prove that this attraction rule is "like likes like."
-            \end{itemize}
-            \item Then
-            \begin{equation*}
-                (\delta_1-\delta_2)^2 = \frac{1}{v}\left( \frac{z\varepsilon_{11}}{2}+\frac{z\varepsilon_{22}}{2}-z\varepsilon_{12} \right)
-            \end{equation*}
-            \item Now just multiply by $v/\kB T$ to get the $\chi$ parameter.
-            \begin{itemize}
-                \item $v$ is a volume.
-            \end{itemize}
-            \item This gets us to the \textbf{Hildebrand equation}
-            \begin{equation*}
-                \Delta H_M = V_m\phi_1\phi_2(\delta_1-\delta_2)^2 \geq 0
-            \end{equation*}
-            \begin{itemize}
-                \item This works better for nonpolar than polar species.
-                \item $V_m$ is the average molar volume of solvent / monomers.
-            \end{itemize}
-            \item See \textcite{bib:RubinsteinColby} for an in-depth discussion of this setup.
         \end{itemize}
+        \item Continuing to let each nearest neighbor energetic interaction have magnitude $\varepsilon_{ii}$, we learn that the molar energy of vaporization $\Delta\hat{U}_{v,i}$ of component $i$ is equal to the number of interactions broken times the magnitude of each interaction, or
+        \begin{equation*}
+            \Delta\hat{U}_{v,i} = \hat{U}_{(g),i}-\hat{U}_{(l),i}
+            = 0-\frac{N_\text{A}z\varepsilon_{ii}}{2}
+            = -\frac{N_\text{A}z\varepsilon_{ii}}{2}
+        \end{equation*}
+        \begin{itemize}
+            \item Note that since $\varepsilon_{ii}<0$, we have that $\Delta\hat{U}_{v,i}>0$.
+        \end{itemize}
+        \item From this equation, we may define the \textbf{cohesive energy density} and \textbf{solubility parameter}.
+    \end{itemize}
+    \item \textbf{Cohesive energy density}: The energy needed to make a pure substance $i$ cohere, or stick together, per unit volume. \emph{Denoted by} $\textbf{CED}$. \emph{Given by}
+    \begin{equation*}
+        \text{CED} := \frac{\Delta\hat{U}_{v,i}}{\hat{V}_i}
+        = \frac{\Delta\hat{H}_{v,i}-RT}{\hat{V}_i}
+    \end{equation*}
+    \begin{itemize}
+        \item $\hat{V}_i$ denotes the molar volume of substance $i$ (i.e., the volume occupied by one mole of substance $i$).
+        \item Note that in this case, the slides use $E$ instead of $U$ to denote energy.
+    \end{itemize}
+    \item \textbf{Solubility parameter}: A numerical estimate of the degree of interaction between materials. \emph{Units} \textbf{\si[text-family-to-math]{\raiseto{1/2}\mega\pascal}}. \emph{Denoted by} $\bm{\delta}$. \emph{Given by}
+    \begin{equation*}
+        \delta := \sqrt{\text{CED}}
+    \end{equation*}
+    \begin{itemize}
+        \item Materials with similar solubility parameters are likely to be miscible.
+    \end{itemize}
+    \item Let's now continue the derivation of the \textbf{Hildebrand equation}.
+    \begin{itemize}
+        \item We'll focus on a binary mixture of two components, named 1 and 2.
+        \item Let $v$ denote the volume of a single lattice site. Then from the above definitions, the solubility parameter $\delta_i$ of each component in a binary mixture is
+        \begin{equation*}
+            \delta_i = \sqrt{-\frac{N_\text{A}z\varepsilon_{ii}}{2\hat{V}_i}}
+            = \sqrt{-\frac{N_\text{A}z\varepsilon_{ii}}{2(N_\text{A}v)}}
+            = \sqrt{-\frac{z\varepsilon_{ii}}{2v}}
+        \end{equation*}
+        \item Since 1 and 2 are assumed to be nonpolar, they attract (to themselves and to each other) only through London dispersion forces. In this case, the relevant attraction equation is
+        \begin{equation*}
+            \varepsilon_{ij} = -\frac{\alpha_1\alpha_2}{r^6}
+        \end{equation*}
+        \begin{itemize}
+            \item We assume that the elements of component $i$ and component $j$ are separated by a distance $r$, as in Figure \ref{fig:monomerGasc}. Specifically, $r$ will be equal to the distance between two cells in the lattice.
+            \item Notice that the attraction energy scales as $1/r^6$, and is also dependent on the \textbf{polarizability} / \textbf{polarizability volumes}.
+            \item Origin of the above relation: Related to dipole-induced dipole attractions; when you average over all possible combinations, this relation falls out. And that's what Lennard and Jones based their use of $1/r^6$ as the attractive term on!
+            \item In PSet 2, we will prove that this attraction rule is "like likes like."
+        \end{itemize}
+        \item It follows from the above that
+        \begin{equation*}
+            \varepsilon_{12} = -\sqrt{\varepsilon_{12}^2}
+            = -\sqrt{\frac{\alpha_1^2\alpha_2^2}{r^{12}}}
+            = -\sqrt{\left( -\frac{\alpha_1\alpha_1}{r^6} \right)\left( -\frac{\alpha_2\alpha_2}{r^6} \right)}
+            = -\sqrt{\varepsilon_{11}\varepsilon_{22}}
+        \end{equation*}
+        \begin{itemize}
+            \item The above equation is known as \textbf{Berthelot's mixing rule}.
+            \item It expresses $\varepsilon_{12}$ as the \textbf{geometric mean} of $\varepsilon_{11},\varepsilon_{22}$.
+        \end{itemize}
+        \item In light of the above definitions and equations, we may write
+        \begin{align*}
+            (\delta_1-\delta_2)^2 &= \delta_1^2-2\delta_1\delta_2+\delta_2^2\\
+            &= -\frac{z\varepsilon_{11}}{2v}-2\sqrt{\frac{z\varepsilon_{11}}{2v}\cdot\frac{z\varepsilon_{22}}{2v}}-\frac{z\varepsilon_{22}}{2v}\\
+            &= \frac{z}{v}\left[ -\sqrt{\varepsilon_{11}\varepsilon_{22}}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]\\
+            &= \frac{z}{v}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+        \end{align*}
+        \item Now just multiply by $v/\kB T$ to get the $\chi$ parameter:
+        \begin{equation*}
+            \frac{v}{\kB T}(\delta_1-\delta_2)^2 = \frac{v}{\kB T}\cdot\frac{z}{v}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]
+            = \underbrace{\frac{z}{\kB T}\left[ \varepsilon_{12}-\frac{1}{2}(\varepsilon_{11}+\varepsilon_{22}) \right]}_\chi
+        \end{equation*}
+        \begin{itemize}
+            \item Since $\chi$ is equal to the product of positive quantities (including a perfect square), this equation shows that $\chi\geq 0$ for a mixture of nonpolar substances!
+        \end{itemize}
+        \item From here, we may finally get to the \textbf{Hildebrand equation}, which is the last line below.
+        \begin{align*}
+            \frac{\Delta H_M}{X_0\kB T} &= \chi\phi_1\phi_2\\
+            \frac{\Delta H_M}{X_0\kB T} &= \phi_1\phi_2\cdot\frac{v}{\kB T}(\delta_1-\delta_2)^2\\
+            \Delta\hat{H}_M &= \hat{V}\phi_1\phi_2(\delta_1-\delta_2)^2 \geq 0\tag{Hildebrand equation}
+        \end{align*}
+        \begin{itemize}
+            \item $\Delta\hat{H}_M$ is the molar enthalpy of mixing. We get from the 2nd to the third line by multiplying through by $N_\text{A}\kB T$.
+            \item $\hat{V}$ is the average molar volume of solvent / monomers.
+            \begin{itemize}
+                \item Note that one of the assumptions of lattice theory is that $\hat{V}=\hat{V}_1=\hat{V}_2$.
+            \end{itemize}
+            \item This equation justifies why substances with similar solubility parameters are more likely to mix well, as stated in the definition of the solubility parameter.
+            \begin{itemize}
+                \item Since $\chi\geq 0$, the enthalpy of mixing (for two nonpolar substances) will always be nonnegative. Thus, enthalpy can only cause substances to demix, not to mix better.
+                \item However, by the form of the Hildebrand equation, we see that as $\delta_1\to\delta_2$ (i.e., as $|\delta_1-\delta_2|\to 0$), the enthalpy of mixing will shrink. This makes entropy-driven mixing much more likely.
+                \item Therefore, similar solubility parameters decrease the enthalpic barrier to mixing!
+            \end{itemize}
+        \end{itemize}
+        \item See \textcite{bib:RubinsteinColby} for an in-depth discussion of this setup.
     \end{itemize}
     \item At this point, we've written a lot of theoretical equations. Now let's see how Flory-Huggins theory compares with experimental measurements of polymer-solvent blends.
     \begin{figure}[h!]
@@ -1739,10 +1830,65 @@
     \begin{itemize}
         \item In the context of the exchange energy: If it costs any more than $\chi_c\kB T$ to exchange a pair of molecules of different components, there will be phase separation.
     \end{itemize}
+    \item "As a disperse polymer solution is cooled below the theta point, the higher molecular weight chains will tend to phase separate first, a feature which can be used to advantage in fractionation" \parencite[299]{bib:HiemenzLodge}.
     \item The free energy of mixing when an arbitrary number of components $i$ are included is
     \begin{equation*}
         \Delta G_M = \sum_i\frac{\phi_i}{N_i}\ln\phi_i+\sum_{i<j}\chi_{ij}\phi_i\phi_j
     \end{equation*}
+    \item \marginnote{10/10:}\textcite[303]{bib:HiemenzLodge} covers several possible definitions of a reference volume for one monomer.
+    \begin{itemize}
+        \item One possibility is a geometric mean of the molar volumes of the repeat units. Why the geometric mean??
+        \item Another is to take \SI{100}{\cubic\angstrom} as a generally good number.
+    \end{itemize}
+    \item \textcite[306]{bib:HiemenzLodge} has a table of solubility parameters, but in non-SI units.
+    \item \marginnote{10/12:}For the specific case of polymer-solvent solutions, solubility parameter-based formulations of $\chi$ differ significantly from experimental results.
+    \begin{itemize}
+        \item A related model that is empirically more accurate is
+        \begin{equation*}
+            \chi \approx 0.34+\frac{v}{\kB T}(\delta_1-\delta_2)^2
+        \end{equation*}
+        \item In particular, our theory often \emph{underestimates} $\chi$ for polymer-solvent solutions, so we need to add a temperature-independent correction.
+        \begin{itemize}
+            \item This means that in reality, each component likes itself more (and the other component less) than regular solution theory would predict.
+        \end{itemize}
+        \item This correction reflects the finding that the entropy of mixing in polymer-solvent solutions is smaller than regular solution theory would suggest, since it implies that
+        \begin{align*}
+            \frac{\Delta G_M}{X_0} &= \kB T(\chi_\text{corrected}\phi_1\phi_2+\phi_1\ln\phi_1+\phi_2\ln\phi_2)\\
+            &= \kB T(\underbrace{\chi_\text{RST}\phi_1\phi_2}_\text{enthalpic}+\underbrace{0.34\phi_1\phi_2+\phi_1\ln\phi_1+\phi_2\ln\phi_2}_\text{entropic})
+        \end{align*}
+        \begin{itemize}
+            \item $\chi_\text{corrected}$ is the new empirical formula for $\chi$, and $\chi_\text{RST}$ is the value expected from Hildebrand's derivation using only \underline{r}egular \underline{s}olution \underline{t}heory.
+            \item As we can see, the new (strictly positive) entropic term makes the overall entropy of mixing less negative than when only the former (strictly negative) terms were present.
+        \end{itemize}
+    \end{itemize}
+    \item Additional empirical issues with the regular solution theory approach to polymer-solvent solutions.
+    \begin{itemize}
+        \item Some behavior is wildly different than just having a single LCST and/or UCST.
+        \item Some mixtures contain polar species, which do not satisfy the purely combinatorial assumptions of regular solution theory.
+    \end{itemize}
+    \item One commonly used theoretical solution to the polymer-solvent solution conundrum: The \textbf{effective interation parameter}.
+    \item \textbf{Effective interaction parameter}: An interaction parameter that quantifies a solution's deviation from ideality. \emph{Denoted by} $\bm{\chi_\textbf{eff}}$. \emph{Given by}
+    \begin{equation*}
+        \chi_\text{eff} := \frac{\alpha}{T}+\beta = \chi_h+\chi_s
+    \end{equation*}
+    \begin{itemize}
+        \item $\chi_h=\alpha/T$ is is the enthalpic contribution to $\chi_\text{eff}$.
+        \item $\chi_s=\beta$ is is the entropic contribution to $\chi_\text{eff}$.
+        \item $\alpha,\beta\in\R$.
+        \begin{itemize}
+            \item $\alpha<0$ implies an attractive interaction between the components, e.g., hydrogen bonding.
+            \item The sign of $\beta$ reflects the details of molecular packing. For example, if molecules pack very efficiently into real space (as opposed to the idealized equal volume of lattice cells), then there is probably \emph{more} entropy of mixing than lattice theory would predict and $\beta<0$.
+        \end{itemize}
+        \item The signs of the various components give us insight into the phase diagram.
+        \begin{itemize}
+            \item Consider the case of $\alpha<0$ and $\beta>0$. Herein, molecules of different components enthalpically attract to each other, and fit less well into space when they're around each other than we might ideally expect. Thus, there should be a temperature at which we rupture the enthalpic bonds and allow the components to pack more efficiently (i.e., with themselves). Thus, we may expect an LCST on the phase diagram.
+        \end{itemize}
+        \item Last note: $\chi_\text{eff}$ often depends on concentration $\phi_i$.
+        \begin{itemize}
+            \item This can lead to asymmetry in the $\Delta G_M(\phi_i)$ curves.
+            \item It can also complicate experimental measurement of $\chi_\text{eff}$.
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
 
