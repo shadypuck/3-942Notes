@@ -1,0 +1,50 @@
+\documentclass[../psets.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\leftmark}{Problem Set \thesection}
+\setcounter{section}{2}
+
+\begin{document}
+
+
+
+
+\section{Dilute Solutions}
+\noindent Name: Steven Labalme\\
+\noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
+\noindent Collaborator(s): \emph{None}
+\begin{enumerate}
+    \item \marginnote{10/21:}(35 pts) Estimate, as a function of molecular weight, the characteristic diffusion time $\tau$ for a polymer in a solution of viscosity $\eta$, where $\tau$ is defined as
+    \begin{equation*}
+        \tau = \frac{R^2}{D}
+    \end{equation*}
+    where $R$ is the size of the polymer (function of $N$ and $l_k$) and $D$ is the diffusion coefficient (remember $D$ is different for different coil models). Determine $\tau$ for polymer coils in a theta-solvent for\dots
+    \begin{enumerate}
+        \item Freely-draining (Rouse-like) model;
+        \item Non-draining (Zimm-like) model.
+        \item You are performing a GPC packed with beads with diameter \SI{5}{\micro\meter}. Estimate the time for a DNA molecule with $D=\SI[per-mode=symbol]{0.01}{\micro\meter\squared\per\second}$ to diffuse a distance equal to a bead diameter.
+    \end{enumerate}
+    \item (30 pts) Ultracentrifugation is a means to separate polymers. The same is placed in a tube and spun quickly to exert a centrifugual force on the solution. Three main forces on a polymer molecule are
+    \begin{align*}
+        F_s &= m\omega^2r\tag{Sedimentation}\\
+        F_b &= -m_0\omega^2r\tag{Buoyancy / Archimedes' Principle}\\
+        F_d &= -\zeta U\tag{Drag}
+    \end{align*}
+    where $m$ is the mass of a single polymer, $\omega$ is the angular speed of the centrifuge, $r$ is the stator arm of the centrifuge, $m_0$ is the mass of fluid displaced by the polymer (given by $m_0=m\rho v$), $v$ is the partial specific volume of a polymer, $\rho$ is the solvent density, $\zeta$ is the drag on the polymer, and $U$ is the speed at which the polymer moves.
+    \begin{enumerate}
+        \item Assuming the polymer has reached its terminal velocity (constant velocity, sum of forces equal zero), calculate the velocity $U$ as a function of $\omega,r,v,\zeta,\rho,M,N_\text{A}$, where $M$ is the molar mass of the polymer and $N_\text{A}$ is Avogadro's number.
+        \item Calculate how $U$ scales with $M$ for a flexible polymer in a theta solvent. \emph{Hint}: Don't forget that $\zeta(M)$! Also, $v$ is not a function of $M$.
+    \end{enumerate}
+    \item (35 pts) This problem will explore viscometry of polymer solutions and data obtained from \textcite{bib:viscometerInt} in their microfluidic rheometer, discussed in Lecture 11.
+    \begin{enumerate}
+        \item The authors measure an intrinsic viscosity of a polyethylene glycol solution to be \SI[per-mode=symbol]{44.6}{\milli\liter\per\gram}. The MW of the polymer is \SI[per-mode=symbol]{35000}{\gram\per\mole}. Estimate the radius of gyration of the molecule assuming a good solvent. Please use the experimental value of $\gamma$ from the Lecture 10 slides.
+        \item What is your estimate for the overlap concentration $c^*$ for this polymer?
+        \item Assuming the solvent has a viscosity of \SI{1.1}{\pascal\second}, calculate the viscosity of the polymer solution at $c=c^*/2$.
+        \item The authors measured the intrinsic viscosity of the $\text{MW}=\SI[per-mode=symbol]{10000}{\gram\per\mole}$ sample in water to be \SI[per-mode=symbol]{11.9}{\milli\gram\per\milli\liter} and in a water/methanol mixture to be \SI[per-mode=symbol]{22.3}{\milli\gram\per\milli\liter}. What can you conclude about the relative solvent quality of these solvents?
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}
