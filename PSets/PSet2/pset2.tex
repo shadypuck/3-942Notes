@@ -13,10 +13,11 @@
 \noindent Name: Steven Labalme\\
 \noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
 \noindent Collaborator(s): \emph{None}\\
+\noindent Total grade: {\color{rex}\fbox{89/100}}
 \begin{enumerate}
-    \item 
+    \item \normalmarginpar\marginnote{{\color{rex}18/20}}
     \begin{enumerate}
-        \item \marginnote{9/30:}Calculate a general expression for chemical potential $\mu-\mu_0$ for species 1 from the Flory-Huggins free energy of mixing that we have seen in class.
+        \item \reversemarginpar\marginnote{9/30:}Calculate a general expression for chemical potential $\mu-\mu_0$ for species 1 from the Flory-Huggins free energy of mixing that we have seen in class.\normalmarginpar\marginnote{{\color{rex}+4}}
         \begin{proof}
             The Flory-Huggins expression for the free energy of mixing is
             \begin{equation*}
@@ -59,7 +60,7 @@
         \begin{equation*}
             \pdv[2]{\Delta G_M}{\phi_1} = 0
         \end{equation*}
-        where $\phi_1$ is the volume fraction of one of the species.
+        where $\phi_1$ is the volume fraction of one of the species.\marginnote{{\color{rex}+4}}
         \begin{proof}
             The equation
             \begin{align*}
@@ -85,7 +86,7 @@
             \end{align*}
         \end{proof}
         \pagebreak
-        \item From your expression for $\chi$ above, plot the spinodal line as a function of $\phi_1$ for the following cases. Please plot all 4 cases separately, and label which region corresponds to 2 phases (only label the 2 phase/phase-separated region; note that from the spinodal alone you cannot with certainty label a homogeneous/1 phase region). MIT has free student site licenses for Excel, Matlab, and Mathematica that you can use for plotting.
+        \item From your expression for $\chi$ above, plot the spinodal line as a function of $\phi_1$ for the following cases. Please plot all 4 cases separately, and label which region corresponds to 2 phases (only label the 2 phase/phase-separated region; note that from the spinodal alone you cannot with certainty label a homogeneous/1 phase region). MIT has free student site licenses for Excel, Matlab, and Mathematica that you can use for plotting.\marginnote{{\color{rex}+2\\Right function, wrong axes.}}
         \begin{enumerate}
             \item $N_1=N_2=1$.
             \begin{proof}
@@ -189,14 +190,14 @@
                 \end{center}
             \end{proof}
         \end{enumerate}
-        \item Please qualitatively explain the differences in the curves for the cases in part (c).
+        \item Please qualitatively explain the differences in the curves for the cases in part (c).\marginnote{{\color{rex}+4\\Reasonable explanation for wrong graphs}}
         \begin{proof}
             For case (i), we have the "typical" solution case where relatively strong interspecies attraction will guarantee mixing, but relatively weak interspecies attraction (and/or strong intraspecies attraction) will result in demixing regimes if a sufficient amount of both components are present.\par
             This mostly holds true in case (ii) as well, except that demixing is much more likely the more species 1 we have. Indeed, mixing is only possible if we either have very strong interspecies attractions or very little of 1.\par
             In case (iii), mixing is almost entirely enthalpically controlled. This is because there is a very small increase in entropy when we mix polymer chains that are mostly covalently bonded together (i.e., highly ordered). Thus, whether we form 1 phase or two will really only depend on how much the polymers like each other vs. themselves.\par
             And case (iv) is somewhere in between cases (ii) and (iii). In particular, more $\phi_1$ will still make mixing more difficult, and yet whether or not we get mixing is pretty much just down to enthalpy.
         \end{proof}
-        \item From part (b), continue to derive the table for the critical composition and critical interaction parameter shown in class. In other words, find the critical $\chi$ parameter and corresponding volume fraction for the general case, and evaluate it for two low-molecular weight liquids, a solvent-polymer blend, and a symmetric polymer-polymer blend. Show your work.
+        \item From part (b), continue to derive the table for the critical composition and critical interaction parameter shown in class. In other words, find the critical $\chi$ parameter and corresponding volume fraction for the general case, and evaluate it for two low-molecular weight liquids, a solvent-polymer blend, and a symmetric polymer-polymer blend. Show your work.\marginnote{{\color{rex}+4}}
         \begin{proof}
             Among the family of curves discussed in part (b), the critical interaction parameter $\chi_c$ occurs on the curve that switches from being always concave up (for small or negative $\chi$) to having concave and convex regions (for large or positive $\chi$). While curves with lower $\chi$ than this one have no inflection points and curves with greater $\chi$ than this one have two inflection points, this curve will have just \emph{one} inflection point. But if it has only one inflection point, this means that $\pdv*[2]{\Delta G_M}{\phi_1}$ must have only one root.\par
             When $\pdv*[2]{\Delta G_M}{\phi_1}$ has two roots, the tangent line at each of them has nonzero slope. However, when $\pdv*[2]{\Delta G_M}{\phi_1}$ has only one root, the tangent line has \emph{zero} slope (the original curve is concave up, then just barely neither concave up nor down, then concave up again). Therefore, among all $(\phi_1,\Delta G_M)$ satisfying the spinodal criterion for various $\chi$, $\phi_{1,c}$ satisfies
@@ -275,7 +276,7 @@
     \pagebreak
     \item 
     \begin{enumerate}
-        \item Estimate the Flory interaction parameter $\chi$ between polystyrene and polybutadiene at room temperature if the solubility parameter of polystyrene is $\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$ and the solubility parameter for polybutadiene is $\delta_\text{PB}=\SI{16.2}{\raiseto{1/2}\mega\pascal}$. For simplicity assume $v_0=\SI{100}{\cubic\angstrom}$.
+        \item Estimate the Flory interaction parameter $\chi$ between polystyrene and polybutadiene at room temperature if the solubility parameter of polystyrene is $\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$ and the solubility parameter for polybutadiene is $\delta_\text{PB}=\SI{16.2}{\raiseto{1/2}\mega\pascal}$. For simplicity assume $v_0=\SI{100}{\cubic\angstrom}$.\marginnote{{\color{rex}20/20}}
         \begin{proof}
             From class, the enthalpy of mixing per site for polystyrene and polybutadiene can be shown to be
             \begin{equation*}
@@ -323,9 +324,9 @@
             I assume that $z,k>0$; unless we are in a gas, $z>0$ is safe to assume, and I will have to take $k>0$ for granted since I have no other information about it. I also assume $\alpha_1\neq\alpha_2$; if they are equal, then the enthalpy of mixing will be zero (no greater forces than the ones already present) and mixing will be purely entropically driven. Lastly, I make all of the assumptions used in the derivation of the Flory $\chi$ parameter, e.g., mean field.
         \end{proof}
     \end{enumerate}
-    \item 
+    \item \marginnote{{\color{rex}17/20}}
     \begin{enumerate}
-        \item What is the critical value of $\chi$ required for high molecular mass polymers to dissolve in a solvent in all proportions?
+        \item What is the critical value of $\chi$ required for high molecular mass polymers to dissolve in a solvent in all proportions?\marginnote{{\color{rex}+4\\Right equation, no substitutions}}
         \begin{proof}
             Given high molecular mass polymers 1 and 2 with degrees of polymerization $N_1$ and $N_2$, Q1e tells us that
             \begin{equation*}
@@ -336,7 +337,7 @@
         \begin{equation*}
             \chi = \frac{A}{T}
         \end{equation*}
-        where $A$ is a constant you need to determine. Note that the solubility parameters for this system are given in Q2.
+        where $A$ is a constant you need to determine. Note that the solubility parameters for this system are given in Q2.\marginnote{{\color{rex}+7}}
         \begin{proof}
             From Q2a, we know that a polystyrene-polybutadiene blend at room temperature has $\chi\approx 0.152$. Thus,
             \begin{equation*}
@@ -362,7 +363,7 @@
         \begin{equation*}
             \chi = 0.34+\frac{v_0}{\kB T}(\delta_\text{A}-\delta_\text{B})^2
         \end{equation*}
-        Using this formula and the following table, decide which solvents will dissolve poly(dimethyl siloxane), for which $\delta_\text{PDMS}=\SI{14.9}{\raiseto{1/2}\mega\pascal}$ and which will dissolve polystyrene ($\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$) at room temperature.
+        Using this formula and the following table, decide which solvents will dissolve poly(dimethyl siloxane), for which $\delta_\text{PDMS}=\SI{14.9}{\raiseto{1/2}\mega\pascal}$ and which will dissolve polystyrene ($\delta_\text{PS}=\SI{18.7}{\raiseto{1/2}\mega\pascal}$) at room temperature.\marginnote{{\color{rex}+6\\Repeated\\unit error}}
         \begin{center}
             \small
             \renewcommand{\arraystretch}{1.2}
@@ -450,9 +451,9 @@
             and hence \fbox{PS dissolves in acetone.}
         \end{proof}
     \end{enumerate}
-    \item The area per chain $\Sigma$ of polymers attached to a surface or interface is an important quantity that influences the thickness of the polymer layer in any resulting morphologies. In general, when the area per chain of the polymer attached to an interface is small enough to induce elongation of the polymer away from that interface, we call this stretched morphology a \textbf{polymer brush}. Microphase separated diblock copolymers can be thought of as similar to polymer brushes, where each block is "attached" to the IMDS and elongates away from it.
+    \item The area per chain $\Sigma$ of polymers attached to a surface or interface is an important quantity that influences the thickness of the polymer layer in any resulting morphologies. In general, when the area per chain of the polymer attached to an interface is small enough to induce elongation of the polymer away from that interface, we call this stretched morphology a \textbf{polymer brush}. Microphase separated diblock copolymers can be thought of as similar to polymer brushes, where each block is "attached" to the IMDS and elongates away from it.\marginnote{{\color{rex}18/20}}
     \begin{enumerate}
-        \item For a microphase-separated compositionally symmetric diblock copolymer, qualitatively explain the free energy contributions that determine the optimal elongation of polymer chains away from the IMDS.
+        \item For a microphase-separated compositionally symmetric diblock copolymer, qualitatively explain the free energy contributions that determine the optimal elongation of polymer chains away from the IMDS.\marginnote{{\color{rex}+6}}
         \begin{proof}
             For such a system, there will be an enthalpic and entropic contribution to the free energy functional. The entropic term deals with the fact that to maximize entropy, the homogeneous strands would like to entangle on both sides of the interface (entropy is minimized when the strands are perfectly straight). The enthalpic term deals with the fact that there is more there is a greater interaction energy when everything is straight because the most alike monomers are closest to each other.\par
             A series of variables contribute to both the entropic and enthalpic terms; among them are the temperature, segment length, number of steps, and Flory interaction parameter between the two species.
@@ -482,7 +483,7 @@
                         \fill [rex] (3,1) circle (4mm);
                         \fill [rex] (3,2) circle (4mm);
                     \end{tikzpicture}
-                \end{center}
+                \end{center}\marginnote{{\color{rex}+1\\Lamellae}}
                 For the star polymer, as mentioned, we will form a kind of hexagonal lattice.
                 \begin{center}
                     \begin{tikzpicture}
@@ -494,7 +495,7 @@
                         \fill [rex] (180:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
                         \fill [grx] (240:{0.4*3^0.5}) -- ++(30:0.4) -- ++(90:0.4) -- ++(150:0.4) -- ++(210:0.4) -- ++(270:0.4) -- cycle;
                     \end{tikzpicture}
-                \end{center}
+                \end{center}\marginnote{{\color{rex}+4}}
             \end{proof}
             \item A system where $\chi_\text{AB}=\chi_\text{BC}>0$ while $\chi_\text{AC}$ is negative.
             \begin{proof}
@@ -511,17 +512,17 @@
                         \fill [rex] (3,1) circle (3mm);
                         \fill [rex] (3,2) circle (3mm);
                     \end{tikzpicture}
-                \end{center}
+                \end{center}\marginnote{{\color{rex}+7}}
             \end{proof}
         \end{enumerate}
     \end{enumerate}
-    \item A common example of a polymer brush in real systems consists of homopolymers grafted to a solid surface. Think of this as hairs with a sticky end that can bind to a scalp. If each chain grafted to the surface gains in enthalpy $-\varepsilon$ by sticking to the surface\dots
+    \item A common example of a polymer brush in real systems consists of homopolymers grafted to a solid surface. Think of this as hairs with a sticky end that can bind to a scalp. If each chain grafted to the surface gains in enthalpy $-\varepsilon$ by sticking to the surface\dots\marginnote{{\color{rex}16/20}}
     \begin{enumerate}
-        \item Describe what grafting density is necessary for a grafted polymer system to be considered a brush (i.e., when chains overlap and stretch away from surface due to excluded volume effects). Qualitatively, under what condition would brush formation be thermodynamically favorable? \emph{Hint}: Think about overlap of polymer chains.
+        \item Describe what grafting density is necessary for a grafted polymer system to be considered a brush (i.e., when chains overlap and stretch away from surface due to excluded volume effects). Qualitatively, under what condition would brush formation be thermodynamically favorable? \emph{Hint}: Think about overlap of polymer chains.\marginnote{{\color{rex}+3\\Missing quantitative grafting density}}
         \begin{proof}
             Brush formation would be thermodynamically favorable under the condition that the decrease in energy caused by the sticking enthalpy is greater than increase in entropy caused by not being constrained to a rigid surface.
         \end{proof}
-        \item Find the optimal grafting density in chains/area for a polymer brush system in terms of $\varepsilon$. Define any variables you use and remember the effect of steric (excluded volume) interactions.
+        \item Find the optimal grafting density in chains/area for a polymer brush system in terms of $\varepsilon$. Define any variables you use and remember the effect of steric (excluded volume) interactions.\marginnote{{\color{rex}+8\\Incomplete form for entropy term}}
         \begin{proof}
             From class, we have that
             \begin{equation*}
@@ -537,7 +538,7 @@
                 H^* &= \sqrt[3]{\frac{vN^3a^2}{2D^2}}
             \end{align*}
         \end{proof}
-        \item What is the scaling of the brush height with degree of polymerization in the dense brush regime from part (b)?
+        \item What is the scaling of the brush height with degree of polymerization in the dense brush regime from part (b)?\marginnote{{\color{rex}+5}}
         \begin{proof}
             Equal scaling: $H^*\propto N$.
         \end{proof}
