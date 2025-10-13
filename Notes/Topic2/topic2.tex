@@ -1043,6 +1043,7 @@
         \label{fig:microphaseSep}
     \end{figure}
     \begin{itemize}
+        \item $T_\text{ODT}$ denotes the order-disorder transition temperature.
         \item Some domains start to form and you get lamellae in time.
         \item Misconception: Things are not perfectly mixed at one extreme; you start seeing domains earlier. As you go from Figure \ref{fig:microphaseSepa}-\ref{fig:microphaseSepc}, you get into a lamellar state.
     \end{itemize}
@@ -1076,61 +1077,279 @@
     \end{itemize}
     \item We now investigate microdomain spacing for diblock copolymers.
     \item Variables to be aware of.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \footnotesize
+            \begin{scope}
+                \draw [dashed,semithick] (0,-0.5) -- (0,2.4) node[above]{IMDS};
+
+                \draw [blx,thick] (0,0)
+                    -- ++(150:0.4)
+                    -- ++(190:0.4) coordinate (amid)
+                    -- ++(165:0.4) coordinate (a1)
+                    -- ++(240:0.4) coordinate (a2)
+                ;
+                \draw [rex,thick] (0,0)
+                    -- ++(-9:0.4)
+                    -- ++(8:0.4) coordinate (bmid)
+                    -- ++(-39:0.4)
+                    -- ++(43:0.4)
+                ;
+                \draw [blx,thick] (0,1)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [rex,thick] (0,1)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,2)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [rex,thick] (0,2)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+            \end{scope}
+            \begin{scope}[xshift=3.1cm]
+                \draw [dashed,semithick] (0,-0.5) -- (0,2.4) node[above]{IMDS};
+
+                \draw [rex,thick] (0,0)
+                    -- ++(133:0.4)
+                    -- ++(195:0.4)
+                    -- ++(155:0.4)
+                    -- ++(131:0.4)
+                ;
+                \draw [blx,thick] (0,0)
+                    -- ++({40*rand}:0.4)
+                    -- ++({40*rand}:0.4)
+                    -- ++({40*rand}:0.4)
+                    -- ++({40*rand}:0.4)
+                ;
+                \draw [rex,thick] (0,1)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,1)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+                \draw [rex,thick] (0,2)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,2)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+            \end{scope}
+            \begin{scope}[xshift=-3.1cm]
+                \draw [dashed,semithick] (0,-0.5) -- (0,2.4) node[above]{IMDS};
+
+                \draw [rex,thick] (0,0)
+                    -- ++({180+40*rand}:0.4)
+                    -- ++({180+40*rand}:0.4)
+                    -- ++({180+40*rand}:0.4)
+                    -- ++({180+40*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,0)
+                    -- ++(15:0.4)
+                    -- ++(-41:0.4)
+                    -- ++(40:0.4)
+                    -- ++(-33:0.4)
+                ;
+                \draw [rex,thick] (0,1)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,1)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+                \draw [rex,thick] (0,2)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                    -- ++({180+30*rand}:0.4)
+                ;
+                \draw [blx,thick] (0,2)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                    -- ++({30*rand}:0.4)
+                ;
+            \end{scope}
+
+            \draw [|-|] (a1) ++(150:0.2) -- node[left=-1pt,yshift=2pt]{$a$} ++(240:0.4);
+            \draw [|-|] (-1.55,-1) -- node[below]{$\lambda/2$} ++(3.1,0);
+            \draw [|-|] (-3.1,-1.5) -- node[below]{$\lambda$} ++(6.2,0);
+            \fill [grx,opacity=0.5] (0,0) ellipse (3pt and 5mm) node[right=1pt,yshift=3mm,black,opacity=1]{$\text{area}=\Sigma$};
+            \node [below=2mm] at (amid) {$N_\text{A}$};
+            \node [below=1mm] at (bmid) {$N_\text{B}$};
+        \end{tikzpicture}
+        \caption{Variables describing microdomain spacing.}
+        \label{fig:microdomainVariables}
+    \end{figure}
     \begin{itemize}
-        \item $G$ is the free energy per chain;
+        \item $G$ is the free energy \emph{per chain}.
         \item $N=N_A+N_B$ is the number of segments per chain.
-        \item $a$ is the step size.
-        \item $\lambda$ is the domain periodicity. \emph{look up definitions!!}
-        \item $\Sigma$ is the interfacial area where the chains actually interact.
-        \item $\gamma_\text{AB}$ is the interfacial energy per unit area. It will be computed using Helfand's equation.
-        \begin{equation*}
-            \gamma_\text{AB} = \frac{\kB T}{a^2}\sqrt{\frac{\chi_\text{AB}}{6}}
-        \end{equation*}
         \begin{itemize}
-            \item $a$ is the Kuhn length or monomer length, varying depending on the context.
+            \item In Figure \ref{fig:microdomainVariables} as drawn, $N_\text{A}=N_\text{B}=4$.
         \end{itemize}
-        \item $\chi_\text{AB}$ is the same Flory-Huggins interaction parameter we've been looking at in previous lectures.
+        \item $a$ is the step size.
+        \begin{itemize}
+            \item This can mean the Kuhn length or bond length, varying depending on the context.
+            \item For the purposes of this derivation, we assume that the step size for block A is equal to the step size for block B.
+        \end{itemize}
+        \item $\lambda$ is the domain periodicity.
+        \begin{itemize}
+            \item This is the length of one of the repeating periods in a lamellar structure.
+            \item In the context of Figure \ref{fig:microphaseMorph}'s green-yellow-green-yellow lamellae, $\lambda$ is the width of one pair of green-yellow lamellae back to back. You can think of this as a kind of "repeat unit," the smallest structure length necessary such that upon repetition of that structure, the full lamellar mesophase is formed.
+            \item This also means that the left sketch in Figure \ref{fig:diblockStretch} is mislabeled: It should be $\lambda/2$, which is also the expected length of a single chain in the microphase separated state.
+        \end{itemize}
+        \item $\Sigma$ is the interfacial area where a single chain's A block interacts with its B block.
+        \item $\gamma_\text{AB}$ is the interfacial energy on the IMDS per unit area.
+        \begin{itemize}
+            \item We compute this using \textbf{Helfand's equation}.
+        \end{itemize}
+        \item $\chi_\text{AB}$ is the same Flory-Huggins interaction parameter we've been looking at in previous lectures, i.e., between homopolymers of A and B.
     \end{itemize}
-    \item Free energies of these diblock copolymers.
+    \item \textbf{Helfand's equation}: The following expression of the interfacial energy in terms of other variables. \emph{Given by}
+    \begin{equation*}
+        \gamma_\text{AB} = \frac{\kB T}{a^2}\sqrt{\frac{\chi_\text{AB}}{6}}
+    \end{equation*}
+    \item To get a little more comfortable working with these variables, let's discuss the following useful mathematical relation between them.
+    \begin{equation*}
+        Na^3 = \Sigma\cdot\frac{\lambda}{2}
+    \end{equation*}
+    \begin{itemize}
+        \item This essentially equates (1) the total volume occupied by $N$ monomers, each of volume $a^3$ and (2) the volume of the cylinder bounding said monomers, a cylinder having height $\lambda/2$ and base area $\Sigma$.
+    \end{itemize}
+    \item We now calculate the change in free energy of a diblock copolymer chain as it phase separates from a melt state and into microdomains.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{diblockStatea.png}
+            \caption{Melt state.}
+            \label{fig:diblockStatea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{diblockStateb.png}
+            \caption{Microdomains.}
+            \label{fig:diblockStateb}
+        \end{subfigure}
+        \caption{Diblock copolymer states.}
+        \label{fig:diblockState}
+    \end{figure}
+    \begin{itemize}
+        \item Let State 0 denote pure component A or B, State 1 denote a homogeneous melt of AB diblock copolymers (Figure \ref{fig:diblockStatea}), and State 2 denote a phase separation of AB diblock copolymers into microdomains (Figures \ref{fig:diblockStateb} and \ref{fig:microdomainVariables}).
+        \begin{itemize}
+            \item In a homogeneous melt, excluded volume effects are not present. Thus, in State 1, a single polymer chain's end-to-end distance $R=N^{1/2}a$.
+            \item By the definition of $\lambda$, a single polymer in State 2 has on average an end-to-end distance of $R=\lambda/2$.
+        \end{itemize}
+        \item We want to calculate the change $\Delta G$ in Gibbs free energy \emph{per polymer chain} upon transitioning from State 1 to State 2. In terms of enthalpy and entropy, $\Delta G$ is thus given by
+        \begin{equation*}
+            \Delta G = (\underbrace{H_2-H_1}_{\Delta H})-T(\underbrace{S_2-S_1}_{\Delta S})
+        \end{equation*}
+        \item We have already developed extensive theory for polymers in the melt state. Let's use some of it to calculate each $H_i$ or $S_i$ in the above equation.
+        \begin{itemize}
+            \item Recall from Lecture 1.3 that the entropy $S$ of a polymer chain without excluded volume effects (as in the melt state) is given by
+            \begin{equation*}
+                S = -\frac{3\kB R^2}{2Na^2}
+            \end{equation*}
+            \item Recall from Lecture 2.1 that the mixing energy per site $\Delta H_M/X_0$ of components A and B may be related to other parameters by
+            \begin{equation*}
+                \frac{\Delta H_M}{X_0\kB T} = \chi_\text{AB}\phi_\text{A}\phi_\text{B}
+            \end{equation*}
+            \begin{itemize}
+                \item Since there are $N$ sites in a polymer chain, the mixing energy \emph{per chain} of components A and B is
+                \begin{equation*}
+                    \Delta H_M = N\kB T\chi_\text{AB}\phi_\text{A}\phi_\text{B}
+                \end{equation*}
+                \item Lastly, by our definitions of States 0-2, the mixing energy is equal to the difference in energy between a chain in State 1 and a chain in State 0. Note that this assumes that State 1 is basically the same as a melt of homopolymers of component A and component B. In this case, we have
+                \begin{equation*}
+                    H_1-H_0 = N\kB T\chi_\text{AB}\phi_\text{A}\phi_\text{B}
+                \end{equation*}
+            \end{itemize}
+            \item Lastly, let's use some of our new variables.
+            \begin{itemize}
+                \item In both State 0 and State 2, like chains will interact with each other enthalpically via at least London dispersion forces. Recall that this is how we got the equations $H_i=zX_i\varepsilon_{ii}/2$ in Lecture 2.1.
+                \item However, in State 2, there is an additional enthalpic interaction: The interfacial energy on the IMDS. Since we have this energy per unit area on the IMDS ($\gamma_\text{AB}$) and the interfacial area of a single chain ($\Sigma)$, we can obtain the interfacial energy on the IMDS \emph{per chain} by taking the product $\gamma_\text{AB}\Sigma$.
+                \item Thus, the difference in energies between states 0 and 2 is purely equal to this additional enthalpic interaction. Symbolically,
+                \begin{equation*}
+                    H_2-H_0 = \gamma_\text{AB}\Sigma
+                \end{equation*}
+            \end{itemize}
+        \end{itemize}
+        \item Thus, putting everything together, we obtain
+        \begin{align*}
+            \Delta G &= [(H_2-H_0)-(H_1-H_0)]-T\left[ S_2-S_1 \right]\\
+            &= [\gamma_\text{AB}\Sigma-N\kB T\chi_\text{AB}\phi_\text{A}\phi_\text{B}]-T\left[ -\frac{3\kB(\lambda/2)^2}{2Na^2}+\frac{3\kB(N^{1/2}a)^2}{2Na^2} \right]\\
+            &= \underbrace{\vphantom{\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]}\gamma_\text{AB}\Sigma-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T}_\text{Enthalpic Term}+\underbrace{\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]}_\text{Entropic Term}
+        \end{align*}
+        \begin{itemize}
+            \item The entropic term quantifies the springiness of the polymer. It is an important observation that $\Delta S\propto\lambda^2/Na^2$.
+        \end{itemize}
+    \end{itemize}
+    \item Now that we have an equation for the change in energy upon microdomain formation, what can we do with it? One useful thing would be to calculate the optimal domain periodicity $\lambda_\text{opt}$.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.35\linewidth]{diblockStretch.JPG}
-        \caption{Entropy and enthalpy changes as diblock copolymers are stretched.}
+        \caption{Structural changes as diblock copolymers are stretched.}
         \label{fig:diblockStretch}
     \end{figure}
     \begin{itemize}
-        \item We have
-        \begin{align*}
-            \Delta G &= (\underbrace{H_2-H_1}_{\Delta H})-T(\underbrace{S_2-S_1}_{\Delta S})\\
-            &= \gamma_\text{AB}\underbrace{\sum-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T}_\text{Enthalpic Term}+\underbrace{\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]}_\text{Entropic Term}
-        \end{align*}
+        \item The idea that such a $\lambda_\text{opt}$ exists is based in an important assumption: that polymer chains will want to stretch away from the IMDS.
+        \item Enthalpy goes way down when you have linear strands (as on the right side of Figure \ref{fig:diblockStretch}), since this puts most monomers closer to each other on average than they are to monomers of the opposite component.
         \begin{itemize}
-            \item The entropic term relates to the springiness of the polymer.
-            \item Note that $Na^3=\Sigma\cdot\lambda/2$. This essentially equates (1) the total volume occupied by $N$ monomers each of volume $a^3$ and (2) the volume of the cylinder bounding said monomers, a cylinder having height $\lambda/2$ and base area $\Sigma$.
+            \item Similarly, enthalpy goes way up when everything squishes near the IMDS (as on the left side of Figure \ref{fig:diblockStretch}). This is because in this case, the interfacial area per chain $\Sigma$ gets way bigger.
         \end{itemize}
-        \item Important assumption: Chains want to stretch away from the interface.
-        \begin{itemize}
-            \item Enthalpy goes way down when you have linear strands (everything is near each other). Entropy goes way up here, though, because we're stretching.
-            \item In the other regime, though, area is way bigger. This means we get more enthalpy.
-            \item $\Delta S\approx\lambda^2/a^2N$.
-            \item System will try to find the optimal balance between the two; we want to optimize the length $\lambda$.
-        \end{itemize}
-        \item To find the optimal $\lambda$, we'll want to find the minimum Gibbs free energy as a function of $\lambda$.
+        \item In contrast, entropy goes way up when you have linear strands because we're stretching.
+        \item Thus, the system will try to find the optimal balance between the enthalpic and entropic forces, by which we mean that we want to optimize the length $\lambda$.
+    \end{itemize}
+    \item Let's now begin calculating $\lambda_\text{opt}$.
+    \begin{itemize}
+        \item To find the optimal $\lambda$, we'll want to find the minimum change in Gibbs free energy upon microphase separation as a function of $\lambda$. Symbolically, we want to minimize the following equation.
         \begin{equation*}
             \Delta G(\lambda) = \underbrace{\frac{\kB T}{a^2}\sqrt{\frac{\chi_\text{AB}}{6}}}_{\gamma_\text{AB}}\underbrace{\frac{Na^3}{\lambda/2}}_\Sigma-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T+\frac{3}{2}\kB T\left[ \frac{(\lambda/2)^2}{Na^2}-1 \right]
         \end{equation*}
-        \begin{itemize}
-            \item By above definitions and equalities, the first term is the interfacial energy per unit area times the area of the interface.
-        \end{itemize}
-        \item Compressing every non-$\lambda$ variable in the above expression into a constant (termed $\alpha$, $\beta$, $\text{const}_1$, or $\text{const}_2$) reveals that the above equation is of the following general form.
+        \item Compressing every non-$\lambda$ variable in the above expression into constants (termed $\alpha$, $\beta$, $\text{const}_1$, or $\text{const}_2$) reveals that the above equation is of the following general form.
         \begin{equation*}
             \Delta G(\lambda) = \frac{\alpha}{\lambda}-\text{const}_1+\beta\lambda^2-\text{const}_2
         \end{equation*}
-        \item Thus, the optimum period of the lamellae repeat unit is
+        \item Thus, the optimal period of the lamellae repeat unit is
         \begin{align*}
-            0 &= \pdv{\Delta G}{\lambda}\\
+            0 &= \eval{\pdv{\Delta G}{\lambda}}_{\lambda_\text{opt}}\\
             &= -\frac{\alpha}{\lambda_\text{opt}^2}+2\beta\lambda_\text{opt}\\
-            \lambda_\text{opt} &= \sqrt[3]{\frac{\alpha}{2\beta}} = aN^{2/3}\chi_\text{AB}^{1/6}
+            \lambda_\text{opt} &= \sqrt[3]{\frac{\alpha}{2\beta}}\\
+            &= \Bigg[ \frac{1}{2}\bigg( \underbrace{\frac{2\kB T\sqrt{\chi_\text{AB}}Na}{\sqrt{6}}}_\alpha \bigg)\bigg( \underbrace{\vphantom{\frac{2\kB T\sqrt{\chi_\text{AB}}Na}{\sqrt{6}}}\frac{3\kB T}{8Na^2}}_\beta \bigg)^{-1} \Bigg]^{1/3}\\
+            &= \left[ \left( \frac{32}{27} \right)^{1/2}a^3N^2\chi_\text{AB}^{1/2} \right]^{1/3}\\
+            &\approx 1.03aN^{2/3}\chi_\text{AB}^{1/6}\\
+            \lambda_\text{opt} &\approx aN^{2/3}\chi_\text{AB}^{1/6}
         \end{align*}
         \begin{itemize}
             \item The result that $\lambda_\text{opt}$ scales as $N^{2/3}$ is important! It implies that chains in microdomains are stretched compared to the homogeneous melt state (in which scaling is the smaller $N^{1/2}$).
@@ -1145,9 +1364,9 @@
             &\approx 1.2\kB TN^{1/3}\chi_\text{AB}^{1/3}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T-\frac{3}{2}\kB T\\
             &\approx 1.2\kB TN^{1/3}\chi_\text{AB}^{1/3}-N\chi_\text{AB}\phi_\text{A}\phi_\text{B}\kB T
         \end{align*}
-        \item Since the first two terms are both much greater than the thrid term, we neglect it.
         \begin{itemize}
-            \item Thus, the sign of $\Delta G$ will depend on which of the two remaining terms is bigger.
+            \item Since the first two terms in line 3 are both much greater than the third term, we neglect it.
+            \item Thus, the sign of $\Delta G$ will depend on which of the two terms remaining in line 4 is bigger.
         \end{itemize}
         \item Let's analyze the case of a 50/50 volume fraction of components A and B. Specifically, we want to know what the critical $N\chi$ value is above which $\Delta G=-$ and we form lamellar microdimains, and below which $\Delta G=+$ and we stay in a homogenous melt.
         \begin{itemize}
@@ -1155,7 +1374,7 @@
             \begin{equation*}
                 \phi_\text{A}\phi_\text{B} = \frac{1}{4}
             \end{equation*}
-            \item It follows that the critical $N\chi$ value $(N\chi)_c$ is
+            \item It follows that the critical $N\chi$ value $(N\chi)_c$ --- at which $\Delta G(\lambda_\text{opt})=0$ --- is
             \begin{align*}
                 \frac{(N\chi)_c}{4} &= 1.2(N\chi)_c^{1/3}\\
                 (N\chi)_c^{2/3} &= 4.8\\
@@ -1172,26 +1391,67 @@
         \label{fig:microphaseDia}
     \end{figure}
     \begin{itemize}
-        \item Notice as we go in from the outside (homogeneous, disordered mixed melt), we progressively go through spheres (S), cylinders (C), gyroids (G), and lamellae (L).
+        \item As expected, $(\chi N)_c\approx 10.5$.
+        \item Moreover, as we go in from the outside (homogeneous, disordered mixed melt), we progressively go through spheres (S), cylinders (C), gyroids (G), and lamellae (L).
     \end{itemize}
-    \item Other interfaces: Polymer brushes.
+    \item Block copolymer microphases locally look like a series of homopolymers bound to the planar IMDS. This construction is actually very much related to another scenario known as a \textbf{polymer brush}.
+    \item \textbf{Polymer brush}: A series of homopolymers which have been attached by one end to a hard, planar surface.
     \begin{itemize}
-        \item Consider a series of polymer strands grown off of a 2D surface.
+        \item See Figure \ref{fig:PSet2Q5setup} for a visualization.
+    \end{itemize}
+    \item Variables relevant to polymer brushes.
+    \begin{itemize}
+        \item $D$ is the average distance between each grafting site.
+        \item $H$ is the average height away from the surface to which the polymers stretch.
         \begin{itemize}
-            \item Let each polymer strand be a distance $D$ away from the next nearest strand. In this sense, each polymer strand can be thought to inhabit a volume of diamater $D$ and height $H$ away from the surface.
+            \item It follows from the definitions of $D$ and $H$ that the volume occupied by a single polymer chain is $HD^2$.
         \end{itemize}
-        \item The polymer strands stretch out more ($H$ increases) when they don't want to interact with the 2D interface.
-        \item What is the energy or enthalpy?
+        \item As before, $N$ and $a$ are Kuhn parameters.
+        \begin{itemize}
+            \item Thus, analogously to before, $HD^2=Na^3$.
+        \end{itemize}
+        \item $c=N/HD^2$ is the (assumed uniform) number density of monomers throughout the brush's volume.
+        \item $n$ is the total number of chains on the surface.
+        \item $A$ is the total area of the surface.
+        \item $\sigma=\rho=n/A=1/D^2=H/Na^3$ is the grafting density.
+    \end{itemize}
+    \item The polymer strands stretch out more ($H$ increases) in two main cases.
+    \begin{itemize}
+        \item When they don't want to interact with the 2D interface.
+        \item When they are so close together that they are crowded away from the surface.
+    \end{itemize}
+    \item Now that we have a language through which to discuss brushes, let's analyze the system as before.
+    \begin{itemize}
+        \item What is the energy or enthalpy? If we need to take excluded volume into account, then
         \begin{equation*}
-            \Delta H \approx vc^2\cdot HD^2
+            \Delta H \propto vc^2\cdot HD^2 = \frac{vN^2}{HD^2}
         \end{equation*}
         \begin{itemize}
-            \item $H,D$ are defined as above.
-            \item $v$ is how many two body interactions tere are (counted by mole).
+            \item $v$ is the excluded volume.
             \item $c^2$ describes how dense the system is.
+            \begin{itemize}
+                \item Explicitly, it is the probabilty of two segments coming into contact.
+            \end{itemize}
+            \item Together, $vc^2$ describes how many two body interactions there are (counted by mole).
+            \item Note the similarity between this term and the Virial expansion's binary term from Lecture 1.3.
         \end{itemize}
-        \item Here, $\Delta S\approx H^2/a^2N$ (as opposed to $\lambda^2/a^2N$ from earlier).
-        \item We want to minimize $H^2$ and $1/H$ on an $H$ vs. Gibbs free energy graph.
+        \item What is the entropy?
+        \begin{equation*}
+            \Delta S \propto \frac{H^2}{Na^2}
+        \end{equation*}
+        \begin{itemize}
+            \item This is analogous to the $\lambda^2/Na^2$ proportionality from the diblock copolymer case, except with variables changed.
+            \item For the full expression for $\Delta S$, the entropy derivation from above is exactly analogous, affording
+            \begin{equation*}
+                \Delta S = -\frac{3}{2}\kB\left( \frac{H^2}{Na^2}-1 \right)
+            \end{equation*}
+        \end{itemize}
+        \item Now we may consider how to find the optimal stretching distance $H$.
+        \begin{itemize}
+            \item The enthalpic term goes as $1/H$ and the entropic term goes as $H^2$. Thus, the enthalpic term increases at small $H$ and the entropic term increases at large $H$.
+            \item Therefore, the Gibbs free energy goes as $H^2+1/H$ and has a proper energy valley. It is the minimum point on this valley that we seek.
+            \item We will explore this problem more in PSet 2, Q5.
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
@@ -1211,12 +1471,12 @@
         \item If they're stuck at a particular grafting density $D$, you first have to calculate the free energy of a chain being that close to another.
         \item Bringing in Prof. Doyle's lectures,
         \begin{equation*}
-            \Delta G = \frac{H^2}{Na^2}+V_\text{ex}\rho^2\cdot D^2H-\varepsilon
+            \Delta G = \frac{H^2}{Na^2}+V_\text{ex}\rho^2\cdot HD^2-\varepsilon
         \end{equation*}
         \begin{itemize}
-            \item $D^2H$ is a volume.
-            \item $\rho=N/D^2H$ is the number density of monomers.
-            \item So then we ned the optimal $H$, which we will term $H^*$. $H^*$ minimizes $\Delta G(H^*)$, i.e., $\ev{\pdv*{\Delta G}{H}}_{H=H^*}=0$.
+            \item $HD^2$ is a volume.
+            \item $\rho=N/HD^2$ is the number density of monomers.
+            \item So then we need the optimal $H$, which we will term $H^*$. $H^*$ minimizes $\Delta G(H^*)$, i.e., $\ev{\pdv*{\Delta G}{H}}_{H=H^*}=0$.
             \item Then we back feed $H^*$ into the $\Delta G$ equation above.
         \end{itemize}
         \item To find $D$, we have to evaluate the stability relative to state 1.
@@ -1226,7 +1486,7 @@
         \end{itemize}
         \item Then the last thing is
         \begin{equation*}
-            \Delta G_2-\Delta G_1 = \frac{(H^*)^2}{Na^2}+\frac{vN^2}{D^2H^*}-\varepsilon-\mu_\text{bulk}
+            \Delta G_2-\Delta G_1 = \frac{(H^*)^2}{Na^2}+\frac{vN^2}{H^*D^2}-\varepsilon-\mu_\text{bulk}
         \end{equation*}
         \begin{itemize}
             \item And this $\Delta\Delta G$ must be negative if grafting is going to happen.
@@ -1236,8 +1496,8 @@
         \item You need to account for the entropy of stretching, the enthalpy of sticking, and excluded volume.
         \begin{itemize}
             \item $vN^2/HD^2$.
-            \item Stretching term is $H^2/Na^2$. Excluded volume is $v\rho^2\cdot D^2H$.
-            \item Balance the two terms $H^2/Na^2$ and $vN^2/D^2H$ to find $H^*$.
+            \item Stretching term is $H^2/Na^2$. Excluded volume is $v\rho^2\cdot HD^2$.
+            \item Balance the two terms $H^2/Na^2$ and $vN^2/HD^2$ to find $H^*$.
             \item \emph{Then} factor in $\varepsilon$.
         \end{itemize}
     \end{itemize}
