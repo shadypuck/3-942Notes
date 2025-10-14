@@ -29,7 +29,7 @@
         \end{itemize}
         \item We'll also touch on why such parameters are important for various material properties.
         \begin{itemize}
-            \item Examples of where polymer size and conformation are important: Non-entangled rubber elasticity, shear thiceners, elastic modulus of crosslinked networks, and electrical conductivity.
+            \item Examples of where polymer size and conformation are important: Non-entangled rubber elasticity, shear thickeners, elastic modulus of crosslinked networks, and electrical conductivity.
         \end{itemize}
     \end{itemize}
     \item Upcoming lectures by day.
@@ -195,7 +195,7 @@
         \label{fig:stokesViscosity}
     \end{figure}
     \begin{itemize}
-        \item Consider a hard sphere of size $r_s$ falling through a fluid of viscosity $\eta_0$ with velocity $v$.
+        \item Consider a hard sphere of radius $r_s$ falling through a fluid of viscosity $\eta_0$ with velocity $v$.
         \item By Newton's laws, the fluid will exert a viscous force $F_\text{viscous}$ on the sphere. Moreover, this force will be given by the following.
         \begin{equation*}
             F_\text{viscous} = fv
@@ -211,7 +211,7 @@
             \item The polymer coil is entirely penetrable, with only individual monomers interacting with the viscous fluid.
         \end{enumerate}
     \end{itemize}
-    \item \textbf{Stokes' law}: The Navier-Stokes equations' relation between the drag coefficient $f$ on a sphere of size $r_s$ falling through a fluid, and the fluid's viscosity $\eta_0$. \emph{Given by}
+    \item \textbf{Stokes' law}: The Navier-Stokes equations' relation between the drag coefficient $f$ on a sphere of radius $r_s$ falling through a fluid, and the fluid's viscosity $\eta_0$. \emph{Given by}
     \begin{equation*}
         f = 6\pi\eta_0r_s
     \end{equation*}
@@ -258,7 +258,7 @@
             \item Notation.
             \begin{itemize}
                 \item We still let $N_2$ be the number of segments per chain (e.g., number of Kuhn steps).
-                \item $\xi^*$ is the \textbf{monomeric friction factor}.
+                \item $\xi^*=\zeta$ is the \textbf{monomeric friction factor}.
             \end{itemize}
             \item Globally, the fluid passes through the coil freely (Figure \ref{fig:polFluida}).
             \item However, very locally (Figure \ref{fig:polFluidb}), there is no slip. In other words, each monomer contributes a small amount $\xi^*$ to the total friction factor. It follows that in this case, the friction factor scales linearly with the number of units $N_2$ in the polymer!
@@ -275,14 +275,13 @@
             \begin{itemize}
                 \item $\nu$ is the same measure of solvent quality (e.g., $1/2$, $3/5$, or $1/3$) discussed previously.
             \end{itemize}
-            \item There is a strong hydrodynamic interaction (HI), or coupling, of the motion of monomers in dilute solution.
+            \item There is a strong \textbf{hydrodynamic interaction} (HI), or coupling, of the motion of monomers in dilute solution.
             \begin{itemize}
                 \item Essentially, when one monomer moves somewhere along a polymer chain, it yanks others in the chain along with it.
-                \item $\text{HI}\propto 1/r$, where $r$ is the relative separation of monomers (like the bond length??).
+                \item This interaction decreases the farther out along the chain you go from the monomer that is moved. Symbolically, $\text{HI}\propto 1/r$, where $r$ is the relative separation of monomers.
                 \item Additional equation for $\mathbf{v}(\mathbf{r})$??
             \end{itemize}
             \item This model is appropriate for a (1) high molecular weight and (2) flexible polymer.
-            \item Is $2R_H$ the radius or diameter of the hydrodynamic sphere?? See the slides.
         \end{itemize}
         \item A rod-like molecule (Figure \ref{fig:polFluidd}).
         \begin{align*}
@@ -311,7 +310,7 @@
         \begin{itemize}
             \item $\xi=f$ is the drag coefficient / friction factor.
             \item We are taking this to be of a tracer molecule, i.e., some molecule in solution far from everything else.
-            \item $\kB T$ is an energy (i.e., a force times a length), and the friction factor has been defined as the quotient of (the viscous) force divided by a velocity. Thus, the units cancel out to length squared per time for $D$.
+            \item $\kB T$ is an energy (i.e., a force times a length), and the friction factor has been defined as the quotient of (the viscous) force divided by a velocity. Thus, the units cancel out to length squared per time for $D_t$.
         \end{itemize}
         \item We have a flux $J$ satisfying \textbf{Fick's law}.
         \begin{itemize}
@@ -319,22 +318,22 @@
         \end{itemize}
         \item The average squared displacement of a molecule as it moves around over a period of time $\tau$ is
         \begin{equation*}
-            \prb{\Delta x^2+\Delta y^2+\Delta z^2}_\tau = 6D\tau
+            \prb{\Delta x^2+\Delta y^2+\Delta z^2}_\tau = 6D_t\tau
         \end{equation*}
         \begin{itemize}
             \item This is a molecular view of diffusion, from time $t=0$ to time $t=\tau$ (Figure \ref{fig:diffusion}).
-            \item $D$ has units of length squared over time here, as well!
+            \item $D_t$ has units of length squared over time here, as well!
         \end{itemize}
         \item Thus, to actually get the diffusion coefficient, we could track molecules, e.g., by taking movies of them.
         \begin{itemize}
-            \item Take movies of everywhere it goes, break up the path into segments $\tau$, and then take the ensemble or time average
+            \item Take movies of everywhere it goes, break up the path into segments like a random walk (recall that Brownian motion is a continuous random walk), and then take the ensemble or time average over a period of time of length $\tau$.
             \begin{equation*}
-                \prb{\Delta r^2} = 6D\tau
+                \prb{\Delta r^2} = 6D_t\tau
             \end{equation*}
         \end{itemize}
         \item It follows by combining several of the above equations that
         \begin{equation*}
-            R_H = \frac{\kB T}{6\pi\eta D}
+            R_H = \frac{\kB T}{6\pi\eta_sD_t}
         \end{equation*}
         \item Additionally, it is important that
         \begin{equation*}
@@ -343,7 +342,7 @@
     \end{itemize}
     \item \textbf{Fick's law}: A relationship between flux, diffusivity, concentration, and distance. \emph{Given by}
     \begin{equation*}
-        J = -D\pdv{c}{x}
+        J = -D_m\pdv{c}{x}
     \end{equation*}
     \begin{itemize}
         \item $J$ is the flux.
@@ -376,7 +375,7 @@
     \begin{itemize}
         \item The prefactor $\gamma$ in
         \begin{equation*}
-            R_H = \gamma R_g
+            R_g = \gamma R_H
         \end{equation*}
         is on the order of 1.
         \begin{itemize}
@@ -384,7 +383,7 @@
         \end{itemize}
         \item Recall that $R_H$ is related to a hydrodynamic interaction tensor??
         \item Note that $\gamma=R_g/R_H$ converges to 1 (middle-right column in Table \ref{tab:RgRH}) as the number of arms on a polymer increases because, as you get more arms, you do just start to look like a sphere.
-        \item \textcite{bib:RubinsteinColby} has some good explanations on this; Table \ref{tab:RgRH} is also lifted from "Table 8.4" in this textbook.
+        \item \textcite{bib:RubinsteinColby} has some good explanations on this; Table \ref{tab:RgRH} is also its "Table 8.4."
     \end{itemize}
     \item For the rest of class, we focus on viscosity. We'll get as far into this topic as we can toay, and then we'll carry on next time.
     \item Einstein model for viscosity.
@@ -400,7 +399,7 @@
             \item Einstein's detailed calculation got $2.5$ as the linear correction.
             \item The power series continues, but in the dilute limit ($\phi_2\ll 1$ and $c_2\ll c_2^*$, where $c_2^*$ is the overlap concentration), we only need the linear correction.
         \end{itemize}
-        \item This solution will have a viscosity $\eta$, composed of a linear contribution from the solvent $\eta_s$, and then an added contribution from the polymer in the form of a \textbf{specific viscosity} $\eta_{sp}$. This gives us the following.
+        \item This solution will have a viscosity $\eta$, composed of a linear contribution from the solvent $\eta_s$, and then an added contribution from the polymer in the form of a \textbf{specific viscosity} $\eta_{sp}$. This yields
         \begin{equation*}
             \eta = \eta_s+\eta_s\eta_{sp}
         \end{equation*}
@@ -416,7 +415,7 @@
         \begin{itemize}
             \item This equation represents viscosity as a perturbation in concentration $c$.
             \item The first prefactor is the intrinsic viscocity.
-            \item $K_\text{H}$ denotes the \textbf{Huggins coefficient}.
+            \item $K_\text{H}$ denotes the \textbf{Huggins coefficient}. As in Flory-Huggins theory, the 2nd term reflects pairwise interactions of solute molecules.
         \end{itemize}
         \item We now want to relate the intrinsic viscosity to our polymer models.
         \begin{itemize}
@@ -472,7 +471,7 @@
     \begin{itemize}
         \item From the definition, we can see that for a pure solution (only solvent), the specific viscosity is zero. As the viscosity of the solution increases with increasing solute, $\eta_{sp}$ will obtain a value greater than zero (and likewise for decreases in viscosity).
     \end{itemize}
-    \item \textbf{Intrinsic viscosity}: A measure of a solute's contribution to the viscosity of a solution. \emph{Units} $\textbf{conc}^{\bm{-1}}$. \emph{Denoted by} $\bm{[\eta]}$. \emph{Given by}
+    \item \textbf{Intrinsic viscosity}: A measure of a solute's contribution to the viscosity of a solution. \emph{Units} $\textbf{conc}^{\bm{-1}}$, \textbf{\si[text-series-to-math,per-mode=symbol]{\milli\liter\per\gram}}. \emph{Denoted by} $\bm{[\eta]}$. \emph{Given by}
     \begin{equation*}
         [\eta] := \lim_{c\to 0}\left( \frac{\eta_{sp}}{c} \right)
         = \lim_{c\to 0}\left( \frac{\eta-\eta_s}{c\eta_s} \right)
@@ -489,12 +488,12 @@
         \item We will not be doing any detailed calcualations, so no.
         \item Just know that all of the different radii are applicable in different circumstances, and all related by order 1 coefficients. Thus, we can convert between all of them as needed.
     \end{itemize}
-    \item \textbf{Mark-Houwink-Sakurada model}: A scaling of the intrinsic viscosity derived above. \emph{Given by}
+    \item \textbf{Mark-Houwink-Sakurada model}: A scaling of the intrinsic viscosity derived above. \emph{Also known as} \textbf{Mark-Houwink model}. \emph{Given by}
     \begin{equation*}
         [\eta] = KM^a
     \end{equation*}
     \begin{itemize}
-        \item $K,a$ depend on solvent quality and polymer.
+        \item $K,a$ --- the \textbf{Mark-Houwink parameters} --- depend on the polymer and solvent quality, respectively.
         \item Exponent scaling.
         \begin{itemize}
             \item $a<1/2$ implies a poor solvent.
@@ -516,7 +515,7 @@
         \item \textbf{Relative}, \textbf{reduced}, and \textbf{inherent} viscosity.
         \item These exist, but we don't need to know much about them.
     \end{itemize}
-    \item \textbf{Relative viscosity}: The overall viscosity normalized by that of the solvent. \emph{Denoted by} $\bm{\eta_r}$. \emph{Given by}
+    \item \textbf{Relative viscosity}: The total viscosity normalized by that of the solvent. \emph{Denoted by} $\bm{\eta_r}$. \emph{Given by}
     \begin{equation*}
         \eta_r := \frac{\eta}{\eta_s}
     \end{equation*}
@@ -692,7 +691,7 @@
             \frac{t_{\ce{H2O}}}{t_\text{polymer}} = \frac{\eta_{\ce{H2O}}}{\rho_{\ce{H2O}}}\cdot\frac{\rho_\text{polymer}}{\eta_\text{polymer}}
         \end{equation*}
         \begin{itemize}
-            \item We measure $t_{\ce{H2O}}$ in our specific viscometer, either measure or look up the right term above, determine the density of our polymer-water solution, and then can obtain the viscosity of our polymer!
+            \item We measure $t_{\ce{H2O}}$ in our specific viscometer, either measure or look up $\eta_{\ce{H2O}}$ and $\rho_{\ce{H2O}}$, determine the density of our polymer-water solution, and then can obtain the viscosity of our polymer!
             \begin{itemize}
                 \item This equation eliminates the need to measure the constant for our specific viscometer.
                 \item Basically, it replaces measuring a constant with calibrating the viscometer against a known solvent.
@@ -907,7 +906,7 @@
     \begin{itemize}
         \item We begin our study of dynamics with dilute solutions, so as to highlight the properties of individual polymer molecules.
     \end{itemize}
-    \item \textbf{Molecular friction factor}: The proportionality factor between the force $\mathbf{F}$ directionally applied to a polymer in a solvent, and the polymer's equilibrium velocity $\mathbf{v}$ after accelerating to the point where drag counterbalances $\mathbf{F}$. \emph{Units} \textbf{\si[text-family-to-math,per-mode=symbol]{\kilo\gram\per\second}}. \emph{Denoted by} $\bm{f}$. \emph{Given by}
+    \item \textbf{Molecular friction factor}: The proportionality factor between the force $\mathbf{F}$ directionally applied to a polymer in a solvent, and the polymer's equilibrium velocity $\mathbf{v}$ after accelerating to the point where drag counterbalances $\mathbf{F}$. \emph{Units} \textbf{\si[text-series-to-math,per-mode=symbol]{\kilo\gram\per\second}}. \emph{Denoted by} $\bm{f}$. \emph{Given by}
     \begin{equation*}
         f = \frac{|\mathbf{F}|}{|\mathbf{v}|}
     \end{equation*}
@@ -960,6 +959,85 @@
     \end{itemize}
     \item Most viscometers can determine of a fluid is Newtonian by varying the shear rate $\dot{\gamma}$ and measuring whether or not the viscosity stays constant.
     \item \textcite[379-80]{bib:HiemenzLodge} covers \textbf{viscous heating}, which was not mentioned in class.
+    \item \marginnote{10/14:}\textbf{Equation of motion} (of a fluid): The differential equation --- obtained by considering all $x$-, $y$-, and $z$-forces of gravitational or mechanical origin acting on a volume element of liquid --- whose solution would give the velocity $v$ of the flowing liquid as a function of time and position within the sample.
+    \item Comments on Einstein's model for the viscosity of a suspension of hard spheres \parencite[384]{bib:HiemenzLodge}.
+    \begin{itemize}
+        \item The viscosity does not depend on the radius of the spheres, only their total volume fraction.
+        \item By describing the concentration dependence of viscosity as a power series, Einstein's theory plays a comparable role for viscosity as our "virial expansion" in Flory-Huggins theory.
+        \item The volume fraction emerges from the Einstein derivation as the natural concentration unit to describe viscosity. This parallels the way volume fraction arises as a natural thermodynamic concentration unit in the Flory-Huggins theory.
+    \end{itemize}
+    \item Common features and assumptions between Stokes' law and Einstein's model.
+    \begin{itemize}
+        \item The liquid medium is a continuum.
+        \begin{itemize}
+            \item It follows that the results may be suspect for spheres so small that the molecular nature of the solvent cannot be ignored.
+            \item However, even in this case, the results often hold up experimentally surprisingly well.
+        \end{itemize}
+        \item Both relationships hold up well to experimental verification, across many systems and spheres of many diameters.
+        \item For particles that are shaped differently than spheres (e.g., elongated ellipsoids of revolution), there are related derivations.
+        \item The disturbance of the flow streamlines is assumed to be produced by a single particle, hence the limitation to dilute solutions. In other words, the net effect of an array of spheres is treated as the sum of the individual nonoverlapping disturbances. Moreover, contributions from the walls of the container are assumed to be absent.
+    \end{itemize}
+    \item On the hydrodynamic volume.
+    \begin{itemize}
+        \item By assuming that hydrodynamic volume is related to the volume of a sphere based on the radus of gyration, we assume that "the volume that matters in the viscosity experiment is not the volume actually occupied by the polymer segments (which would be the degree of polymerization times the volume of the monomer), but the volume pervaded by the entire molecule" \parencite[386]{bib:HiemenzLodge}.
+    \end{itemize}
+    \item \textbf{Poiseuille equation}: An expression for the flow rate through a vertical capillary. \emph{Given by}
+    \begin{equation*}
+        Q = \frac{\pi r^4}{8\eta L}(\rho g L+\Delta P)
+    \end{equation*}
+    \begin{itemize}
+        \item \textcite[393-95]{bib:HiemenzLodge} fully derives this. The not-too-difficult calculus may be worth going through!
+    \end{itemize}
+    \item On co-centric cylinder rheometers \parencite[397-98]{bib:HiemenzLodge}.
+    \begin{itemize}
+        \item The range of applicability is very wide, extending at least from $\eta\approx\SIrange{0.01}{e10}{\pascal\second}$.
+        \item The design permits different velocity gradients to be considered, so that non-Newtonian behavior (e.g., shear thinning) can be investigated.
+        \item Some of the mathematics is derived.
+    \end{itemize}
+    \item \textbf{Diffusion coefficient}: A measure of how fast molecules move. \emph{Denoted by} $\bm{D}$.
+    \item \textbf{Tracer} (diffusion coefficient): A diffusion coefficient describing the motion of a single Brownian particle. \emph{Units} \textbf{\si[text-series-to-math,per-mode=symbol]{\meter\squared\per\second}}. \emph{Denoted by} $\bm{D_t}$.
+    \begin{itemize}
+        \item The factor of 6 in $\prb{\Delta r^2}=6D\tau$ is a historical convention.
+    \end{itemize}
+    \item \textbf{van Hove space-time self-correlation function}: The probability of finding a particle a distance $r$ away from where it was at time $t=0$ at time $t=\tau$. \emph{Given by}
+    \begin{equation*}
+        P(r,\tau) = 4\pi r^2\left( \frac{1}{4\pi D_t\tau} \right)^{3/2}\exp(-\frac{r^2}{4D_t\tau})
+    \end{equation*}
+    \begin{itemize}
+        \item Notice that the form is mathematically equivalent to the three-dimensional Gaussian distribution for a polymer's end-to-end distance derived in Lecture 1.3, using the substitution $6D_t\tau=\prb{\Delta r^2}=Na^2$.
+    \end{itemize}
+    \item \textbf{Stokes-Einstein equation}: An expression for the diffusion of a hard-sphere tracer particle of radius $r_s$ in a continuous solvent. \emph{Given by}
+    \begin{equation*}
+        D_t = \frac{\kB T}{6\pi\eta_sr_s}
+    \end{equation*}
+    \item \textbf{Hydrodynamic radius}: For any polymer or particle, the radius of the hard sphere that would have the same friction factor or diffusivity. \emph{Denoted by} $\bm{R_H}$. \emph{Given by}
+    \begin{equation*}
+        R_H := \frac{\kB T}{6\pi\eta_sD_t}
+    \end{equation*}
+    \begin{itemize}
+        \item Since flexible molecules under hydrodynamic conditions behave like hard spheres with radius proportional to the radius of gyration, they also diffuse this way. This is where $R_H\propto R_g$ comes from!
+        \item Another important set of proportionalities is $D_t\propto R_H^{-1}\propto M^{-\nu}$, for the typical values of $\nu$ depending on solvent quality.
+    \end{itemize}
+    \item \textbf{Shape factor}: The dimensionless proportionality constant between the hydrodynamic radius and radius of gyration. \emph{Denoted by} $\bm{\gamma}$. \emph{Given by}
+    \begin{equation*}
+        \gamma := \frac{R_g}{R_H}
+    \end{equation*}
+    \begin{itemize}
+        \item As the name suggests, $\gamma$ provides insight into how spherical particles are: $\gamma\to 1$ as particles become more spherical.
+    \end{itemize}
+    \item \textbf{Mutual} (diffusion coefficient): A diffusion coefficient describing how a collection of Brownian particles will distribute themselves in space. \emph{Denoted by} $\bm{D_m}$.
+    \begin{itemize}
+        \item "Mutual diffusion acts to eliminate any gradients in concentration" \parencite[401]{bib:HiemenzLodge}.
+    \end{itemize}
+    \item On Fick's law.
+    \begin{itemize}
+        \item This equation quantifies the idea that mass diffusion is analogous to thermal diffusion (in the sense of eliminating concentration gradients), and is mathematically an adaptation of Fourier's law of heat conduction to the transport of material.
+        \item $J$ has units of mass per area per time.
+        \item The statement of Fick's law given corresponds to one-dimensional diffusion in the $x$-direction.
+        \item \textcite[401-05]{bib:HiemenzLodge} covers Fick's other laws, and relates diffusion to chemical potential!
+    \end{itemize}
+    \item \textcite[406-09]{bib:HiemenzLodge} covers dynamic light scattering.
+    \item 
 \end{itemize}
 
 
