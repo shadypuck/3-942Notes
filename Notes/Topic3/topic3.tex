@@ -898,10 +898,61 @@
 
 
 
+\section{Office Hours (Doyle)}
+\begin{itemize}
+    \item \marginnote{10/14:}Zimm's non-free draining model: The following equation from the slides?
+    \begin{equation*}
+        \mathbf{v}(\mathbf{r}) = \frac{1}{8\pi\eta}\left( \frac{\delta}{\mathbf{r}}+\frac{\mathbf{r}\mathbf{r}}{\mathbf{r}^3} \right)\cdot\mathbf{F}
+    \end{equation*}
+    \begin{itemize}
+        \item This is an equation from an advanced fluid dynamics textbook, and we do not need to know it.
+        \item Basically, this equation gives the vector field $\mathbf{v}$ induced by displacing one particle along the polymer by $\mathbf{r}$.
+        \item The only relevance it has to us is that it shows that there is a generic scaling of $1/r$ in both terms to the hydrodynamic interaction $\text{HI}=\mathbf{v}$.
+    \end{itemize}
+    \item PSet 3: General approach to the questions?
+    \begin{itemize}
+        \item It is basically a plug and chug PSet.
+        \item I have the correct scalings for $N$ in PSet 3, Q1a-b! All of the rest of the factors are less important.
+        \item PSet 3, Q2 is just a cheap way of teaching us something (sedimentation) that we don't have time to cover in class, so that we recognize it if we ever come across it. It is as simple as it seems.
+        \item PSet 3, Q3 is purely plug and chug. Moreover, for PSet 3, Q3d, I did have it right that all we need is a qualitative recognition of what the scaling between intrinsic velocity and the mass tells us about solvent quality; we do not have to do anything quantitative with the numbers here.
+    \end{itemize}
+    \item What do we need to know about Fick's law?
+    \begin{itemize}
+        \item For anyone who has taken Transport Phenomena, Fick's law is a touchstone. Doyle just wanted to show all of the students in class that the tracer diffusion coefficient we discussed in class is the "same" as the mutual diffusion coefficient in Fick's law.
+        \item Now, as the textbook would imply, there are subtle differences between $D_t$ and $D_m$, but we don't need to worry about them at our level.
+    \end{itemize}
+    \item What is the Weissenberg number?
+    \begin{itemize}
+        \item The Weissenberg number (sometimes used interchangeably with the Deborah number) is part of something called \textbf{dimensionless groups}.
+        \begin{itemize}
+            \item The core idea here is relative scaling. Dimensionless groups address questions like "how fast is fast" by setting a reference point and talking about how fast something is \emph{relatively} (\emph{dimensionlessly}) compared to something else.
+        \end{itemize}
+        \item With the Weissenberg number, we are concerned with the timescale of polymer relaxation (e.g., from being stretched) relative to the timescale of fluid flow.
+        \item Since the shear rate is measured in units of reciprocal seconds, an approximate relaxation time scale $\tau_\text{flow}$ for the flow is $\tau_\text{flow}=1/\dot{\gamma}$. It follows that the Weissenberg number $Wi$, as a dimensionless group, should be equal to the ratio
+        \begin{equation*}
+            \frac{\tau_\text{polymer}}{\tau_\text{flow}} = \frac{\tau_\text{polymer}}{1/\dot{\gamma}}
+            = \dot{\gamma}\tau_\text{polymer}
+        \end{equation*}
+        as it is.
+        \begin{itemize}
+            \item From the leftmost definition above, we can see that for $Wi<1$, the polymer relaxes faster than the flow. This means that stretching and tumbling can be neglected, which is the regime we'd like to analyze.
+            \item This is why we set $Wi<1$ in this class.
+        \end{itemize}
+    \end{itemize}
+    \item Do you have any intuition for the shear rate $\dot{\gamma}$?
+    \begin{itemize}
+        \item In the context of Figure \ref{fig:viscosity}, $\dot{\gamma}$ is a constant equal to the slope of the velocity profile.
+        \item This is because $\dot{\gamma}=\dv*{U}{H}$, and Figure \ref{fig:viscosity}'s velocity profile plots the speed $U$ as a function of height $H$ (or $y$).
+        \item Note that the calculus definition is important because in some scenarios, the velocity profile may not be constant. For instance, in the Hagen-Poiseuille capillary, the velocity profile is parabolic.
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 9: Dynamics of Dilute Polymer Solutions}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
-    \item What relates "the viscosity of polymer solutions, the diffusion of polymer molecules, the technique of dynamic light scattering, the phenomenon of hydrodynamic interaction, and the separation and analysis of polymers by size exclusion chromatography" \parencite[377]{bib:HiemenzLodge}? They all help determine polymer molecular weight, and they all depend on the spatial extent of polymer coils.
+    \item \marginnote{10/9:}What relates "the viscosity of polymer solutions, the diffusion of polymer molecules, the technique of dynamic light scattering, the phenomenon of hydrodynamic interaction, and the separation and analysis of polymers by size exclusion chromatography" \parencite[377]{bib:HiemenzLodge}? They all help determine polymer molecular weight, and they all depend on the spatial extent of polymer coils.
     \item We have studied \emph{static} properties of polymer up to this point. Now, we will discuss \emph{time-dependent} dynamics.
     \begin{itemize}
         \item We begin our study of dynamics with dilute solutions, so as to highlight the properties of individual polymer molecules.
@@ -1037,7 +1088,6 @@
         \item \textcite[401-05]{bib:HiemenzLodge} covers Fick's other laws, and relates diffusion to chemical potential!
     \end{itemize}
     \item \textcite[406-09]{bib:HiemenzLodge} covers dynamic light scattering.
-    \item 
 \end{itemize}
 
 
