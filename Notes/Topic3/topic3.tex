@@ -949,6 +949,325 @@
 
 
 
+\section{Osmometry and GPC}
+\begin{itemize}
+    \item Announcements.
+    \begin{itemize}
+        \item Exam solutions posted soon.
+        \item Thursday's lecture will almost certainly be an asychronous video.
+    \end{itemize}
+    \item Lecture outline.
+    \begin{itemize}
+        \item Gel permeation chromatography.
+        \item Osmometry.
+        \begin{itemize}
+            \item Derivations will be abbreviated, but overviewed.
+        \end{itemize}
+    \end{itemize}
+    \item "GPC" and "SEC" will be used interchangeably in this class; the difference has to do with the material packed inside the column.
+    \item A broad overview of how GPC works.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.55\linewidth]{GPCoverview.png}
+        \caption{Gel permeation chromatography overview.}
+        \label{fig:GPCoverview}
+    \end{figure}
+    \begin{itemize}
+        \item Porous resin beads are packed within the column.
+        \begin{itemize}
+            \item Pores are similar in size to the radius of gyration of the molecules you want to chromatograph.
+        \end{itemize}
+        \item Put your polymer mixture in at the top, and elute it with pressure.
+        \item Measure the chromatogram with some kind of detector (e.g., light scattering or refractive index).
+        \item Bigger polymers move through the interstitial space first because its entropically unfavorable for them to fit in pores.
+        \begin{itemize}
+            \item Little polymers sample both the interstitial and bead volume, and thus take more time to elute.
+        \end{itemize}
+    \end{itemize}
+    \item GPC-selling companies (e.g., Waters or Agilent) sell various types of beads.
+    \begin{itemize}
+        \item Sometimes, you go through multiple columns in series to separate different molecular weights better and get better resolution overall. Doyle has seen up to 6 columns wired in series.
+    \end{itemize}
+    \item GPC theory.
+    \begin{itemize}
+        \item There are two important volumes.
+        \begin{itemize}
+            \item $V_i$ is the total volume \underline{i}nside the porous beads' pores.
+            \item $V_o$ is the volume \underline{o}utside the beads.
+        \end{itemize}
+        \item The elution time of a given species depends on the volume explored. This volume can be $V_i$, $V_o$, or a combination of the two. Symbolically,
+        \begin{equation*}
+            t_\text{elute} = \frac{V_\text{explored}}{Q_\text{injection}}
+        \end{equation*}
+        \begin{itemize}
+            \item $Q_\text{injection}$ is the \textbf{volumetric flow rate}, i.e., the cubic meters per second your pump is flowing through the column.
+        \end{itemize}
+        \item We commonly think of elution time in terms of an alternative measure, the \textbf{retention volume}.
+    \end{itemize}
+    \item \textbf{Retention volume}: The volume explored by a molecule as it passes through a GPC column. \emph{Denoted by} $\bm{V_r}$. \emph{Given by}
+    \begin{equation*}
+        V_r := t_\text{elute}\cdot Q_\text{injection}
+    \end{equation*}
+    \item Let's look at a typical response curve.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{GPCresponse.JPG}
+        \caption{GPC response curve.}
+        \label{fig:GPCresponse}
+    \end{figure}
+    \begin{itemize}
+        \item We plot the log of the molar mass of whatever's coming out vs. $V_r$.
+        \item For big enough molecules (less volume is explored than $V_o$), everything will come out.
+        \item Then there's a region where we get separation.
+        \begin{itemize}
+            \item The width of this interesting region is equal to the volume inside the pores, $V_i$. 
+            \item A \textbf{partition coefficient} $K\in[0,1]$ interpolates between how much volume a given polymer can sample. Specifically,
+            \begin{equation*}
+                V_r = V_o+V_iK
+            \end{equation*}
+            \begin{itemize}
+                \item In other words, $K$ determines the concentration inside and outside the pores for a given polymer.
+            \end{itemize}
+            \item Let's consider the extrema of $K$.
+            \begin{itemize}
+                \item When $K=0$, $M$ is large and the corresponding particles do not enter the pores at all.
+                \item When $K=1$, $M$ is small and the correspondign particles sample all the space inside the pores \emph{and} outside in solution.
+            \end{itemize}
+            \item $K$ will be a function of $R_g$ divided by the diameter of our pores.
+        \end{itemize}
+        \item Then the molecules are so small ($V_r>V_0+V_i$) that they practically don't come out at all / all come out at once.
+    \end{itemize}
+    \item \textbf{Partition coefficient}: A real number between 0 and 1 describing the extent to which polymers enter the pores. \emph{Also known as} \textbf{size exclusion equilibrium constant}. \emph{Denoted by} $\bm{K}$. \emph{Given by}
+    \begin{equation*}
+        K = \frac{c_{p,\text{inside bead}}}{c_\text{p,outside bead}}
+    \end{equation*}
+    \begin{itemize}
+        \item In words, $K$ is equal to the concentration of the polymer inside vs. outside a bead.
+        \item Since being in a pore is equivalent to a polymer being in a higher energy state, $K$ is governed by the Boltzmann distribution
+        \begin{equation*}
+            K = \exp(-\frac{\Delta\hat{G}_{pp}}{RT})
+        \end{equation*}
+        \begin{itemize}
+            \item $\Delta\hat{G}_{pp}$ is the change in Gibbs free energy upon 1 mole of polymer entering pores.
+            \item Note that this Boltzmann distribution --- like all of them --- describes a \emph{dynamic} equilibrium under which polymers are constantly going in and out of various pores.
+        \end{itemize}
+        \item Rearranging the above Boltzmann distribution and invoking the definition of the Gibbs free energy affords
+        \begin{align*}
+            \Delta\hat{G}_{pp} &= -RT\ln K\\
+            &= \Delta\hat{H}_{pp}-T\Delta\hat{S}_{pp}
+        \end{align*}
+        \begin{itemize}
+            \item We typically choose systems (i.e., column material and solvent) so that there is no enthalpic change upon entering or leaving a pore.
+            \item This implies that $\Delta\hat{H}_{pp}=0$ in systems of interest to us.
+        \end{itemize}
+        \item Thus,
+        \begin{equation*}
+            K = \exp(\frac{\Delta\hat{S}_{pp}}{R})
+        \end{equation*}
+        \begin{itemize}
+            \item Sanity check: If there's no change in entropy (because our polymer is so small it doesn't even notice it's in the pore), $K\to 1$.
+            \item Sanity check: If entropy is decreasing substantially (because the polymer is so large that it must significantly restrict its conformational freedom to enter a pore), $K\to 0$.
+        \end{itemize}
+    \end{itemize}
+    \item The polymer has some entropy loss when it enters a pore.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{GPCpore.JPG}
+        \caption{Theoretical porous resin microstructure.}
+        \label{fig:GPCpore}
+    \end{figure}
+    \begin{itemize}
+        \item SEM and TEM images reveal that the porous beads used in GPC are highly irregular, but we will assume that these irregularities cancel to something more uniform so that our math is easier.
+        \item Specifically, we will assume that our beads have a bunch of identical, cylindrical pores of diameter $D$.
+    \end{itemize}
+    \item Nobel Prize (1991) to de Gennes for the "blob concept."
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{GPCblobs.JPG}
+        \caption{Segmenting a polymer into blobs.}
+        \label{fig:GPCblobs}
+    \end{figure}
+    \begin{itemize}
+        \item Very interesting guy who used to smoke while giving lectures (despite No Smoking signs), and sit in the front of other lectures and smoke.
+        \item Consider a polymer with $N=10$ Kuhn steps.
+        \item Now double the MW to $N=20$ Kuhn steps, still of the same length. This corresponds to the addition of the 10 orange Kuhn steps in Figure \ref{fig:GPCblobs}.
+        \item We could say that the orange part has its own mean squared end-to-end distance instead of looking at the whole polymer! In other words, we can split a single polymer into self-similar subsections called \textbf{blobs}.
+    \end{itemize}
+    \item Stuffing our polymer into a pore.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{GPCblobPore.jpg}
+        \caption{Polymer blobs in a pore.}
+        \label{fig:GPCblobPore}
+    \end{figure}
+    \begin{itemize}
+        \item If we stuff a small enough part of the total polymer into the pore, that blob doesn't know it's in a pore! This is because there's no conformational restriction to this blob on average.
+        \item Essentially, the polymer chain doesn't know about the pore on length scales $\leq D$.
+        \item Assume a blob has $g$ Kuhn steps. Let the blob size be equal to $D$. Then $D=g^{1/2}l_k$. It follows that
+        \begin{equation*}
+            g = \left( \frac{D}{l_k} \right)^2
+        \end{equation*}
+        \item Two important consequences of this.
+        \begin{itemize}
+            \item It follows that the number of blobs is $N/g$: The total number of Kuhn steps divided by the number of Kuhn steps per blob.
+            \item The energy pentalty per blob is $\kB T$, so the entropy penalty per blob is $\kB T/T=\kB$. This is the amount of freedom we're taking away by fixing the orientation between each blob.
+        \end{itemize}
+        \item Thus, the total entropic penalty is $(N/g)\cdot\kB$.
+        \item It follows by using some of the above substitutions that
+        \begin{equation*}
+            \Delta S_{pp} = -\frac{\kB Nl_k^2}{D^2}
+        \end{equation*}
+        \item But in the unconfined bulk, $\prb{R^2}=Nl_k^2$, so the change in entropy \emph{per polymer} is
+        \begin{equation*}
+            \Delta S_{pp} = -\frac{\kB\prb{R^2}}{D^2}
+        \end{equation*}
+        \item It follows that the change in entropy \emph{per mole} of polymer is
+        \begin{equation*}
+            \Delta\hat{S}_{pp} = -\frac{R\prb{R^2}}{D^2}
+        \end{equation*}
+        \begin{itemize}
+            \item Be careful here! $R$ denotes both the ideal gas constant and the end-to-end distance; which is which depends on context.
+        \end{itemize}
+        \item Thus,
+        \begin{equation*}
+            K = \exp(-\frac{\prb{R^2}}{D^2})
+        \end{equation*}
+    \end{itemize}
+    \item Most of the stuff in the slides reflects what we did above; Doyle does not go through it in any sort of depth.
+    \item Now how do we measure the molecular weight of the peaks? One common way is with standards.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{GPCstandards.png}
+        \caption{Calibrant response curves.}
+        \label{fig:GPCstandards}
+    \end{figure}
+    \begin{itemize}
+        \item Use essentially monodisperse GPC calibration standards that generate response curves between which you can interpolate.
+        \item Example: Malvern's standards.
+    \end{itemize}
+    \item An alternative method of measuring molecular weights: Universal calibration.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{GPCunivCalib.png}
+        \caption{Universal calibration curve.}
+        \label{fig:GPCunivCalib}
+    \end{figure}
+    \begin{itemize}
+        \item Recall that
+        \begin{equation*}
+            [\eta] \propto \frac{R_g^3}{M}
+            \propto \frac{V_H}{M}
+            \propto \frac{V_r}{M}
+        \end{equation*}
+        \begin{itemize}
+            \item Hence, the retention volume $V_r$ is proportional to $M[\eta]$.
+            \item It follows --- assuming that the proportionality between $M[\eta]$ and $V_r$ is independent of molecular structure --- that if two species have the same retention volume, they have the same value of $M[\eta]$. This is how we are able to generate Figure \ref{fig:GPCunivCalib}, which maps every polymer to the same $\log(M[\eta])$ value based only on its $V_r$.
+            \item We will now use this universal calibration curve to derive an unknown polymer's molar mass in terms of a known polymer's molar mass.
+        \end{itemize}
+        \item Recall from the Mark-Houwink model that $[\eta]=kM^a$.
+        \item Let some standard $s$ (with retention volume $V_r$, as measured by GPC) have Mark-Houwink parameters $k_s,a_s$. Then for the standard,
+        \begin{equation*}
+            ([\eta]M)_s = k_sM_s^{a_s}\cdot M_s = k_sM_s^{1+a_s}
+        \end{equation*}
+        \begin{itemize}
+            \item Similarly, for an unknown $u$ (with equal retention volume $V_r$, as measured by GPC), we can calculate
+            \begin{equation*}
+                ([\eta]M)_u = k_uM_u^{1+a_u}
+            \end{equation*}
+        \end{itemize}
+        \item But if the standard and unknown have the same retention volume, then
+        \begin{equation*}
+            k_sM_s^{1+a_s} = ([\eta]M)_s
+            = \text{const}\cdot V_r
+            = ([\eta]M)_u
+            = k_uM_u^{1+a_u}
+        \end{equation*}
+        and hence
+        \begin{equation*}
+            M_u = \left[ \frac{k_sM_s^{1+a_s}}{k_u} \right]^{\frac{1}{1+a_u}}
+        \end{equation*}
+        \begin{itemize}
+            \item We can look up $k_s,k_u,a_s,a_u$, and then we can convert (from one measurement of $M_s$) to $M_u$ without having to create a purpose-built calibration curve with multiple samples of $u$.
+        \end{itemize}
+    \end{itemize}
+    \item We now switch gears to osmometry, specifically membrane osmometry.
+    \item Membrane osmometry overview, as in a capillary membrane osmometer.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.33\linewidth]{membraneOsmometry.png}
+        \caption{Membrane osmometer.}
+        \label{fig:membraneOsmometry}
+    \end{figure}
+    \begin{itemize}
+        \item Pure solvent on one side of a membrane, polymer solution on the other side. The membrane is semipermeable, letting solvent through but not polymer.
+        \item Initially, you have solutions (open to atmosphere, and hence under constant pressure) of equal volume on both side of the membrane.
+        \item Entropy will cause the solvent to want to mix with the polymer, with solvent flowing until the chemical potentials are equal.
+    \end{itemize}
+    \item \textbf{Osmotic pressure}: A colligative property which depends only on the number of solute molecules in the solution. \emph{Denoted by} $\bm{\Pi}$.
+    \begin{itemize}
+        \item Your equilibrium is established when the chemical potential $\mu_1^\circ$ of the pure solvent is equal to that of the other one ($\mu_1$) plus a mechanical force.
+        \begin{equation*}
+            \mu_1^\circ = \mu_1+\underbrace{\int_{P_0}^{P_0+\Pi}\left( \pdv{\mu_1}{P} \right)\dd{P}}_\text{work term}
+        \end{equation*}
+        \item We now invoke a Maxwell relation.
+        \begin{align*}
+            \left( \pdv{\mu}{P} \right) = \pdv{P}(\pdv{G}{n_1})
+                = \pdv{n_1}(\pdv{G}{P})
+                = \pdv{V}{n_1}
+                = \bar{V}_1
+        \end{align*}
+        \begin{itemize}
+            \item This is based on $\dd{G}=V\dd{P}-T\dd{S}+\sum_i\mu_i\dd{n_i}$.
+            \item $\bar{V}_1$ is the partial molar volume of the solvent. It is a material property parameter.
+        \end{itemize}
+        \item It follows by evaluating the above integral that 
+        \begin{align*}
+            \mu_1^\circ &= \mu_1+\Pi\bar{V}_1\\
+            \mu_1-\mu_1^\circ &= -\Pi\bar{V}_1
+        \end{align*}
+        \begin{itemize}
+            \item The term on the right above is the \textbf{osmotic pressure}.
+        \end{itemize}
+    \end{itemize}
+    \item The full derivation is on the slides, but Doyle will not go through it.
+    \item We will now skip ahead to getting the Flory $\chi$ parameter.
+    \begin{itemize}
+        \item Just above, we derived an expression for $\mu_1-\mu_1^\circ$.
+        \item But recall from Lecture 2.2 the additional expression
+        \begin{equation*}
+            \mu_1-\mu_1^\circ = RT\left[ \ln\phi_1+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]
+        \end{equation*}
+        \item Additionally, recall that with a dilute polymer solution ($\phi_2<\phi_1$), we may obtain from the Taylor series expansion of $\ln(1-\phi_2)$ that
+        \begin{equation*}
+            \mu_1-\mu_1^\circ = RT\left[ -\frac{\phi_2}{N_2}+\left( \chi-\frac{1}{2} \right)\phi_2^2 \right]
+        \end{equation*}
+        \item Setting equal the two expressions, we obtain
+        \begin{align*}
+            RT\left[ -\frac{\phi_2}{N_2}+\left( \chi-\frac{1}{2} \right)\phi_2^2 \right] &= -\Pi\bar{V}_1
+        \end{align*}
+    \end{itemize}
+    \item Comments on the osmometry derivation.
+    \begin{itemize}
+        \item Some rearranging, and then putting it in terms of concentration.
+        \item Then the slope in a $\Pi/c$ vs. $c$ plot gives us $\chi$, via the following equation.
+        \begin{equation*}
+            \frac{\Pi}{c} = RT\left[ \frac{1}{M_n}+\left( \frac{1}{2}-\chi \right)\frac{V_1N_2^2}{M_n^2}\cdot c \right]
+        \end{equation*}
+        \begin{itemize}
+            \item This is the most important result, and main takeaway from osmometry theory.
+        \end{itemize}
+        \item We also get something analogous to the ideal gas law ($PV=nRT$ becomes $\Pi V=n_2RT$).
+        \item The virial expansion has an analogous osmotic pressure form. $A_1$ is related to the molecular weight; $A_2$ is related to $\chi$, the density, and some other things.
+        \item Takeaway: The full osmometry derivation is not testable material, but he would expect us to be able to bring in Flory-Huggins and work with limits of small/big $\phi$ to do the first couple of steps.
+    \end{itemize}
+    \item Last note on our osmometry theory: This theory works best when either (1) $\phi_2\ll\phi_1$ or (2) Flory-Huggins theory takes over in the melt case, i.e., $c>c^*$.
+    \begin{itemize}
+        \item So we want to be concentrated, but not too concentrated. "Thermodynamically concentrated but mathematically dilute."
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 9: Dynamics of Dilute Polymer Solutions}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
