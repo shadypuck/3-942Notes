@@ -1268,6 +1268,591 @@
 
 
 
+\section{Light Scattering}
+\begin{itemize}
+    \item \marginnote{10/16:}Lecture outline.
+    \begin{itemize}
+        \item The theory of light scattering.
+        \begin{itemize}
+            \item Context and geometry of the experimental setup.
+            \item Derivation of the scattering equation.
+        \end{itemize}
+        \item Experimental measurement of light scattering.
+        \begin{itemize}
+            \item Zimm plots.
+        \end{itemize}
+    \end{itemize}
+    \item Readings on light scattering.
+    \begin{itemize}
+        \item Chapter 8 in \textcite{bib:HiemenzLodge} is excellent.
+        \item \textcite[178-90]{bib:YoungLovell} is good.
+    \end{itemize}
+    \item Geometry of a light scattering apparatus.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\linewidth]{scatterGeo.png}
+        \caption{Light scattering geometry.}
+        \label{fig:scatterGeo}
+    \end{figure}
+    \begin{itemize}
+        \item The circle denotes our system of study.
+        \item Impinging upon this system, we have light of wavelength $\lambda$ and intensity $I_0$.
+        \item We want to understand how much light gets scattered out by the system, which we will measure using the square detector positioned at an angle $\theta$ from the incident light and distance $r$ from the system. The detector measures the intensity $I_\theta$ of the light scattered in its direction.
+        \item Based on this data, we build a \textbf{wavevector}.
+    \end{itemize}
+    \item \textbf{Wavevector}: A dimensionless scattering vector. \emph{Denoted by} $\bm{q}$. \emph{Given by}
+    \begin{equation*}
+        q := \frac{4\pi}{\lambda/n_o}\sin(\frac{\theta}{2})
+    \end{equation*}
+    \begin{itemize}
+        \item $n_o$ is the index of refraction of the medium. $n_o$, specifically, denotes that of a vacuum.
+    \end{itemize}
+    \item Types of light scattering.
+    \begin{itemize}
+        \item We are most interested in \textbf{small angle light scattering}.
+        \item Depending on the wavelength, there is also \textbf{small angle X-ray scattering} and \textbf{small angle neutron scattering}.
+    \end{itemize}
+    \item \textbf{Small angle light scattering}: An experiment measuring the scattering of longer wavelength light at small angles $\theta$, which arises from polarizability fluctuations $(\Delta\alpha)^2$. \emph{Also known as} \textbf{SALS}.
+    \item \textbf{Small angle X-ray scattering}: An experiment measuring the scattering of X-rays at small angles $\theta$, which arises from electron density variations $(\Delta\rho)^2$. \emph{Also known as} \textbf{SAXS}.
+    \item \textbf{Small angle neutron scattering}: An experiment measuring the scattering of neutrons at small angles $\theta$, which arises from neutron scattering length variations $(\Delta b)^2$. \emph{Also known as} \textbf{SANS}.
+    \item These three methods are governed by the \textbf{scattering equation}, which we will derive in the theoretical half of class today.
+    \item \textbf{Scattering equation}: The relationship between (a) the measured light scattering caused specifically by the polymers in a dilute solution and (b) the fundamental constants describing the experimental setup and the characteristics of said polymers. \emph{Given by}
+    \begin{equation*}
+        \frac{Kc}{\Delta R} = \frac{1}{P(\theta)}\left[ \frac{1}{\Mw}+2A_2c+\cdots \right]
+    \end{equation*}
+    \begin{itemize}
+        \item Variables to be aware of.
+        \begin{itemize}
+            \item $\Delta R(\theta,r)=R_\text{solution}-R_\text{solvent}$ is the excess scattering intensity measured at angle $\theta$, i.e., the additional scattering caused by the polymers in solution beyond that caused by the solvent.
+            \item $K$ is a bundle of optical constants that are invariant for a given experimental setup.
+            \begin{itemize}
+                \item We will derive the exact form of $K$ shortly.
+            \end{itemize}
+            \item $c$ is the polymer concentration in \si[per-mode=symbol]{\gram\per\liter}.
+            \item $P(\theta)$ is the particle scattering factor.
+            \begin{itemize}
+                \item It has something to do with molecular shape.
+            \end{itemize}
+            \item $\Mw$ is the molecular weight.
+            \begin{itemize}
+                \item Throughout much of the following derivation, we will use "$M$" since we will theoretically treat a monodisperse collection of polymers, as we have been in every other derivation so far.
+            \end{itemize}
+            \item $A_2$ is the 2nd virial coefficient.
+            \begin{equation*}
+                A_2 = \frac{\frac{1}{2}-\chi}{\rho_2^2\bar{V}_1}
+            \end{equation*}
+            \begin{itemize}
+                \item $\chi$ is the Flory $\chi$ parameter.
+                \item $\rho_2=M/\bar{V}_2$ is the density of component 2 (the polymer species) in grams per liter.
+                \item $\bar{V}_1$ is the (partial) molar volume of component 1 (the solvent).
+                \item Overall, $A_2$ gives information on the quality of the solvent.
+            \end{itemize}
+        \end{itemize}
+        \item Note that this equation relates to many of the properties we've been looking at characterizing!
+    \end{itemize}
+    \item How does SALS work?
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \footnotesize
+                \filldraw [draw=rex,fill=gray!20,thick] circle (6mm);
+                \draw [cyan,semithick] (-2,0) sin (0,1) cos (2,0);
+                \node [blx] at (-0.45,0.75) {$+$};
+                \node [blx] at (-0.15,0.75) {$+$};
+                \node [blx] at (0.15,0.75)  {$+$};
+                \node [blx] at (0.45,0.75)  {$+$};
+                \node [blx] at (-0.45,-0.75) {$-$};
+                \node [blx] at (-0.15,-0.75) {$-$};
+                \node [blx] at (0.15,-0.75)  {$-$};
+                \node [blx] at (0.45,-0.75)  {$-$};
+
+                \draw [|-|] (-0.6,-1.5)   -- node[below]{$d_p$} ++(1.2,0);
+                \draw [|-|] (-2,-2) -- node[below]{$\lambda/2$} ++(4,0);
+            \end{tikzpicture}
+            \caption{Time $t_1$.}
+            \label{fig:SALSpolara}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \footnotesize
+                \filldraw [draw=rex,fill=gray!20,thick] circle (6mm);
+                \draw [cyan,semithick] (-2,0) sin (0,-1) cos (2,0);
+                \node [blx] at (-0.45,0.75) {$-$};
+                \node [blx] at (-0.15,0.75) {$-$};
+                \node [blx] at (0.15,0.75)  {$-$};
+                \node [blx] at (0.45,0.75)  {$-$};
+                \node [blx] at (-0.45,-0.75) {$+$};
+                \node [blx] at (-0.15,-0.75) {$+$};
+                \node [blx] at (0.15,-0.75)  {$+$};
+                \node [blx] at (0.45,-0.75)  {$+$};
+
+                \draw [|-|] (-0.6,-1.5)   -- node[below]{$d_p$} ++(1.2,0);
+                \draw [|-|] (-2,-2) -- node[below]{$\lambda/2$} ++(4,0);
+            \end{tikzpicture}
+            \caption{Time $t_2$.}
+            \label{fig:SALSpolarb}
+        \end{subfigure}
+        \caption{Polarizability fluctuations in SALS.}
+        \label{fig:SALSpolar}
+    \end{figure}
+    \begin{itemize}
+        \item When light impinges upon a system, it subjects the system to a time-dependent electric field $E(t)$.
+        \item $E(t)$ then causes polarizability fluctuations.
+        \item In particular, if we have a very long wavelength relative to the diameter of the particles (i.e., $\lambda\gg d_p$), then when the electrical field points one direction (e.g., at time $t_1$), we will get one polarity of the substance. When we move to a time $t_2=t_1+\tau/2$ half a period $\tau$ later, the polarity flips.
+    \end{itemize}
+    \item We now begin deriving the scattering equation.
+    \item Let's start by analyzing the SALS caused by a dilute gas of small particles in a vacuum.
+    \begin{itemize}
+        \item Since we're considering SALS, we are in the $\lambda\gg d_p$ regime (as in Figure \ref{fig:SALSpolar}).
+        \item Each particle in our dilute gas acts like a \textbf{spherical antenna}, propatating waves out at the frequency at which its dipole is flipping.
+        \item Each particle's dipole changes as a function of time $t$ via
+        \begin{equation*}
+            \text{dipole}(t) = \alpha E(t)
+        \end{equation*}
+        \begin{itemize}
+            \item This means that the dipole depends on the polarizability $\alpha$ of the particle, and the electric field $E(t)$ induced by the incident light.
+        \end{itemize}
+        \item This type of scattering is called \textbf{Rayleigh scattering}, and the scattering produced by a single particle is described by the following equation.
+        \begin{equation*}
+            I_\theta = \frac{I_08\pi^4(1+\cos^2\theta)}{\lambda^4r^2}\alpha^2
+        \end{equation*}
+        \begin{itemize}
+            \item All variables here are the same as in Figure \ref{fig:scatterGeo}.
+            \item This equation reveals that $I_\theta\propto\lambda^{-4}$, so small wavelengths scatter much more than large wavelengths.
+            \item It is also important that $I_\theta\propto I_0$ and $I_\theta\propto\alpha^2$.
+        \end{itemize}
+        \item When we have more than one particle --- say $N$ particles in a total volume $V$ --- the total scattering intensity $I_\theta'$ goes as
+        \begin{equation*}
+            I_\theta' = \frac{N}{V}I_\theta
+        \end{equation*}
+        \begin{itemize}
+            \item Note that this equation relies on the assumption of a \emph{dilute} solution. Otherwise, we would need additional terms in concentration $N/V$ to account for \textbf{coherent scattering} and the resultant correlations among the centers of the molecules.
+        \end{itemize}
+    \end{itemize}
+    \item The Rayleigh scattering equation expresses $I_\theta$ in terms a series of observables ($I_0,\theta,\lambda,r$) and one molecular property ($\alpha$). As such, we will now seek to express $\alpha$ in terms of observables.
+    \item \textbf{Clausius-Mossotti equation}: The general equation relating the index of refraction to the polarizability of the molecules. \emph{Also known as} \textbf{Lorentz-Lorenz equation}. \emph{Given by}
+    \begin{equation*}
+        \frac{\varepsilon-\varepsilon_0}{\varepsilon+2\varepsilon_0} = \frac{4}{3}\pi\left( \frac{N}{V} \right)\alpha
+    \end{equation*}
+    \begin{itemize}
+        \item $\varepsilon/\varepsilon_0$ is the dielectric constant in a medium of interest.
+        \item $\varepsilon_0$ is the permittivity of a vacuum (from high school physics!).
+    \end{itemize}
+    \item In the dilute limit (i.e., $N/V\to 0$), we have that $\varepsilon\to\varepsilon_0$ and hence we may approximate the Clausius-Mossotti equation as follows.
+    \begin{align*}
+        % \frac{\varepsilon-\varepsilon_0}{\varepsilon+2\varepsilon_0} &= \frac{4}{3}\pi\left( \frac{N}{V} \right)\alpha\\
+        \frac{\varepsilon/\varepsilon_0-1}{\varepsilon/\varepsilon_0+2} &= \frac{4}{3}\pi\left( \frac{N}{V} \right)\alpha\\
+        \frac{\varepsilon/\varepsilon_0-1}{3} &\approx \frac{4}{3}\pi\left( \frac{N}{V} \right)\alpha\\
+        \frac{\varepsilon}{\varepsilon_0} &\approx 1+4\pi\left( \frac{N}{V} \right)\alpha
+    \end{align*}
+    \begin{itemize}
+        \item The idea here is that as $\varepsilon\to\varepsilon_0$, $\varepsilon/\varepsilon_0-1\to 0$. Thus, in the dilute limit, small changes in the numerator affect the equality far more than small changes in the denominator (which approaches the fixed value of 3).
+    \end{itemize}
+    \item Let's now relate the approximated Clausius-Mossotti equation to the index of refraction $n$ of our dilute gas of small particles in a vacuum.
+    \begin{itemize}
+        \item First off, this process will involve a series of approximations, so note that we will use "$=$" to denote relations that may not strictly be equality.
+        \item Since $\varepsilon/\varepsilon_0=n^2$, we have that
+        \begin{equation*}
+            n = \sqrt{1+\frac{4\pi\alpha N}{V}}
+        \end{equation*}
+        \item Additional complication: The dielectric constant $\varepsilon/\varepsilon_0$ depeonds on the frequency $\nu=c/\lambda$ at which the light-induced electric field is alternating.
+        \item In the dilute limit, we can assume a linear relationship with concentration $c\propto N/V$, and thus
+        \begin{equation*}
+            n = 1+c\cdot\dv{n}{c}
+        \end{equation*}
+        \item Thus,
+        \begin{equation*}
+            n^2 = \left( 1+c\cdot\dv{n}{c} \right)^2 = 1+2\left( \dv{n}{c} \right)c+\cdots
+        \end{equation*}
+        \item It follows by combining this expansion with the original approximation that
+        \begin{align*}
+            1+\frac{4\pi\alpha N}{V} &= 1+2c\cdot\dv{n}{c}\\
+            \alpha &= \frac{1}{2\pi}\frac{c\cdot \dv*{n}{c}}{N/V}
+        \end{align*}
+        \item This equation expresses $\alpha$ solely in terms of observables!
+    \end{itemize}
+    \item The above expression for $\alpha$ is very similar in the case of polymer-solvent solutions, but slightly different. It is worth taking a moment now to explain the changes necessary for polymer-solvent solutions before resuming our "dilute gas" model.
+    \begin{itemize}
+        \item Let $n_0$ denote the index of refraction of the solvent.
+        \item Then for a dilute polymer-solvent solution,
+        \begin{equation*}
+            n = n_0+\dv{n}{c}\cdot c
+        \end{equation*}
+        \item Thus, we have that
+        \begin{align*}
+            \frac{4\pi\alpha N}{V} &= 2n_0\left( \dv{n}{c} \right)c\\
+            \alpha &= \frac{1}{2\pi}\frac{cn_0\cdot \dv*{n}{c}}{N/V}
+        \end{align*}
+    \end{itemize}
+    \item While we were not interested in the polarizability, we \emph{are} interested in the molecular weight $M$ of the polymers. Thus, let's see if we can relate the light scattering observables to $M$.
+    \begin{itemize}
+        \item The scattering equation (dilute gas of small particles in a vacuum) at this point is as follows.
+        \begin{equation*}
+            \frac{I_\theta'}{I_0} = \left( \frac{N}{V} \right)\frac{8\pi^4(1+\cos^2\theta)}{\lambda^4r^2}\left( \frac{c\cdot\dv*{n}{c}}{2\pi N/V} \right)^2
+        \end{equation*}
+        \item We introduce $M$ by recalling that
+        \begin{align*}
+            \frac{N}{V} = \frac{c}{M}\cdot N_\text{A}
+        \end{align*}
+        \item Expanding and substituting this in, we obtain
+        \begin{equation*}
+            \frac{I_\theta'}{I_0} = \frac{2\pi^2(1+\cos^2\theta)c^2(\dv*{n}{c})^2}{\lambda^4r^2N/V}
+            = \frac{2\pi^2(1+\cos^2\theta)(\dv*{n}{c})^2Mc}{\lambda^4r^2N_\text{A}}
+        \end{equation*}
+    \end{itemize}
+    \item The above equation contains several parameters ($I_\theta',I_0,\theta,r$) which depend purely on the scattering geometry. We can combine these into the \textbf{Rayleigh ratio}, so as to obtain a relation between (a) a measure of the overall scattering obtained by our system and (b) intrinsic parameters describing our system.
+    \item \textbf{Rayleigh ratio}: The parameters in the scattering equation which depend on scattering geometry. \emph{Denoted by} $\bm{R}$. \emph{Given by}
+    \begin{equation*}
+        R := \frac{I_\theta'r^2}{I_0(1+\cos^2\theta)}
+    \end{equation*}
+    \item Plugging the Rayleigh ratio into the scattering equation gives
+    \begin{equation*}
+        R = \underbrace{\frac{2\pi^2(\dv*{n}{c})^2}{\lambda^4N_\text{A}}}_K\cdot Mc
+    \end{equation*}
+    \begin{itemize}
+        \item Every term in the optical constant $K$ is constant, provided we fix the wavelength $\lambda$.
+        \item This equation --- $R=KMc$ --- is foundational.
+        \item Note that, per our expression for $\alpha$ in a polymer-solvent solution, we have in this case that
+        \begin{equation*}
+            K = \frac{2\pi^2n_0^2(\dv*{n}{c})^2}{\lambda^4N_\text{A}}
+        \end{equation*}
+    \end{itemize}
+    \item From here through the rest of the derivation, what are we doing and how did we introduce $\prb{\delta c}^2$??
+    \item Scattering from fluctuations: Debye's idea.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{scatterFluct.png}
+        \caption{Fluctuations in concentration induce scattering.}
+        \label{fig:scatterFluct}
+    \end{figure}
+    \begin{itemize}
+        \item Let's bin various areas analogous to lattice theory. Some bins will have pure solvent, and others will have polymer per solvent.
+        \item On average, each cell has the same number of solvent molecules.
+        \begin{itemize}
+            \item But fluctuations in solvent density lead to weak scattering.
+        \end{itemize}
+        \item Fluctuations in the number of solute molecules (chains) will give rise to significant scattering.
+        \item The osmotic forces that try to bring solvent molecules into polymer "cells"...
+        \item Lastly, polymer chains are large and cannot be treated as point scatterers. Thus, $P(\theta)\neq 1$.
+    \end{itemize}
+    \item The features of excess scattering.
+    \begin{enumerate}
+        \item Because we have a solvent, we need to discard the Rayleigh ratio of the pure solvent. Thus, we define the \textbf{excess Rayleigh ratio}.
+        \item Remaining scattering arises from fluctuations in solute concentration. Namely, $\Delta R$ depends on $(\dv*{n}{c})^2$ and $\prb{(\delta c)^2}$, where the latter quantity is given by the \textbf{Einstein-Smoluchowski equation}.
+        \item Lastly, we should take into account how the Flory-Huggins osmotic pressure depends on different parameters, namely $\Mw$ and $\chi$. In particular, we get the left equation below which allows us to calculate the right derivative below.
+        \begin{align*}
+            \frac{\Pi}{RTc} &= \frac{1}{M}+\frac{\frac{1}{2}-\chi}{\bar{V}_1\rho_2^2} c+\cdots&
+            \pdv{\Pi}{c} &= RT\left[ \frac{1}{M}+2A_2c+\cdots \right]
+        \end{align*}
+    \end{enumerate}
+    \item \textbf{Excess Rayleigh ratio}: A measure of the additional scattering in a binary solution caused strictly by the polymers, in excess of the scattering caused by the solvent. \emph{Denoted by} $\bm{\Delta R}$. \emph{Given by}
+    \begin{equation*}
+        \Delta R := R_\text{solution}-R_\text{pure solvent}
+    \end{equation*}
+    \item \textbf{Einstein-Smoluchowski equation}: \emph{Given by}
+    \begin{equation*}
+        \prb{(\delta c)^2} = \frac{RTc}{\delta VN_\text{A}\cdot\pdv*{\Pi}{c}}
+    \end{equation*}
+    \item Putting everything together, we get
+    \begin{equation*}
+        \Delta R = \frac{2\pi^2n_0^2(\dv*{n}{c})^2c}{\lambda^4N_\text{A}\left( \frac{1}{M}+2A_2c+\cdots \right)}
+        = Kc\left( \frac{1}{M}+2A_2c+\cdots \right)^{-1}
+    \end{equation*}
+    \begin{itemize}
+        \item Note that when $A_2=0$, we recover $\Delta R=KMc$! This is another way of expressing the idea that in the theta condition, the scattering of a polymer-solvent solution is equivalent to that of an ideal gas in a solution.
+    \end{itemize}
+    \item Debye's feature 4: How do we account for polymers not being point scatterers?
+    \begin{itemize}
+        \item Let $P(\theta)$ denote a finite size chain scattering factor. It influences the scattering equation as follows.
+        \begin{equation*}
+            \Delta R = Kc\left( \frac{1}{M}+2A_2c+\cdots \right)^{-1}P(\theta)
+        \end{equation*}
+        \item What is the form of $P(\theta)$? Debye calculated in 1939 that for a Gaussian coil (i.e., ideal polymer obeying random walk Gaussian statistics),
+        \begin{equation*}
+            P(\theta) = \frac{2}{u^2}\left( u-1+\e[-u] \right)
+        \end{equation*}
+        where
+        \begin{equation*}
+            u = \underbrace{\left[ \frac{4\pi n_0}{\lambda}\sin(\frac{\theta}{2}) \right]^2}_{q^2}\prb{R_g^2}
+        \end{equation*}
+        \item $q$ is the same wavevector from earlier, but with $n_0$ instead of $n_o$.
+        \item In the limit of small $\theta$ (i.e., $u^{1/2}\ll 1$), a good approximation is
+        \begin{align*}
+            P(\theta) &\approx 1-\frac{u}{3}&
+            \frac{1}{P(\theta)} &\approx 1+\frac{u}{3}
+        \end{align*}
+    \end{itemize}
+    \item At this point, we can put together the original equation we wanted: For a SALS experiment in a general, dilute polymer-solvent solution (i.e., $P(\theta)\neq 1$, $A_2\neq 0\neq c_2$, and $u^{1/2}\ll 1$), we have
+    \begin{equation*}
+        \frac{Kc}{\Delta R} = \left( 1+\frac{u}{3} \right)\left( \frac{1}{M}+2A_2c+\cdots \right)
+        = \left[ 1+\frac{16\pi^2n_0^2}{3\lambda^2}\sin^2\left( \frac{\theta}{2} \right)\prb{R_g^2} \right]\left( \frac{1}{M}+2A_2c+\cdots \right)
+    \end{equation*}
+    \item We now look into how to experimentally extract $M,A_2,R_g$ by plotting scattered intensity vs. $c,q^2$.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{ZimmPlot.png}
+        \caption{Zimm plot features.}
+        \label{fig:ZimmPlot}
+    \end{figure}
+    \begin{itemize}
+        \item We typically collect scattered intensity at 8 angles: $\theta=\ang{30},\ang{37.5},\ang{45},\ang{60},\ang{75},\ang{90},\ang{105},\ang{120}$.
+        \item We collect this data for 5 solute concentrations, $c_1$ through $c_5$.
+        \item Referring to the master scattering equation just above: If $\theta\to\ang{0}$, the first term goes to 1 and we can get the second term's dependent variables ($A_2c$).
+        \begin{itemize}
+            \item Measuring $c$ through orthogonal means then gives us $A_2$.
+            \item Now, we cannot actually measure \emph{scattering} for $\theta=\ang{0}$ because of competition from transmission, so we measure for a series of positive values of $\theta$ and \emph{extrapolate} the data to \ang{0}.
+        \end{itemize}
+        \item Analogously, extrapolating $c_2\to 0$ gives us $\prb{R_g^2}$ (where we know $n_0,\lambda,\theta$ through orthogonal means, or because we're controlling them).
+        \item Note that in the actual plot, our dimensionless $x$-axis is $\sin^2(\theta/2)+kc$ (where $k$ is an arbitrary constant that neutralizes the units of $c$).
+    \end{itemize}
+    \item Structure of a typical data set.
+    \begin{table}[h!]
+        \centering
+        \small
+        \renewcommand{\arraystretch}{1.3}
+        \sisetup{text-series-to-math}
+        \begin{tabular}{|c|r|SSSSSSSS|}
+            \hline
+            \multicolumn{2}{|c|}{\multirow{2}{*}{}} & \multicolumn{8}{c|}{$\bm{\theta}$}\\
+            \cline{3-10}
+            \multicolumn{2}{|c|}{} & $\bm{30^\circ}$ & $\bm{37.5^\circ}$ & $\bm{45^\circ}$ & $\bm{60^\circ}$ & $\bm{75^\circ}$ & $\bm{90^\circ}$ & $\bm{105^\circ}$ & $\bm{120^\circ}$\\
+            \hline
+            \multirow{5}{*}{\textbf{$\bm{c}$ (\si[per-mode=symbol]{\gram\per\cubic\centi\meter})}} & \textbf{\num{2e-3}} & 3.18 & 3.26 & 3.25 & 3.45 & 3.56 & 3.72 & 3.78 & 4.01\\
+            & \textbf{\num{1.5e-3}} & 2.73 & 2.76 & 2.81 & 2.94 & 3.08 & 3.27 & 3.40 & 3.57\\
+            & \textbf{\num{1e-3}} & 2.29 & 2.33 & 2.37 & 2.53 & 2.66 & 2.85 & 2.96 & 3.12\\
+            & \textbf{\num{7.5e-4}} & 2.10 & 2.14 & 2.17 & 2.32 & 2.47 & 2.64 & 2.79 & 2.93\\
+            & \textbf{\num{5e-4}} & 1.92 & 1.95 & 1.98 & 2.16 & 2.33 & 2.51 & 2.66 & 2.79\\
+            \hline
+        \end{tabular}
+        \caption{Zimm plot sample data set.}
+        \label{tab:ZimmData}
+    \end{table}
+    \begin{itemize}
+        \item A 2D table of $40=8\times 5$ values of $Kc/\Delta R$, measured at 8 angles $\theta$ and 5 concentrations $c$.
+        \item Orthogonal measurements of $n_0,\dv*{n}{c},\lambda$.
+        \item Table \ref{tab:ZimmData} shows an example of a typical set.
+    \end{itemize}
+    \item From this data set, we can get extrapolate twice to get two new lines, that collectively will give us all our dependent varaibles ($A_2,M,\prb{R_g^2}$).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.48\linewidth}
+            \centering
+            \begin{tikzpicture}[xscale=5,yscale=2]
+                \small
+                \draw [-latex] (0,1) -- node[below=4.7mm]{$\sin^2(\theta/2)+kc$} ++(1.06,0);
+                \draw [-latex] (0,1) -- node[left=6mm]{$\dfrac{Kc}{\Delta R}$} ++(0,3.65);
+
+                \footnotesize
+                \foreach \x in {0.2,0.4,0.6,0.8,1.0} {
+                    \draw (\x,1.05) -- ++(0,-0.1) node[below]{$\x$};
+                }
+                \foreach \y in {1.5,2.0,2.5,3.0,3.5,4.0,4.5} {
+                    \draw (0.02,\y) -- ++(-0.04,0) node[left]{$\y$};
+                }
+
+                \draw [rex,thick] (0.067,1.47) node[fill,inner sep=1.5pt]{} -- (0.308,3.51) node[black,rotate=74,above right,yshift=-2pt]{\ang{30}};
+                \draw [rex,thick] (0.103,1.49) node[fill,inner sep=1.5pt]{} -- (0.34,3.55)  node[black,rotate=74,right]{\ang{37.5}};
+                \draw [rex,thick] (0.146,1.54) node[fill,inner sep=1.5pt]{} -- (0.391,3.62) node[black,rotate=74,below right,yshift=4pt]{\ang{45}};
+                \draw [rex,thick] (0.25,1.69)  node[fill,inner sep=1.5pt]{} -- (0.489,3.75) node[black,rotate=74,right]{\ang{60}};
+                \draw [rex,thick] (0.371,1.87) node[fill,inner sep=1.5pt]{} -- (0.619,3.92) node[black,rotate=74,right]{\ang{75}};
+                \draw [rex,thick] (0.5,2.05)   node[fill,inner sep=1.5pt]{} -- (0.749,4.1)  node[black,rotate=74,right]{\ang{90}};
+                \draw [rex,thick] (0.629,2.23) node[fill,inner sep=1.5pt]{} -- (0.898,4.29) node[black,rotate=74,right]{\ang{105}};
+                \draw [rex,thick] (0.75,2.33)  node[fill,inner sep=1.5pt]{} -- (1,4.43)     node[black,rotate=74,right]{\ang{120}};
+
+                \fill ({sin(30/2)^2+0.2}  ,3.18)    ellipse (0.24pt and 0.6pt) node[above left=0.5pt,fill=white,inner sep=1pt]{$(0.267,3.18)$};
+                \fill ({sin(30/2)^2+0.15} ,2.73)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.1}  ,2.29)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.075},2.10)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.05} ,1.92)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(37.5/2)^2+0.2}  ,3.26)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.15} ,2.76)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.1}  ,2.33)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.075},2.14)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.05} ,1.95)  ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(45/2)^2+0.2}  ,3.25)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.15} ,2.81)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.1}  ,2.37)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.075},2.17)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.05} ,1.98)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(60/2)^2+0.2}  ,3.45)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.15} ,2.94)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.1}  ,2.53)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.075},2.32)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.05} ,2.16)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(75/2)^2+0.2}  ,3.56)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.15} ,3.08)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.1}  ,2.66)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.075},2.47)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.05} ,2.33)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(90/2)^2+0.2}  ,3.72)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.15} ,3.27)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.1}  ,2.85)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.075},2.64)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.05} ,2.51)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(105/2)^2+0.2}  ,3.78)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.15} ,3.40)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.1}  ,2.96)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.075},2.79)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.05} ,2.66)   ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(120/2)^2+0.2}  ,4.01)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.15} ,3.57)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.1}  ,3.12)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.075},2.93)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.05} ,2.79)   ellipse (0.24pt and 0.6pt);
+            \end{tikzpicture}
+            \caption{Constant $\theta$.}
+            \label{fig:ZimmDataa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.48\linewidth}
+            \centering
+            \begin{tikzpicture}[xscale=5,yscale=2]
+                \small
+                \draw [-latex] (0,1) -- node[below=4.7mm]{$\sin^2(\theta/2)+kc$} ++(1.06,0);
+                \draw [-latex] (0,1) -- node[left=6mm]{$\dfrac{Kc}{\Delta R}$} ++(0,3.65);
+
+                \footnotesize
+                \foreach \x in {0.2,0.4,0.6,0.8,1.0} {
+                    \draw (\x,1.05) -- ++(0,-0.1) node[below]{$\x$};
+                }
+                \foreach \y in {1.5,2.0,2.5,3.0,3.5,4.0,4.5} {
+                    \draw (0.02,\y) -- ++(-0.04,0) node[left]{$\y$};
+                }
+
+                \draw [blx,thick] (0.2,3.12)   node[fill,inner sep=1.5pt]{} -- (1,4.04) node[black,right,yshift=2pt]{\num{2e-3}};
+                \draw [blx,thick] (0.15,2.64)  node[fill,inner sep=1.5pt]{} -- (1,3.69) node[black,right,yshift=2pt]{\num{1.5e-3}};
+                \draw [blx,thick] (0.1,2.21)   node[fill,inner sep=1.5pt]{} -- (1,3.31) node[black,right,yshift=2pt]{\num{1e-3}};
+                \draw [blx,thick] (0.075,2.01) node[fill,inner sep=1.5pt]{} -- (1,3.16) node[black,right,yshift=2pt]{\num{7.5e-4}};
+                \draw [blx,thick] (0.05,1.82)  node[fill,inner sep=1.5pt]{} -- (1,3.08) node[black,right,yshift=-2pt]{\num{5e-4}};
+
+                \fill ({sin(30/2)^2+0.2}  ,3.18)    ellipse (0.24pt and 0.6pt) node[above left=0.5pt,fill=white,inner sep=1pt]{$(0.267,3.18)$};
+                \fill ({sin(30/2)^2+0.15} ,2.73)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.1}  ,2.29)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.075},2.10)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(30/2)^2+0.05} ,1.92)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(37.5/2)^2+0.2}  ,3.26)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.15} ,2.76)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.1}  ,2.33)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.075},2.14)  ellipse (0.24pt and 0.6pt);
+                \fill ({sin(37.5/2)^2+0.05} ,1.95)  ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(45/2)^2+0.2}  ,3.25)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.15} ,2.81)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.1}  ,2.37)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.075},2.17)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(45/2)^2+0.05} ,1.98)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(60/2)^2+0.2}  ,3.45)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.15} ,2.94)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.1}  ,2.53)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.075},2.32)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(60/2)^2+0.05} ,2.16)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(75/2)^2+0.2}  ,3.56)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.15} ,3.08)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.1}  ,2.66)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.075},2.47)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(75/2)^2+0.05} ,2.33)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(90/2)^2+0.2}  ,3.72)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.15} ,3.27)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.1}  ,2.85)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.075},2.64)    ellipse (0.24pt and 0.6pt);
+                \fill ({sin(90/2)^2+0.05} ,2.51)    ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(105/2)^2+0.2}  ,3.78)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.15} ,3.40)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.1}  ,2.96)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.075},2.79)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(105/2)^2+0.05} ,2.66)   ellipse (0.24pt and 0.6pt);
+
+                \fill ({sin(120/2)^2+0.2}  ,4.01)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.15} ,3.57)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.1}  ,3.12)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.075},2.93)   ellipse (0.24pt and 0.6pt);
+                \fill ({sin(120/2)^2+0.05} ,2.79)   ellipse (0.24pt and 0.6pt);
+            \end{tikzpicture}
+            \caption{Constant $c$.}
+            \label{fig:ZimmDatab}
+        \end{subfigure}\\[2em]
+        \begin{subfigure}[b]{0.48\linewidth}
+            \centering
+            \begin{tikzpicture}[xscale=5,yscale=2]
+                \small
+                \draw [-latex] (0,1) -- node[below=4.7mm]{$\sin^2(\theta/2)+kc$} ++(1.06,0);
+                \draw [-latex] (0,1) -- node[left=6mm]{$\dfrac{Kc}{\Delta R}$} ++(0,2.65);
+
+                \footnotesize
+                \foreach \x in {0.2,0.4,0.6,0.8,1.0} {
+                    \draw (\x,1.05) -- ++(0,-0.1) node[below]{$\x$};
+                }
+                \foreach \y in {1.5,2.0,2.5,3.0,3.5} {
+                    \draw (0.02,\y) -- ++(-0.04,0) node[left]{$\y$};
+                }
+
+                \node [fill=white,inner sep=4pt] at (0,1.38) {};
+                \draw [grx,thick] (0,1.37) node[star,star point ratio=2.5,fill,inner sep=1.2pt]{} -- node[black,pos=0.45,below right=-2pt]{$\text{slope}=\text{const}\cdot\prb{R_g^2}$} (1,2.7);
+                \draw [grx,thick] (0,1.37) node[black,below left=-1pt]{$\left( 0,\frac{1}{M} \right)$} -- node[black,right]{$\text{slope}=2A_2$} (0.237,3.42);
+
+                \node [fill=rex,inner sep=1.5pt] at (0.067,1.47) {};
+                \node [fill=rex,inner sep=1.5pt] at (0.103,1.49) {};
+                \node [fill=rex,inner sep=1.5pt] at (0.146,1.54) {};
+                \node [fill=rex,inner sep=1.5pt] at (0.25,1.69)  {};
+                \node [fill=rex,inner sep=1.5pt] at (0.371,1.87) {};
+                \node [fill=rex,inner sep=1.5pt] at (0.5,2.05)   {};
+                \node [fill=rex,inner sep=1.5pt] at (0.629,2.23) {};
+                \node [fill=rex,inner sep=1.5pt] at (0.75,2.33)  {};
+                
+                \node [fill=blx,inner sep=1.5pt] at (0.2,3.12)   {};
+                \node [fill=blx,inner sep=1.5pt] at (0.15,2.64)  {};
+                \node [fill=blx,inner sep=1.5pt] at (0.1,2.21)   {};
+                \node [fill=blx,inner sep=1.5pt] at (0.075,2.01) {};
+                \node [fill=blx,inner sep=1.5pt] at (0.05,1.82)  {};
+            \end{tikzpicture}
+            \caption{Molecular characteristic determination.}
+            \label{fig:ZimmDatac}
+        \end{subfigure}
+        \caption{Example Zimm plots.}
+        \label{fig:ZimmData}
+    \end{figure}
+    \begin{itemize}
+        \item Setting $k=\SI[per-mode=symbol]{100}{\cubic\centi\meter\per\gram}$ will normalize the $x$-axis to a roughly 0-1 scale, so let's do that.
+        \begin{itemize}
+            \item Example calculation for a point: For $\theta=\ang{30}$ and $c=\num{2e-3}$, we have
+            \begin{equation*}
+                x = \sin^2\left( \frac{\ang{30}}{2} \right)+k\cdot\num{2e-3}
+                = 0.067+100\cdot\num{2e-3}
+                = 0.267
+            \end{equation*}
+        \end{itemize}
+        \item The circles in the plots of Figure \ref{fig:ZimmData} correspond to actual data points in Table \ref{tab:ZimmData}.
+        \item The lines corespond to best fit lines.
+        \begin{itemize}
+            \item In Figure \ref{fig:ZimmDataa}, lines correspond to constant $\theta$.
+            \item In Figure \ref{fig:ZimmDatab}, lines correspond to constant $c$.
+        \end{itemize}
+        \item The squares in the plots correspond to best-fit extrapolations to either $c=0$ (Figure \ref{fig:ZimmDataa}) or $\theta=\ang{0}$ (Figure \ref{fig:ZimmDatab}).
+        \item The slopes of the extrapolated lines are equal to $16\pi^2n_0^2\prb{R_g^2}/3\lambda^2$ (Figure \ref{fig:ZimmDataa}) or $2A_2$ (Figure \ref{fig:ZimmDatab}).
+        \item The extrapolated lines share a $y$-intercept, which is at $(0,M^{-1})$ per Figure \ref{fig:ZimmDatac}.
+    \end{itemize}
+    \item Remember that given the information from a Zimm plot, we can then use our previous formulas to obtain even more information!
+    \begin{itemize}
+        \item For example, if we know $\rho_2$ and $\bar{V}_1$, then we can use $A_2$ to calculate $\chi$ via the definition of the 2nd virial coefficient.
+    \end{itemize}
+\end{itemize}
+
+
+
 \section{Chapter 9: Dynamics of Dilute Polymer Solutions}
 \emph{From \textcite{bib:HiemenzLodge}.}
 \begin{itemize}
