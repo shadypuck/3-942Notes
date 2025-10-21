@@ -12,7 +12,7 @@
 \section{Dilute Solutions}
 \noindent Name: Steven Labalme\\
 \noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
-\noindent Collaborator(s): \emph{None}
+\noindent Collaborator(s): \emph{Isa Pan, Jordan Gray}
 \begin{enumerate}
     \item \marginnote{10/21:}(35 pts) Estimate, as a function of molecular weight, the characteristic diffusion time $\tau$ for a polymer in a solution of viscosity $\eta$, where $\tau$ is defined as
     \begin{equation*}
@@ -21,8 +21,49 @@
     where $R$ is the size of the polymer (function of $N$ and $l_k$) and $D$ is the diffusion coefficient (remember $D$ is different for different coil models). Determine $\tau$ for polymer coils in a theta-solvent for\dots
     \begin{enumerate}
         \item Freely-draining (Rouse-like) model;
+        \begin{proof}
+            Recall from class that in general,
+            \begin{align*}
+                R &= N^\nu l_k&
+                D_t &= \frac{\kB T}{f}
+            \end{align*}
+            Additionally, in the specific case of a theta solvent and free-draining model, we have respectively that
+            \begin{align*}
+                \nu &= \frac{1}{2}&
+                f &= N\xi^*
+            \end{align*}
+            Therefore,
+            \begin{align*}
+                \tau &= \frac{(N^{1/2}l_k)^2}{\kB T/N\xi^*}\\
+                \Aboxed{\tau &= \frac{N^2l_k^2\xi^*}{\kB T}}
+            \end{align*}
+        \end{proof}
         \item Non-draining (Zimm-like) model.
+        \begin{proof}
+            Everything from Q1a holds except that we are now in a non-draining regime, so $f\neq N\xi^*$ but rather
+            \begin{equation*}
+                f = 6\pi\eta R_H
+            \end{equation*}
+            Additionally, we have in general that
+            \begin{equation*}
+                R_H = \gamma R_g = \frac{\gamma R}{\sqrt{6}}
+            \end{equation*}
+            Therefore,
+            \begin{align*}
+                \tau &= \frac{R^2}{\kB T/(6\pi\eta\gamma R/\sqrt{6})}\\
+                \Aboxed{\tau &= \frac{\sqrt{6}\pi N^{3/2}l_k^3\eta\gamma}{\kB T}}
+            \end{align*}
+        \end{proof}
+        \pagebreak
         \item You are performing a GPC packed with beads with diameter \SI{5}{\micro\meter}. Estimate the time for a DNA molecule with $D=\SI[per-mode=symbol]{0.01}{\micro\meter\squared\per\second}$ to diffuse a distance equal to a bead diameter.
+        \begin{proof}
+            We want to find the time $\tau$ it takes for diffusion to displace a polymer with $D=\SI[per-mode=symbol]{0.01}{\micro\meter\squared\per\second}$ by $\Delta r=\SI{5}{\micro\meter}$. Per class,
+            \begin{align*}
+                \prb{\Delta r^2} &= 6D\tau\\
+                \tau &= \frac{(\SI{5}{\micro\meter})^2}{6(\SI{0.01}{\micro\meter\squared\per\second})}\\
+                \Aboxed{\tau &\approx \SI{417}{\second}}
+            \end{align*}
+        \end{proof}
     \end{enumerate}
     \item (30 pts) Ultracentrifugation is a means to separate polymers. The same is placed in a tube and spun quickly to exert a centrifugual force on the solution. Three main forces on a polymer molecule are
     \begin{align*}
@@ -33,14 +74,64 @@
     where $m$ is the mass of a single polymer, $\omega$ is the angular speed of the centrifuge, $r$ is the stator arm of the centrifuge, $m_0$ is the mass of fluid displaced by the polymer (given by $m_0=m\rho v$), $v$ is the partial specific volume of a polymer, $\rho$ is the solvent density, $\zeta$ is the drag on the polymer, and $U$ is the speed at which the polymer moves.
     \begin{enumerate}
         \item Assuming the polymer has reached its terminal velocity (constant velocity, sum of forces equal zero), calculate the velocity $U$ as a function of $\omega,r,v,\zeta,\rho,M,N_\text{A}$, where $M$ is the molar mass of the polymer and $N_\text{A}$ is Avogadro's number.
+        \begin{proof}
+            By the definition of molar mass,
+            \begin{equation*}
+                M = mN_\text{A}
+            \end{equation*}
+            Thus, since the polymer has no net force acting on it, we have by Newton's second law that
+            \begin{align*}
+                0 &= F_s+F_b+F_d\\
+                &= m\omega^2r-m_0\omega^2r-\zeta U\\
+                &= \frac{M}{N_\text{A}}\cdot\omega^2r-\frac{M}{N_\text{A}}\cdot\rho v\omega^2r-\zeta U\\
+                \Aboxed{U &= \frac{M\omega^2r}{N_\text{A}\zeta}(1-\rho v)}
+            \end{align*}
+        \end{proof}
         \item Calculate how $U$ scales with $M$ for a flexible polymer in a theta solvent. \emph{Hint}: Don't forget that $\zeta(M)$! Also, $v$ is not a function of $M$.
+        \begin{proof}
+            For an impenetrable sphere (which is how a flexible polymer would behave in a theta solvent), we have from class that $\zeta\propto R_H\propto R_g\propto R\propto N^\nu$. Since $N\propto M$ and $\nu=1/2$ in a theta solvent, it follows that $\zeta\propto M^{1/2}$. Thus, in the context of the above equation, $U\propto M/M^{1/2}$, or
+            \begin{equation*}
+                \boxed{U \propto M^{1/2}}
+            \end{equation*}
+        \end{proof}
     \end{enumerate}
     \item (35 pts) This problem will explore viscometry of polymer solutions and data obtained from \textcite{bib:viscometerInt} in their microfluidic rheometer, discussed in Lecture 11.
     \begin{enumerate}
         \item The authors measure an intrinsic viscosity of a polyethylene glycol solution to be \SI[per-mode=symbol]{44.6}{\milli\liter\per\gram}. The MW of the polymer is \SI[per-mode=symbol]{35000}{\gram\per\mole}. Estimate the radius of gyration of the molecule assuming a good solvent. Please use the experimental value of $\gamma$ from the Lecture 10 slides.
+        \begin{proof}
+            From the Lecture 10 slides, $\gamma=1.5$ for a linear, monodisperse polymer in a good solvent. PEG tends to be linear, hence that selection, and there is no other provided experimental $\gamma$ value for a linear polymer, so I believe I have to assume it's monodisperse?? Thus, based on our theory from class,
+            \begin{align*}
+                \prb{R_g^2}^{1/2} &= \sqrt[3]{\frac{3M[\eta]}{10\pi N_\text{A}\gamma^3}}\\
+                &= \sqrt[3]{\frac{3(\SI{35000}{\gram\per\mole})(\SI{44.6}{\milli\liter\per\gram})}{10\pi(\SI{6.02e23}{\per\mole})(1/1.5)^3}}\\
+                \Aboxed{\prb{R_g^2}^{1/2} &\approx \SI{9.4}{\nano\meter}}
+            \end{align*}
+        \end{proof}
         \item What is your estimate for the overlap concentration $c^*$ for this polymer?
+        \begin{proof}
+            From class, we have that
+            \begin{align*}
+                c^* &= \frac{2.5}{[\eta]}\\
+                &= \frac{2.5}{\SI{44.6}{\milli\liter\per\gram}}\\
+                \Aboxed{c^* &\approx \SI[per-mode=symbol]{5.6e-2}{\gram\per\milli\liter}}
+            \end{align*}
+        \end{proof}
         \item Assuming the solvent has a viscosity of \SI{1.1}{\pascal\second}, calculate the viscosity of the polymer solution at $c=c^*/2$.
+        \begin{proof}
+            From class, the approximation of $\eta$ in terms of $[\eta]$ to one term is
+            \begin{align*}
+                \eta &= \eta_s\left( 1+c\cdot[\eta] \right)\\
+                &= (\SI{1.1}{\pascal\second})\left[ 1+\frac{1}{2}(\SI{0.056}{\gram\per\milli\liter})(\SI{44.6}{\milli\liter\per\gram}) \right]\\
+                \Aboxed{\eta &= \SI{2.5}{\pascal\second}}
+            \end{align*}
+        \end{proof}
         \item The authors measured the intrinsic viscosity of the $\text{MW}=\SI[per-mode=symbol]{10000}{\gram\per\mole}$ sample in water to be \SI[per-mode=symbol]{11.9}{\milli\gram\per\milli\liter} and in a water/methanol mixture to be \SI[per-mode=symbol]{22.3}{\milli\gram\per\milli\liter}. What can you conclude about the relative solvent quality of these solvents?
+        \begin{proof}
+            From class, intrinsic viscosity obeys the following proportionality.
+            \begin{equation*}
+                [\eta] \propto M^{3\nu-1}
+            \end{equation*}
+            Thus, if the intrinsic viscosity is higher in the water/methanol mixture, $\nu$ must be higher for this solvent as well. Therefore, \fbox{water/methanol is a better solvent than water.}
+        \end{proof}
     \end{enumerate}
 \end{enumerate}
 
