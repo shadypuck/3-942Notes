@@ -375,14 +375,14 @@
     \begin{itemize}
         \item The prefactor $\gamma$ in
         \begin{equation*}
-            R_g = \gamma R_H
+            R_H = \gamma R_g
         \end{equation*}
         is on the order of 1.
         \begin{itemize}
             \item The above equation is really important! We will use it later today.
         \end{itemize}
         \item Recall that $R_H$ is related to a hydrodynamic interaction tensor??
-        \item Note that $\gamma=R_g/R_H$ converges to 1 (middle-right column in Table \ref{tab:RgRH}) as the number of arms on a polymer increases because, as you get more arms, you do just start to look like a sphere.
+        \item Note that $R_g/R_H=\gamma^{-1}$ converges to 1 (middle-right column in Table \ref{tab:RgRH}) as the number of arms on a polymer increases because, as you get more arms, you do just start to look like a sphere.
         \item \textcite{bib:RubinsteinColby} has some good explanations on this; Table \ref{tab:RgRH} is also its "Table 8.4."
     \end{itemize}
     \item For the rest of class, we focus on viscosity. We'll get as far into this topic as we can toay, and then we'll carry on next time.
@@ -1404,7 +1404,7 @@
         \item In particular, if we have a very long wavelength relative to the diameter of the particles (i.e., $\lambda\gg d_p$), then when the electrical field points one direction (e.g., at time $t_1$), we will get one polarity of the substance. When we move to a time $t_2=t_1+\tau/2$ half a period $\tau$ later, the polarity flips.
     \end{itemize}
     \item We now begin deriving the scattering equation.
-    \item Let's start by analyzing the SALS caused by a dilute gas of small particles in a vacuum.
+    \item Let's start by analyzing the SALS caused by a dilute gas of small particles in a vacuum. The results of this derivation are also applicable to small molecules to low-weight oligomers in solution!
     \begin{itemize}
         \item Since we're considering SALS, we are in the $\lambda\gg d_p$ regime (as in Figure \ref{fig:SALSpolar}).
         \item Each particle in our dilute gas acts like a \textbf{spherical antenna}, propatating waves out at the frequency at which its dipole is flipping.
@@ -1474,19 +1474,19 @@
         \end{align*}
         \item This equation expresses $\alpha$ solely in terms of observables!
     \end{itemize}
-    \item The above expression for $\alpha$ is very similar in the case of polymer-solvent solutions, but slightly different. It is worth taking a moment now to explain the changes necessary for polymer-solvent solutions before resuming our "dilute gas" model.
-    \begin{itemize}
-        \item Let $n_0$ denote the index of refraction of the solvent.
-        \item Then for a dilute polymer-solvent solution,
-        \begin{equation*}
-            n = n_0+\dv{n}{c}\cdot c
-        \end{equation*}
-        \item Thus, we have that
-        \begin{align*}
-            \frac{4\pi\alpha N}{V} &= 2n_0\left( \dv{n}{c} \right)c\\
-            \alpha &= \frac{1}{2\pi}\frac{cn_0\cdot \dv*{n}{c}}{N/V}
-        \end{align*}
-    \end{itemize}
+    % \item The above expression for $\alpha$ is very similar in the case of polymer-solvent solutions, but slightly different. It is worth taking a moment now to explain the changes necessary for polymer-solvent solutions before resuming our "dilute gas" model.
+    % \begin{itemize}
+    %     \item Let $n_0$ denote the index of refraction of the solvent.
+    %     \item Then for a dilute polymer-solvent solution,
+    %     \begin{equation*}
+    %         n = n_0+\dv{n}{c}\cdot c
+    %     \end{equation*}
+    %     \item Thus, we have that
+    %     \begin{align*}
+    %         \frac{4\pi\alpha N}{V} &= 2n_0\left( \dv{n}{c} \right)c\\
+    %         \alpha &= \frac{1}{2\pi}\frac{cn_0\cdot \dv*{n}{c}}{N/V}
+    %     \end{align*}
+    % \end{itemize}
     \item While we were not interested in the polarizability, we \emph{are} interested in the molecular weight $M$ of the polymers. Thus, let's see if we can relate the light scattering observables to $M$.
     \begin{itemize}
         \item The scattering equation (dilute gas of small particles in a vacuum) at this point is as follows.
@@ -1514,54 +1514,99 @@
     \end{equation*}
     \begin{itemize}
         \item Every term in the optical constant $K$ is constant, provided we fix the wavelength $\lambda$.
-        \item This equation --- $R=KMc$ --- is foundational.
-        \item Note that, per our expression for $\alpha$ in a polymer-solvent solution, we have in this case that
+        \item This equation --- $R=KMc$ --- is the foundational descriptor of scattering in a solution of small molecules to oligomers.
+        \item For reasons we will explain momentarily, in a polymer-solvent solution we have an additional $n_0^2$ factor, as follows.
         \begin{equation*}
             K = \frac{2\pi^2n_0^2(\dv*{n}{c})^2}{\lambda^4N_\text{A}}
         \end{equation*}
     \end{itemize}
-    \item From here through the rest of the derivation, what are we doing and how did we introduce $\prb{\delta c}^2$??
-    \item Scattering from fluctuations: Debye's idea.
+    \item We now begin analyzing a polymer-solvent solution.
+    \begin{itemize}
+        \item To do so, we will go back to the Rayleigh scattering equation (which still holds) and find $\alpha$ in terms of our polymer-solution parameters insted of dilute gas parameters.
+    \end{itemize}
+    \item Debye figured out how to treat the polymer-solution case. In particular, he observed four key features of such solutions.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.6\linewidth]{scatterFluct.png}
         \caption{Fluctuations in concentration induce scattering.}
         \label{fig:scatterFluct}
     \end{figure}
-    \begin{itemize}
-        \item Let's bin various areas analogous to lattice theory. Some bins will have pure solvent, and others will have polymer per solvent.
-        \item On average, each cell has the same number of solvent molecules.
-        \begin{itemize}
-            \item But fluctuations in solvent density lead to weak scattering.
-        \end{itemize}
-        \item Fluctuations in the number of solute molecules (chains) will give rise to significant scattering.
-        \item The osmotic forces that try to bring solvent molecules into polymer "cells"...
-        \item Lastly, polymer chains are large and cannot be treated as point scatterers. Thus, $P(\theta)\neq 1$.
-    \end{itemize}
-    \item The features of excess scattering.
     \begin{enumerate}
         \item Because we have a solvent, we need to discard the Rayleigh ratio of the pure solvent. Thus, we define the \textbf{excess Rayleigh ratio}.
+        \begin{itemize}
+            \item How does a solvent induce scattering?
+            \begin{itemize}
+                \item If the solvent molecules were distributed equally everywhere, scattered light from all the tightly packed particles would interfere and cancel out (think destructive interference of waves).
+                \item However, solvent molecules are \emph{not} distributed equally.
+                \item To quantify these changes in distribution, let's divide the volume of our solution into bins of volume $\delta V$ as in Figure \ref{fig:scatterFluct}. Some of these bins will have pure solvent, and some will have bits of polymer.
+                \item On average, each bin will have the same number of solvent molecules. However, fluctuations in solvent density give some regions higher or lower numbers. These fluctuations lead to weak scattering.
+            \end{itemize}
+            \item Beyond random fluctuations in solvent concentration, polymer solutes induce \emph{additional} inequalities in solvent distribution!
+            \begin{itemize}
+                \item This is an osmotic pressure effect. Indeed, even when the membrane is an imaginary "bin," solvent molecules will prefer to move into bins with more polymer.
+            \end{itemize}
+        \end{itemize}
         \item Remaining scattering arises from fluctuations in solute concentration. Namely, $\Delta R$ depends on $(\dv*{n}{c})^2$ and $\prb{(\delta c)^2}$, where the latter quantity is given by the \textbf{Einstein-Smoluchowski equation}.
-        \item Lastly, we should take into account how the Flory-Huggins osmotic pressure depends on different parameters, namely $\Mw$ and $\chi$. In particular, we get the left equation below which allows us to calculate the right derivative below.
+        \begin{itemize}
+            \item Just like osmotic pressure creates inequalities in solvent concentration, it creates inequalities in solute (polymer) concentration. Such fluctuations in polymer concnetration give rise to significant scattering.
+            \item The Einstein-Smoluchowski equation, then, is what we use to quantify the fluctuations $\delta c$ in solute concentration as a function of osmotic presssure ($\Pi$) effects.
+        \end{itemize}
+        \item To relate the quantities in the Einstein-Smoluchowski equation to polymer parameters we care about (e.g., $\Mw$ and $\chi$), we can use the main osmometry result from Lecture 3.4 (restated at left below). This equation in turn allows us to calculate the derivative at right below.
         \begin{align*}
             \frac{\Pi}{RTc} &= \frac{1}{M}+\frac{\frac{1}{2}-\chi}{\bar{V}_1\rho_2^2} c+\cdots&
             \pdv{\Pi}{c} &= RT\left[ \frac{1}{M}+2A_2c+\cdots \right]
         \end{align*}
+        \item Polymer chains are large and cannot be treated as point scatterers.
+        \begin{itemize}
+            \item In other words, we are now in the $\lambda\approx d_p$ regime, and we can no longer consider the light-induced electric field to be homogeneous over the entire volume of the polymer.
+            \item Thus, we need a scalar correction $P(\theta)\neq 1$ to $R=KMc$.
+            \item We will explore the form of $P(\theta)$ further below.
+        \end{itemize}
     \end{enumerate}
     \item \textbf{Excess Rayleigh ratio}: A measure of the additional scattering in a binary solution caused strictly by the polymers, in excess of the scattering caused by the solvent. \emph{Denoted by} $\bm{\Delta R}$. \emph{Given by}
     \begin{equation*}
         \Delta R := R_\text{solution}-R_\text{pure solvent}
     \end{equation*}
-    \item \textbf{Einstein-Smoluchowski equation}: \emph{Given by}
+    \item \textbf{Einstein-Smoluchowski equation}. \emph{Given by}
     \begin{equation*}
         \prb{(\delta c)^2} = \frac{RTc}{\delta VN_\text{A}\cdot\pdv*{\Pi}{c}}
     \end{equation*}
-    \item Putting everything together, we get
-    \begin{equation*}
-        \Delta R = \frac{2\pi^2n_0^2(\dv*{n}{c})^2c}{\lambda^4N_\text{A}\left( \frac{1}{M}+2A_2c+\cdots \right)}
-        = Kc\left( \frac{1}{M}+2A_2c+\cdots \right)^{-1}
-    \end{equation*}
     \begin{itemize}
+        \item Note that relations of the above type between concentration fluctuations and osmotic pressure are far more general than just the polymer-solvent solution case; the above form is just one special case of it.
+    \end{itemize}
+    \item We are now ready to put everything together.
+    \begin{itemize}
+        \item The equation for Rayleigh scattering still largely holds in this case. We restate it for reference.
+        \begin{equation*}
+            I_\theta = \frac{I_08\pi^4(1+\cos^2\theta)}{\lambda^4r^2}\alpha^2
+        \end{equation*}
+        \item We do not have $N$ particles in a volume $V$ this time, but rather $N$ "bins" in a volume $V$, each of volume $\delta V$. Thus, the total scattering intensity is
+        \begin{align*}
+            I_\theta' &= \frac{N}{V}\cdot I_\theta\\
+            &= \frac{1}{\delta V}\cdot\frac{I_08\pi^4(1+\cos^2\theta)}{\lambda^4r^2}\alpha^2\\
+            \underbrace{\frac{I_\theta'r^2}{I_0(1+\cos^2\theta)}}_R &= \frac{8\pi^4}{\delta V\lambda^4}\alpha^2
+        \end{align*}
+        \item As discussed, the excess Rayleigh ratio (what we observe) is related to fluctuations in the polarizability. This means that we transform the above equation into
+        \begin{equation*}
+            \Delta R = \frac{8\pi^4}{\delta V\lambda^4}\prb{(\delta\alpha)^2}
+        \end{equation*}
+        \item Analogously to our equation for $\alpha$ in a dilute gas (left equation below for reference), we postulate the new expression on the right below for the polymer-solvent case.
+        \begin{align*}
+            \alpha &= \frac{1}{2\pi}\frac{\dv*{n}{c}}{N/V}c&
+            \prb{(\delta\alpha)^2} &= \left( \frac{1}{2\pi}\frac{n_0\cdot\dv*{n}{c}}{1/\delta V} \right)^2\prb{(\delta c)^2}
+        \end{align*}
+        \item Thus,
+        \begin{equation*}
+            \Delta R = \frac{8\pi^4}{\delta V\lambda^4}\cdot\frac{n_0^2(\dv*{n}{c})^2\delta V^2}{4\pi^2}\prb{(\delta c)^2}
+            = \frac{2\pi^2n_0^2(\dv*{n}{c})^2}{\lambda^4}\cdot\delta V\prb{(\delta c)^2}
+        \end{equation*}
+        \item We can now use the Einstein-Smoluchowski equation, and the osmotic pressure derivative.
+        \begin{align*}
+            \Delta R &= \frac{2\pi^2n_0^2(\dv*{n}{c})^2}{\lambda^4}\cdot\frac{RTc}{N_\text{A}}\left( \pdv{\Pi}{c} \right)^{-1}\\
+            &= \frac{2\pi^2n_0^2(\dv*{n}{c})^2}{\lambda^4}\cdot\frac{RTc}{N_\text{A}}\left[ RT\left( \frac{1}{M}+2A_2c+\cdots \right) \right]^{-1}\\
+            &= \frac{2\pi^2n_0^2(\dv*{n}{c})^2c}{N_\text{A}\lambda^4}\left( \frac{1}{M}+2A_2c+\cdots \right)^{-1}\\
+            &= Kc\left( \frac{1}{M}+2A_2c+\cdots \right)^{-1}
+        \end{align*}
         \item Note that when $A_2=0$, we recover $\Delta R=KMc$! This is another way of expressing the idea that in the theta condition, the scattering of a polymer-solvent solution is equivalent to that of an ideal gas in a solution.
     \end{itemize}
     \item Debye's feature 4: How do we account for polymers not being point scatterers?
@@ -1632,6 +1677,10 @@
     \end{table}
     \begin{itemize}
         \item A 2D table of $40=8\times 5$ values of $Kc/\Delta R$, measured at 8 angles $\theta$ and 5 concentrations $c$.
+        \begin{itemize}
+            \item You may observe that some of these angles are not exactly "small." However, this is ok because while the small angle approximation was necessary to do the derivation, it turns out that the result we derived is only at most 10\% off from the actual relationship at large angles!
+            \item In other words, our scattering equation is still empirically useful, \emph{even} at large $\theta$.
+        \end{itemize}
         \item Orthogonal measurements of $n_0,\dv*{n}{c},\lambda$.
         \item Table \ref{tab:ZimmData} shows an example of a typical set.
     \end{itemize}
@@ -1848,6 +1897,23 @@
     \item Remember that given the information from a Zimm plot, we can then use our previous formulas to obtain even more information!
     \begin{itemize}
         \item For example, if we know $\rho_2$ and $\bar{V}_1$, then we can use $A_2$ to calculate $\chi$ via the definition of the 2nd virial coefficient.
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Office Hours (Alexander-Katz)}
+\begin{itemize}
+    \item \marginnote{10/21:}PSet 2, Q5.
+    \begin{itemize}
+        \item Without excluded volume, we consider just the stretching induced by closeness. This brush could exist in a vacuum or theta solvent.
+        \item With excluded volume, we consider the volume to be already reduced by the volume of the chain. This brush \emph{must} be in a good or bad solvent; something where excluded volume effects matter.
+        \item I forgot to address my concerns about the $HD^2=Na^3$ substitution that renders one of the balancing terms a constant. It seems that Alfredo forgot about this complicating factor and solved the problem without it. I think he may also be solving something of a different problem in general than the one explicitly asked for by the PSet.
+    \end{itemize}
+    \item End of the light scattering derivation.
+    \begin{itemize}
+        \item See the additional notes on Canvas.
+        \item The core idea is that Rayleigh scattering is foundational for all particles, but small molecules and oligomers in solution can be approximated with an $\alpha$ for a dilute gas while polymers need a $\prb{(\delta\alpha)^2}$.
     \end{itemize}
 \end{itemize}
 
