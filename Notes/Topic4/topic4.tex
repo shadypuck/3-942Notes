@@ -1,0 +1,379 @@
+\documentclass[../notes.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter\ (#1)}{}}
+\setcounter{chapter}{3}
+
+\begin{document}
+
+
+
+
+\chapter{Networks}
+\section{Rubber Elasticity}
+\begin{itemize}
+    \item \marginnote{10/21:}Announcements.
+    \begin{itemize}
+        \item Quiz 1 solutions posted to Canvas.
+        \item Ask Alfredo if you have any questions about the light scattering lecture.
+        \item 2014 lecture notes are now visible on Canvas for most of the lectures in the course!
+    \end{itemize}
+    \item Overview of Topic 4 (by day).
+    \begin{itemize}
+        \item Today: Rubbers and networks.
+        \item Next class: Gels.
+        \item The following class (as time permits): More on networks or gels.
+    \end{itemize}
+    \item \textbf{Rubber}: A network of crosslinked chains.
+    \begin{itemize}
+        \item The crosslinked chains take many forms: You can have \textbf{topological crosslinks}, \textbf{loops}, \textbf{dangling ends}, etc.
+        \item Example rubber: A rubber band. Recall that when you heat a rubber band, it tightens up. Today, we will explain this in terms of increasing the entropic spring force!
+    \end{itemize}
+    \item \textbf{Topological crosslinks}: Two chains that add integrity to the network by looping around each other mechanically, rather than being covalently bonded.
+    \item \textbf{Loop}: A chain that connects back with itself without introducing any classical or topological crosslinks, and thus does not carry stress.
+    \item \textbf{Dangling ends}: A chain strand in a network that does not bond (classically or mechanically) to any other chain or itself, and thus does not carry stress.
+    \item Recall from Lecture 1: Chich\'{e}n Ita\'{a} (ancient Mayan place) and natural rubber basquetbol.
+    \begin{itemize}
+        \item There were no hoops in this game; rather players tried to get the ball into very small holes in a big wall.
+        \item Such a tight-fitting target would have necessitated the rubber be crosslinked.
+    \end{itemize}
+    \item \textbf{Deformation}: A change in the shape of a polymer, without changing the overall volume.
+    \item \textbf{Swelling}: Enlarging a polymer network by mixing in a solvent and seeing the resulting increase in volume.
+    \begin{itemize}
+        \item Swelling creates a \textbf{gel}, the topic of next lecture!
+    \end{itemize}
+    \item Rubber elasticity assumptions.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{rubberAssumea.JPG}
+            \caption{Chain slip.}
+            \label{fig:rubberAssumea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{rubberAssumeb.png}
+            \caption{Affine deformation.}
+            \label{fig:rubberAssumeb}
+        \end{subfigure}
+        \caption{Rubber elasticity assumptions.}
+        \label{fig:rubberAssume}
+    \end{figure}
+    \begin{enumerate}
+        \item The chains are Gaussian between the permanent crosslinks, and there are no excluded volume effects.
+        \begin{itemize}
+            \item It follows that enthalpy/energy considerations are not important, i.e., $U=H=0$.
+            \item Thus, basically, $\Delta G\propto\lambda^2/Nb^2$.
+        \end{itemize}
+        \item The temperature is well above $T_g$, so no freezing or crystallization occurs.
+        \begin{itemize}
+            \item We're living in a liquid state.
+        \end{itemize}
+        \item The chains are flexible, with relatively low backbone bond rotation potential barriers.
+        \begin{itemize}
+            \item Changing $\phi$ from the symmetric hindered rotations model is easy.
+        \end{itemize}
+        \item Chain deformation occurs by conformational changes, \emph{not} bond stretching.
+        \begin{itemize}
+            \item $l$ does not change.
+        \end{itemize}
+        \item No relaxation occurs by \textbf{chain slip}, i.e., this is a fixed, permanent network (at least on the time scale of the experiment).
+        \begin{itemize}
+            \item Crosslinks \emph{cannot} break.
+        \end{itemize}
+        \item Affine deformation.
+        \begin{itemize}
+            \item At every length scale, from microscopic subchains to the macroscopic network, the deformation experienced is equivalent.
+            \item For example, a shear at the surface is the same shear at the microscale. Notice how in Figure \ref{fig:rubberAssumeb}, the stretch of the entire chunk is mirrored by the stretch in the polymer; we will numerically relate the variables in this diagram shortly.
+            \item Mathematically, the only permissible deformations are ones that preserve lines and parallelism, but not necessarily Euclidean distances or angles. In other words, these deformations are functions composed of a linear transformation,such as rotation, shear, extension and compression, and a rigid body translation.
+        \end{itemize}
+        \item No crystallization at large strains.
+        \begin{itemize}
+            \item In real life, if all chains are fully elongated (trans-trans-trans-etc.), they can pack into crystalline domains. We assume this doesn't happen.
+        \end{itemize}
+        \item No change in volume or density upon deformation.
+        \begin{itemize}
+            \item Thus, if we pull it in one direction, it must shrink in the others.
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Chain slip}: The removal of a covalent or mechanical crosslink via bond cleavage or disentanglement, respectively.
+    \item \textbf{Extension ratio} (in the $i$-direction): One of three ($i\in\{x,y,z\}$) orthogonal extension ratios which depend on the type of loading geometry. \emph{Denoted by} $\bm{\alpha_i},\bm{\lambda_i}$. \emph{Given by}
+    \begin{align*}
+        R_i &= \alpha_iR_{i0}&
+        L_i &= \alpha_iL_{i0}
+    \end{align*}
+    where $\mathbf{R}_0$ is the end-to-end vector of an undeformed subchain in the rubber, $\mathbf{R}$ is the end-to-end vector of the same subchain after deformation, $\textbf{L}_0$ is the corner-to-corner vector of the rubber, $\mathbf{L}$ is the corner-to-corner vector of the rubber after deformation, and subscripts denote the $i^\text{th}$ component of these vectors.
+    \begin{itemize}
+        \item On notation, Alfredo uses $\alpha$ while the book uses $\lambda$. The two notations are completely interchangeable, and we should get used to seeing both.
+        \item More explicit definitions with the above terminology and alternate notations.
+        \begin{itemize}
+            \item We assume that the relaxed polymer has root mean square end-to-end distance $\prb{R_0^2}^{1/2}$, and the extended polymer has root mean square end-to-end distance $\prb{R^2}^{1/2}$.
+            \item These vectors are
+            \begin{align*}
+                \mathbf{R}_0 &= (R_{x0},R_{y0},R_{z0}) = (x,y,z)&
+                \mathbf{R} &= (R_x,R_y,R_z) = (x',y',z')
+            \end{align*}
+        \end{itemize}
+    \end{itemize}
+    \item Formulating some of the assumptions mathematically in terms of the $\alpha_i$.
+    \begin{itemize}
+        \item Assumption 6, mathematically, is that the macro and micro definitions of $\alpha_i$ are equivalent.
+        \item Assumption 8 is that $\alpha_x\alpha_y\alpha_z=1$.
+    \end{itemize}
+    \item We now investigate the elastic force with which the polymer tries to restore its original shape after deformation.
+    \item Terminology for describing the rubber's elastic force, which arises entropically.
+    \begin{itemize}
+        \item State 1 is relaxed, and State 2 is extended.
+        \item State 1.
+        \begin{itemize}
+            \item Force $F=0$.
+            \item $\Omega_1$ possible conformations.
+            \item Root mean square end-to-end distance (of the average chain) is $\prb{R_0^2}^{1/2}$.
+            \item Extension coordinates $x,y,z$.
+        \end{itemize}
+        \item State 2.
+        \begin{itemize}
+            \item Force $F>0$.
+            \item $\Omega_2$ possible conformations.
+            \item Root mean square end-to-end distance (of the average chain) is $\prb{R^2}^{1/2}$.
+            \item Extension coordinates $x',y',z'$.
+        \end{itemize}
+        \item Sanity check: $\Omega_1>\Omega_2$.
+    \end{itemize}
+    \item Using this terminology, the actual elastic force is derived by considering the change in the conformational entropy of the extended vs. relaxed states.
+    \begin{equation*}
+        \Delta S = S_2-S_1
+        = \kB\ln\Omega_2-\kB\ln\Omega_1
+        = \kB\ln\frac{\Omega_2}{\Omega_1}
+    \end{equation*}
+    \begin{itemize}
+        \item Let's now look at the scaling of the $\Omega_i$ in terms of coordinates and extension ratios.
+        \begin{align*}
+            \Omega_1 &= \text{const}\cdot\exp(-\frac{3R_0^2}{2nl^2})&
+                \Omega_2 &= \text{const}\cdot\exp(-\frac{3R^2}{2nl^2})\\
+            &= \text{const}\cdot\exp\left[ -\frac{3(x^2+y^2+z^2)}{2nl^2} \right]&
+                &= \text{const}\cdot\exp\left\{ -\frac{3\left[ (x')^2+(y')^2+(z')^2 \right]}{2nl^2} \right\}\\
+            &= \text{const}\cdot\exp\left[ -\frac{3(1^2x^2+1^2y^2+1^2z^2)}{2nl^2} \right]&
+                &= \text{const}\cdot\exp\left[ -\frac{3(\alpha_x^2x^2+\alpha_y^2y^2+\alpha_z^2z^2)}{2nl^2} \right]
+        \end{align*}
+        \item Substituting these definitions of $\Omega_i$ into the $\Delta S$ equation affords
+        \begin{equation*}
+            \Delta S = -\frac{3\kB}{2nl^2}\left[ (\alpha_x^2-1)x^2+(\alpha_y^2-1)y^2+(\alpha_z^2-1)z^2 \right]
+        \end{equation*}
+        \item Now averaging over the entire ensemble-like collection of subchains in our rubber, we can assume that the average subchain is isotropic. (This is also consistent with Assumption 1.) Thus,
+        \begin{equation*}
+            \prb{x^2} = \prb{y^2} = \prb{z^2} = \frac{\prb{R_0^2}}{3}
+        \end{equation*}
+        \item This combined with the fact that $R_0^2=nl^2$ gives us the final change in entropy per subchain upon deformation in terms of the extension ratios.
+        \begin{align*}
+            \Delta S &= -\frac{3\kB}{2nl^2}\left[ (\alpha_x^2-1)\prb{x^2}+(\alpha_y^2-1)\prb{y^2}+(\alpha_z^2-1)\prb{z^2} \right]\\
+            &= -\frac{3\kB}{2nl^2}\left[ (\alpha_x^2-1)\frac{\prb{R_0^2}}{3}+(\alpha_y^2-1)\frac{\prb{R_0^2}}{3}+(\alpha_z^2-1)\frac{\prb{R_0^2}}{3} \right]\\
+            &= -\frac{3\kB}{2nl^2}\frac{nl^2}{3}\left[ (\alpha_x^2-1)+(\alpha_y^2-1)+(\alpha_z^2-1) \right]\\
+            &= -\frac{\kB}{2}(\alpha_x^2+\alpha_y^2+\alpha_z^2-3)
+        \end{align*}
+        \item It follows that the entropic spring force $F_i$ in the $i$-direction upon deformation is
+        \begin{equation*}
+            F_i = \pdv{G}{R_i}
+            = \pdv{(0-T\Delta S)}{R_i}
+            = -T\left( \pdv{\Delta S(\alpha_i)}{R_i} \right)_{T,P}
+        \end{equation*}
+    \end{itemize}
+    \item Rubber demos.
+    \begin{itemize}
+        \item Rubber elasticity is of the few times you can experiment with thermodynamics on the fly.
+        \begin{itemize}
+            \item Other times: Filling air into tires, and spray-on sunscreen on your back feeling cold.
+        \end{itemize}
+        \item Today, we'll "feel" entropy by sensing the change in temperature of a rubber band as we stretch it.
+        \begin{itemize}
+            \item Feel temperature of a rubber band, stretch (or release) it very quickly, and feel the temperature again!
+            \item When you stretch it, the system heats up; when you release it, the system cools down.
+            \item We need to move quickly so that the change is (approximately) adiabatic, i.e., we do not want to allow the system to exchange heat with the environment to a meaninful extent.
+        \end{itemize}
+    \end{itemize}
+    \item Let's now analyze the elastic force generated by the simplest type of deformation: Uniaxial deformation.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{uniaxa.png}
+            \caption{State 1.}
+            \label{fig:uniaxa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.95\linewidth]{uniaxb.png}
+            \caption{State 2.}
+            \label{fig:uniaxb}
+        \end{subfigure}
+        \caption{Uniaxial deformation of a rubber.}
+        \label{fig:uniax}
+    \end{figure}
+    \begin{itemize}
+        \item In this case, $\alpha_x$ is our independent variable. In particular, $\alpha_y,\alpha_z$ depend on it via
+        \begin{equation*}
+            \alpha_y = \alpha_z = \alpha_x^{-1/2}
+        \end{equation*}
+        \begin{itemize}
+            \item This is called a \textbf{Poisson contraction} in the lateral directions, and arises from the mathematical formulation of Assumption 8 (i.e., $\alpha_x\alpha_y\alpha_z=1$).
+        \end{itemize}
+        \item It follows that in this case,
+        \begin{equation*}
+            \Delta S(\alpha_x) = -\frac{\kB}{2}\left( \alpha_x^2+\frac{1}{\alpha_x}+\frac{1}{\alpha_x}-3 \right)
+        \end{equation*}
+        \item Thus, the entropic spring force / restoring force in the $x$-direction provided by a single chain is
+        \begin{align*}
+            F_x &= -T\pdv{\Delta S}{R_x}\\
+            &= -T\pdv{\Delta S}{\alpha_x}\cdot\pdv{\alpha_x}{R_x}\\
+            &= \frac{\kB T}{2}\pdv{\alpha_x}(\alpha_x^2+\frac{1}{\alpha_x}+\frac{1}{\alpha_x}-3)\cdot\pdv{R_x}(\frac{R_x}{R_{x0}})\\
+            &= \frac{\kB T}{2}\left( 2\alpha_x-\frac{2}{\alpha_x^2} \right)\cdot\frac{1}{R_{x0}}\\
+            &= \frac{\kB T}{R_{x0}}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)
+        \end{align*}
+        \begin{itemize}
+            \item The first term is Hookean ($F\propto\alpha_x$) and corresponds to the penalty for stretching.
+            \item The second term is the correction for compressing the other two dimensions.
+        \end{itemize}
+        \item We now seek to scale this microscopic result up to the full macroscopic rubber.
+        \begin{itemize}
+            \item Let the full rubber contain $z$ subchains identical to the one we've analyzed, each of which contributes equally to the entropic spring force. Then the total change in entropy upon stretching the rubber is
+            \begin{equation*}
+                \Delta S_\text{tot} = -\frac{z\kB}{2}\left( \alpha_x^2+\frac{2}{\alpha_x}-3 \right)
+            \end{equation*}
+            \item This time, since we have a different system under study, we will need to differentiate with respect to the length of the \emph{rubber} instead of the length of the \emph{polymer}. Analogously to before, this affords
+            \begin{equation*}
+                F_{x,\text{tot}} = -T\pdv{\Delta S_\text{tot}}{l_x}
+                = \frac{z\kB T}{l_{x0}}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)
+            \end{equation*}
+            \item Now the full stress-strain relationship for the rubber is given by a tensor. The entry $\sigma_{xx}$, specifically, is the whole rubber's restoring force $F_{x,\text{tot}}$ divided by its cross-sectional area $A_0$ when unstretched. We now seek to couch the above equation in terms of these new variables.
+            \item To do so, first let $V$ denoted the total volume of the rubber. Then $z/V$ is the number of subchains per unit volume. It follows by dimensional analysis (as in Lecture 3.1) that
+            \begin{equation*}
+                \frac{z}{V} = \frac{\rho N_\text{A}}{M_x}
+            \end{equation*}
+            where $\rho$ is the density of the material in \si[per-mode=symbol]{\gram\per\liter} and $M_x$ is the number-average molecular weight of the subchains in \si[per-mode=symbol]{\gram\per\mole}.
+            \item Therefore, the stress in terms of observables is
+            \begin{align*}
+                \sigma_{xx}(\alpha_x) &= \frac{z\kB T}{A_0l_{x0}}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)\\
+                &= \frac{z\kB T}{V}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)\\
+                &= \frac{\rho N_\text{A}\kB T}{M_x}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)
+            \end{align*}
+            \item Note that we could also derive the same equation by considering $F_x/(R_{y0}R_{z0})$, as then we would have $1/\prb{R^2}^{3/2}=\rho N_\text{A}/M_x$ instead of $z/V$ equals that. This essentially says that the total number of subchains divided by the total volume equals the volume of one subchain divided by its volume.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Young's modulus}: The instantaneous stress per strain of a material when you just begin straining it. \emph{Denoted by} $\bm{E}$. \emph{Given by}
+    \begin{equation*}
+        E := \lim_{\alpha_x\to 1}\dv{\sigma_{xx}}{\alpha_x}
+    \end{equation*}
+    \item Let's now investigate the stress $\sigma$ vs. strain $\alpha$ for the uniaxial deformation case we've been considering.
+    \begin{itemize}
+        \item Evaluating the limit, we obtain
+        \begin{align*}
+            E &= \lim_{\alpha_x\to 1}\dv{\alpha_x}\left[ \frac{\rho RT}{M_x}\left( \alpha_x-\frac{1}{\alpha_x^2} \right) \right]\\
+            &= \lim_{\alpha_x\to 1}\frac{\rho RT}{M_x}\left( 1+\frac{2}{\alpha_x^3} \right)\\
+            &= \frac{\rho RT}{M_x}\left( 1+\frac{2}{1^3} \right)\\
+            &= \frac{3\rho RT}{M_x}
+        \end{align*}
+        \begin{itemize}
+            \item In reality, the prefactor is lower than 3. People like to bring this 3 into an "effective" molecular weight, which is a variant on $M_x$.
+        \end{itemize}
+        \item Notice: The Young's modulus is directly proportional to temperature, and inversely proportional to subchain molecular weight.
+        \item It also follows that to measure the subchain molecular weight $M_x$, we need only measure the Young's modulus!
+        \item Real-world example: Blowing a hairdryer on an extended rubber band will make it shrink up.
+    \end{itemize}
+    \item Comparing our theoretical behavior of elastomers under uniaxial deformation to their real-life behavior.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{uniaxReal.png}
+        \caption{Real uniaxial deformation behavior.}
+        \label{fig:uniaxReal}
+    \end{figure}
+    \begin{itemize}
+        \item We will not discuss the softening under the curve at low strains $\alpha$. However, the hardening above the curve at high strains $\alpha$ is something we can discuss.
+        \item Essentially, when a rubber is almost all stretched, we start stretching bonds (violating Assumption 4). This leads to the empirically observed toughening.
+    \end{itemize}
+    \item Demonstration: Violating Assumption 7 in real life.
+    \begin{itemize}
+        \item Two students at the front of class stretch a rubber band as far as they can without breaking it, and then Alfredo starts making a small cut in the middle with a pair of scissors. The crack does not propagate. However, when the students let the rubber band relax, wait a little while, and then try to restretch it, the crack propagates further and it breaks then. Why does this happen?
+        \item When everything's in the trans conformation (stretched rubber band), you start getting crystallization which will add more effective crosslinks. This is why the stretched rubber band won't break even as Alfredo cuts it.
+        \item However, when the students release the strain and then stretch it again, crystallization cannot occur quick enough and the rubber band breaks.
+    \end{itemize}
+    \item Now instead of using entropy alone, let's look at a more realistic derivation for the length of a subchain as a function of the stretching force applied to it.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \footnotesize
+            \draw [densely dashed] (0,0) coordinate (b) -- (1.2,0) coordinate (a);
+
+            \draw [-stealth] (0,0) -- ++(-0.7,0) node[left]{$f$};
+            \draw [-stealth] (1,0.5) -- ++(0.7,0) node[right]{$f$};
+            \draw [blx,ultra thick] (0,0) -- (1,0.5) coordinate (c);
+            \pic [draw,angle radius=5.7mm,angle eccentricity=1.2,pic text={$\theta$}] {angle=a--b--c};
+        \end{tikzpicture}
+        \caption{Stretching a single bond in a subchain.}
+        \label{fig:subchainRealStretch}
+    \end{figure}
+    \begin{itemize}
+        \item Consider a single bond defined by the vector $\mathbf{l}$, which is being stretched by a force $f$ in each direction at both ends (Figure \ref{fig:subchainRealStretch}).
+        \item We still assume that $\mathbf{R}=\sum\mathbf{l}$.
+        \item How much work $W$ do we do by rotating the bond an angle $\theta$ away from equilibrium?
+        \begin{equation*}
+            W(\theta) = f\Delta d
+            = f\cdot l\sin\theta
+        \end{equation*}
+        \begin{itemize}
+            \item We get the above from the definition of work as force times distance (for constant forces), and a bit of trigonometry to get the distance moved in terms of $\theta$.
+        \end{itemize}
+        \item We now bring in partition functions from thermodynamics.
+        \begin{itemize}
+            \item The probability that a chain link will be at angle $\theta$ from the ideal is $\e[-U(\theta)/\kB T]$, where $U(\theta)=W(\theta)$.
+            \item Then we average over all possible lengths of this bond ($-l$ to $l$, indexed by $\theta$), weighted by the Boltzmann probability of the length occurring.
+            \begin{equation*}
+                \prb{l} = \frac{1}{\int_0^\pi\e[-U(\theta)/\kB T]\dd\theta}\int_0^\pi l\cos\theta\e[-U(\theta)/\kB T]\dd\theta
+                = l\left( \coth\beta-\frac{1}{\beta} \right)
+            \end{equation*}
+            \item Sum over all $N$ bonds affords
+            \begin{equation*}
+                \prb{R} = Nl\left( \coth\beta-\frac{1}{\beta} \right)
+            \end{equation*}
+            where $\beta=fl/\kB T$ is the \textbf{relative force}.
+        \end{itemize}
+    \end{itemize}
+    \item Thus, putting everything together, we can consider two approximate behavioral regimes for stretching a chain.
+    \begin{itemize}
+        \item Up until about 20\% stretching ($\beta\ll 1$), everything is pretty linear and Hookean. We can use our purely entropic model here.
+        \begin{itemize}
+            \item Note that by 20\% stretching, we mean stretching the chain to 20\% of it's maximum lenght. Symbolically, we mean stretching from $\prb{R_0^2}^{1/2}$ up to $0.2R_\text{max}$.
+        \end{itemize}
+        \item But as the force becomes very large ($\beta\gg 1$), we cannot extend beyond the total length of the system. Here, we need the Figure \ref{fig:subchainRealStretch} derivation.
+        \begin{itemize}
+            \item Force rises faster in these more stretched regimes because we don't have so much "rope to give." In other words, we have very few conformations left available to us.
+        \end{itemize}
+        \item Note that if $N$ is large, 20\% elongation may be a pretty substantial stretch. This is because $R_0=N^{1/2}b$ and $R_\text{max}=Nb$ collectively imply that
+        \begin{equation*}
+            \frac{R_0}{R_\text{max}} = N^{-1/2}
+        \end{equation*}
+    \end{itemize}
+    \item Let's now see how well our two-regime model matches empirically obtained data.
+    \begin{itemize}
+        \item \textcite{bib:subchainRealStretch} used atomic force microscopy (AFM) to stretch a single chain of PMMA.
+        \begin{itemize}
+            \item Back in the '90s, people were using AFM for everything.
+        \end{itemize}
+        \item The data they found matched the entropic FJC model really well up to about 20\%, and then matched the Figure \ref{fig:subchainRealStretch} one past that pretty well!
+        \item Note that the stretching force they applied to the single polymer was on the scale of nanonewtons
+        \begin{itemize}
+            \item A nanonewton of force is \emph{not} a small quantity of force on a molecular scale.
+            \item For context, ligand-receptor bindings are on the scale of high femptonewtons to low piconewtons. van der Waals forces are on the scale of femptonewtons.
+            \item Thus, a nanonewton is a really strong force; that's about when we start breaking covalent \ce{C-C} bonds! In other words, they had to put enough force on the polymer that it was about to break in order to get it past 20\% elongation!
+        \end{itemize}
+    \end{itemize}
+    \item Next time.
+    \begin{itemize}
+        \item Gels (probs the whole class and a bit of the next one). These get more complicated, and there are more factors.
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\end{document}
