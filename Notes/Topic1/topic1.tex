@@ -9,7 +9,7 @@
 
 
 \chapter{The Macromolecule}
-\section{The Macromolecule}
+\section{The Macromolecule}\label{sse:2}
 \begin{itemize}
     \item \marginnote{9/9:}Pat Doyle begins; he will teach the next three lectures.
     \begin{itemize}
@@ -244,7 +244,7 @@
 
 
 
-\section{Conformation: Ideal Chains}
+\section{Conformation: Ideal Chains}\label{sse:3}
 \begin{itemize}
     \item \marginnote{9/11:}Lecture outline.
     \begin{itemize}
@@ -586,7 +586,7 @@
 
 
 
-\section{Conformation: Real Chains}
+\section{Conformation: Real Chains}\label{sse:4}
 \begin{itemize}
     \item \marginnote{9/16:}Announcements.
     \begin{itemize}
@@ -631,7 +631,6 @@
     \item Question: How many monomers before Kuhn steps have statistical meaning?
     \begin{itemize}
         \item About 100 before you converge to a Gaussian distribution.
-        \item We'll derive the "easy force response of a freely jointed chain."
     \end{itemize}
     \item Before we relate Kuhn's equivalent chain (a 3D model) to polymer size, let's look at the 1D analog: The full probability distribution of a 1D random walk.
     \begin{figure}[H]
@@ -662,7 +661,7 @@
                 \item Suppose we are taking $n=4$ steps, and we want to identify the total number $\Omega$ of ways we can move a distance $x=0$. By solving the system of equations $4=n_1+n_2$ and $0=b(n_1-n_2)$, we can learn that $n_1=n_2=2$. This means that we must take $n_1=2$ steps to the right, and $n_2=2$ steps to the left in order to end up back at zero. But when do we take these steps? Diagramming this out, there are four timeslots at which we can take a step (\verb|____|), and two of those must eventually be filled by steps to the right \verb|R|. The first time we \emph{choose} a timeslot, we have 4 options: \verb|R___|, \verb|_R__|, \verb|__R_|, and \verb|___R|. Then the second time we choose, we have three remaining options; moreover, if we fill (for example) the first and then the second timeslot, that's equivalent to filling the second and then the first! This is how we relate the 1D random walk to "$n$ choose $k$" probability.
             \end{itemize}
         \end{itemize}
-        \item Now that we know the number of ways we can move a distance $x$, we can calculate the probability $P(x)$ of moving a distance $x$ by dividing by the total number of possible paths (which is just $\Omega_\text{tot}=2^n$).
+        \item Now that we know the number of ways we can move a distance $x$, we can calculate the probability $P(x)$ of moving a distance $x$ by dividing by the total number of possible paths.
         \begin{equation*}
             P(x) = \frac{\Omega}{\Omega_\text{tot}} = \frac{n!}{n_1!n_2!2^n}
         \end{equation*}
@@ -700,12 +699,7 @@
         \begin{equation*}
             F = U-TS
         \end{equation*}
-        \begin{itemize}
-            \item $F$ is free energy;
-            \item $U$ is internal potential energy;
-            \item $T$ is temperature;
-            \item $S$ is entropy.
-        \end{itemize}
+        where $F$ is free energy, $U$ is internal potential energy, $T$ is temperature, and $S$ is entropy.
         \item For an FJC, $U=0$ (by definition) and $S$ is the only thing we have to consider.
         \item Recall from Boltzmann that
         \begin{equation*}
@@ -715,19 +709,15 @@
         \begin{equation*}
             P(\mathbf{R},N) = \frac{\Omega(\mathbf{R},N)}{\int_{\R^3}\Omega(\mathbf{R},N)\dd{\mathbf{R}}}
         \end{equation*}
-        \begin{itemize}
-            \item We'll denote the denominator by $\Omega_N$ going forward, representing the fact that it is a function of $N$ and not $\mathbf{R}$.
-        \end{itemize}
-        \item Then substituting and bashing out the math, we get
+        \item Letting $\Omega_N$ denote the denominator (to emphasize that it's a function of $N$, not $\mathbf{R}$) and substituting in our previous results affords
         \begin{align*}
-            S(\mathbf{R},N) &= \kB\ln[P(\mathbf{R},N)]+\kB\ln(\Omega_N)\\
-            &= -\frac{3\kB R^2}{2Nb^2}+\kB\ln(\frac{3}{2\pi Nb^2})^{3/2}+\kB\ln(\Omega_N)\\
-            &= -\frac{3\kB R^2}{2Nb^2}+S_N
+            S(\mathbf{R},N) = \kB\ln[P(\mathbf{R},N)]+\kB\ln(\Omega_N)
+            = -\frac{3\kB R^2}{2Nb^2}+\underbrace{\kB\ln(\frac{3}{2\pi Nb^2})^{3/2}+\kB\ln(\Omega_N)}_{S_N}
         \end{align*}
         \begin{itemize}
-            \item We will call the second two terms $S_N$ because they're less interesting, and they only depend on $N$ (not $\mathbf{R}$).
+            \item The second two terms become $S_N$ because they're less interesting (as functions of $N$, not $\mathbf{R}$).
         \end{itemize}
-        \item By substituting the above back into $F=U-TS$, it follows that our entropic free energy for the FJC is
+        \item By substituting the above back into $F=U-TS$, it follows that the FJC's entropic free energy is
         \begin{equation*}
             F = \frac{3\kB TR^2}{2Nb^2}+S_N
         \end{equation*}
@@ -759,10 +749,11 @@
     \end{itemize}
     \item We'll now begin discussing \textbf{real chains}.
     \begin{itemize}
-        \item Up to now, we've been discussing \textbf{ideal chains}, which occur at Theta conditions and in melts.
+        \item Up to now, we've been discussing \textbf{ideal chains}, which occur at theta conditions and in melts.
+        \item Monomers in ideal chains also only interact via local effects (e.g., hindered rotations in the symmetric hindered rotations model).
     \end{itemize}
     \item Real chains.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.3\linewidth]{LocNon.JPG}
         \caption{Local and non-local interactions in a polymer.}
@@ -770,13 +761,9 @@
     \end{figure}
     \begin{itemize}
         \item Local chemistry is coarse-grained out by Kuhn lengths.
-        \item Non-local elements are related by excluded volume. Essentially, monomers may have some interaction (favorable or unfavorable) when they float near each other in solution.
+        \item Particles farther away from each other interact via \textbf{excluded volume}. Essentially, monomers may have some interaction (favorable or unfavorable) when they float near each other in solution.
     \end{itemize}
-    \item In ideal chains\dots
-    \begin{itemize}
-        \item There are only local effects;
-        \item Ideal is synonymous with either theta conditions or melts.
-    \end{itemize}
+    \pagebreak
     \item To ground our mathematical/physical analysis, we will approximate monomers in a polymer as an ideal "gas" of monomers in a volume $R$ (Figure \ref{fig:monomerGasa}).
     \begin{figure}[h!]
         \centering
@@ -802,34 +789,37 @@
         \label{fig:monomerGas}
     \end{figure}
     \begin{itemize}
-        \item For nonlocal interactions, we will consider "hard sphere" monomers.
+        \item As a first stab at visualizing "nonlocal" interactions, consider a gas of hard-sphere monomers.
         \begin{itemize}
-            \item In particular, for two hard-sphere monomers with center-to-center distance $\delta$, Figure \ref{fig:monomerGasb} tells us that excluded volume $V_\text{ex}=v$ is
-        \begin{equation*}
-            V_\text{ex} = \frac{4}{3}\pi\delta^3
-        \end{equation*}
+            \item Given two hard-sphere monomers with center-to-center distance $\delta$, Figure \ref{fig:monomerGasb} shows us that the volume that one of them would prevent the other from exploring is
+            \begin{equation*}
+                V_\text{ex} = \frac{4}{3}\pi\delta^3
+            \end{equation*}
         \end{itemize}
-        \item Let's generalize: The Boltzmann weighting for the probability of finding two monomers at a distance $r$ from each other is
-        \begin{equation*}
-            f(r) = \exp(-\frac{U(r)}{\kB T})-1
-        \end{equation*}
-        \begin{itemize}
-            \item $f(r)$ is called the \textbf{Mayer-$\bm{f}$ function}.
-            \item It is equal to zero when there is no interaction (i.e., $U=0$) because when $U=0$, all $r$ are equally probable.
-        \end{itemize}
-        \item It follows through some math --- see \textcite{bib:RubinsteinColby} --- that the excluded volume is equal to
-        \begin{equation*}
-            V_\text{ex} = -4\pi\int_0^\infty r^2f(r)\dd{r}
-        \end{equation*}
-        \begin{itemize}
-            \item Notice that we're in polar coordinates.
-            \item What is going on here?? Why is excluded volume related to the probability of finding monomers near each other?
-        \end{itemize}
-        \item Note that $U(r)$ (which is the monomer interaction) also incorporates the solvent since the energy is not that of two bare monomers, but those monomers with a medium between them (e.g., two styrene monomers in a sea of toluene).
-        \item The excluded volume is a way of quantifying interactions.
+        \item Let's generalize: Per Boltzmann, the probability of finding two monomers at a distance $r$ from each other is proportional to $\e[-U(r)/\kB T]$. This allows us to define the \textbf{Mayer-$\bm{f}$ function}.
+        \item The Mayer-$f$ function then weights the extent to which a given particle will exclude other particles from each infinitesimal volume of space. Thus, integrating over all space --- see \textcite{bib:RubinsteinColby} for details --- we can derive the below definition of excluded volume.
     \end{itemize}
+    \item \textbf{Mayer-$\bm{f}$ function}: The probability of finding two particles close to each other relative to finding them infinitely far apart, where the particles interact via a spherically symmetric distance-dependent potential $U(r)$. \emph{Denoted by} $\bm{f(r)}$. \emph{Given by}
+    \begin{equation*}
+        f(r) := \exp(-\frac{U(r)}{\kB T})-\exp\bigg( -\frac{\overbrace{U(\infty)}^0}{\kB T} \bigg)
+        = \exp(-\frac{U(r)}{\kB T})-1
+    \end{equation*}
+    \begin{itemize}
+        \item Notice that it is equal to zero when there is no interaction (i.e., when $U=0$) because in that case, all $r$ are equally probable.
+    \end{itemize}
+    \item \textbf{Excluded volume}: The volume a given monomer would occupy were it a hard sphere, on account of its \emph{energetic} interactions with other monomers. \emph{Denoted by} $\bm{V_\textbf{ex}},\bm{v},\bm{B}$. \emph{Given by}
+    \begin{equation*}
+        V_\text{ex} := -4\pi\int_0^\infty r^2f(r)\dd{r}
+    \end{equation*}
+    \begin{itemize}
+        \item This is the volume that a given monomer tries to \emph{exclude} other monomers from entering.
+        \item In the case of a negative excluded volume, monomers like each other so much that they'd rather be abnormally close together.
+        \item Notice that we're in polar coordinates.
+        \item The monomer-to-monomer interaction $U(r)$ also incorporates the solvent since the energy is not that of two bare monomers, but those monomers with a medium between them (e.g., two styrene monomers in a sea of toluene).
+    \end{itemize}
+    \item Sanity check: Evaluating the definition of excluded volume for the hard sphere potential (with the switchover occurring at $\delta$) yields $V_\text{ex}=4\pi\delta^3/3$!
     \item The Mayer-$f$ function can be visualized through plots and integrals.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
@@ -867,11 +857,11 @@
     \begin{itemize}
         \item Depending on $U$, we have three possibilities.
         \begin{itemize}
-            \item In a good solvent, the coils unwind and the volume expands. Repulsion dominates (Figure \ref{fig:MayerFa}).
+            \item In a good solvent, the coils unwind / volume expands. Repulsion dominates (Figure \ref{fig:MayerFa}).
             \item In a bad solvent, the coils bunch up. Attraction dominates (Figure \ref{fig:MayerFb}).
             \item In a $\theta$-solvent, repulsion balances attraction (Figure \ref{fig:MayerFc}).
         \end{itemize}
-        \item We can also plot out precursors to and variants of the Mayer-$f$ function for specific potentials of interest.
+        \item We can also plot potentials and mathematical forms relevant to the Mayer-$f$ function.
         \begin{itemize}
             \item Thus, we can see that in the hard-sphere potential (Figure \ref{fig:MayerFd}), there is only a repulsive contribution and thus no $\theta$-temperature or $\theta$-solvent.
             \item In contrast, for the Lennard-Jones potential (Figure \ref{fig:MayerFe}), there are both repulsive and attractive contributions. Thus, there \emph{will} be a $\theta$-temperature in each $\theta$-solvent.
@@ -885,7 +875,7 @@
     \item The heart of polymer physics is Flory mean-field approximations.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\linewidth]{compressPenalty.JPG}
+        \includegraphics[width=0.2\linewidth]{compressPenalty.JPG}
         \caption{A post-facto compression penalty.}
         \label{fig:compressPenalty}
     \end{figure}

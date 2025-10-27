@@ -10,7 +10,7 @@
 
 
 \chapter{Networks}
-\section{Rubber Elasticity}
+\section{Rubber Elasticity}\label{sse:14}
 \begin{itemize}
     \item \marginnote{10/21:}Announcements.
     \begin{itemize}
@@ -32,7 +32,7 @@
     \item \textbf{Topological crosslinks}: Two chains that add integrity to the network by looping around each other mechanically, rather than being covalently bonded.
     \item \textbf{Loop}: A chain that connects back with itself without introducing any classical or topological crosslinks, and thus does not carry stress.
     \item \textbf{Dangling ends}: A chain strand in a network that does not bond (classically or mechanically) to any other chain or itself, and thus does not carry stress.
-    \item Recall from Lecture 1: Chich\'{e}n Ita\'{a} (ancient Mayan place) and natural rubber basquetbol.
+    \item Recall from Lecture \ref{sse:1}: Chich\'{e}n Ita\'{a} (ancient Mayan place) and natural rubber basquetbol.
     \begin{itemize}
         \item There were no hoops in this game; rather players tried to get the ball into very small holes in a big wall.
         \item Such a tight-fitting target would have necessitated the rubber be crosslinked.
@@ -43,7 +43,7 @@
         \item Swelling creates a \textbf{gel}, the topic of next lecture!
     \end{itemize}
     \item Rubber elasticity assumptions.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
@@ -246,7 +246,7 @@
                 = \frac{z\kB T}{l_{x0}}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)
             \end{equation*}
             \item Now the full stress-strain relationship for the rubber is given by a tensor. The entry $\sigma_{xx}$, specifically, is the whole rubber's restoring force $F_{x,\text{tot}}$ divided by its cross-sectional area $A_0$ when unstretched. We now seek to couch the above equation in terms of these new variables.
-            \item To do so, first let $V$ denoted the total volume of the rubber. Then $z/V$ is the number of subchains per unit volume. It follows by dimensional analysis (as in Lecture 3.1) that
+            \item To do so, first let $V$ denoted the total volume of the rubber. Then $z/V$ is the number of subchains per unit volume. It follows by dimensional analysis (as in Lecture \ref{sse:10}) that
             \begin{equation*}
                 \frac{z}{V} = \frac{\rho N_\text{A}}{M_x}
             \end{equation*}
@@ -370,6 +370,257 @@
     \item Next time.
     \begin{itemize}
         \item Gels (probs the whole class and a bit of the next one). These get more complicated, and there are more factors.
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Neutral and Ionic Gels}\label{sse:15}
+\begin{itemize}
+    \item \marginnote{10/23:}Most gels we think about are water-based, e.g., diapers, Jello, and contact lenses.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\linewidth]{sperm.JPG}
+        \caption{The flagellar motion of a sperm's tail is driven by polymer physics!}
+        \label{fig:sperm}
+    \end{figure}
+    \begin{itemize}
+        \item Diapers absorb \emph{a lot} of water.
+        \begin{itemize}
+            \item Over the course of lecture, Alfredo will pour about 2 liters of water into a standard diaper.
+            \item Note, however, that this maximum swelling does take time --- when your kids pee all at once, the diaper will not absorb it all instantly!
+        \end{itemize}
+        \item Biological gels: Mucus.
+        \begin{itemize}
+            \item Home chemistry: Take a booger out, put it in water, and see what happens.
+            \item This happens because boogers' heavily glycosylated (sugar) chains expand significantly.
+        \end{itemize}
+        \item Active biological gels (ABGs): Cells!
+        \begin{itemize}
+            \item Cells contain many (typically living) polymers.
+            \item Examples (from stiffest to least stiff): Microtubules, actin, peptides or ssRNA.
+            \begin{itemize}
+                \item Recall these from Lecture \ref{sse:3} on persistence length.
+            \end{itemize}
+            \item Example cellular motion controlled by an active gel: The tail of a sperm (Figure \ref{fig:sperm}).
+            \begin{itemize}
+                \item These contain molecular motors (e.g., dyneins and kinesins) that walk along a microtubule filament.
+                \item Motor proteins know which direction to walk along a microtubule because microtubules are helical, and the helix has an orientation!
+                \item Flagellar motion of the tail occurs by the walking of kinesins both toward the same part of the membrane, which induces buckeling.
+            \end{itemize}
+            \item Example: Nature-inspired ABG.
+            \begin{itemize}
+                \item Self-propagating Belousov-Zhabotinsky reaction.
+                \item Reference: \textcite{bib:BZgel}.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item This concludes the introduction; we now begin the lecture content in earnest.
+    \item \textbf{Gel}: A highly swollen network.
+    \item Several ways to form a gel.
+    \begin{itemize}
+        \item Start with a monomer melt and link the monomers into a 3D network (e.g., S-\emph{co}-DVB), then swell it with a solvent.
+        \begin{itemize}
+            \item S-\emph{co}-DVB is hydrophobic (swell it with an organic solvent).
+            \item PEG is hydrophilic (swell it with water).
+        \end{itemize}
+        \item Start with a polymer-solvent solution and induce network formation, e.g., crosslink the polymer via\dots
+        \begin{itemize}
+            \item Radiation (UV, electron beam);
+            \begin{itemize}
+                \item Induces covalent bonds.
+            \end{itemize}
+            \item Chemical means (e.g., S-\emph{co}-DVB);
+            \begin{itemize}
+                \item Induces covalent bonds.
+            \end{itemize}
+            \item Physical associations (e.g., noncovalent bonds induced by lowering the temperature or adding a nonsolvent).
+            \begin{itemize}
+                \item Example: Collagen forms triple helices when it cools.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Some gels are classified as responsive molecules.
+    \item Example responsive molecule class: Polyelectrolytes.
+    \begin{itemize}
+        \item These undergo a collapse transition in response to solvent quality.
+        \item Essentially, when the \emph{p}H is tuned one way or the other, a polyelectrolyte will either swell or collapse into a globule.
+        \item Benefits: Tunable polarity, potential for self-assembly, cheap and easy to synthesize.
+        \item Example: Poly(methacrylic acid).
+        \begin{itemize}
+            \item Hydrophilic solvent / high \emph{p}H leads to expansion.
+            \item Hydrophobic solvent / low \emph{p}H induces collapse to globules.
+        \end{itemize}
+    \end{itemize}
+    \item Flory-Rehner theory of gel swelling.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{swelling.JPG}
+        \caption{Gel swelling schematic.}
+        \label{fig:swelling}
+    \end{figure}
+    \begin{itemize}
+        \item Key assumption: The energetic contributions of elasticity and mixing are linearly additive. That is,
+        \begin{equation*}
+            \Delta G_\text{tot} = \Delta G_\text{mix}+\Delta G_\text{elastic}
+        \end{equation*}
+        \item We assume a (basically infinite) reservoir of solvent, and we look at how much solvent goes in or out of the system. Solvent will go in until the chemical potential of the solvent is equal both outside and inside the polymer ($\mu'=\mu''$).
+        \item Parameters to consider.
+        \begin{itemize}
+            \item A thermodynamicallly good solvent swells rubber. This involves a favorable $\chi$ interaction (i.e., $\chi<1/2$) and a favorable entropy of mixing.
+            \item Entropic elasticity of the network (as discussed last lecture) exerts a retractive force to oppose swelling.
+        \end{itemize}
+    \end{itemize}
+    \item Variables to be aware of in Flory-Rehner theory.
+    \begin{itemize}
+        \item $\alpha_x=x'/x$ is the linear swelling ratio.
+        \begin{itemize}
+            \item We assume extension ratios for swelling are isotropic (the same in every dimension). Thus, we only have one extension ratio $\alpha_s$ for swelling, defined by
+            \begin{equation*}
+                \alpha_s := \alpha_x=\alpha_y=\alpha_z
+            \end{equation*}
+        \end{itemize}
+        \item $\phi_2=V_0/V$ is the volume fraction of the polymer in its swelled volume.
+        \begin{itemize}
+            \item $V_0$ is the volume of the polymer globule (containing no solvent, volume is all polymer).
+            \item $V$ is the final, swelled volume.
+        \end{itemize}
+        \item $z=N=\rho N_\text{A}V_0/M_x$ is the number of subchains in the network, i.e., degree of crosslinking.
+        \item $\mu_i=(\pdv*{G_\text{tot}}{n_i})_{T,P,n_j}$ is the chemical potential of component $i$.
+        \item $\mu_1-\mu_1^\circ$ is the chemical potential difference between the solvent in the gel and the pure solvent.
+    \end{itemize}
+    \item Useful mathematical relations between said variables.
+    \begin{itemize}
+        \item The swelled volume $V$ scales from the polymer volume via the swelling ratio.
+        \begin{equation*}
+            V = V_0\alpha_s^3
+        \end{equation*}
+        \begin{itemize}
+            \item An important consequence (we will see why shortly) is that $\alpha_s^3=1/\phi_2$.
+        \end{itemize}
+        \item It follows from the chemical potential equations that
+        \begin{align*}
+            \mu_1-\mu_1^\circ &= \left( \pdv{\Delta G_\text{tot}}{n_1} \right)_{T,P,n_2}\\
+            &= \left( \pdv{\Delta G_\text{mix}}{n_1} \right)_{T,P,n_2}+\left( \pdv{\Delta G_\text{elastic}}{n_1} \right)_{T,P,n_2}\\
+            \mu_1-\mu_1^\circ &= \left( \pdv{\Delta G_\text{mix}}{n_1} \right)_{T,P,n_2}+\left( \pdv{\Delta G_\text{elastic}}{\alpha_s} \right)\left( \pdv{\alpha_s}{n_1} \right)_{T,P,n_2}
+        \end{align*}
+        \begin{itemize}
+            \item PSet 2, Q1a evaluated the left term above.
+            \item Today, we will calculate the right term above.
+        \end{itemize}
+        \item In particular, recall from Lecture 2.2 that for a polymer-solvent solution,
+        \begin{equation*}
+            \left( \pdv{\Delta G_\text{mix}}{n_1} \right)_{T,P,n_2} = RT(\ln\phi_1+\phi_2+\chi_{12}\phi_2^2)
+        \end{equation*}
+        \begin{itemize}
+            \item We've gotten rid of the $-\phi_2/N_2$ term because network crosslinking implies $N_2\to\infty$.
+        \end{itemize}
+    \end{itemize}
+    \item Evaluating the $\Delta G_\text{elastic}$ term.
+    \begin{itemize}
+        \item Recall from last class that the change in entropy per subchain is
+        \begin{equation*}
+            \frac{\Delta S_\text{elastic}}{z} = -\frac{\kB}{2}\bigg\{ \left[ (\alpha_x^2+\alpha_y^2+\alpha_z^2)-3 \right]\underbrace{-\ln\frac{V}{V_0}}_\text{new term} \bigg\}
+        \end{equation*}
+        \begin{itemize}
+            \item The new term corresponds to an additional entropy increase per subchain upon swelling, due to the increased volume that swelling makes available to each subchain.
+            \item The new term turns about to be unimportant, but it isn't that negligible when you get into the details. More precisely, it is the major term when the polymer is dry, but it is not the major term when the polymer is already wet / partially swollen.
+        \end{itemize}
+        \item It follows that the whole network's change in Gibbs free energy upon swelling is
+        \begin{equation*}
+            \Delta G_\text{elastic} = -T\Delta S_\text{elastic}
+            = \frac{z\kB T}{2}\left( 3\alpha_s^2-3-\ln\frac{V}{V_0} \right)
+        \end{equation*}
+        \item Now we take derivatives.
+        \item Invoking the chain rule as above, we first investigate
+        \begin{align*}
+            \pdv{\Delta G_\text{elastic}}{\alpha} &= \frac{z\kB T}{2}\pdv{\alpha_s}(3\alpha_s^2-3-\ln\frac{\alpha_s^3V_0}{V_0})\\
+            &= \frac{z\kB T}{2}\left( 6\alpha_s-\frac{3\alpha_s^2}{\alpha_s^3} \right)\\
+            &= \frac{3}{2}z\kB T\left( 2\alpha_s-\frac{1}{\alpha_s} \right)
+        \end{align*}
+        \item To solve other derivative, we must first express $\alpha$ in terms of $n_1$ as follows.
+        \begin{equation*}
+            \alpha_s^3 = \frac{V}{V_0}
+            = \frac{V_0+n_1\hat{V}_1}{V_0}
+        \end{equation*}
+        \begin{itemize}
+            \item $n_1$ is the number of moles of solvent.
+            \item $\hat{V}_1$ is the molar volume of the solvent.
+        \end{itemize}
+        \item Then, using implicit differentiation,
+        \begin{align*}
+            \pdv{n_1}(\alpha_s^3) &= \pdv{n_1}(\frac{V_0+n_1\hat{V}_1}{V_0})\\
+            3\alpha_s^2\pdv{\alpha_s}{n_1} &= \frac{\hat{V}_1}{V_0}\\
+            \pdv{\alpha_s}{n_1} &= \frac{\hat{V}_1}{3\alpha_s^2V_0}
+        \end{align*}
+        \item Putting everything together, we obtain
+        \begin{align*}
+            \left( \pdv{\Delta G_\text{elastic}}{n_1} \right)_{T,P,n_2} &= \left( \pdv{\Delta G_\text{elastic}}{\alpha_s} \right)\left( \pdv{\alpha_s}{n_1} \right)_{T,P,n_2}\\
+            &= \frac{3}{2}z\kB T\left( 2\alpha_s-\frac{1}{\alpha_s} \right)\cdot\frac{\hat{V}_1}{3\alpha_s^2V_0}\\
+            &= \frac{z\kB T\hat{V}_1}{2V_0}\left( \frac{2}{\alpha_s}-\frac{1}{\alpha_s^3} \right)
+        \end{align*}
+        \item We reexpress this in terms of $\phi_2$ and $M_x$ using the useful mathematical relations from earlier.
+        \begin{align*}
+            \left( \pdv{\Delta G_\text{elastic}}{n_1} \right)_{T,P,n_2} &= \frac{\rho N_\text{A}}{M_x}\cdot\frac{\kB T\hat{V}_1}{2}\left[ \frac{2}{(1/\phi_2)^{1/3}}-\frac{1}{1/\phi_2} \right]\\
+            &= \frac{\rho RT\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2} \right)
+        \end{align*}
+    \end{itemize}
+    \item It follows that the overall change in chemical potential upon swelling is
+    \begin{equation*}
+        \frac{\mu_1-\mu_1^\circ}{RT} = \left[ \ln(1-\phi_2)+\phi_2+\chi_{12}\phi_2^2 \right]+\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2} \right)
+    \end{equation*}
+    \begin{itemize}
+        \item This is the famous Flory-Rehner theory of gel swelling.
+    \end{itemize}
+    \item Once the optimal swelling has been achieved, $\mu_1=\mu_1^\circ$ (that is, $\mu_1-\mu_1^\circ=0$). Let's plug this into the Flory-Rehner theory and solve for $\phi_2$.
+    \begin{itemize}
+        \item First, let's assume $\phi_2\ll 1$ and expand the logarithm in the Flory-Rehner equation to two terms, as in Lecture \ref{sse:6}. This affords
+        \begin{equation*}
+            -\phi_2-\frac{\phi_2^2}{2}+\phi_2+\chi\phi_2^2 = -\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2} \right)
+        \end{equation*}
+        \item If $\phi_2\ll 1$, then $\phi_2^{1/3}\gg\phi_2/2$. Thus, we may neglect the rightmost term above to obtain
+        \begin{equation*}
+            \phi_2^2\left( \chi-\frac{1}{2} \right) = -\frac{\rho\hat{V}_1\phi_2^{1/3}}{M_x}
+        \end{equation*}
+        \begin{itemize}
+            \item The right term above is negative, so for the left term above to be negative, we must have $\chi<1/2$! This is how the math expresses our intuition that the polymer must be soluble in the solvent in order for swelling to occur.
+        \end{itemize}
+        \item Knowing $\chi<1/2$, we may write
+        \begin{align*}
+            \phi_2^2\left| \chi-\frac{1}{2} \right| &= \frac{\rho\hat{V}_1\phi_2^{1/3}}{M_x}\\
+            \phi_2^{5/3} &= \frac{\rho\hat{V}_1}{M_x}\cdot\frac{1}{\left| \chi-\frac{1}{2} \right|}
+        \end{align*}
+        \begin{itemize}
+            \item It follows that the variables we can tweak to control swelling are (1) the subchain molecular weight $M_x$ and (2) making $|\chi-1/2|$ large.
+            \begin{itemize}
+                \item Moreover, since $\chi$ can't be changed that much, it's really down to $M_x$.
+            \end{itemize}
+            \item If you want the material to swell by 2x, you need $M_x$ to grow by almost 4x because of the $3/5$ exponent.
+            \item Remember that doubling the volume is equivalent to changing the lateral parameters by $\alpha=2^{1/3}$. Thus, to double the lateral parameters, you will need to \emph{octuple} the volume.
+        \end{itemize}
+        \item $\phi_2=\alpha^{-3}$, so
+        \begin{align*}
+            \frac{1}{\alpha^3} &= \left( \frac{\rho\hat{V}_1}{M_xf(\chi)} \right)^{3/5}\\
+            \alpha &\propto M_x^{1/5}f(\chi)^{1/5}
+        \end{align*}
+        where $f(\chi)=1/|\chi-1/2|$ shorthands the relevant function of $\chi$.
+        \begin{itemize}
+            \item Implication: You have to change the molecular weight by \emph{a lot} in order to affect the swelling.
+        \end{itemize}
+    \end{itemize}
+    \item Applications of gels: Contact lenses.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{contactLens.png}
+        \caption{Contact lenses' mechanism of action.}
+        \label{fig:contactLens}
+    \end{figure}
+    \begin{itemize}
+        \item These are crosslinked hydrogels.
+        \item How contact lenses work.
+        \begin{itemize}
+            \item Different eye shapes give different refractions that need to be neutralized.
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 

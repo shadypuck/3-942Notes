@@ -10,7 +10,7 @@
 
 
 \chapter{Solution Thermodynamics}
-\section{Flory-Huggins Theory}
+\section{Flory-Huggins Theory}\label{sse:5}
 \begin{itemize}
     \item \marginnote{9/18:}Outline of the next three lectures.
     \begin{itemize}
@@ -131,7 +131,7 @@
         \end{itemize}
     \end{itemize}
     \item Mean field lattice theory.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.3\linewidth]{latticeConfig.JPG}
         \caption{Configurations in mean field lattice theory.}
@@ -319,7 +319,7 @@
             \begin{equation*}
                 \frac{\Delta S_M}{\kB X_0} = -\frac{\phi_1}{N_1}\ln\phi_1-\frac{\phi_2}{N_2}\ln\phi_2
             \end{equation*}
-            \item This equation tells us that when $N$ is big, entropy doesn't play a huge role in driving mixing (because $N_1,N_2$ are in the denominator). Thus, enthalpy matters more for the mixing of polymers.
+            \item This equation tells us that when $N$ is big, entropy doesn't drive mixing much (because $N_1,N_2$ are in the denominator). Thus, enthalpy matters more for the mixing of polymers.
         \end{itemize}
     \end{itemize}
     \item Using the modified mixing entropy, we can now finally state the "famous Flory-Huggins theory for the free energy of mixing."
@@ -330,12 +330,8 @@
         \item This equation is applicable to solvent-solvent ($1=N_1=N_2$), polymer-solvent ($1=N_1\neq N_2$), and polymer-polymer ($1\neq N_1,N_2$) mixing.
         \item This equation also gives us a tool to investigate phase behavior and how it varies with $T,\chi,\phi_i,N_i$. Namely, values of these variables that lead to a negative $\Delta G_M$ will correspond to mixing, and values of these variables that lead to a positive $\Delta G_M$ will correspond to demixing.
     \end{itemize}
-    \item How do we measure $\chi$ experimentally?
-    \begin{itemize}
-        \item We will explore this soon.
-    \end{itemize}
     \item Influence of $\chi$ on phase behavior.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.33\linewidth}
             \centering
@@ -419,7 +415,7 @@
 
 
 
-\section{The Theta State}
+\section{The Theta State}\label{sse:6}
 \begin{itemize}
     \item \marginnote{9/23:}Announcements.
     \begin{itemize}
@@ -573,7 +569,7 @@
         \item Lastly, there is the matter of $N_2$. As $N_2$ increases, the chemical potential of the solvent also increases. This means that as chains get longer, solvents tend to get "worse."
     \end{itemize}
     \item Implications of Flory-Huggins theory for the behavior polymer-solvent solutions, as seen on their phase diagrams.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.25\linewidth]{polSolPhase.png}
         \caption{Binodal curves for polymer-solvent solutions as $N$ increases.}
@@ -918,7 +914,7 @@
 
 
 
-\section{Phase Behavior and Microphase Separation}
+\section{Phase Behavior and Microphase Separation}\label{sse:7}
 \begin{itemize}
     \item \marginnote{9/25:}Last time.
     \begin{itemize}
@@ -945,7 +941,7 @@
         \end{itemize}
     \end{itemize}
     \item A bit more on biocondensates (not testable material).
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.2\linewidth]{bioNetwork.JPG}
         \caption{Simplified graph of a biochemical network.}
@@ -953,17 +949,17 @@
     \end{figure}
     \begin{itemize}
         \item Correction: The protein discussed last time goes into solution if you \emph{add} salt.
-        \item Principle in biology: At some point, it gets better to have things that do multiple tasks poorly than one task really well.
+        \item Principle in biology: It's more useful to do multiple tasks poorly than one task really well.
         \begin{itemize}
             \item This is because it takes energy to produce proteins.
             \item Example: In computer science, engineers used to spend a lot of time to make 1 really nice transistor. But now, they go for a lot of transistors that are almost all the same and you connect them in different ways. Now you can do basically any task, but not all of them are great. In D. E. Shaw, they have a computer that \emph{only} runs molecular dynamics (1000 times faster than Nvidia GPUs), but that's the only thing it does.
             \item So since we need a lot of functions in a cell and we don't want to produce a lot of very specialized proteins, it's better to be a bit more general.
         \end{itemize}
-        \item Suppose you have a (biochemical) network, and we control each transition between nodes locally (Figure \ref{fig:bioNetwork}).
+        \item Consider a (biochemical) network, with control over each local internode transition (Figure \ref{fig:bioNetwork}).
         \begin{itemize}
             \item If we want to actually do complex computation with the system, having junctions that act on a number of different nodes is helpful.
         \end{itemize}
-        \item Takeaway: Random things and disorder in a cell gives you capabilities beyond perfectly folded structures, like proteins and enzymes.
+        \item Takeaway: Randomness affords capabilities beyond what's possible with perfectly folded proteins.
     \end{itemize}
     \item This concludes content from last time; we now move onto today's content.
     \item Self-assembly of simplified systems (relative to cells).
@@ -975,15 +971,14 @@
     \end{figure}
     \begin{itemize}
         \item What aspects of an ABC triblock copolymer affect its organization?
-        \item There will be \textbf{intra interactions} $\chi_{AB}$, $\chi_{AC}$, and $\chi_{BC}$ between the various components of the chain.
-        \item Let the chain have total length $N$, and let each of the three segments have length $N_i$.
         \begin{itemize}
-            \item Then we have $N_A$, $N_B$, and $N_C=N-N_A-N_B$.
+            \item \textbf{Intra interactions} $\chi_{AB}$, $\chi_{AC}$, and $\chi_{BC}$ between each component of the chain.
+            \item Chain length: Let the chain have total length $N$, and let each of the three segments have length $N_i$. Then we have $N_A$, $N_B$, and $N_C=N-N_A-N_B$.
         \end{itemize}
         \item If we have something like (a) of Figure \ref{fig:selfAssembly}, then we probably have $N_A=N_B=N_C$ (becasue everything is nice and equally ordered) and $\chi_{AC}<\chi_{AB}\approx\chi_{BC}$ (because we have AB and BC interfaces, but not AC interfaces).
         \item Note: These images are not made up; all of them have been seen.
     \end{itemize}
-    \item If we can do everything in Figure \ref{fig:selfAssembly} with 3 things, imagine how much we can do with the 20 amino acids!
+    \item If we can do everything in Figure \ref{fig:selfAssembly} with 3 things, imagine what's possible with 20 amino acids!
     \begin{itemize}
         \item Note on the "hydrophobic" amino acids: They have branching (see valine, leucine, isoleucine)! Nature doesn't just use \emph{n}-alkyl chains of different length because the methyl groups sticking off have partial charges of 0.4 (40\% the charge of an electron), which makes them still pretty polar.
         \item Tyrosine can use its phenolic substiuent to \emph{enhance} its $\pi$-cation non-covalent interactions relative to phenylalanine.
@@ -991,13 +986,13 @@
     \item Key question: How can a homogeneous state go to a semiordered state, to an even more ordered state?
     \begin{itemize}
         \item Example: Unfolded protein, to good prions, to rogue prions.
-        \item Aside: In rogue prions, there is an exposed $\beta$-pleated sheet, which will stack vertically with the $\beta$-pleated sheets of other prions. This stacking is what causes the brain to shut down in Mad Cow Disease.
+        \item Aside: In rogue prions, exposed $\beta$-pleated sheets stack vertically with the $\beta$-pleated sheets of other prions. This stacking is what causes brain shut down in Mad Cow Disease.
     \end{itemize}
     \item Goals for self-assembly.
     \begin{itemize}
-        \item Understand the key concepts behind the process of self-assembly, in particular for the case of block copolymers.
+        \item Understand the key concepts behind self-assembly, in particular for the case of block copolymers.
         \item Construct a simple formalism to determine which variables contribute more relative to other ones.
-        \item Recent stuff on how to control self-assembly using external methods.
+        % \item Recent stuff on how to control self-assembly using external methods.
     \end{itemize}
     \item \textbf{Min-max principle}: Phases are most stable when we (1) minimize interfacial energy and (2) maximize the conformational entropy of the chains.
     \item The min-max principle governs self-assembly.
@@ -1010,12 +1005,12 @@
     \begin{itemize}
         \item As we transition from a homogeneous, disordered state to an ordered state, we develop an interface.
         \begin{itemize}
-            \item This interface is technically termed the \textbf{IMDS}, or inter-material dividing surface.
+            \item This interface is technically termed the \textbf{inter-material dividing surface} (or IMDS).
         \end{itemize}
         \item In the disordered phase, entropy is maximized\dots but we're paying an enthalpic price because of the contact between groups that don't like each other.
         \item The subscript $c$ in Figure \ref{fig:ordering} means "critical."
         \begin{itemize}
-            \item Remember that $\chi N$ controls whether or not we develop microdomains (more on this below). We will investigate this in PSet 2, too.
+            \item $\chi N$ controls whether or not we develop microdomains (more on this below, and in PSet 2).
         \end{itemize}
     \end{itemize}
     \item Principles of self-assembly: Microphase separation in diblock copolymers.
@@ -1047,8 +1042,9 @@
         \item Some domains start to form and you get lamellae in time.
         \item Misconception: Things are not perfectly mixed at one extreme; you start seeing domains earlier. As you go from Figure \ref{fig:microphaseSepa}-\ref{fig:microphaseSepc}, you get into a lamellar state.
     \end{itemize}
+    \pagebreak
     \item Microdomain morphologies: Diblock copolymers.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.65\linewidth]{microphaseMorph.png}
         \caption{Microphase morphologies in diblock copolymers.}
@@ -1077,7 +1073,7 @@
     \end{itemize}
     \item We now investigate microdomain spacing for diblock copolymers.
     \item Variables to be aware of.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{tikzpicture}
             \footnotesize
@@ -1277,11 +1273,11 @@
         \end{equation*}
         \item We have already developed extensive theory for polymers in the melt state. Let's use some of it to calculate each $H_i$ or $S_i$ in the above equation.
         \begin{itemize}
-            \item Recall from Lecture 1.3 that the entropy $S$ of a polymer chain without excluded volume effects (as in the melt state) is given by
+            \item Recall from Lecture \ref{sse:4} that the entropy $S$ of a polymer chain without excluded volume effects (as in the melt state) is given by
             \begin{equation*}
                 S = -\frac{3\kB R^2}{2Na^2}
             \end{equation*}
-            \item Recall from Lecture 2.1 that the mixing energy per site $\Delta H_M/X_0$ of components A and B may be related to other parameters by
+            \item Recall from Lecture \ref{sse:5} that the mixing energy per site $\Delta H_M/X_0$ of components A and B may be related to other parameters by
             \begin{equation*}
                 \frac{\Delta H_M}{X_0\kB T} = \chi_\text{AB}\phi_\text{A}\phi_\text{B}
             \end{equation*}
@@ -1297,7 +1293,7 @@
             \end{itemize}
             \item Lastly, let's use some of our new variables.
             \begin{itemize}
-                \item In both State 0 and State 2, like chains will interact with each other enthalpically via at least London dispersion forces. Recall that this is how we got the equations $H_i=zX_i\varepsilon_{ii}/2$ in Lecture 2.1.
+                \item In both State 0 and State 2, like chains will interact with each other enthalpically via at least London dispersion forces. Recall that this is how we got the equations $H_i=zX_i\varepsilon_{ii}/2$ in Lecture \ref{sse:5}.
                 \item However, in State 2, there is an additional enthalpic interaction: The interfacial energy on the IMDS. Since we have this energy per unit area on the IMDS ($\gamma_\text{AB}$) and the interfacial area of a single chain ($\Sigma)$, we can obtain the interfacial energy on the IMDS \emph{per chain} by taking the product $\gamma_\text{AB}\Sigma$.
                 \item Thus, the difference in energies between states 0 and 2 is purely equal to this additional enthalpic interaction. Symbolically,
                 \begin{equation*}
@@ -1316,7 +1312,7 @@
         \end{itemize}
     \end{itemize}
     \item Now that we have an equation for the change in energy upon microdomain formation, what can we do with it? One useful thing would be to calculate the optimal domain periodicity $\lambda_\text{opt}$.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.35\linewidth]{diblockStretch.JPG}
         \caption{Structural changes as diblock copolymers are stretched.}
@@ -1348,7 +1344,7 @@
             \lambda_\text{opt} &= \sqrt[3]{\frac{\alpha}{2\beta}}\\
             &= \Bigg[ \frac{1}{2}\bigg( \underbrace{\frac{2\kB T\sqrt{\chi_\text{AB}}Na}{\sqrt{6}}}_\alpha \bigg)\bigg( \underbrace{\vphantom{\frac{2\kB T\sqrt{\chi_\text{AB}}Na}{\sqrt{6}}}\frac{3\kB T}{8Na^2}}_\beta \bigg)^{-1} \Bigg]^{1/3}\\
             &= \left[ \left( \frac{32}{27} \right)^{1/2}a^3N^2\chi_\text{AB}^{1/2} \right]^{1/3}\\
-            &\approx 1.03aN^{2/3}\chi_\text{AB}^{1/6}\\
+            % &\approx 1.03aN^{2/3}\chi_\text{AB}^{1/6}\\
             \lambda_\text{opt} &\approx aN^{2/3}\chi_\text{AB}^{1/6}
         \end{align*}
         \begin{itemize}
@@ -1422,7 +1418,7 @@
     \end{itemize}
     \item Now that we have a language through which to discuss brushes, let's analyze the system as before.
     \begin{itemize}
-        \item What is the energy or enthalpy? If we need to take excluded volume into account, then from Lecture 1.3, 
+        \item What is the energy or enthalpy? If we need to take excluded volume into account, then from Lecture \ref{sse:4}, 
         \begin{equation*}
             \Delta H = \frac{\kB T}{2}vc^2V_p \propto vc^2\cdot HD^2 = \frac{vN^2}{HD^2}
         \end{equation*}
@@ -1459,7 +1455,7 @@
 
 \section{Office Hours (Alexander-Katz)}
 \begin{itemize}
-    \item \marginnote{9/30:}PSet 2, Q5.
+    \item \marginnote{9/30:}PSet 2, Q5 (\emph{warning: much in here is not entirely accurate}).
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.5\linewidth]{PSet2Q5setup.JPG}
@@ -1728,7 +1724,7 @@
         \item That being said, at sufficiently high temperatures, any system will remix due to entropic considerations (but the system may decompose before we are able to reach such a high temperature).
         \item This remixing means that binodal lines are \emph{always} "eye-shaped" if we extend the vertical axis to high enough temperatures.
     \end{itemize}
-    \item What are some good resources to read about phase behavior in block copolymers, attachment to surfaces, interfacial energy, and the other topics from Lecture 2.3 that are not covered in \textcite{bib:HiemenzLodge}?
+    \item What are some good resources to read about phase behavior in block copolymers, attachment to surfaces, interfacial energy, and the other topics from Lecture \ref{sse:7} that are not covered in \textcite{bib:HiemenzLodge}?
     \begin{itemize}
         \item \textcite{bib:RubinsteinColby} has some good information on brushes.
         \item \textcite{bib:Strobl} has some good information on block copolymers.
@@ -1789,7 +1785,7 @@
             \end{align*}
         \end{itemize}
     \end{itemize}
-    \item \textbf{Molar} (quantity $Y$ of substance $i$): The amount of $Y$ contributed by each mole of a substance $i$ when pure. \emph{Dentoed by} $\bm{\hat{Y}_i}$. \emph{Units} $\textbf{mol}^{\bm{-1}}$.
+    \item \textbf{Molar} (quantity $Y$ of substance $i$): The amount of $Y$ contributed by each mole of a substance $i$ when pure. \emph{Denoted by} $\bm{\hat{Y}_i}$. \emph{Units} $\textbf{mol}^{\bm{-1}}$.
     \item \textbf{Mole fraction} (of component $i$): The fraction of moles of component $i$ relative to the total number of moles in the mixture. \emph{Denoted by} $\bm{x_i}$. \emph{Given by}
     \begin{equation*}
         x_i := \frac{n_i}{\sum_in_i}

@@ -10,7 +10,7 @@
 
 
 \chapter{Dilute Solutions}
-\section{Intrinsic Viscosity - 1}
+\section{Intrinsic Viscosity - 1}\label{sse:10}
 \begin{itemize}
     \item \marginnote{10/7:}Announcements.
     \begin{itemize}
@@ -188,7 +188,7 @@
     \item \textbf{Stretch}: A behavior of a sheared polymer in which a usually flexible coil is elongated by shear forces.
     \item \textbf{Tumble}: A behavior of a sheared polymer in which a stretched coil is compressed with rotation by shear forces.
     \item We now describe how the Navier-Stokes equations treat viscosity.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.1\linewidth]{stokesViscosity.png}
         \caption{Drag coefficient on a hard sphere in a viscous fluid.}
@@ -340,15 +340,10 @@
             R_H \propto R_g \propto R
         \end{equation*}
     \end{itemize}
-    \item \textbf{Fick's law}: A relationship between flux, diffusivity, concentration, and distance. \emph{Given by}
+    \item \textbf{Fick's law}: A relationship between flux $J$, diffusivity $D_m$, concentration $c$, and distance $x$. \emph{Given by}
     \begin{equation*}
         J = -D_m\pdv{c}{x}
     \end{equation*}
-    \begin{itemize}
-        \item $J$ is the flux.
-        \item $c$ is the concentration.
-        \item $x$ is the distance.
-    \end{itemize}
     \item How long does a polymer have to be to obey Zimm scaling?
     \begin{itemize}
         \item For most systems in which we are interested, we will use Zimm's non-draining sphere.
@@ -366,7 +361,7 @@
         \end{itemize}
     \end{itemize}
     \item $R_H$ vs. $R_g$ vs. $R$.
-    \begin{table}[h!]
+    \begin{table}[H]
         \centering
         \includegraphics[width=0.6\linewidth]{RgRH.png}
         \caption{Ratio of radius of gyration and hydrodynamic radius for different polymer architectures.}
@@ -506,7 +501,7 @@
 
 
 
-\section{Intrinsic Viscosity - 2}
+\section{Intrinsic Viscosity - 2}\label{sse:11}
 \begin{itemize}
     \item \marginnote{10/9:}Review of last lecture (various terms introduced last time).
     \item To begin, we'll wrap up some concepts from last time.
@@ -949,7 +944,7 @@
 
 
 
-\section{Osmometry and GPC}
+\section{Osmometry and GPC}\label{sse:12}
 \begin{itemize}
     \item Announcements.
     \begin{itemize}
@@ -1009,7 +1004,7 @@
         V_r := t_\text{elute}\cdot Q_\text{injection}
     \end{equation*}
     \item Let's look at a typical response curve.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.3\linewidth]{GPCresponse.JPG}
         \caption{GPC response curve.}
@@ -1094,7 +1089,7 @@
         \item We could say that the orange part has its own mean squared end-to-end distance instead of looking at the whole polymer! In other words, we can split a single polymer into self-similar subsections called \textbf{blobs}.
     \end{itemize}
     \item Stuffing our polymer into a pore.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.3\linewidth]{GPCblobPore.jpg}
         \caption{Polymer blobs in a pore.}
@@ -1135,7 +1130,7 @@
     \end{itemize}
     \item Most of the stuff in the slides reflects what we did above; Doyle does not go through it in any sort of depth.
     \item Now how do we measure the molecular weight of the peaks? One common way is with standards.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.3\linewidth]{GPCstandards.png}
         \caption{Calibrant response curves.}
@@ -1192,7 +1187,7 @@
     \end{itemize}
     \item We now switch gears to osmometry, specifically membrane osmometry.
     \item Membrane osmometry overview, as in a capillary membrane osmometer.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.33\linewidth]{membraneOsmometry.png}
         \caption{Membrane osmometer.}
@@ -1233,7 +1228,7 @@
     \item We will now skip ahead to getting the Flory $\chi$ parameter.
     \begin{itemize}
         \item Just above, we derived an expression for $\mu_1-\mu_1^\circ$.
-        \item But recall from Lecture 2.2 the additional expression
+        \item But recall from Lecture \ref{sse:6} the additional expression
         \begin{equation*}
             \mu_1-\mu_1^\circ = RT\left[ \ln\phi_1+\left( 1-\frac{1}{N_2} \right)\phi_2+\chi\phi_2^2 \right]
         \end{equation*}
@@ -1268,7 +1263,7 @@
 
 
 
-\section{Light Scattering}
+\section{Light Scattering}\label{sse:13}
 \begin{itemize}
     \item \marginnote{10/16:}Lecture outline.
     \begin{itemize}
@@ -1288,7 +1283,7 @@
         \item \textcite[178-90]{bib:YoungLovell} is good.
     \end{itemize}
     \item Geometry of a light scattering apparatus.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\linewidth]{scatterGeo.png}
         \caption{Light scattering geometry.}
@@ -1551,7 +1546,7 @@
             \item Just like osmotic pressure creates inequalities in solvent concentration, it creates inequalities in solute (polymer) concentration. Such fluctuations in polymer concnetration give rise to significant scattering.
             \item The Einstein-Smoluchowski equation, then, is what we use to quantify the fluctuations $\delta c$ in solute concentration as a function of osmotic presssure ($\Pi$) effects.
         \end{itemize}
-        \item To relate the quantities in the Einstein-Smoluchowski equation to polymer parameters we care about (e.g., $\Mw$ and $\chi$), we can use the main osmometry result from Lecture 3.4 (restated at left below). This equation in turn allows us to calculate the derivative at right below.
+        \item To relate the quantities in the Einstein-Smoluchowski equation to polymer parameters we care about (e.g., $\Mw$ and $\chi$), we can use the main osmometry result from Lecture \ref{sse:12} (restated at left below). This equation in turn allows us to calculate the derivative at right below.
         \begin{align*}
             \frac{\Pi}{RTc} &= \frac{1}{M}+\frac{\frac{1}{2}-\chi}{\bar{V}_1\rho_2^2} c+\cdots&
             \pdv{\Pi}{c} &= RT\left[ \frac{1}{M}+2A_2c+\cdots \right]
@@ -1636,7 +1631,7 @@
         = \left[ 1+\frac{16\pi^2n_0^2}{3\lambda^2}\sin^2\left( \frac{\theta}{2} \right)\prb{R_g^2} \right]\left( \frac{1}{M}+2A_2c+\cdots \right)
     \end{equation*}
     \item We now look into how to experimentally extract $M,A_2,R_g$ by plotting scattered intensity vs. $c,q^2$.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{ZimmPlot.png}
         \caption{Zimm plot features.}
@@ -2025,7 +2020,7 @@
         P(r,\tau) = 4\pi r^2\left( \frac{1}{4\pi D_t\tau} \right)^{3/2}\exp(-\frac{r^2}{4D_t\tau})
     \end{equation*}
     \begin{itemize}
-        \item Notice that the form is mathematically equivalent to the three-dimensional Gaussian distribution for a polymer's end-to-end distance derived in Lecture 1.3, using the substitution $6D_t\tau=\prb{\Delta r^2}=Na^2$.
+        \item Notice that the form is mathematically equivalent to the three-dimensional Gaussian distribution for a polymer's end-to-end distance derived in Lecture \ref{sse:4}, using the substitution $6D_t\tau=\prb{\Delta r^2}=Na^2$.
     \end{itemize}
     \item \textbf{Stokes-Einstein equation}: An expression for the diffusion of a hard-sphere tracer particle of radius $r_s$ in a continuous solvent. \emph{Given by}
     \begin{equation*}
