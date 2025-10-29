@@ -1,0 +1,85 @@
+\documentclass[../psets.tex]{subfiles}
+
+\pagestyle{main}
+\renewcommand{\leftmark}{Problem Set \thesection}
+\setcounter{section}{3}
+
+\begin{document}
+
+
+
+
+\section{Networks}
+\noindent Name: Steven Labalme\\
+\noindent Email: \href{mailto:labalme@mit.edu}{labalme@mit.edu}\\
+\noindent Collaborator(s): \emph{None}
+\begin{enumerate}
+    \item \marginnote{10/30:}Rayleigh ratios ($R_\theta$) were obtained at \SI{25}{\celsius} for a series of solutions of a polystyrene sample in benzene, with a detector situated at various angles $\theta$ to the incident beam of unpolarized, monochromatic light with wavelength $\lambda=\SI{546.1}{\nano\meter}$. The results of these measurements appear below.
+    \begin{center}
+        \small
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{l@{\hspace{1.5cm}}S@{\hspace{1cm}}S@{\hspace{1cm}}S@{\hspace{1cm}}S}
+            \toprule
+            \multirow{2}{*}{\begin{tabular}{@{}l}\\[-7mm]Polystyrene\\[-2mm]concentration\\[-2mm](\si{\gram\per\cubic\deci\meter})\end{tabular}} & \multicolumn{4}{c}{$10^4\times R_\theta/\si{\per\meter}$ measured at $\theta=$}\\ \cline{2-5}
+             & \ang{30} & \ang{60} & \ang{90} & \ang{120}\\
+            \midrule
+            0.50 & 72.3  & 69.4  & 66.2 & 64.3\\[-1.5mm]
+            1.00 & 89.8  & 85.7  & 81.3 & 78.2\\[-1.5mm]
+            1.50 & 100.8 & 97.1  & 92.0 & 88.1\\[-1.5mm]
+            2.00 & 108.7 & 103.8 & 99.7 & 95.9\\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+    Under the conditions of the measurements, the Rayleigh ratio and the refractive index of benzene are \SI{46.5e-4}{\per\meter} and 1.502 respectively, and the refractive index increment for the polystyrene solutions is \SI[per-mode=symbol]{1.08e-4}{\cubic\meter\per\kilo\gram}. The density of polystyrene is \SI[per-mode=symbol]{1.05}{\gram\per\cubic\centi\meter}, the density of benzene is \SI[per-mode=symbol]{0.8787}{\gram\per\centi\meter\cubed}, the molecular weight of benzene is \SI[per-mode=symbol]{78.11}{\gram\per\mole}, and the molar volume of benzene can be approximated as its molecular weight divided by its density.\par
+    Using a Zimm plot, determine\dots
+    \begin{enumerate}
+        \item The weight-average molar mass of the polystyrene sample.
+        \item The average radius of gyration, $\prb{R_g^2}^{1/2}$ of the polystyrene molecules in benzene at \SI{25}{\celsius}.
+        \item The second virial coefficient $A_2$ and $\chi$ for the polystyrene-benzene interaction at \SI{25}{\celsius}.
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Find the relation between the stress $\sigma$ and the strain $\lambda$ for a piece of ideal rubber undergoing biaxial extension. Assume the rubber has initial area $A_0$ and thickness $d_0$, and let the final area be $A=\lambda^2A_0$.
+        \item Use the result from part (a) to calculate the relation between the pressure $p$ of an ideal gas inside a balloon made from an ideal elastomer, expanded to a radius $R=\lambda R_0$, where $R_0$ is the initial radius. Use the following version of the \textbf{Young-Laplace equation} to relate the excess pressure $\Delta p$ (inside the balloon minus outside) to the stress in the rubber, where $d$ is the thickness of the balloon skin.
+        \begin{equation*}
+            \Delta p = \frac{2d\sigma}{R}
+        \end{equation*}
+        Empirically, it often seems harder to "get started" blowing up a balloon, than to blow it up further beyond a certain point; explain this observation based on your result for $p$ versus $\lambda$.
+        \item Finally, suppose you have a balloon made of an ideal elastomer that is inflated to a reasonable size with an ideal gas at room temperature. If the temperature of the balloon plus gas system is then increased to \SI{100}{\celsius}, will the balloon expand, contract, or stay the same size? Justify your answer.
+    \end{enumerate}
+    \item Consider a cross-linked polyelectrolyte gel in a reservoir of water. Our goal is to understand the swelling behavior of this gel. A polyelectrolyte gel consists of a polymer where some (or all) monomers have ionizable functional groups that may or may not be charged. For each group that is charged, a corresponding counterion of opposite charge must exist to maintain overall charge neutrality. Calculations with charges are complicated, so for this problem we will consider a system composed of solvent, free particles (counterions), and polymers. The number of free particles is regulated by the degree of ionization $f$. Again, for the sake of the problem, ignore any actual charges and only consider the effect of the polyelectrolyte as giving rise to (uncharged) counterions in the system.
+    \begin{enumerate}
+        \item In the absence of charges ($f=0$), what is the thermodynamic condition that determines the equilibrium swelling ratio of the gel? Describe the qualitative competition between free energy terms in the context of Flory-Rehner theory.
+        \item Now allowing for the possibility of charges ($f>0$), write the Flory-Huggins free energy for this system. Remember that the polymer is a big cross-linked network with an enormous degree of polymerization $N$. Again, we are treating counterions like uncharged particles, so do not explicitly include Coulombic energies or other electrostatic interactions. \emph{Hint}: You can imagine that the counterions act as a gas which exerts a hydrostatic pressure on the "walls" of the gel related to the number of counterions and the volume of the system by the ideal gas law.
+        \item What is the chemical potential of the solvent in part (b) in terms of $\chi$ and $f$?
+        \item Construct a Flory-Rehner type theory to describe the swelling of this system, based on our description of Flory-Rehner theory in class.
+        \item From your expression in part (d), identify which terms can be ignored and why. Show that the final perturbed dimension of the gel scales as
+        \begin{equation*}
+            L \propto f^{1/2}N
+        \end{equation*}
+        where $L$ is the swollen size of one side of the (isotropic) gel, and $N$ is the degree of polymerization.
+        \item We now are interested in using our polyelectrolyte gel as an actuator that can expand and contract in response to an electrical signal, recognizing that applying a voltage to the system will change the degree of dissociation $f$ (Figure \ref{fig:PSet4Q3fa}).
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[b]{0.35\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{PSet4Q3fa.png}
+                \caption{Experimental setup.}
+                \label{fig:PSet4Q3fa}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.35\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{PSet4Q3fb.png}
+                \caption{Degree of dissociation vs. voltage.}
+                \label{fig:PSet4Q3fb}
+            \end{subfigure}
+            \caption{Polyelectrolyte gel as a piston.}
+        \end{figure}
+        The change in the number of dissociated ions is shown in Figure \ref{fig:PSet4Q3fb}. On the same graph, sketch the relative height $H/H_0$ of the piston as a function of the applied voltage, and derive a scaling law that relates the number of dissociated ions to the height $H$ of the gel divided by the height $H_0$ of the gel in the absence of voltage. Assume the cross-sectional area of the gel is fixed at a value $A$ by the walls of the apparatus.
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+\end{document}
