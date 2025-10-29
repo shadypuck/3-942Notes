@@ -375,7 +375,7 @@
 
 
 
-\section{Neutral and Ionic Gels}\label{sse:15}
+\section{Neutral Gels}\label{sse:15}
 \begin{itemize}
     \item \marginnote{10/23:}Most gels we think about are water-based, e.g., diapers, Jello, and contact lenses.
     \begin{figure}[h!]
@@ -621,6 +621,227 @@
         \begin{itemize}
             \item Different eye shapes give different refractions that need to be neutralized.
         \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Ionic Gels}\label{sse:16}
+\begin{itemize}
+    \item \marginnote{10/28:}Lecture outline.
+    \begin{itemize}
+        \item Estimate swelling with Flory-Rehner theory.
+        \item Compute charged interactions.
+        \item Evaluate swelling of charged gels.
+    \end{itemize}
+    \item We begin by estimating the extent of swelling for gels we're likely to encounter.
+    \begin{itemize}
+        \item Recall from last time that if $\phi_2\ll 1$, then the equilibrium swelling is
+        \begin{equation*}
+            \phi_2 = \left( \frac{\rho\hat{V}_1}{M_x}\cdot\frac{1}{\left| \chi-\frac{1}{2} \right|} \right)^{3/5}
+        \end{equation*}
+        \item Approximations of the quantities.
+        \begin{itemize}
+            \item $1/f(\chi)\approx 2$ is a constant on the order of 1, so we'll neglect it outright.
+            \item $\rho\approx\SI[per-mode=symbol]{1}{\gram\per\milli\liter}=\SI[per-mode=symbol]{e3}{\kilo\gram\per\cubic\meter}$ for most polymers (i.e., pretty close to that of water).
+            \item $\hat{V}_1\approx N_\text{A}\cdot\SI{100}{\cubic\angstrom}$.
+            \item $M_x\approx\text{\SIrange[per-mode=symbol]{e3}{e5}{\gram\per\mole}}$.
+        \end{itemize}
+        \item Let's now put all the approximations together, first assuming relatively short subchains.
+        \begin{equation*}
+            \phi_2 \approx \left[ \frac{(\SI{e3}{\kilo\gram\per\cubic\meter})(\SI{6e23}{\per\mole})(\SI{100e-30}{\meter\cubed})}{\SI{1}{\kilo\gram\per\mole}} \right]^{3/5}
+            = (\num{6e-2})^{3/5}
+            \approx 0.18
+        \end{equation*}
+        \item Increasing $M_x$ two orders of magnitude yields 0.01 as our approximation.
+        \item Thus, we range from about 80\% of the volume being solvent to almost 99\%.
+    \end{itemize}
+    \item We now move onto charged gels.
+    \begin{itemize}
+        \item Recall that the $\pKa$ is the $\pH$ at which a group becomes charged.
+    \end{itemize}
+    \item What groups are useful for creating charged gels?
+    \begin{itemize}
+        \item Carboxylic acids.
+        \begin{itemize}
+            \item Deprotonate to contribute an anionic group to the gel.
+            \item $\pKa\approx\text{\numrange{4}{5}}$.
+        \end{itemize}
+        \item Amines.
+        \begin{itemize}
+            \item Protonate to contribute a cationic group to the gel.
+            \item $\pKa\approx\text{\numrange{10}{12}}$.
+        \end{itemize}
+        \item Sulfonates.
+        \begin{itemize}
+            \item Deprotonate.
+            \item $\pKa\approx 0$.
+        \end{itemize}
+    \end{itemize}
+    \item What is the $\pKa$ of a polyelectrolyte, e.g., polyacrylic acid?
+    \begin{itemize}
+        \item The $\pKa$ of the polyelectrolyte is \emph{higher} than that of a monoelectrolyte.
+        \item This is because the like charges generated don't want to be in close proximity; rather, they have to pay an electrostatic (energetic) penalty to be so close.
+        \item The $\pKa$ of a given polyelectrolyte will depend on the rigidity of the chain, how far apart all of the ionizable monomers are, etc.
+    \end{itemize}
+    \item Now consider a charged gel.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.35\linewidth]{gelChargeNeg.JPG}
+        \caption{A negatively charged gel.}
+        \label{fig:gelChargeNeg}
+    \end{figure}
+    \begin{itemize}
+        \item Since the gel is negatively charged along its backbones, it will have intercalating positive charges.
+        \item Since there is no wall at the edge of the gel, the counterions are not trapped; rather, they can move out into the rest of solution! What we are interested in understanding is how many leave the gel.
+        \item To address this question, let's begin by calculating the energy of a pair of charges.
+        \begin{equation*}
+            U_\text{elec} = \frac{q_+q_-}{4\pi\varepsilon r}
+        \end{equation*}
+        \begin{itemize}
+            \item $\varepsilon$ is the permittivity of the solvent (as in Lecture \ref{sse:13}).
+            \item This expression allows us to define the \textbf{Bjerrum length}.
+        \end{itemize}
+        \item Let's now return to the gel. How much energy does it take to move a charge from the border of the gel to just outside of it?
+        \begin{itemize}
+            \item Let $Q_\text{macro}$ denote the charge of the gel \emph{after} the one charge leaves it, and let $R$ denote the radius of the gel.
+            \begin{itemize}
+                \item Since a single positive charge is leaving the gel (as in Figure \ref{fig:gelChargeNeg}), the gel will have a net negative charge afterwards. In other words, $Q_\text{macro}$ is equal to the opposite of the charge on the one leaving charge.
+            \end{itemize}
+            \item Once the single charge leaves, what we essentially have is two charges of equal magnitude separated by a distance equal to (just over) the radius of the gel. Symbolically,
+            \begin{equation*}
+                U_\text{elec} = \frac{Q_\text{macro}^2}{4\pi\varepsilon R}
+            \end{equation*}
+            \item Dividing through by $\kB T$, we obtain
+            \begin{equation*}
+                \frac{U_\text{elec}}{\kB T} = \frac{Q_\text{macro}^2}{4\pi\varepsilon R\kB T} = \frac{\lB}{R}
+            \end{equation*}
+            \item If $Q_\text{macro}\cdot\lB/R>1$, then "no" charges will leave the gel?? So $Q_\text{macro}>R/\lB$.
+        \end{itemize}
+        \item Let $Q_\text{tot}$ denote the original number of charges in the gel. What is the ratio $Q_\text{macro}/Q_\text{tot}$?
+        \begin{itemize}
+            \item Let $v$ denote the volume of a monomer (assumed to be the same for polymer and solvent). Additionally, let's expand our definition of $Q_\text{macro}$ to mean the total charge of the gel after many potential departures.
+            \item If the gel is dry, it will contain $V_0/v$ monomers.
+            \item It follows that the number of \emph{ionized} monomers in it is $fV_0/v$, where $f$ is the \textbf{degree of ionization}.
+            \item Multiplying by $V/V=1$ and simplify using $V_0/V=1/\phi_2$ ($V_0/V=\phi_2$, as defined last lecture??), we obtain
+            \begin{equation*}
+                Q_\text{tot} = \frac{fV_0}{v}\cdot\frac{V}{V}
+                = \frac{fV}{v\phi_2}
+            \end{equation*}
+            \item This combined with the fact that $Q_\text{macro}\propto\lB/R$ yields
+            \begin{equation*}
+                \frac{Q_\text{macro}}{Q_\text{tot}} = \frac{R/\lB}{fV/v\phi_2}
+                \propto \frac{R/\lB}{fR^3/v\phi_2}
+                = \frac{\phi_2v}{f\lB R^2}
+            \end{equation*}
+            where we have invoked $V\propto R^3$.
+            \item Ultimately, this quantity will simplify our lives when we want to calculate swelling of charged gels.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Bjerrum length}: The distance $r$ at which $U_\text{elec}=\kB T$. \emph{Denoted by} $\bm{r_\textbf{B}},\bm{\ell_\textbf{B}}$. \emph{Given by}
+    \begin{equation*}
+        \lB = \frac{|q_+q_-|}{4\pi\varepsilon\kB T}
+    \end{equation*}
+    \begin{itemize}
+        \item Example: The $\lB$ of water is about \SI{7}{\angstrom}. This means that two charges in water that are closer than \SI{7}{\angstrom} have a stronger interaction than $\kB T$. If they're farther apart, their interaction is less (so thermal noise will easily destroy that interaction).
+    \end{itemize}
+    \item \textbf{Degree of ionization}: The number of charged groups per polymer divided by the number of monomers per polymer. \emph{Denoted by} $\bm{f}$.
+    \item We can now calculate the swelling of a charged gel.Assume the gel is electroneutral.
+    \item In many ways, we will see that our gel is analogous to a piston.
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{gelPistona.JPG}
+            \caption{Contracted piston.}
+            \label{fig:gelPistona}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{gelPistonb.JPG}
+            \caption{Expanded piston.}
+            \label{fig:gelPistonb}
+        \end{subfigure}
+        \caption{Piston-like view of a charged gel.}
+        \label{fig:gelPiston}
+    \end{figure}
+    \begin{itemize}
+        \item The push out is the "gas" of ions pushing against the boundaries of the gel.
+        \begin{itemize}
+            \item We don't have to worry about electrostatics because we're assuming charge neutrality.
+            \item Pressure on the boundary of the gel is maintained by the electrostatic force we derived above, which arises if charges flow out.
+        \end{itemize}
+        \item The pull in is the entropic spring force of the chains in the network.
+        \item What we want to answer is, "how much will a chain stretch against the effect of the interactions of charged particles in the system?"
+    \end{itemize}
+    \item Let's calculate the free energy of the system.
+    \begin{itemize}
+        \item We have a solvent, a polymer, and the free energy of the gas that wants to expand. So
+        \begin{equation*}
+            \Delta G = \Delta G_\text{mix}+\Delta G_\text{elastic}+\Delta G_\text{ideal gas of counterions}
+        \end{equation*}
+        \item Flory-Huggins treated $\Delta G_\text{mix}$ and Flory-Rehner treated $\Delta G_\text{elastic}$, but what about the last term? In this case, recall from thermodynamics that the reversible work done by expanding an ideal gas isothermally (constant $T$) is given by
+        \begin{align*}
+            \Delta G &= \int_{V_0}^VP\dd{V}\\
+            &= \int_{V_0}^V\frac{N_\text{counterions}\kB T}{V}\dd{V}\\
+            \frac{\Delta G}{\kB T} &= N_\text{counterions}\ln\frac{V}{V_0}\\
+        \end{align*}
+        \begin{itemize}
+            \item This form is analogous to the "new term" from last time!
+            \item Last time, this term was irrelevant. It's not irrelevant now, though, because it is multipled by the total number of counterions in the gel!
+        \end{itemize}
+        \item So if we bash out the math, we get analogously to last time that
+        \begin{equation*}
+            \left( \chi-\frac{1}{2} \right)\phi_2^2 = -\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2}-\frac{fN_x\phi_2}{2} \right)
+        \end{equation*}
+        \begin{itemize}
+            \item Is $N_x=N_\text{counterions}$?? Do we need to know anything else about this derivation?
+            \item Major physical implication of this equation: $\chi$ can be bigger than $1/2$.
+            \begin{itemize}
+                \item Essentially, we can dissolve gels that wouldn't otherwise want to dissolve in a given solvent \emph{because} of the force of ions pushing out.
+                \item This makes sense as the ion pressure should "push outward," creating more room for solvent.
+            \end{itemize}
+            \item The rightmost term will, in fact, be a dominant term for a charged gel.
+        \end{itemize}
+    \end{itemize}
+    \item Consider the piston with a semipermeable membrane that does not allow the "gas" molecules to pass through.
+    \begin{itemize}
+        \item Let the cylinder have base area $A$ and height $H$.
+        \item The pressure from the gas is
+        \begin{equation*}
+            P_\text{gas} = \frac{N_\text{counterions}\kB T}{V}
+            = \frac{fnN\kB T}{V}
+        \end{equation*}
+        \begin{itemize}
+            \item $f$ is the degree of ionization, $n$ is the number of chains, and $N$ is the degree of polymerization of each chain.
+        \end{itemize}
+        \item On the other hand, recall from Lecture \ref{sse:4} that the elastic force $F$ generated by a single polymer chain is
+        \begin{equation*}
+            F \propto\frac{\kB TH}{Nb^2}
+        \end{equation*}
+        \begin{itemize}
+            \item $b$ is a Kuhn length.
+            \item Thus since $V=AH$, the pressure (force/area) for all $n$ chains is
+            \begin{equation*}
+                P_\text{elastic} = \frac{nF}{A}
+                = \frac{n\kB TH}{Nb^2A}
+                = \frac{n\kB TH^2}{Nb^2V}
+            \end{equation*}
+        \end{itemize}
+        \item Then
+        \begin{align*}
+            P_\text{gas} &= P_\text{elastic}\\
+            \frac{fnN\kB T}{V} &= \frac{n\kB TH^2}{Nb^2V}\\
+            fN^2 &= \frac{H^2}{b^2}\\
+            H &\propto Nbf^{1/2}
+        \end{align*}
+        \item Takeaway: This \textbf{counterion pressure} is huge.
+    \end{itemize}
+    \item What resources can I read about all of this?? It doesn't appear to be in any of our textbooks, and internet resources appear to often be too in depth.
+    \item Announcements.
+    \begin{itemize}
+        \item Office hours time tomorrow and Friday.
+        \item PSet 4 deadline extended to Sunday night.
     \end{itemize}
 \end{itemize}
 
