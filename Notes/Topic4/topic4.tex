@@ -508,7 +508,7 @@
             \item PSet 2, Q1a evaluated the left term above.
             \item Today, we will calculate the right term above.
         \end{itemize}
-        \item In particular, recall from Lecture 2.2 that for a polymer-solvent solution,
+        \item In particular, recall from Lecture \ref{sse:6} that for a polymer-solvent solution,
         \begin{equation*}
             \left( \pdv{\Delta G_\text{mix}}{n_1} \right)_{T,P,n_2} = RT(\ln\phi_1+\phi_2+\chi_{12}\phi_2^2)
         \end{equation*}
@@ -534,7 +534,7 @@
         \item Now we take derivatives.
         \item Invoking the chain rule as above, we first investigate
         \begin{align*}
-            \pdv{\Delta G_\text{elastic}}{\alpha} &= \frac{z\kB T}{2}\pdv{\alpha_s}(3\alpha_s^2-3-\ln\frac{\alpha_s^3V_0}{V_0})\\
+            \pdv{\Delta G_\text{elastic}}{\alpha_s} &= \frac{z\kB T}{2}\pdv{\alpha_s}(3\alpha_s^2-3-\ln\frac{\alpha_s^3V_0}{V_0})\\
             &= \frac{z\kB T}{2}\left( 6\alpha_s-\frac{3\alpha_s^2}{\alpha_s^3} \right)\\
             &= \frac{3}{2}z\kB T\left( 2\alpha_s-\frac{1}{\alpha_s} \right)
         \end{align*}
@@ -843,6 +843,132 @@
         \item Office hours time tomorrow and Friday.
         \item PSet 4 deadline extended to Sunday night.
     \end{itemize}
+\end{itemize}
+
+
+
+\section{Review for Quiz 2}
+\begin{itemize}
+    \item \marginnote{10/30:}Quiz 2 details.
+    \begin{itemize}
+        \item Quiz is 80 minutes, starts 3:05 PM sharp on 11/4.
+        \item Open book, notes, calculator (except no AI).
+        \item Undergrads do only 75\%.
+        \item Quiz is based on homeworks, and includes viscosimetry, rubbers, and gels. No questions on scattering.
+    \end{itemize}
+    \item Review starts now.
+    \item Viscosimetry basics.
+    \begin{itemize}
+        \item Understand the definition of viscosity as the ratio between the shear stress and shear rate (aka strain rate), i.e., $\tau=\eta\dot{\gamma}$.
+        \item In a Newtonian fluid, $\eta$ is a constant (i.e., does not vary with $\dot{\gamma}$).
+        \item In non-Newtonian fluids, we can have shear thinning (a negative deviation in the slope of a $\tau=\eta\dot{\gamma}$ graph) or thickening (a positive deviation in said slope).
+        \begin{itemize}
+            \item Up to some critical shear rate $\dot{\gamma}^*$, we have a linear dependence; after this, we deviate to non-Newtonian behavior.
+            \item Shear thinning occurs when you shear faster than the relaxation time of the polymer, inducing stretching and tumbling!
+            \item For our polymer solutions, we \emph{don't} want this to happen, so we stay in the regime in which $Wi=\tau_\text{polymer}\dot{\gamma}<1$.
+            \item Look ahead: Later, we will discuss what regulates $\tau_\text{polymer}$.
+        \end{itemize}
+    \end{itemize}
+    \item Stokesian friction (the Rouse free draining and Zimm non-draining models).
+    \begin{itemize}
+        \item When a fluid is pushed through a fluid at velocity $v$ (Figure \ref{fig:stokesViscosity}), it's motion is opposed by a viscous force $F_\text{viscous}=fv$.
+        \item The proportionality constant $f=6\pi\eta_0r_s$, where $\eta_0$ is the viscosity of the solvent and $r_s$ is the radius of the sphere.
+        \item In the Rouse model, $f=6\pi\eta_0Nb$, for the $N$ tiny spheres each of radius $b$.
+        \item In the Zimm model, $f=6\pi\eta_0R_H$, where $R_H$ is the hydrodynamic radius of the polymer.
+        \begin{itemize}
+            \item Recall that $R_H=\gamma R_g$, where $\gamma$ is an order 1 proportionality constant. $\gamma\approx 0.7$ often.
+        \end{itemize}
+    \end{itemize}
+    \item Diffusion of coils.
+    \begin{itemize}
+        \item The diffusion constant $d=\kB T/f$, where $f$ is the friction factor from above.
+        \item For the draining model, $d=\kB T/6\pi\eta_0Nb$.
+        \item For the non-draining model, $d=\kB T/6\pi\eta_0R_H$.
+        \item It follows --- as in PSet 3, Q1 --- that the diffusion time $\tau_\text{diff}=\prb{R_g^2}/D$.
+        \item Note: Since diffusion for the free draining model scales as $Nb$ while diffusion for the hard sphere scales $N^{1/2}b$, it is \emph{harder} to drag a free-draining material through a fluid!
+    \end{itemize}
+    \item Viscosity of dilute polymer solutions.
+    \begin{itemize}
+        \item Using Einstein's relationship, $\eta(\phi_{hs})=\eta_s(1+2.5\phi_{hs}+\cdots)$.
+        \begin{itemize}
+            \item For this to hold, we must be at a concentration $c\ll c^*$.
+        \end{itemize}
+        \item For polymers, we change $\phi_{hs}$ to the pervaded volume $\phi_\text{pol}\propto nR_H^3/V$, where $n$ is the number of chains.
+        \item We then rephrase things in terms of the specific viscosity, and then the intrinsic viscosity.
+        \item Putting everything together, we get to the Mark-Houwink-Sakurada relation of
+        \begin{equation*}
+            [\eta] = KM^a
+        \end{equation*}
+        \begin{itemize}
+            \item $a=1/2$ for a $\theta$ solvent, $a<1/2$ for a bad solvent, and $1/2<a<4/5$ for a good solvent.
+        \end{itemize}
+        \item If you know the intrinsic viscosity, you can get the size of the coil.
+        \begin{itemize}
+            \item We use the equation
+            \begin{equation*}
+                c^* = \frac{M}{N_\text{A}V_p} = \frac{2.5}{[\eta]}
+            \end{equation*}
+        \end{itemize}
+    \end{itemize}
+    \item We now move onto Topic 4 content.
+    \item Rubbers.
+    \begin{itemize}
+        \item Rubbers are networks.
+        \item We assume rubbers deform via affine deformations (Figure \ref{fig:rubberAssumeb}). This allows us to calculate stresses at the microscopic level.
+        \item The force on a chain is equal to
+        \begin{equation*}
+            F = -T\pdv{\Delta S}{l}
+        \end{equation*}
+        \begin{itemize}
+            \item We can evaluate on a microscopic level, or scale up to a macroscopic level.
+            \item Take $T\Delta S$, which is on the order of $(l^2-l_0^2)/Nb^2$.
+        \end{itemize}
+        \item We defined extension ratios.
+        \begin{itemize}
+            \item Noncompressibility ($\Delta V=0$) affords $\alpha_x\alpha_y\alpha_z=1$.
+        \end{itemize}
+        \item Types of noncompressible deformation: Uniaxial, biaxial, and holding one dimension constant while the other two change.
+        \item Our analysis of the uniaxial extension of a rubber got us to the Young's modulus.
+        \begin{itemize}
+            \item Essentially, we got an equation of the form $\sigma=Ef(\alpha)$.
+            \item The Young's modulus has the form
+            \begin{equation*}
+                E = \frac{3\rho RT}{M_x}
+                = \frac{3\rho\kB T}{M_x/N_\text{A}}
+                = \frac{3\kB T}{N}
+            \end{equation*}
+            where $N$ is the average degree of polymerization per subchain (i.e., the average number of monomers between crosslinks)?? Pretty sure $\rho N_\text{A}/M_x=z/V$, not $1/N$.
+        \end{itemize}
+    \end{itemize}
+    \item Gels (swollen rubbers).
+    \begin{itemize}
+        \item Here, we don't have the noncompressibility restriction.
+        \item Flory-Rehner theory describes these.
+        \item In Flory-Rehner theory, we have a balance between $\Delta G_\text{elastic}$ and $\Delta G_\text{mix}$. Moreover, we assume $\chi<1/2$.
+        \item Our derivation gets us to the equation
+        \begin{equation*}
+            \phi_2 = \left( \frac{\rho\hat{V}_1}{M_x}\cdot\frac{1}{\left| \chi-\frac{1}{2} \right|} \right)^{3/5}
+        \end{equation*}
+    \end{itemize}
+    \item Ionic gels.
+    \begin{itemize}
+        \item Counterions expand ionic gels by applying pressure to the boundaries.
+        \item In this case, we get the scaling $l\propto M_x$.
+        \item The piston analogy is always a good one to fall back on here; counterion pressure and entropic spring force matter far more than osmotic pressures.
+        \item Last thing (we haven't seen this previously): The more swollen a gel is, the lower its modulus.
+    \end{itemize}
+    \item No osmometry, no GPC, no light scattering.
+    \item $f$ will be provided to us in any question.
+    \item What Quiz 1 concepts will show up?
+    \begin{itemize}
+        \item Just the prerequisites to this content; not Mayer-$f$ functions or anything.
+    \end{itemize}
+    \item Resources for ionic gels.
+    \begin{itemize}
+        \item Typically in papers, but Peppa has a book on gels.
+        \item Alfredo will try to post some resources.
+    \end{itemize}
+    \item There should be a Practice Quiz 2.
 \end{itemize}
 
 
