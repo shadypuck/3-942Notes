@@ -704,35 +704,41 @@
         \end{itemize}
         \item Let's now return to the gel. How much energy does it take to move a charge from the border of the gel to just outside of it?
         \begin{itemize}
-            \item Let $Q_\text{macro}$ denote the charge of the gel \emph{after} the one charge leaves it, and let $R$ denote the radius of the gel.
+            \item A few charges may leave the gel with relatively little issue, but eventually, we will reach a point where it is unfavorable for 1 more charge to leave the gel.
+            \item Let $Q_\text{macro}$ denote the number of charges that have left the gel (including the one leaving most recently), let $q_1$ denote the charge of the one that just left, and let $R$ denote the radius of the gel.
             \begin{itemize}
-                \item Since a single positive charge is leaving the gel (as in Figure \ref{fig:gelChargeNeg}), the gel will have a net negative charge afterwards. In other words, $Q_\text{macro}$ is equal to the opposite of the charge on the one leaving charge.
+                \item Since positive charges are leaving the gel (as in Figure \ref{fig:gelChargeNeg}), the gel will have a net negative charge afterwards. Specifically, this net negative charge will be equal to $-q_1Q_\text{macro}$ (i.e., the opposite sign of the charge that is leaving, times the number of charges that have left).
+                \item All of the charges that have left the gel before the one we're considering to have \emph{just} left are no longer part of the system; we do not account for them in our math at all.
             \end{itemize}
-            \item Once the single charge leaves, what we essentially have is two charges of equal magnitude separated by a distance equal to (just over) the radius of the gel. Symbolically,
+            \item Once the most recent charge leaves, what we essentially have is two charges separated by a distance equal to (just over) the radius of the gel. Symbolically,
             \begin{equation*}
-                U_\text{elec} = \frac{Q_\text{macro}^2}{4\pi\varepsilon R}
+                U_\text{elec} = \frac{q_1^2Q_\text{macro}}{4\pi\varepsilon R}
             \end{equation*}
             \item Dividing through by $\kB T$, we obtain
             \begin{equation*}
-                \frac{U_\text{elec}}{\kB T} = \frac{Q_\text{macro}^2}{4\pi\varepsilon R\kB T} = \frac{\lB}{R}
+                \frac{U_\text{elec}}{\kB T} = \frac{q_1^2Q_\text{macro}}{4\pi\varepsilon R\kB T} = Q_\text{macro}\cdot\frac{\lB}{R}
             \end{equation*}
-            \item If $Q_\text{macro}\cdot\lB/R>1$, then "no" charges will leave the gel?? So $Q_\text{macro}>R/\lB$.
+            \item Thus, if $Q_\text{macro}\cdot\lB/R>1$, then there will be no (net) transfer of charges out of the gel.
+            \begin{itemize}
+                \item We say no "net" transfer because diffusion of charges is still in a dynamic equilibrium.
+                \item The implication is that once $Q_\text{macro}>R/\lB$, equilibrium will have been established.
+            \end{itemize}
         \end{itemize}
-        \item Let $Q_\text{tot}$ denote the original number of charges in the gel. What is the ratio $Q_\text{macro}/Q_\text{tot}$?
+        \item What proportion of the total amount of charge in the gel is leaving? Is it a lot or a little? To find out, let $Q_\text{tot}$ denote the original number of charges in the gel so we can investigate the ratio $Q_\text{macro}/Q_\text{tot}$.
         \begin{itemize}
-            \item Let $v$ denote the volume of a monomer (assumed to be the same for polymer and solvent). Additionally, let's expand our definition of $Q_\text{macro}$ to mean the total charge of the gel after many potential departures.
+            \item Let $v$ denote the volume of a monomer (assumed to be the same for polymer and solvent).
             \item If the gel is dry, it will contain $V_0/v$ monomers.
             \item It follows that the number of \emph{ionized} monomers in it is $fV_0/v$, where $f$ is the \textbf{degree of ionization}.
-            \item Multiplying by $V/V=1$ and simplify using $V_0/V=1/\phi_2$ ($V_0/V=\phi_2$, as defined last lecture??), we obtain
+            \item Multiplying by $V/V=1$ and simplifying using $V_0/V=\phi_2$ (as defined last lecture) affords
             \begin{equation*}
                 Q_\text{tot} = \frac{fV_0}{v}\cdot\frac{V}{V}
-                = \frac{fV}{v\phi_2}
+                = \frac{fV\phi_2}{v}
             \end{equation*}
-            \item This combined with the fact that $Q_\text{macro}\propto\lB/R$ yields
+            \item This combined with the fact that $Q_\text{macro}\propto R/\lB$ yields
             \begin{equation*}
-                \frac{Q_\text{macro}}{Q_\text{tot}} = \frac{R/\lB}{fV/v\phi_2}
+                \frac{Q_\text{macro}}{Q_\text{tot}} = \frac{R/\lB}{fV\phi_2/v}
                 \propto \frac{R/\lB}{fR^3/v\phi_2}
-                = \frac{\phi_2v}{f\lB R^2}
+                = \frac{v}{\phi_2f\lB R^2}
             \end{equation*}
             where we have invoked $V\propto R^3$.
             \item Ultimately, this quantity will simplify our lives when we want to calculate swelling of charged gels.
@@ -782,9 +788,9 @@
         \end{equation*}
         \item Flory-Huggins treated $\Delta G_\text{mix}$ and Flory-Rehner treated $\Delta G_\text{elastic}$, but what about the last term? In this case, recall from thermodynamics that the reversible work done by expanding an ideal gas isothermally (constant $T$) is given by
         \begin{align*}
-            \Delta G &= \int_{V_0}^VP\dd{V}\\
-            &= \int_{V_0}^V\frac{N_\text{counterions}\kB T}{V}\dd{V}\\
-            \frac{\Delta G}{\kB T} &= N_\text{counterions}\ln\frac{V}{V_0}\\
+            \Delta G &= -\int_{V_0}^VP\dd{V}\\
+            &= -\int_{V_0}^V\frac{N_\text{counterions}\kB T}{V}\dd{V}\\
+            \frac{\Delta G}{\kB T} &= -N_\text{counterions}\ln\frac{V}{V_0}\\
         \end{align*}
         \begin{itemize}
             \item This form is analogous to the "new term" from last time!
@@ -792,10 +798,10 @@
         \end{itemize}
         \item So if we bash out the math, we get analogously to last time that
         \begin{equation*}
-            \left( \chi-\frac{1}{2} \right)\phi_2^2 = -\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2}-\frac{fN_x\phi_2}{2} \right)
+            \left( \chi-\frac{1}{2} \right)\phi_2^2 = -\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2}-fN\phi_2 \right)
         \end{equation*}
         \begin{itemize}
-            \item Is $N_x=N_\text{counterions}$?? Do we need to know anything else about this derivation?
+            \item $N$ is the average degree of polymerization of the subchains.
             \item Major physical implication of this equation: $\chi$ can be bigger than $1/2$.
             \begin{itemize}
                 \item Essentially, we can dissolve gels that wouldn't otherwise want to dissolve in a given solvent \emph{because} of the force of ions pushing out.
@@ -935,9 +941,12 @@
             \begin{equation*}
                 E = \frac{3\rho RT}{M_x}
                 = \frac{3\rho\kB T}{M_x/N_\text{A}}
-                = \frac{3\kB T}{N}
+                \propto \frac{3\kB T}{N}
             \end{equation*}
-            where $N$ is the average degree of polymerization per subchain (i.e., the average number of monomers between crosslinks)?? Pretty sure $\rho N_\text{A}/M_x=z/V$, not $1/N$.
+            where $N$ is the average degree of polymerization per subchain.
+            \begin{itemize}
+                \item Recall that $3\kB T/N$ is very similar to our Hookean spring constant from Lecture \ref{sse:4}!
+            \end{itemize}
         \end{itemize}
     \end{itemize}
     \item Gels (swollen rubbers).
@@ -969,6 +978,57 @@
         \item Alfredo will try to post some resources.
     \end{itemize}
     \item There should be a Practice Quiz 2.
+\end{itemize}
+
+
+
+\section{Office Hours (Alexander-Katz)}
+\begin{itemize}
+    % \item PSet 4, Q1: Is the Rayleigh ratio of benzene \SI{46.5e4}{\per\meter}, so that it matches the order of magnitude of the values in the table better (i.e., is the negative sign a typo)? Or is it actually the tiny quanity of \SI{46.5e-4}{\per\meter}?
+    \item How can we multiply $\lB/R$ by $Q_\text{macro}$ to get the condition for charges not leaving the gel?
+    \begin{itemize}
+        \item $Q_\text{macro}$ is the charge of the gel after \emph{many} charges have left it. $q_1$ is the charge of a single charge that has just left the gel. $Q_\text{macro}/q_1$ will be a natural number.
+        \item Of all the ones that can actually leave, how many do? It's a tiny fraction.
+    \end{itemize}
+    \item Doesn't $V_0/V=\phi_2$?
+    \begin{itemize}
+        \item Yes.
+    \end{itemize}
+    \item What is $N_x$? Is it the degree of of polymerization of each subchain on average?
+    \begin{itemize}
+        \item Yep!
+    \end{itemize}
+    \item What is the $N$ in the Young's modulus equation from the review?
+    \begin{itemize}
+        \item \emph{Proportional} to $1/N$.
+        \item $N$ is the average degree of polymerization between crosslinks.
+        \item This equation shows that the Young's modulus is very similar to the spring constant of a single chain.
+    \end{itemize}
+    \item PSet 4, Q2a: The stress cross section being the plane perpendicular to the force, not the line? More info on the stress tensor and understanding it in general?
+    \begin{itemize}
+        \item Remember to state that we're using the \emph{engineering stress} and not the \emph{true} stress!
+    \end{itemize}
+    \item PSet 4, Q2b: Just sub in the $d,R,\sigma$ equations? That's it?
+    \begin{itemize}
+        \item Yep!
+    \end{itemize}
+    \item PSet 4, Q3d: What else can I do here besides rearranging?
+    \begin{itemize}
+        \item That's it!
+    \end{itemize}
+    \item PSet 4, Q3e: How can I derive this from Part (d)? In class, we got this result through orthogonal means?
+    \begin{itemize}
+        \item Use scalings and express $\phi_2$ in terms of $L$.
+    \end{itemize}
+    \item PSet 4, Q3f: How does voltage in this setup change the degree of ionization?
+    \begin{itemize}
+        \item We are working in an extremely oversimplified picture, so the bottom line is that we are \emph{postulating} that changing the voltage will change $f$ as the graph suggests.
+        \item One way of starting to think about this is that if we are releasing positive charges into solution, for example
+    \end{itemize}
+    \item PSet 4, Q3f: Is the scaling relation any different than the result from part (e)?
+    \begin{itemize}
+        \item Yes --- we have to geometrically change the length-based result from part (e) into a result in terms.
+    \end{itemize}
 \end{itemize}
 
 
