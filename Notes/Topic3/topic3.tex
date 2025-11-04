@@ -134,7 +134,7 @@
             \item The $x$-axis is the shear rate, again normalized by some constant $\lambda_Z$. Here, we have picked a scaling $\lambda_Z$ that makes our data dimensionless (i.e., 1 on the $x$-axis) and reveals the two important trends that\dots
             \begin{itemize}
                 \item Faster shearing ($\lambda_Z\dot{\gamma}>1$) leads to a decrease in viscosity known as \textbf{shear thinning};
-                \item Lower shearing ($\Lambda_Z\dot{\gamma}<1$) leads to the asymptotic viscosity.
+                \item Lower shearing ($\lambda_Z\dot{\gamma}<1$) leads to the asymptotic viscosity.
             \end{itemize}
             \item Below a certain shear rate, we observe Newtonian behavior and "zero shear viscosity."
         \end{itemize}
@@ -179,7 +179,7 @@
     \end{figure}
     \begin{itemize}
         \item In this class, we will assume that polymer coils are \emph{not} deformed by the flow (i.e., $Wi<1$).
-        \item Typically, polymers \textbf{stretch} and \textbf{tumble} when $Wi>0$ (Figure \ref{fig:stretchTumblea}).
+        \item Typically, polymers \textbf{stretch} and \textbf{tumble} when $Wi>1$ (Figure \ref{fig:stretchTumblea}).
         \begin{itemize}
             \item For example, DNA has been micrographed stretching and tumbling at higher shear rates and Weissenberg numbers (Figure \ref{fig:stretchTumbleb}).
         \end{itemize}
@@ -471,7 +471,7 @@
         [\eta] := \lim_{c\to 0}\left( \frac{\eta_{sp}}{c} \right)
         = \lim_{c\to 0}\left( \frac{\eta-\eta_s}{c\eta_s} \right)
     \end{equation*}
-    \item \textbf{Huggins coefficient}: The viscometric equivalent of a Virial coefficient. \emph{Denoted by} $\bm{K_H}$.
+    \item \textbf{Huggins coefficient}: The viscometric equivalent of a Virial coefficient. \emph{Denoted by} $\bm{K_\textbf{H}}$.
     \item Implicit assumptions used today.
     \begin{itemize}
         \item We are in a dilute solution.
@@ -1246,7 +1246,7 @@
         \item Some rearranging, and then putting it in terms of concentration.
         \item Then the slope in a $\Pi/c$ vs. $c$ plot gives us $\chi$, via the following equation.
         \begin{equation*}
-            \frac{\Pi}{c} = RT\left[ \frac{1}{M_n}+\left( \frac{1}{2}-\chi \right)\frac{V_1N_2^2}{M_n^2}\cdot c \right]
+            \frac{\Pi}{c} = RT\left[ \frac{1}{M_n}+\left( \frac{1}{2}-\chi \right)\frac{\bar{V}_1N_2^2}{M_n^2}\cdot c \right]
         \end{equation*}
         \begin{itemize}
             \item This is the most important result, and main takeaway from osmometry theory.
@@ -1954,7 +1954,7 @@
     \item \textbf{Steady flow}: The time-independent veocity profile developed when the upper plate (Figure \ref{fig:viscosity}) is moving at a constant velocity.
     \item We now build up to justifying the notation "$\dot{\gamma}$" for the shear rate.
     \item \textbf{Shear displacement}: The distance $\Delta x$ that the top layer in the velocity profile moves relative to the bottom layer during a short time interval $\Delta t$.
-    \item \textbf{Shear strain}: The shear displacement per unit distance $H$ between the two plates. \emph{Denoted by} $\gamma$. \emph{Given by}
+    \item \textbf{Shear strain}: The shear displacement per unit distance $H$ between the two plates. \emph{Denoted by} $\bm{\gamma}$. \emph{Given by}
     \begin{equation*}
         \gamma := \frac{\Delta x}{H}
     \end{equation*}

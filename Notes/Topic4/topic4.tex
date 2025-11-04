@@ -66,7 +66,7 @@
             \item It follows that enthalpy/energy considerations are not important, i.e., $U=H=0$.
             \item Thus, basically, $\Delta G\propto\lambda^2/Nb^2$.
         \end{itemize}
-        \item The temperature is well above $T_g$, so no freezing or crystallization occurs.
+        \item The temperature is well above $\Tg$, so no freezing or crystallization occurs.
         \begin{itemize}
             \item We're living in a liquid state.
         \end{itemize}
@@ -887,9 +887,9 @@
     \end{itemize}
     \item Diffusion of coils.
     \begin{itemize}
-        \item The diffusion constant $d=\kB T/f$, where $f$ is the friction factor from above.
-        \item For the draining model, $d=\kB T/6\pi\eta_0Nb$.
-        \item For the non-draining model, $d=\kB T/6\pi\eta_0R_H$.
+        \item The diffusion constant $D=\kB T/f$, where $f$ is the friction factor from above.
+        \item For the draining model, $D=\kB T/6\pi\eta_0Nb$.
+        \item For the non-draining model, $D=\kB T/6\pi\eta_0R_H$.
         \item It follows --- as in PSet 3, Q1 --- that the diffusion time $\tau_\text{diff}=\prb{R_g^2}/D$.
         \item Note: Since diffusion for the free draining model scales as $Nb$ while diffusion for the hard sphere scales $N^{1/2}b$, it is \emph{harder} to drag a free-draining material through a fluid!
     \end{itemize}
@@ -1028,6 +1028,221 @@
     \item PSet 4, Q3f: Is the scaling relation any different than the result from part (e)?
     \begin{itemize}
         \item Yes --- we have to geometrically change the length-based result from part (e) into a result in terms.
+    \end{itemize}
+\end{itemize}
+
+
+
+\section{Cheat Sheet for Quiz 2}
+\begin{itemize}
+    \item \marginnote{11/4:}Viscosity definitions.
+    \begin{itemize}
+        \item \textbf{Shear stress}: The pressure resulting from the viscous force applied over the area of the moving plate. \emph{Units} \textbf{\si[text-series-to-math]{\pascal}}. \emph{Denoted by} $\bm{\tau}$. \emph{Given by}
+        \begin{equation*}
+            \tau := \frac{\text{viscous force}}{\text{area}}
+        \end{equation*}
+        \item \textbf{Shear rate}: The velocity $U$ with which we move the plates relative to each other, normalized by the distance $H$ between the plates. \emph{Also known as} \textbf{rate of shear}, \textbf{strain rate}, \textbf{velocity gradient}. \emph{Units} \textbf{\si[text-series-to-math]{\per\second}}. \emph{Denoted by} $\bm{\dot{\gamma}}$. \emph{Given by}
+        \begin{equation*}
+            \dot{\gamma} := \frac{U}{H}
+        \end{equation*}
+        \item \textbf{Viscosity}: The proportionality constant expressing how much shear stress it takes to achieve a certain shear rate. \emph{Also known as} \textbf{coefficient of viscosity}, \textbf{shear viscosity}. \emph{Units} \textbf{\si[text-series-to-math]{\pascal\second}}. \emph{Denoted by} $\bm{\eta}$. \emph{Given by}
+        \begin{equation*}
+            \eta := \frac{\tau}{\dot{\gamma}}
+        \end{equation*}
+        \item \textbf{Newtonian} (fluid): A fluid with constant viscosity, that is, a viscosity that does not vary with the shear rate, shear strain, etc.
+        \item \textbf{Shear thinning}: A \emph{decrease} in the viscosity of a fluid with increasing shear rate.
+        \item \textbf{Shear thickening}: An \emph{increase} in the viscosity of a fluid with increasing shear rate.
+        \item \textbf{Weissenberg number}: A dimensionless group characterizing polymer-solvent solutions, wherein low values imply that the polymer relaxes faster than the solvent and vice versa for high values. \emph{Denoted by} $\bm{Wi}$. \emph{Given by}
+        \begin{equation*}
+            Wi := \frac{\tau_\text{polymer}}{\tau_\text{solvent}}
+            = \frac{\tau_\text{polymer}}{1/\dot{\gamma}}
+            = \dot{\gamma}\tau_\text{polymer}
+        \end{equation*}
+        \item \textbf{Specific viscosity}: A dimensionless quantity describing how much more viscous a solution becomes as polymers are introduced. \emph{Denoted by} $\bm{\eta_{sp}}$. \emph{Given by}
+        \begin{equation*}
+            \eta_{sp} := \frac{\eta}{\eta_s}-1
+        \end{equation*}
+        \item \textbf{Intrinsic viscosity}: A measure of a solute's contribution to the viscosity of a solution. \emph{Units} $\textbf{conc}^{\bm{-1}}$, \textbf{\si[text-series-to-math,per-mode=symbol]{\milli\liter\per\gram}}. \emph{Denoted by} $\bm{[\eta]}$. \emph{Given by}
+        \begin{equation*}
+            [\eta] := \lim_{c\to 0}\left( \frac{\eta_{sp}}{c} \right)
+            = \lim_{c\to 0}\left( \frac{\eta-\eta_s}{c\eta_s} \right)
+        \end{equation*}
+        \item \textbf{Huggins coefficient}: The viscometric equivalent of the 2nd virial coefficient. \emph{Denoted by} $\bm{K_\textbf{H}}$.
+    \end{itemize}
+    \item Shear thinning and thickening are both characteristics of non-Newtonian fluids.
+    \begin{itemize}
+        \item Such fluids will typically behave Newtonianally up to some cricical shear rate $\dot{\gamma}^*$.
+        \item Shear thinning of polymer-solvent solutions occurs when we enter a regime in which polymers relax slower than the solvent ($Wi>1$), and hence \textbf{stretching} and \textbf{tumbling} occurs.
+    \end{itemize}
+    \pagebreak
+    \item Stokesian friction.
+    \begin{itemize}
+        \item For a hard sphere of radius $r_s$ moving through a fluid of viscosity $\eta_0$ with velocity $v$,
+        \begin{equation*}
+            F_\text{viscous} = fv
+            = (6\pi\eta_0r_s)v
+        \end{equation*}
+        \begin{itemize}
+            \item $f,\xi,\zeta$ interchangeably denote the drag coefficient (aka friction factor).
+            \item For an impenetrable sphere (Zimm's non-free draining model),
+            \begin{equation*}
+                r_s = R_H
+                = \gamma\prb{R_g^2}^{1/2}
+                = \gamma N_2^\nu b
+            \end{equation*}
+            \begin{itemize}
+                \item High MW, flexible polymers are Zimm-like.
+            \end{itemize}
+        \end{itemize}
+        \item For a penetrable coil (Rouse's free draining model) with $N_2$ segments each of segmental friction factor $\xi^*$ and radius $b$,
+        \begin{equation*}
+            f = N_2\cdot 6\pi\eta_0b
+            \propto N_2\xi^*
+        \end{equation*}
+    \end{itemize}
+    \item Diffusion.
+    \begin{itemize}
+        \item \textbf{Diffusion coefficient}: A measure of how fast (macro)molecules move. \emph{Denoted by} $\bm{D}$. \emph{Given by}
+        \begin{equation*}
+            D := \frac{\kB T}{f}
+        \end{equation*}
+        \item Over a period of time $\tau=t_2-t_1$, a coil that diffuses a distance $\Delta r$ obeys
+        \begin{equation*}
+            \prb{\Delta r^2} = 6D\tau
+        \end{equation*}
+        \item \textbf{Characteristic diffusion time} (of a coil): A measure of the time it takes for a (macro)molecule to diffuse a certain distance. \emph{Denoted by} $\bm{\tau_\textbf{diff}}$. \emph{Given by}
+        \begin{equation*}
+            \tau_\text{diff} := \frac{\prb{R_g^2}}{D}
+        \end{equation*}
+    \end{itemize}
+    \item Viscosity of dilute polymer solutions.
+    \begin{itemize}
+        \item The viscosity $\eta$ of a dilute solution containing volume fraction $\phi_{hs}\ll 1$ (or concentration $c\ll c^*$, where $c$ is in units of grams of hard spheres per liter of solution) of impenetrable, monodisperse polymer coils can be approximated in terms the viscosity $\eta_s$ of the solvent as
+        \begin{equation*}
+            \eta_{sp} = \frac{\eta}{\eta_s}-1
+            = 2.5\phi_{hs}+\cdots
+            = c\cdot[\eta]+K_\text{H}c^2\cdot[\eta]^2
+        \end{equation*}
+        \item If $M$ is the (viscosity-average) molecular weight of the polymer coils and $V_{hs}$ is the volume of a single impenetrable sphere, then
+        \begin{equation*}
+            \phi_{hs} = \frac{cN_\text{A}V_{hs}}{M}
+        \end{equation*}
+        \item Substituting and rearranging affords the following variants on the same result.
+        \begin{align*}
+            \eta_{sp} &= \frac{2.5\cdot 4\pi N_\text{A}R_H^3c}{3M}&
+            [\eta] &= \frac{10\pi N_\text{A}\gamma^3\prb{R_g^2}^{3/2}}{3M}&
+            [\eta] &\propto M^{3\nu-1}&
+            [\eta] &= KM^a
+        \end{align*}
+        \item The coil overlap concentration $c^*$ is
+        \begin{equation*}
+            c^* = \frac{2.5}{[\eta]}
+            = \frac{3M}{4\pi N_\text{A}\gamma^3\prb{R_g^2}^{3/2}}
+            \approx \frac{3M}{4\pi N_\text{A}\prb{R_g^2}^{3/2}}
+        \end{equation*}
+    \end{itemize}
+    \pagebreak
+    \item Rubber elasticity assumptions.
+    \begin{enumerate}
+        \item Gaussian chains ($U=H=0$) between permanent crosslinks. No excluded volume effects.
+        \item $T\gg \Tg$, so no freezing or crystallization (the network is liquid).
+        \item Subchains are \textbf{flexible}, with $\phi$ rotation barriers. (Thus, Kuhn's equivalent chain is applicable.)
+        \item $l$ is fixed; deformation occurs by conformational changes alone, not bond stretching.
+        \item Crosslinks cannot break, i.e., no relaxation occurs by chain slip.
+        \item $R_i/R_{i0}=L_i/L_{i0}$, i.e., affine deformation.
+        \item No crystallization at large strains.
+        \item $\alpha_x\alpha_y\alpha_z=1$, i.e., volume and density are conserved under deformation.
+    \end{enumerate}
+    \item \textbf{Extension ratio}. \emph{Denoted by} $\bm{\alpha_i}$, $\bm{\lambda_i}$. \emph{Given by}
+    \begin{equation*}
+        \alpha_i := \frac{R_i}{R_{i0}}
+        = \frac{L_i}{L_{i0}}
+    \end{equation*}
+    \item Rubber elasticity equations.
+    \begin{itemize}
+        \item Fundamental results from the rubber elasticity assumptions.
+        \begin{align*}
+            \Delta S &= -\frac{z\kB}{2}\left( \alpha_x^2+\alpha_y^2+\alpha_z^2-3 \right)&
+            F_i &= -T\left( \pdv{\Delta S(\alpha_i)}{l_i} \right)_{T,P}
+        \end{align*}
+        \item Useful conversion.
+        \begin{equation*}
+            \frac{z}{V} = \frac{\rho N_\text{A}}{M_x}
+        \end{equation*}
+        \item Stress under uniaxial deformation.
+        \begin{equation*}
+            \sigma_{xx} = \frac{\rho N_\text{A}\kB T}{M_x}\left( \alpha_x-\frac{1}{\alpha_x^2} \right)
+        \end{equation*}
+    \end{itemize}
+    \item \textbf{Young's modulus}: Instantaneous stress per strain when stretching just begins. \emph{Denoted by} $\bm{E}$. \emph{Given by}
+    \begin{equation*}
+        E := \lim_{\alpha\to 1}\dv{\sigma}{\alpha}
+    \end{equation*}
+    \begin{itemize}
+        \item For uniaxial deformation,
+        \begin{equation*}
+            E = \frac{3\rho RT}{M_x}
+        \end{equation*}
+    \end{itemize}
+    \item For the expected chain length above 20\% elongation, use the following where $\beta=fl/\kB T$.
+    \begin{equation*}
+        \prb{R} = Nl\left( \coth\beta-\frac{1}{\beta} \right)
+    \end{equation*}
+    \pagebreak
+    \item Neutral gels.
+    \begin{itemize}
+        \item Gel vs. network: Gels don't have the volume conservation restriction.
+        \item Flory and Rehner's key assumptions: $\Delta G_\text{tot}=\Delta G_\text{mix}+\Delta G_\text{elastic}$, $\mu_1=\mu_1^\circ$, and $\chi<1/2$.
+        \item Useful relations.
+        \begin{align*}
+            \alpha_s &= \alpha_x = \alpha_y = \alpha_z&
+            \frac{z}{V_0} &= \frac{\rho N_\text{A}}{M_x}&
+            \frac{1}{\phi_2} &= \alpha_s^3 = \frac{V}{V_0} = \frac{V_0+n_1\hat{V}_1}{V_0}&
+            \pdv{\alpha_s}{n_1} &= \frac{\hat{V}_1}{3\alpha_s^2V_0}
+        \end{align*}
+        \item Starting points.
+        \begin{align*}
+            \left( \pdv{\Delta G_\text{mix}}{n_1} \right)_{T,P,n_2} &= RT\left[ \ln(1-\phi_2)+\phi_2+\chi\phi_2^2 \right]&
+            \Delta G_\text{elastic} &= \frac{z\kB T}{2}\left( 3\alpha_s^2-3-\ln\frac{V}{V_0} \right)
+        \end{align*}
+        \item Flory-Rehner theory of gel swelling.
+        \begin{equation*}
+            \frac{\mu_1-\mu_1^\circ}{RT} = \left[ \ln(1-\phi_2)+\phi_2+\chi\phi_2^2 \right]+\frac{\rho\hat{V}_1}{M_x}\left( \phi_2^{1/3}-\frac{\phi_2}{2} \right)
+        \end{equation*}
+        \item Flory-Rehner theory of gel swelling (substantial swelling).
+        \begin{equation*}
+            \frac{\mu_1-\mu_1^\circ}{RT} = \left( \chi-\frac{1}{2} \right)\phi_2^2+\frac{\rho\hat{V}_1\phi_2^{1/3}}{M_x}
+        \end{equation*}
+        \item Scalings (substantial swelling).
+        \begin{align*}
+            \phi_2 &= \left( \frac{\rho\hat{V}_1}{M_x}\cdot\frac{1}{\left| \chi-\frac{1}{2} \right|} \right)^{3/5}&
+            \alpha &\propto M_x^{1/5}f(\chi)^{1/5}
+        \end{align*}
+    \end{itemize}
+    \item Ionic gels.
+    \begin{itemize}
+        \item Coulomb's law: In a solvent, and for the ${Q_\text{macro}}^\text{th}$ charge leaving the radius $R$ gel.
+        \begin{align*}
+            U_\text{elec} &= \frac{q_1q_2}{4\pi\varepsilon r}&
+            U_\text{elec} &= \frac{q_1^2Q_\text{macro}}{4\pi\varepsilon R}
+        \end{align*}
+        \item \textbf{Bjerrum length}: The distance at which an electric interaction can be disrupted by thermal energy, i.e., $r$ when $U_\text{elec}=\kB T$. \emph{Denoted by} $\bm{\ell_\textbf{B}}$. \emph{Given by}
+        \begin{equation*}
+            \lB = \frac{|q_+q_-|}{4\pi\varepsilon\kB T}
+        \end{equation*}
+        \item Charge the gel must acquire in order for "no" more charges to leave (relatively small, FYI).
+        \begin{equation*}
+            Q_\text{macro} > \frac{R}{\lB}
+        \end{equation*}
+        \item Additional contributions to the free energy of the gel.
+        \begin{align*}
+            \Delta G_\text{counterions} &= -N_\text{counterions}\kB T\ln\frac{V}{V_0}&
+            \left( \pdv{\Delta G_\text{counterions}}{n_1} \right)_{T,P,n_j} &= -\frac{RT\rho\hat{V}_1fN\phi_2}{M_x}
+        \end{align*}
+        \item Scaling.
+        \begin{equation*}
+            H \propto Nbf^{1/2} \propto M_x
+        \end{equation*}
     \end{itemize}
 \end{itemize}
 
